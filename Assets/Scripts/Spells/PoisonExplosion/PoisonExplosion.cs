@@ -5,6 +5,7 @@ using UnityEngine;
 public class PoisonExplosion : MonoBehaviour
 {
     [SerializeField] private float explosionRadius;
+    [SerializeField] private float impactDamage;
 
     void Awake()
     {
@@ -15,6 +16,7 @@ public class PoisonExplosion : MonoBehaviour
         {
             foreach (Collider2D enemyCol in enemies)
             {
+                enemyCol.gameObject.GetComponent<IHealth>().TakeDamage(impactDamage);
                 enemyCol.gameObject.GetComponent<StatusEffect>().BecomePoisoned();
             }
 

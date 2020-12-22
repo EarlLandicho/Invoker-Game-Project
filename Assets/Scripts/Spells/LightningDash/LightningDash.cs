@@ -14,6 +14,7 @@ public class LightningDash : MonoBehaviour
 
     private Vector3 startingPosition;
     private Vector3 endingPosition;
+    private float xHitboxSize;
 
     void Awake()
     {
@@ -51,15 +52,15 @@ public class LightningDash : MonoBehaviour
         
         endingPosition = playerTransform.transform.position;
 
-        Destroy(gameObject);
+        Destroy(gameObject, 1f);
     }
 
 
     private void DealDamageInPath()
     {
-        float xHitboxSize = endingPosition.x - startingPosition.x;
+        xHitboxSize = endingPosition.x - startingPosition.x;
 
-        Collider2D[] enemies = Physics2D.OverlapBoxAll(new Vector2(startingPosition.x + xHitboxSize / 2f, yHitboxSize),
+        Collider2D[] enemies = Physics2D.OverlapBoxAll(new Vector2(startingPosition.x + xHitboxSize / 2f, transform.position.y),
             new Vector2(Mathf.Abs(xHitboxSize), yHitboxSize), 0,
             1 << LayerMask.NameToLayer("Enemy"));
 
@@ -71,5 +72,10 @@ public class LightningDash : MonoBehaviour
             }
 
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(new Vector3(startingPosition.x + xHitboxSize / 2f, transform.position.y), new Vector3(Mathf.Abs(xHitboxSize), yHitboxSize));
     }
 }

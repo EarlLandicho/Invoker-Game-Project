@@ -12,6 +12,7 @@ public class FireSpirit : MonoBehaviour
         if (collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             collider.gameObject.GetComponent<StatusEffect>().BecomeBurned();
+            collider.gameObject.GetComponent<IHealth>().TakeDamage(impactDamage);
             Destroy(gameObject);
         }
     }
