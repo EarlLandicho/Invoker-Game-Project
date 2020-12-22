@@ -22,6 +22,7 @@ public class SpiritCast : MonoBehaviour
     [SerializeField] private GameObject lightningDash;
     [SerializeField] private GameObject mudGolem;
     [SerializeField] private GameObject fireSpirit;
+    [SerializeField] private GameObject poisonExplosion;
 
     private GameObject player;
     private SpiritArrayManager spiritArrayManager;
@@ -234,6 +235,7 @@ public class SpiritCast : MonoBehaviour
 
     private void LG()
     {
+        Instantiate(poisonExplosion, transform.position, player.transform.rotation);
 
     }
 

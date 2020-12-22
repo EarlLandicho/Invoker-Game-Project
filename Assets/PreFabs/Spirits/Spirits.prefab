@@ -93,10 +93,10 @@ GameObject:
   - component: {fileID: 2079792499243262316}
   - component: {fileID: 2079792499243262319}
   - component: {fileID: 2079792499243262318}
-  - component: {fileID: 2079792499243262304}
   - component: {fileID: 1090407786}
   - component: {fileID: 1090407787}
   - component: {fileID: 1090407788}
+  - component: {fileID: 4497017659863023156}
   m_Layer: 0
   m_Name: Spirits
   m_TagString: Untagged
@@ -154,18 +154,7 @@ MonoBehaviour:
   lightningDash: {fileID: 300630622656980421, guid: 42ba32610d7e3f8489a803489c3e2577, type: 3}
   mudGolem: {fileID: 8189821867304606167, guid: b8794ffe0f9bde542954e67d606a6299, type: 3}
   fireSpirit: {fileID: 318463690089602158, guid: e4cadb19ccc46ce4286c90635e509195, type: 3}
---- !u!114 &2079792499243262304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2079792499243262317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5122546d9dea96e41b7f4f1eb513a83e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  poisonExplosion: {fileID: 8125049034846988064, guid: 4d4179f14130f8b4785f885ae1c66d4c, type: 3}
 --- !u!114 &1090407786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +200,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a56111a5993f78643b2fe440baa7ff5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4497017659863023156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079792499243262317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5122546d9dea96e41b7f4f1eb513a83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7186232600221330935
