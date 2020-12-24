@@ -89,16 +89,18 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         this.healAmount = healAmount;
         this.healDuration = healDuration;
 
-        if (IsInvoking("TickHealing"))
+        if (IsInvoking("TickHeal"))
         {
+            healAmountCounter = 0;
             CancelInvoke("TickHeal");
             InvokeRepeating("TickHeal", 0, Constants.HealTickPerSecond);
         }
         else
         {
+            
             InvokeRepeating("TickHeal", 0, Constants.HealTickPerSecond);
         }
-
+        
 
     }
 
@@ -173,11 +175,11 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         float healTick = healAmount * Constants.HealTickPerSecond / healDuration;
         health.TakeHealing(healTick);
 
-
         healAmountCounter += healTick;
         if (healAmountCounter >= healAmount)
         {
             isTickHealing = false;
+            healAmountCounter = 0;
             CancelInvoke("TickHeal");
         }
     }

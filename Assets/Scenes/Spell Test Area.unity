@@ -404,10 +404,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2079792499243262304, guid: 45ee337e8755db4439f67976e5807fe3, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2079792499243262316, guid: 45ee337e8755db4439f67976e5807fe3, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -456,8 +452,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spirits
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2079792499243262304, guid: 45ee337e8755db4439f67976e5807fe3, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45ee337e8755db4439f67976e5807fe3, type: 3}
 --- !u!1001 &309007820
 PrefabInstance:
@@ -471,12 +466,16 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4816762844223290681, guid: 9fd5853953f75044db78c50d4612e43b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816762844223290681, guid: 9fd5853953f75044db78c50d4612e43b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.62548316
       objectReference: {fileID: 0}
     - target: {fileID: 4816762844223290681, guid: 9fd5853953f75044db78c50d4612e43b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.002831107
+      value: -0.0028
       objectReference: {fileID: 0}
     - target: {fileID: 4816762844223290681, guid: 9fd5853953f75044db78c50d4612e43b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3127,23 +3126,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29f7a95f9bc79c74baa93a42b3f27074, type: 3}
---- !u!1 &975982373 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2079792499243262317, guid: 45ee337e8755db4439f67976e5807fe3, type: 3}
-  m_PrefabInstance: {fileID: 269860145}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &975982381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 975982373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5122546d9dea96e41b7f4f1eb513a83e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1161654530
 PrefabInstance:
   m_ObjectHideFlags: 0

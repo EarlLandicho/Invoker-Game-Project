@@ -19,7 +19,8 @@ public class SlowlyHeal : MonoBehaviour
 
     private IEnumerator DestroyThis()
     {
-        yield return new WaitForSeconds(healDuration); 
+        yield return new WaitForSeconds(healDuration);
+        Destroy(gameObject);
     }
 
 

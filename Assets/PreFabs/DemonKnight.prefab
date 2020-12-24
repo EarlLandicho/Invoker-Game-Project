@@ -13,13 +13,13 @@ GameObject:
   - component: {fileID: 834086911}
   - component: {fileID: 834086912}
   - component: {fileID: 1266685774}
-  - component: {fileID: 651994209701699400}
   - component: {fileID: 8384422991695942888}
-  - component: {fileID: 1079074279445540615}
   - component: {fileID: 6857883538399797771}
   - component: {fileID: 1642782625619345593}
   - component: {fileID: 800796972614611613}
   - component: {fileID: 5168592765086380275}
+  - component: {fileID: 215690272}
+  - component: {fileID: 5262795530347308689}
   m_Layer: 11
   m_Name: DemonKnight
   m_TagString: Untagged
@@ -150,20 +150,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &651994209701699400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9161466271623932687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28c8fa111b1fbb24b85c33e896428cca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patrolPoint1: {x: 0, y: 0}
-  patrolPoint2: {x: 0, y: 0}
 --- !u!114 &8384422991695942888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,20 +163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0.5
---- !u!114 &1079074279445540615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9161466271623932687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8bbfb00185acfa4ba6143078f99f0b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireball: {fileID: 7423823298545190557, guid: eb1068f8c2c3fbb468ea00b4268caed1, type: 3}
-  attackSpeed: 1
 --- !u!114 &6857883538399797771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +213,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141bd03ebe081c747b599bd95f089679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &215690272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9161466271623932687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45cdef96be038944abd92754cdc9fb51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5262795530347308689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9161466271623932687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28c8fa111b1fbb24b85c33e896428cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPoint1: {x: 0, y: 0}
+  patrolPoint2: {x: 0, y: 0}
 --- !u!1001 &3080617236646065240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -300,7 +298,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 519408255447836413, guid: 97d6cbe4fbcbaca45917ba140eecb2ef, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 97d6cbe4fbcbaca45917ba140eecb2ef, type: 3}
 --- !u!4 &2538302514168704646 stripped
 Transform:
@@ -378,7 +377,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyVision
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8840880477785057932, guid: f316ab1f022cecc4b89d8f14a30a43a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f316ab1f022cecc4b89d8f14a30a43a3, type: 3}
 --- !u!4 &4839670964434352981 stripped
 Transform:

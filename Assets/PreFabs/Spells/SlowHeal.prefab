@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 30
-  healDuration: 20
+  healDuration: 5
 --- !u!114 &3525229209003671613
 MonoBehaviour:
   m_ObjectHideFlags: 0
