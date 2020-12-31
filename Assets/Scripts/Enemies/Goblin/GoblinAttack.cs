@@ -1,13 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class GoblinAttack : MonoBehaviour, IEnemyAttack
 {
-    [SerializeField] float damage = 0;
-    [SerializeField] float attackDelay = 1;
+    [SerializeField] private float damage = 0;
+    [SerializeField] private float attackDelay = 1;
     private BoxCollider2D boxCollider;
     private EnemyPatrol enemyPatrol;
     private Rigidbody2D rb;
@@ -15,7 +14,7 @@ public class GoblinAttack : MonoBehaviour, IEnemyAttack
     private bool readyToAttack;
     private bool playerInSight;
 
-    void Awake()
+    private void Awake()
     {
         boxCollider = transform.Find("EnemyAttackRange").GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
@@ -23,18 +22,18 @@ public class GoblinAttack : MonoBehaviour, IEnemyAttack
         {
             enemyPatrol = GetComponent<EnemyPatrol>();
         }
-
     }
 
-    void Update()
+    private void Update()
     {
         //keeps attacking when player stays in line of sight
-        if(playerInSight && readyToAttack)
+        if (playerInSight && readyToAttack)
         {
             readyToAttack = false;
             StartCoroutine("MeleeAttack");
         }
     }
+
     //only called once upon enter
     public void Attack(GameObject player)
     {
@@ -43,7 +42,6 @@ public class GoblinAttack : MonoBehaviour, IEnemyAttack
         OffSetCheck();
         StopHere();
         DisablePatrol();
-        
     }
 
     public void OutOfAttackRange()
@@ -65,29 +63,26 @@ public class GoblinAttack : MonoBehaviour, IEnemyAttack
         {
             boxColliderPosition = (Vector2)transform.position - boxCollider.offset;
         }
-        
+
         Collider2D player = Physics2D.OverlapBox(boxColliderPosition, boxCollider.size, 0, 1 << LayerMask.NameToLayer("Player"));
-        if(player != null)
+        if (player != null)
         {
             player.gameObject.GetComponent<IHealth>().TakeDamage(damage);
         }
 
         //enemy is ready to attack again
         readyToAttack = true;
-        
-
     }
 
     private void OffSetCheck()
     {
-        if(GetComponent<Rigidbody2D>().velocity.x > 0.1f)
+        if (GetComponent<Rigidbody2D>().velocity.x > 0.1f)
         {
             isFacingRight = true;
         }
-        else if(GetComponent<Rigidbody2D>().velocity.x < -0.1f)
+        else if (GetComponent<Rigidbody2D>().velocity.x < -0.1f)
         {
             isFacingRight = false;
-            
         }
     }
 
@@ -111,6 +106,7 @@ public class GoblinAttack : MonoBehaviour, IEnemyAttack
     {
         rb.velocity = new Vector2(0, rb.velocity.y);
     }
+
     //private void OnDrawGizmosSelected()
     //{
     //    Gizmos.DrawCube(boxCollider.offset + (Vector2)transform.position, boxCollider.size);

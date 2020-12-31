@@ -3,19 +3,16 @@
 [RequireComponent(typeof(EnemyMovement))]
 public class EnemyPatrol : MonoBehaviour
 {
-    
     [SerializeField] private Vector2 patrolPoint1 = new Vector2(0, 0);
     [SerializeField] private Vector2 patrolPoint2 = new Vector2(0, 0);
     private bool isFacingRight = true;
     private float speed;
     private Rigidbody2D rb;
 
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         speed = GetComponent<EnemyMovement>().GetMovementSpeed();
-        
     }
 
     private void Update()

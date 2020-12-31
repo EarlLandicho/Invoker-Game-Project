@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FireSpiritRotateAroundPlayer : MonoBehaviour
 {
@@ -17,7 +15,7 @@ public class FireSpiritRotateAroundPlayer : MonoBehaviour
     private float oneThirdOfACircle;
     private float twoThirdsOfACircle;
 
-    void Awake()
+    private void Awake()
     {
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
 
@@ -30,25 +28,21 @@ public class FireSpiritRotateAroundPlayer : MonoBehaviour
         RotateSpiritAroundPlayer();
     }
 
-
     private void RotateSpiritAroundPlayer()
     {
         spiritRotationAngle += spiritRotateSpeed * Time.deltaTime;
 
-        if(fireRing1 != null)
+        if (fireRing1 != null)
         {
             fireRing1.transform.position = playerTransform.position + new Vector3(Mathf.Sin(spiritRotationAngle), Mathf.Cos(spiritRotationAngle), 0) * spiritRotationRadius;
         }
-        if(fireRing2 !=null)
+        if (fireRing2 != null)
         {
             fireRing2.transform.position = playerTransform.position + new Vector3(Mathf.Sin(spiritRotationAngle + oneThirdOfACircle), Mathf.Cos(spiritRotationAngle + oneThirdOfACircle), 0) * spiritRotationRadius;
-
         }
-        if(fireRing3 != null)
+        if (fireRing3 != null)
         {
             fireRing3.transform.position = playerTransform.position + new Vector3(Mathf.Sin(spiritRotationAngle + twoThirdsOfACircle), Mathf.Cos(spiritRotationAngle + twoThirdsOfACircle), 0) * spiritRotationRadius;
-
         }
-
     }
 }

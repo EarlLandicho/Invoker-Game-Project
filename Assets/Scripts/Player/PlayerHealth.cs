@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour, IHealth
 {
@@ -57,8 +56,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     public void TakeDamage(float damage, bool isStatusEffectDamage = false)
     {
-
-        if(isStatusEffectDamage)
+        if (isStatusEffectDamage)
         {
             currentHealth -= damage;
         }
@@ -67,7 +65,6 @@ public class PlayerHealth : MonoBehaviour, IHealth
             damage = damage * damageModifier;
             currentHealth -= damage;
         }
-        
 
         FlashWhenDamaged();
 
@@ -76,13 +73,12 @@ public class PlayerHealth : MonoBehaviour, IHealth
             Die();
             IsDead();
         }
-
     }
 
     public void TakeHealing(float heal)
     {
         currentHealth += heal;
-        if(currentHealth > maxHealth)
+        if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
         }

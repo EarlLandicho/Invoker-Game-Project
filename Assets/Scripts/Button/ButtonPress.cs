@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 //Animation goes in here. Maybe refactor someday. Put animation elsewhere
 [RequireComponent(typeof(Animator))]
@@ -8,18 +6,17 @@ public class ButtonPress : MonoBehaviour
 {
     private Animator animator;
 
-    void Awake()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
     }
-    void OnTriggerEnter2D(Collider2D collider)
+
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.gameObject.CompareTag("Player") || collider.gameObject.layer == LayerMask.NameToLayer("Attack"))
+        if (collider.gameObject.CompareTag("Player") || collider.gameObject.layer == LayerMask.NameToLayer("Attack"))
         {
-            
             animator.SetBool("isPressed", true);
             GetComponent<IButton>().ActivateButton();
         }
-        
     }
 }

@@ -21,9 +21,7 @@ public class SpiritArrayManager : MonoBehaviour
     private SpiritInput spiritInput;
     private SpiritCast spiritCast;
 
-
     private static SpiritArrayManager instance = null;
-
 
     private void Awake()
     {
@@ -39,16 +37,12 @@ public class SpiritArrayManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-
         spiritMaxAmount1 = spiritStartingAmount1;
         spiritMaxAmount2 = spiritStartingAmount2;
         spiritMaxAmount3 = spiritStartingAmount3;
 
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.sceneUnloaded += OnSceneUnloaded;
-
-
-
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -73,15 +67,13 @@ public class SpiritArrayManager : MonoBehaviour
         spiritCurrentAmount1 = spiritMaxAmount1;
         spiritCurrentAmount2 = spiritMaxAmount2;
         spiritCurrentAmount3 = spiritMaxAmount3;
-
     }
+
     private void OnSceneUnloaded(Scene scene)
     {
         spiritInput.SpiritsActivateButtonPressed -= ActivateSpirit;
         spiritInput.ClearSpiritsButtonPressed -= ClearSpirits;
         spiritCast.SpiritsHaveBeenCasted -= ClearSpirits;
-
-        
     }
 
     public int[] GetSpiritArray()
@@ -189,7 +181,6 @@ public class SpiritArrayManager : MonoBehaviour
     //Puts spirits in the array. Will loop around the array. Will not put spirits if spirits are in cooldown.
     private void ActivateSpirit(int spiritNum)
     {
-
         int count = 0;
         if (spiritNum == 1 && spiritCurrentAmount1 > 0)
         {

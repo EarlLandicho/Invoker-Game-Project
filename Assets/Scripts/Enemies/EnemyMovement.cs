@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour, IMovement
@@ -8,7 +7,7 @@ public class EnemyMovement : MonoBehaviour, IMovement
 
     private float movementSpeedTemp = 0;
 
-    void Awake()
+    private void Awake()
     {
         movementSpeedTemp = movementSpeed;
     }

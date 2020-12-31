@@ -18,8 +18,6 @@ public class BoulderAOEDamage : MonoBehaviour
         foreach (Collider2D enemy in enemies)
         {
             enemy.gameObject.GetComponent<IHealth>().TakeDamage(damage);
-
-            
         }
     }
 

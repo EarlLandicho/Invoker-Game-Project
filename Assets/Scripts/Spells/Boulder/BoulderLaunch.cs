@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class BoulderLaunch : MonoBehaviour
@@ -35,7 +33,5 @@ public class BoulderLaunch : MonoBehaviour
             rb.velocity = transform.right * speedX;
             rb.AddForce(new Vector2(0, upwardForce));
         }
-
     }
-
 }

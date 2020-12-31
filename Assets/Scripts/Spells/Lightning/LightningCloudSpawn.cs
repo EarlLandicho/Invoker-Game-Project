@@ -21,7 +21,6 @@ public class LightningCloudSpawn : MonoBehaviour
         foreach (Collider2D enemy in enemies)
         {
             enemy.gameObject.GetComponent<IHealth>().TakeDamage(damage);
-            
         }
 
         Destroy(gameObject);

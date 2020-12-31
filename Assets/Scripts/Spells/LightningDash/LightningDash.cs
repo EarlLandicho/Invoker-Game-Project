@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LightningDash : MonoBehaviour
 {
@@ -16,7 +14,7 @@ public class LightningDash : MonoBehaviour
     private Vector3 endingPosition;
     private float xHitboxSize;
 
-    void Awake()
+    private void Awake()
     {
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         movementFlip = GameObject.Find("Player").GetComponent<MovementFlip>();
@@ -29,19 +27,17 @@ public class LightningDash : MonoBehaviour
 
     private void FindTeleportPosition()
     {
-        if(!movementFlip.GetIsFacingRight())
+        if (!movementFlip.GetIsFacingRight())
         {
             dashDistance = -dashDistance;
             wallImpactCushion = -wallImpactCushion;
         }
 
-
-
-        RaycastHit2D hit = Physics2D.CircleCast(startingPosition, .1f, 
-            movementFlip.GetIsFacingRight() ? playerTransform.transform.right : -playerTransform.transform.right, 
+        RaycastHit2D hit = Physics2D.CircleCast(startingPosition, .1f,
+            movementFlip.GetIsFacingRight() ? playerTransform.transform.right : -playerTransform.transform.right,
             dashDistance, 1 << LayerMask.NameToLayer("Ground"));
 
-        if(hit.collider == null)
+        if (hit.collider == null)
         {
             playerTransform.transform.position = startingPosition + new Vector3(dashDistance + -wallImpactCushion, 0);
         }
@@ -49,12 +45,11 @@ public class LightningDash : MonoBehaviour
         {
             playerTransform.transform.position = hit.point + new Vector2(-wallImpactCushion, 0);
         }
-        
+
         endingPosition = playerTransform.transform.position;
 
         Destroy(gameObject, 1f);
     }
-
 
     private void DealDamageInPath()
     {
@@ -66,15 +61,14 @@ public class LightningDash : MonoBehaviour
 
         if (enemies.Length > 0)
         {
-            foreach(Collider2D enemyCol in  enemies)
+            foreach (Collider2D enemyCol in enemies)
             {
                 enemyCol.gameObject.GetComponent<IHealth>().TakeDamage(damage);
             }
-
         }
     }
 
-    void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(new Vector3(startingPosition.x + xHitboxSize / 2f, transform.position.y), new Vector3(Mathf.Abs(xHitboxSize), yHitboxSize));
     }

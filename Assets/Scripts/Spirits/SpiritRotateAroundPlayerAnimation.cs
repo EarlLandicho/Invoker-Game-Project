@@ -13,12 +13,11 @@ public class SpiritRotateAroundPlayerAnimation : MonoBehaviour
     private float oneThirdOfACircle;
     private float twoThirdsOfACircle;
 
-    void Awake()
+    private void Awake()
     {
         oneThirdOfACircle = 4 * Mathf.PI / 6;
         twoThirdsOfACircle = 8 * Mathf.PI / 6;
     }
-
 
     private void Update()
     {

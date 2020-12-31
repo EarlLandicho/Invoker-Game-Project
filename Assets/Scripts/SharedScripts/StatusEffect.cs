@@ -1,11 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StatusEffect : MonoBehaviour, IStatusEffect
 {
     //can make the health, movement, and jump an interface such that this file can be used by many characters
     private IHealth health;
+
     private IMovement movement;
     private IJump jump;
 
@@ -21,7 +21,7 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
     private bool isOiled = false;
     private bool isTickHealing = false;
 
-    void Awake()
+    private void Awake()
     {
         //when refactored, this will always refer to the gameobject it's attached to
         health = GetComponent<IHealth>();
@@ -97,11 +97,8 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         }
         else
         {
-            
             InvokeRepeating("TickHeal", 0, Constants.HealTickPerSecond);
         }
-        
-
     }
 
     //will be used by spells
@@ -124,7 +121,6 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         {
             burningTickDamage = Constants.BurningDamageAmount * Constants.BurningTickPerSecond / Constants.BurningDuration;
         }
-
 
         health.TakeDamage(burningTickDamage, true);
 
@@ -166,7 +162,6 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         movement.SetSpeedToDefault();
         jump.SetJumpHeightToDefault();
         isOiled = false;
-
     }
 
     private void TickHeal()
@@ -183,7 +178,4 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
             CancelInvoke("TickHeal");
         }
     }
-
-
-
 }

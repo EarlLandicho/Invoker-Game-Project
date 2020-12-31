@@ -9,7 +9,6 @@ public class SpiritUI : MonoBehaviour
 
     private SpiritArrayManager spiritArrayManager;
 
-
     //Maybe in Start because it's UI?
     private void Awake()
     {

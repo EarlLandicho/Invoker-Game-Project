@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
@@ -19,5 +17,4 @@ public class GoblinAnimator : MonoBehaviour
     {
         animator.SetFloat("velocity", Mathf.Abs(rb.velocity.x));
     }
-
 }

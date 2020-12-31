@@ -1,33 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using System;
+﻿using UnityEngine;
 
 public class InstructionUI : MonoBehaviour
 {
     private bool instructionIsOpen;
     private GameObject instruction;
 
-
-    void Awake()
+    private void Awake()
     {
-        
         GetComponent<InputTools>().InstructionButtonPressed += ShowOrHideInstructions;
         instruction = GameObject.Find("Instructions");
         instructionIsOpen = false;
         instruction.SetActive(false);
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         //Debug.Log(GetComponent<InputTools>());
         GetComponent<InputTools>().InstructionButtonPressed -= ShowOrHideInstructions;
     }
+
     private void ShowOrHideInstructions()
     {
-
-        
         if (!instructionIsOpen)
         {
             instruction.SetActive(true);
@@ -35,10 +28,8 @@ public class InstructionUI : MonoBehaviour
         }
         else
         {
-            
             instruction.SetActive(false);
             instructionIsOpen = false;
         }
     }
-
 }

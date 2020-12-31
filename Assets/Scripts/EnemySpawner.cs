@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -8,14 +6,14 @@ public class EnemySpawner : MonoBehaviour
 
     private Color enemyColorTemp;
 
-    void Awake()
+    private void Awake()
     {
         enemyColorTemp = enemy.GetComponent<SpriteRenderer>().color;
     }
 
-    void Update()
+    private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Instantiate(enemy, transform.position, transform.rotation);
         }
@@ -38,9 +36,4 @@ public class EnemySpawner : MonoBehaviour
             enemy.GetComponent<SpriteRenderer>().color = enemyColorTemp;
         }
     }
-
-
-
-
-
 }

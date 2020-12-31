@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class IcicleLaunch : MonoBehaviour
 {
@@ -31,6 +29,5 @@ public class IcicleLaunch : MonoBehaviour
         {
             rb.velocity = transform.right * speed;
         }
-
     }
 }

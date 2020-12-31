@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine;
 
-
 //S = earth spirit
 //L = water spirit
 //G = air spirit
@@ -10,7 +9,6 @@ using UnityEngine;
 [RequireComponent(typeof(SpiritInput))]
 public class SpiritCast : MonoBehaviour
 {
-
     public event Action SpiritsHaveBeenCasted = delegate { };
 
     [SerializeField] private float spiritCooldown = 5;
@@ -236,57 +234,46 @@ public class SpiritCast : MonoBehaviour
     private void LG()
     {
         Instantiate(poisonExplosion, transform.position, player.transform.rotation);
-
     }
 
     private void SSS()
     {
-
     }
 
     private void LLL()
     {
-
     }
 
     private void GGG()
     {
-
     }
 
     private void SSL()
     {
-
     }
 
     private void SSG()
     {
-
     }
 
     private void SLL()
     {
-
     }
 
     private void SGG()
     {
-
     }
 
     private void LLG()
     {
-
     }
 
     private void LGG()
     {
-
     }
 
     private void SLG()
     {
-
     }
 
     private void PrintCastNumber()

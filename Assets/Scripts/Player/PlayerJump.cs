@@ -58,7 +58,6 @@ public class PlayerJump : MonoBehaviour, IJump
         {
             isGrounded = false;
         }
-        
     }
 
     private void JumpCheck()
@@ -68,7 +67,4 @@ public class PlayerJump : MonoBehaviour, IJump
             Jump();
         }
     }
-
-
-
 }

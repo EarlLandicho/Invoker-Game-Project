@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SlowlyHeal : MonoBehaviour
@@ -9,7 +8,7 @@ public class SlowlyHeal : MonoBehaviour
 
     private StatusEffect statusEffect;
 
-    void Awake()
+    private void Awake()
     {
         statusEffect = GameObject.Find("Player").GetComponent<StatusEffect>();
         statusEffect.TickHealing(healAmount, healDuration);
@@ -22,6 +21,4 @@ public class SlowlyHeal : MonoBehaviour
         yield return new WaitForSeconds(healDuration);
         Destroy(gameObject);
     }
-
-
 }

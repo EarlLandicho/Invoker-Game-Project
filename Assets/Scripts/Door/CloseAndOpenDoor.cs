@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class CloseAndOpenDoor : MonoBehaviour
@@ -8,10 +6,11 @@ public class CloseAndOpenDoor : MonoBehaviour
     [SerializeField] private bool isOpen;
     private Animator animator;
 
-    void Awake()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
     }
+
     //used by buttons
     public void OpenDoor()
     {
@@ -29,5 +28,4 @@ public class CloseAndOpenDoor : MonoBehaviour
     {
         return isOpen;
     }
-
 }

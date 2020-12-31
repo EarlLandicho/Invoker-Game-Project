@@ -1,29 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 
 //SUGGESTION: Maybe split this up to different classes?
 public class DemonKnightAttack : MonoBehaviour, IEnemyAttack, IReactToPlayerSeen
 {
     [SerializeField] private GameObject fireball;
-    [SerializeField] float attackSpeed = 1;
-    float attackSpeedTimer;
+    [SerializeField] private float attackSpeed = 1;
+    private float attackSpeedTimer;
     private GameObject player;
     private Rigidbody2D rb;
     private float speed;
+
     //bool so that enemy turns off reacting to attack
     private bool isReacting = false;
+
     //bool to loop in Update so that attack speed work
     private bool isAttacking = false;
+
     private EnemyPatrol enemyPatrol;
 
-    void Awake()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         speed = GetComponent<EnemyMovement>().GetMovementSpeed();
 
-        if(GetComponent<EnemyPatrol>() != null)
+        if (GetComponent<EnemyPatrol>() != null)
         {
             enemyPatrol = GetComponent<EnemyPatrol>();
         }
@@ -45,7 +45,7 @@ public class DemonKnightAttack : MonoBehaviour, IEnemyAttack, IReactToPlayerSeen
 
     private void AttackLoop()
     {
-        if(isAttacking)
+        if (isAttacking)
         {
             if (attackSpeedTimer <= 0)
             {
@@ -102,14 +102,13 @@ public class DemonKnightAttack : MonoBehaviour, IEnemyAttack, IReactToPlayerSeen
             {
                 rb.velocity = new Vector2(-speed, rb.velocity.y);
             }
-            else if (transform.position.x - player.transform.position.x <  - .1f)
+            else if (transform.position.x - player.transform.position.x < -.1f)
             {
                 rb.velocity = new Vector2(speed, rb.velocity.y);
             }
         }
         else
         {
-
         }
     }
 

@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FireSpirit : MonoBehaviour
 {
     [SerializeField] private float impactDamage = 0;
 
-
-    void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
@@ -16,5 +13,4 @@ public class FireSpirit : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }

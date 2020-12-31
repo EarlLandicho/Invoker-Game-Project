@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour, IMovement
 {
     [SerializeField]
     private float movementSpeed = 5;
+
     private float movementSpeedTemp;
 
     private Rigidbody2D rb;
@@ -32,7 +33,6 @@ public class PlayerMovement : MonoBehaviour, IMovement
 
     public void LockMovement(float duration)
     {
-
     }
 
     private void MoveCheck()

@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
-using System;
 
 //Debugging Tools
 public class InputTools : MonoBehaviour
 {
     public event Action InstructionButtonPressed = delegate { };
+
     public event Action GodModeActivated = delegate { };
 
     private void Update()
@@ -25,7 +26,7 @@ public class InputTools : MonoBehaviour
             //Load first scene
             SceneManager.LoadScene(0);
         }
-        if(Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             //Open instructions
             InstructionButtonPressed();
@@ -40,11 +41,11 @@ public class InputTools : MonoBehaviour
             //GodMode
             GodModeActivated();
         }
-        if(Input.GetKeyDown(KeyCode.Keypad0))
+        if (Input.GetKeyDown(KeyCode.Keypad0))
         {
             GameObject.Find("Player").GetComponent<PlayerHealth>().TakeDamage(20);
         }
-        if(Input.GetKeyDown(KeyCode.Keypad1))
+        if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             GameObject.Find("Player").GetComponent<PlayerHealth>().TakeHealing(30);
         }
@@ -65,6 +66,4 @@ public class InputTools : MonoBehaviour
             GameObject.Find("Player").GetComponent<StatusEffect>().Dispel(); ;
         }
     }
-
-
 }

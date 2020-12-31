@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 //implement when there is a jumping enemy
 public class EnemyJump : MonoBehaviour, IJump

@@ -1,21 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
-    
     private GameObject gameOverScreen;
-    void Awake()
+
+    private void Awake()
     {
         GameObject.FindObjectOfType<PlayerHealth>().IsDead += PlayerHasDied;
         gameOverScreen = GameObject.Find("GameOverScreen");
         gameOverScreen.SetActive(false);
-
-
     }
+
     private void PlayerHasDied()
     {
         GameOverScreen();
@@ -32,10 +27,8 @@ public class GameOver : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         Time.timeScale = 1;
     }
-
-
 }

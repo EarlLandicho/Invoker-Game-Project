@@ -18,7 +18,6 @@ public class IcicleDamage : MonoBehaviour
         if (collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             collider.gameObject.GetComponent<IHealth>().TakeDamage(damage);
-            
         }
     }
 

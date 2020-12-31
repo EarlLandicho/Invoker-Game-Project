@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
     //Called by unity buttons
     public void LoadFirstLevel()
     {
