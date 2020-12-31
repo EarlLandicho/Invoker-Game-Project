@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class LaunchDynamicObject : MonoBehaviour
+public class BoulderLaunch : MonoBehaviour
 {
     [SerializeField] private float speedX = 0;
     [SerializeField] private float upwardForce = 0;
@@ -20,19 +20,18 @@ public class LaunchDynamicObject : MonoBehaviour
 
     private void Start()
     {
-        if(Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             rb.velocity = transform.up * speedY;
         }
         else if (Input.GetKey(KeyCode.S))
         {
             rb.velocity = -transform.up * speedY;
-            playerJump.Jump();
 
+            playerJump.Jump();
         }
         else
         {
-            
             rb.velocity = transform.right * speedX;
             rb.AddForce(new Vector2(0, upwardForce));
         }

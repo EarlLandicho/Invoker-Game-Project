@@ -30,6 +30,11 @@ public class PlayerMovement : MonoBehaviour, IMovement
         movementSpeed = movementSpeedTemp;
     }
 
+    public void LockMovement(float duration)
+    {
+
+    }
+
     private void MoveCheck()
     {
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementSpeed, rb.velocity.y);

@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: -252053267491340393}
   - component: {fileID: 8029714952124271714}
   - component: {fileID: 5717528476901266364}
-  - component: {fileID: 4699328566033144275}
+  - component: {fileID: 1847538446716090727}
   m_Layer: 12
   m_Name: boulderAttack
   m_TagString: Untagged
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32fb97e9fb7fd2e49bcf6df0d0aa447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4699328566033144275
+--- !u!114 &1847538446716090727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,9 +190,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1471515369836077349}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d400f71c9bb27784bb2c830f1d85ed58, type: 3}
+  m_Script: {fileID: 11500000, guid: c46f123f0bb054c4283a3d0b84bda87d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedX: 4
-  upwardForce: 100
+  speedX: 2
+  upwardForce: 200
   speedY: 5

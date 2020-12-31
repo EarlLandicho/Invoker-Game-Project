@@ -380,23 +380,6 @@ TilemapCollider2D:
   m_CorrespondingSourceObject: {fileID: 2158862226042234657, guid: 79049595857afca40a1315d38ead0d2e, type: 3}
   m_PrefabInstance: {fileID: 1447737197}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &215690261 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9161466271623932687, guid: 9fd5853953f75044db78c50d4612e43b, type: 3}
-  m_PrefabInstance: {fileID: 309007820}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &215690272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215690261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45cdef96be038944abd92754cdc9fb51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &269860145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -461,13 +444,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 452976009012464914, guid: 9fd5853953f75044db78c50d4612e43b, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4816762844223290681, guid: 9fd5853953f75044db78c50d4612e43b, type: 3}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4816762844223290681, guid: 9fd5853953f75044db78c50d4612e43b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4816762844223290681, guid: 9fd5853953f75044db78c50d4612e43b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -513,11 +496,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: DemonKnight
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1079074279445540615, guid: 9fd5853953f75044db78c50d4612e43b, type: 3}
-    - {fileID: 651994209701699400, guid: 9fd5853953f75044db78c50d4612e43b, type: 3}
-    - {fileID: 965419705196029261, guid: 9fd5853953f75044db78c50d4612e43b, type: 3}
-    - {fileID: 3311766407873843877, guid: 9fd5853953f75044db78c50d4612e43b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fd5853953f75044db78c50d4612e43b, type: 3}
 --- !u!4 &448278698 stripped
 Transform:
@@ -5870,3 +5849,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d3f8eb8524fec140aaa9747af8bf052, type: 3}
+--- !u!1 &1665921127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1665921129}
+  - component: {fileID: 1665921128}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1665921128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665921127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28343ca1a815ecd4dae75cc64de97357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 9161466271623932687, guid: 9fd5853953f75044db78c50d4612e43b, type: 3}
+--- !u!4 &1665921129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665921127}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.4025381, y: 0.41876036, z: -0.4419793}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

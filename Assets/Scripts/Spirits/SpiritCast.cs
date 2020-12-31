@@ -106,7 +106,7 @@ public class SpiritCast : MonoBehaviour
 
     private void Cast(int castNum)
     {
-        Debug.Log($"Casted {castNum}");
+        //Debug.Log($"Casted {castNum}");
         switch (castNum)
         {
             case 100:

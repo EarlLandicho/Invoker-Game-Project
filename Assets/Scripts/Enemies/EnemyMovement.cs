@@ -27,4 +27,17 @@ public class EnemyMovement : MonoBehaviour, IMovement
     {
         movementSpeed = movementSpeedTemp;
     }
+
+    public void LockMovement(float duration)
+    {
+        StopCoroutine("Lock");
+        StartCoroutine("Lock", duration);
+    }
+
+    private IEnumerator Lock(float duration)
+    {
+        movementSpeed = 0;
+        yield return new WaitForSeconds(duration);
+        movementSpeed = movementSpeedTemp;
+    }
 }
