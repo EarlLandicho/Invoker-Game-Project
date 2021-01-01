@@ -121,8 +121,35 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
 
     public void Dispel()
     {
-        CancelInvoke();
-        StopAllCoroutines();
+        burningDamageAmountCounter = 0;
+        isBurning = false;
+        CancelInvoke("Burn");
+
+        poisonDamageAmountCounter = 0;
+        isPoisoned = false;
+        CancelInvoke("Poison");
+
+        movement.SetSpeedToDefault();
+        if (GetComponent<IJump>() != null)
+        {
+            jump.SetJumpHeightToDefault();
+        }
+        isOiled = false;
+
+        isTickHealing = false;
+        healAmountCounter = 0;
+        CancelInvoke("TickHeal");
+
+        if (GetComponent<IEnemyAttack>() != null)
+        {
+            enemyAttack.SetLockAttack(false);
+        }
+        if (GetComponent<IJump>() != null)
+        {
+            jump.SetLockJump(false);
+
+        }
+        movement.SetLockMovement(false);
     }
 
     public void BecomeInvulnerable()
@@ -188,7 +215,6 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         if (GetComponent<IJump>() != null)
         {
             jump.SetJumpHeightByFactor(Constants.OilJumpHeightDecreseFactor);
-
         }
         
 
@@ -198,7 +224,6 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         if (GetComponent<IJump>() != null)
         {
             jump.SetJumpHeightToDefault();
-
         }
         
         isOiled = false;

@@ -9,8 +9,8 @@
     public const float BurningTickPerSecond = .2f;
     public const float BurningDuration = 5f;
 
-    public const float OilMovementDecreseFactor = .3f;
-    public const float OilJumpHeightDecreseFactor = .8f;
+    public const float OilMovementDecreseFactor = .5f;
+    public const float OilJumpHeightDecreseFactor = .9f;
     public const float OilDuration = 3f;
 
     public const float StunDuration = 1f;
