@@ -65,5 +65,9 @@ public class InputTools : MonoBehaviour
         {
             GameObject.Find("Player").GetComponent<StatusEffect>().Dispel(); ;
         }
+        if (Input.GetKeyDown(KeyCode.Keypad6))
+        {
+            GameObject.Find("Player").GetComponent<StatusEffect>().BecomeStunned();
+        }
     }
 }

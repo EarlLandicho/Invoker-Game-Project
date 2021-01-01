@@ -8,6 +8,7 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
 
     private IMovement movement;
     private IJump jump;
+    private IEnemyAttack enemyHealth;
 
     private float poisonDamageAmountCounter = 0;
     private float burningDamageAmountCounter = 0;
@@ -20,6 +21,7 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
     private bool isPoisoned = false;
     private bool isOiled = false;
     private bool isTickHealing = false;
+    private bool isStunned = false;
 
     private void Awake()
     {
@@ -27,6 +29,11 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         health = GetComponent<IHealth>();
         movement = GetComponent<IMovement>();
         jump = GetComponent<IJump>();
+
+        if(GetComponent<IEnemyAttack>() != null)
+        {
+            enemyHealth = GetComponent<IEnemyAttack>();
+        }
     }
 
     //public bool GetIsPoisoned()
@@ -82,6 +89,12 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         {
             InvokeRepeating("Burn", 0, Constants.BurningTickPerSecond);
         }
+    }
+
+    public void BecomeStunned()
+    {
+        StopCoroutine("Stun");
+        StartCoroutine("Stun");
     }
 
     public void TickHealing(float healAmount, float healDuration)
@@ -177,5 +190,25 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
             healAmountCounter = 0;
             CancelInvoke("TickHeal");
         }
+    }
+
+    private IEnumerator Stun()
+    {
+        isStunned = true;
+        if (GetComponent<IEnemyAttack>() != null)
+        {
+            enemyHealth.LockAttack();
+        }
+        movement.LockMovement();
+
+        yield return new WaitForSeconds(Constants.StunDuration);
+
+        if (GetComponent<IEnemyAttack>() != null)
+        {
+            enemyHealth.UnlockAttack();
+        }
+        movement.UnlockMovement();
+
+
     }
 }

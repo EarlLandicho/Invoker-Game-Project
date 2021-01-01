@@ -6,6 +6,8 @@
 
     void BecomeBurned();
 
+    void BecomeStunned();
+
     void TickHealing(float healAmount, float healDuration);
 
     void Dispel();

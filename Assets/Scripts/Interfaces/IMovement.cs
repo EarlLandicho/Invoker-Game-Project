@@ -4,5 +4,7 @@
 
     void SetSpeedToDefault();
 
-    void LockMovement(float duration);
+    void LockMovement();
+
+    void UnlockMovement();
 }

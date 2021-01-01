@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour, IMovement
     private float movementSpeed = 5;
 
     private float movementSpeedTemp;
+    private bool isLocked = false;
 
     private Rigidbody2D rb;
 
@@ -28,15 +29,31 @@ public class PlayerMovement : MonoBehaviour, IMovement
 
     public void SetSpeedToDefault()
     {
-        movementSpeed = movementSpeedTemp;
+        if (!isLocked)
+        {
+            movementSpeed = movementSpeedTemp;
+
+        }
     }
 
-    public void LockMovement(float duration)
+    public void LockMovement()
     {
+        isLocked = true;
+        rb.velocity = new Vector2(0, 0);
+    }
+
+    public void UnlockMovement()
+    {
+        isLocked = false;
+        movementSpeed = movementSpeedTemp;
     }
 
     private void MoveCheck()
     {
-        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementSpeed, rb.velocity.y);
+        if(!isLocked)
+        {
+            rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementSpeed, rb.velocity.y);
+
+        }
     }
 }

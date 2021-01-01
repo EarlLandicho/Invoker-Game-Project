@@ -34,6 +34,16 @@ public class GoblinAttack : MonoBehaviour, IEnemyAttack
         }
     }
 
+    public void LockAttack()
+    {
+
+    }
+
+    public void UnlockAttack()
+    {
+
+    }
+
     //only called once upon enter
     public void Attack(GameObject player)
     {
