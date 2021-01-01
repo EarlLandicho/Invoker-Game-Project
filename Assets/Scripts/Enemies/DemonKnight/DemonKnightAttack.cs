@@ -35,12 +35,7 @@ public class DemonKnightAttack : MonoBehaviour, IEnemyAttack, IReactToPlayerSeen
         AttackLoop();
     }
 
-    public void LockAttack()
-    {
-
-    }
-
-    public void UnlockAttack()
+    public void SetLockAttack(bool isLocked)
     {
 
     }

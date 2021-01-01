@@ -4,7 +4,6 @@
 
     void SetSpeedToDefault();
 
-    void LockMovement();
+    void SetLockMovement(bool isLocked);
 
-    void UnlockMovement();
 }

@@ -34,12 +34,7 @@ public class GoblinAttack : MonoBehaviour, IEnemyAttack
         }
     }
 
-    public void LockAttack()
-    {
-
-    }
-
-    public void UnlockAttack()
+    public void SetLockAttack(bool isLocked)
     {
 
     }

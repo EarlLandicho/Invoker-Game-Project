@@ -11,4 +11,8 @@
     void TickHealing(float healAmount, float healDuration);
 
     void Dispel();
+
+    void BecomeInvulnerable();
+
+    void BecomeVulnerable();
 }

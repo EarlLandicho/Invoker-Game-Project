@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour, IMovement
     [SerializeField] private float movementSpeed = 0;
 
     private float movementSpeedTemp = 0;
+    private bool isLocked = false;
 
     private void Awake()
     {
@@ -27,13 +28,17 @@ public class EnemyMovement : MonoBehaviour, IMovement
         movementSpeed = movementSpeedTemp;
     }
 
-    public void LockMovement()
+    public void SetLockMovement(bool isLocked)
     {
-        //movementSpeed = 0;
+        if(isLocked)
+        {
+            movementSpeed = 0;
+        }
+        else
+        {
+            movementSpeed = movementSpeedTemp;
+        }
+        
     }
 
-    public void UnlockMovement()
-    {
-        //movementSpeed = movementSpeedTemp;
-    }
 }

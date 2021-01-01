@@ -8,7 +8,7 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
 
     private IMovement movement;
     private IJump jump;
-    private IEnemyAttack enemyHealth;
+    private IEnemyAttack enemyAttack;
 
     private float poisonDamageAmountCounter = 0;
     private float burningDamageAmountCounter = 0;
@@ -28,11 +28,16 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         //when refactored, this will always refer to the gameobject it's attached to
         health = GetComponent<IHealth>();
         movement = GetComponent<IMovement>();
-        jump = GetComponent<IJump>();
+
+        if(GetComponent<IJump>() != null)
+        {
+            jump = GetComponent<IJump>();
+
+        }
 
         if(GetComponent<IEnemyAttack>() != null)
         {
-            enemyHealth = GetComponent<IEnemyAttack>();
+            enemyAttack = GetComponent<IEnemyAttack>();
         }
     }
 
@@ -114,12 +119,23 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         }
     }
 
-    //will be used by spells
     public void Dispel()
     {
         CancelInvoke();
         StopAllCoroutines();
     }
+
+    public void BecomeInvulnerable()
+    {
+        health.SetIsInvulnerable(true);
+    }
+
+    public void BecomeVulnerable()
+    {
+        health.SetIsInvulnerable(false);
+    }
+
+
 
     private void Burn()
     {
@@ -168,12 +184,23 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
     {
         isOiled = true;
         movement.SetMovementSpeedByFactor(Constants.OilMovementDecreseFactor);
-        jump.SetJumpHeightByFactor(Constants.OilJumpHeightDecreseFactor);
+
+        if (GetComponent<IJump>() != null)
+        {
+            jump.SetJumpHeightByFactor(Constants.OilJumpHeightDecreseFactor);
+
+        }
+        
 
         yield return new WaitForSeconds(Constants.OilDuration);
 
         movement.SetSpeedToDefault();
-        jump.SetJumpHeightToDefault();
+        if (GetComponent<IJump>() != null)
+        {
+            jump.SetJumpHeightToDefault();
+
+        }
+        
         isOiled = false;
     }
 
@@ -197,17 +224,27 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         isStunned = true;
         if (GetComponent<IEnemyAttack>() != null)
         {
-            enemyHealth.LockAttack();
+            enemyAttack.SetLockAttack(true);
         }
-        movement.LockMovement();
+        if (GetComponent<IJump>() != null)
+        {
+            jump.SetLockJump(true);
+
+        }
+        movement.SetLockMovement(true);
 
         yield return new WaitForSeconds(Constants.StunDuration);
 
         if (GetComponent<IEnemyAttack>() != null)
         {
-            enemyHealth.UnlockAttack();
+            enemyAttack.SetLockAttack(false);
         }
-        movement.UnlockMovement();
+        if (GetComponent<IJump>() != null)
+        {
+            jump.SetLockJump(false);
+
+        }
+        movement.SetLockMovement(false);
 
 
     }

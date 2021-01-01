@@ -12,4 +12,9 @@ public class EnemyJump : MonoBehaviour, IJump
     {
         throw new System.NotImplementedException();
     }
+
+    public void SetLockJump(bool isLocked)
+    {
+        throw new System.NotImplementedException();
+    }
 }

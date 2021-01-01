@@ -8,7 +8,6 @@ public class PoisonExplosion : MonoBehaviour
     private void Awake()
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius, 1 << LayerMask.NameToLayer("Enemy"));
-        Debug.Log(enemies.Length);
         if (enemies.Length > 0)
         {
             foreach (Collider2D enemyCol in enemies)

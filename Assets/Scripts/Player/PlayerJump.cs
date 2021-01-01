@@ -28,6 +28,11 @@ public class PlayerJump : MonoBehaviour, IJump
         JumpCheck();
     }
 
+    public void SetLockJump(bool isLocked)
+    {
+        //this.isLocked = isLocked;
+    }
+
     public bool GetIsGrounded()
     {
         return isGrounded;

@@ -6,7 +6,6 @@ public interface IEnemyAttack
 
     void OutOfAttackRange();
 
-    void LockAttack();
+    void SetLockAttack(bool isLocked);
 
-    void UnlockAttack();
 }

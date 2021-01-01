@@ -8,16 +8,18 @@ public class EnemyPatrol : MonoBehaviour
     private bool isFacingRight = true;
     private float speed;
     private Rigidbody2D rb;
+    private EnemyMovement enemyMovement;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        speed = GetComponent<EnemyMovement>().GetMovementSpeed();
+        enemyMovement = GetComponent<EnemyMovement>();
     }
 
     private void Update()
     {
         PatrolCheck();
+        speed = enemyMovement.GetMovementSpeed();
     }
 
     private void PatrolCheck()

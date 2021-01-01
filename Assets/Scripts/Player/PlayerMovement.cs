@@ -36,17 +36,21 @@ public class PlayerMovement : MonoBehaviour, IMovement
         }
     }
 
-    public void LockMovement()
+    public void SetLockMovement(bool isLocked)
     {
-        isLocked = true;
-        rb.velocity = new Vector2(0, 0);
+        this.isLocked = isLocked;
+        if (isLocked)
+        {
+            
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+        else
+        {
+            movementSpeed = movementSpeedTemp;
+        }
+        
     }
 
-    public void UnlockMovement()
-    {
-        isLocked = false;
-        movementSpeed = movementSpeedTemp;
-    }
 
     private void MoveCheck()
     {

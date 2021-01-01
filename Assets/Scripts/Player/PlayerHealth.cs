@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public static float currentHealth;
     private float currentHealthTemp; //used for GodMode
     private float damageModifier = 1;
+    private bool isInvulnerable = false;
 
     //not used atm. Set game over screen when this happens
     public event Action IsDead = delegate { };
@@ -56,17 +57,22 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     public void TakeDamage(float damage, bool isStatusEffectDamage = false)
     {
-        if (isStatusEffectDamage)
+        if(!isInvulnerable)
         {
-            currentHealth -= damage;
-        }
-        else
-        {
-            damage = damage * damageModifier;
-            currentHealth -= damage;
-        }
+            //damage not affected by damage modifier if it comes from status effect
+            if (isStatusEffectDamage)
+            {
+                currentHealth -= damage;
+            }
+            else
+            {
+                damage = damage * damageModifier;
+                currentHealth -= damage;
+            }
 
-        FlashWhenDamaged();
+            FlashWhenDamaged();
+
+        }
 
         if (currentHealth <= 0)
         {
@@ -102,5 +108,10 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public void ResetDamageModifier()
     {
         damageModifier = 1;
+    }
+
+    public void SetIsInvulnerable(bool isInvulnerable)
+    {
+        this.isInvulnerable = isInvulnerable;
     }
 }

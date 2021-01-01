@@ -41,6 +41,11 @@ public class EnemyHealth : MonoBehaviour, IHealth
         }
     }
 
+    public void SetIsInvulnerable(bool isInvulnerable)
+    {
+
+    }
+
     private void Die()
     {
         Destroy(gameObject);

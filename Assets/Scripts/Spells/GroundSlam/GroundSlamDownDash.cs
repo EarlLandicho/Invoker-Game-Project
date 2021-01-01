@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class GroundSlamDownDash : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private float forceY = 0;
+    private Rigidbody2D playerRigidBody;
+
+    void Awake()
     {
-        
+        playerRigidBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+
+        playerRigidBody.AddForce(new Vector2(0, -forceY));
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
 }

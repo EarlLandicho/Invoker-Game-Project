@@ -21,6 +21,8 @@ public class SpiritCast : MonoBehaviour
     [SerializeField] private GameObject mudGolem;
     [SerializeField] private GameObject fireSpirit;
     [SerializeField] private GameObject poisonExplosion;
+    [SerializeField] private GameObject groundSlam;
+    [SerializeField] private GameObject hibernate;
 
     private GameObject player;
     private SpiritArrayManager spiritArrayManager;
@@ -238,10 +240,12 @@ public class SpiritCast : MonoBehaviour
 
     private void SSS()
     {
+        Instantiate(groundSlam, transform.position, player.transform.rotation);
     }
 
     private void LLL()
     {
+        Instantiate(hibernate, transform.position, player.transform.rotation);
     }
 
     private void GGG()

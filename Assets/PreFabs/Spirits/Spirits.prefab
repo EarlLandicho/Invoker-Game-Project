@@ -155,6 +155,8 @@ MonoBehaviour:
   mudGolem: {fileID: 8189821867304606167, guid: b8794ffe0f9bde542954e67d606a6299, type: 3}
   fireSpirit: {fileID: 318463690089602158, guid: e4cadb19ccc46ce4286c90635e509195, type: 3}
   poisonExplosion: {fileID: 8125049034846988064, guid: 4d4179f14130f8b4785f885ae1c66d4c, type: 3}
+  groundSlam: {fileID: 6398027715066408673, guid: 15916acaa6ff6434e90c6ed7d69d90c0, type: 3}
+  hibernate: {fileID: 8991311324295037006, guid: dd4a7fc482f44f14dac521668290fc58, type: 3}
 --- !u!114 &1090407786
 MonoBehaviour:
   m_ObjectHideFlags: 0
