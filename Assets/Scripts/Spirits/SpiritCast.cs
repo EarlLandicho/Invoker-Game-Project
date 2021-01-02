@@ -23,6 +23,8 @@ public class SpiritCast : MonoBehaviour
     [SerializeField] private GameObject poisonExplosion;
     [SerializeField] private GameObject groundSlam;
     [SerializeField] private GameObject hibernate;
+    [SerializeField] private GameObject tornado;
+    [SerializeField] private GameObject lavaBurst;
 
     private GameObject player;
     private SpiritArrayManager spiritArrayManager;
@@ -250,10 +252,12 @@ public class SpiritCast : MonoBehaviour
 
     private void GGG()
     {
+       Instantiate(tornado, transform.position, player.transform.rotation);
     }
 
     private void SSL()
     {
+        Instantiate(lavaBurst, transform.position, player.transform.rotation);
     }
 
     private void SSG()
