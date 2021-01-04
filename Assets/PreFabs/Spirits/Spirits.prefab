@@ -161,6 +161,7 @@ MonoBehaviour:
   lavaBurst: {fileID: 1298435506902785049, guid: e806e338f8dce0848b0ae85fbb34599c, type: 3}
   wisp: {fileID: 1959743420191501144, guid: f520d7c07db057243aeae16ce890fbf6, type: 3}
   solarFlare: {fileID: 3084962701213884672, guid: 7c8479d8851809b448dbe3ad55db31fa, type: 3}
+  wings: {fileID: 1379291390893465058, guid: 6875db802e8c81c4198c0d44fa4e4c4c, type: 3}
 --- !u!114 &1090407786
 MonoBehaviour:
   m_ObjectHideFlags: 0

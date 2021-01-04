@@ -51,6 +51,11 @@ public class PlayerMovement : MonoBehaviour, IMovement
         
     }
 
+    public float GetMovementSpeed()
+    {
+        return movementSpeed;
+    }
+
 
     private void MoveCheck()
     {

@@ -6,4 +6,6 @@
 
     void SetLockMovement(bool isLocked);
 
+    float GetMovementSpeed();
+
 }

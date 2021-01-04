@@ -13,6 +13,15 @@ public class GroundSlamDamage : MonoBehaviour
     {
         playerJump = GameObject.Find("Player").GetComponent<PlayerJump>();
 
+        if(FindObjectOfType(typeof(WingsMovement)) != null)
+        {
+            WingsMovement component = (WingsMovement)FindObjectOfType(typeof(WingsMovement));
+            component.CancelFlight();
+
+        }
+
+
+
     }
 
     void Update()

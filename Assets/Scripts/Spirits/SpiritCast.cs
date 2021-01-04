@@ -27,7 +27,8 @@ public class SpiritCast : MonoBehaviour
         tornado,
         lavaBurst,
         wisp,
-        solarFlare;
+        solarFlare,
+        wings;
 
 
 
@@ -279,6 +280,7 @@ public class SpiritCast : MonoBehaviour
 
     private void SGG()
     {
+        Instantiate(wings, transform.position, player.transform.rotation);
     }
 
     private void LLG()
