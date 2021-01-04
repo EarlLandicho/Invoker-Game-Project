@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TornadoHit : MonoBehaviour
+public class LavaBurstProjectile : MonoBehaviour
 {
     [SerializeField] private float damage = 0;
 
@@ -11,14 +11,16 @@ public class TornadoHit : MonoBehaviour
         if (col.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             col.gameObject.GetComponent<IHealth>().TakeDamage(damage);
-            col.gameObject.GetComponent<IStatusEffect>().BecomeStunned();
+            col.gameObject.GetComponent<IStatusEffect>().BecomeBurned();
         }
 
-        if(col.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (col.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             Destroy(gameObject);
         }
     }
+
+
 
 
 

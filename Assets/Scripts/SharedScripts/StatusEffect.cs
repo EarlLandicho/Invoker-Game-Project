@@ -210,10 +210,13 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
     private IEnumerator Oil()
     {
         isOiled = true;
+
+        movement.SetSpeedToDefault();
         movement.SetMovementSpeedByFactor(Constants.OilMovementDecreseFactor);
 
         if (GetComponent<IJump>() != null)
         {
+            jump.SetJumpHeightToDefault();
             jump.SetJumpHeightByFactor(Constants.OilJumpHeightDecreseFactor);
         }
         
