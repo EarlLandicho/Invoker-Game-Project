@@ -12,20 +12,26 @@ public class SpiritCast : MonoBehaviour
     public event Action SpiritsHaveBeenCasted = delegate { };
 
     [SerializeField] private float spiritCooldown = 5;
-    [SerializeField] private GameObject boulder;
-    [SerializeField] private GameObject icicle;
-    [SerializeField] private GameObject lightning;
-    [SerializeField] private GameObject earthArmor;
-    [SerializeField] private GameObject slowHeal;
-    [SerializeField] private GameObject lightningDash;
-    [SerializeField] private GameObject mudGolem;
-    [SerializeField] private GameObject fireSpirit;
-    [SerializeField] private GameObject poisonExplosion;
-    [SerializeField] private GameObject groundSlam;
-    [SerializeField] private GameObject hibernate;
-    [SerializeField] private GameObject tornado;
-    [SerializeField] private GameObject lavaBurst;
-    [SerializeField] private GameObject wisp;
+    [SerializeField] 
+    private GameObject boulder,
+        icicle,
+        lightning,
+        earthArmor,
+        slowHeal,
+        lightningDash,
+        mudGolem,
+        fireSpirit,
+        poisonExplosion,
+        groundSlam,
+        hibernate,
+        tornado,
+        lavaBurst,
+        wisp,
+        solarFlare;
+
+
+
+
 
     private GameObject player;
     private SpiritArrayManager spiritArrayManager;
@@ -268,6 +274,7 @@ public class SpiritCast : MonoBehaviour
 
     private void SLL()
     {
+        Instantiate(solarFlare, transform.position, player.transform.rotation);
     }
 
     private void SGG()
