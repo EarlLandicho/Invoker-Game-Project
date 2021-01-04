@@ -22,12 +22,14 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
     private bool isOiled = false;
     private bool isTickHealing = false;
     private bool isStunned = false;
+    private bool isStatusEffectImmune = false;
 
     private void Awake()
     {
         //when refactored, this will always refer to the gameobject it's attached to
         health = GetComponent<IHealth>();
         movement = GetComponent<IMovement>();
+        
 
         if(GetComponent<IJump>() != null)
         {
@@ -41,65 +43,87 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         }
     }
 
-    //public bool GetIsPoisoned()
-    //{
-    //    return isPoisoned;
-    //}
+    public bool GetIsPoisoned()
+    {
+        return isPoisoned;
+    }
 
-    //public bool GetIsBurning()
-    //{
-    //    return isBurning;
-    //}
+    public bool GetIsBurning()
+    {
+        return isBurning;
+    }
 
-    //public bool GetIsOiled()
-    //{
-    //    return isOiled;
-    //}
+    public bool GetIsOiled()
+    {
+        return isOiled;
+    }
 
-    //public bool GetIsTickHealing()
-    //{
-    //    return isTickHealing;
-    //}
+    public bool GetIsTickHealing()
+    {
+        return isTickHealing;
+    }
+
+    public bool GetIsStunned()
+    {
+        return isStunned;
+    }
 
     public void BecomePoisoned()
     {
-        if (IsInvoking("Poison"))
+        if (!isStatusEffectImmune)
         {
-            CancelInvoke("Poison");
-            poisonDamageAmountCounter = 0;
-            InvokeRepeating("Poison", 0, Constants.PoisonTickPerSecond);
+            if (IsInvoking("Poison"))
+            {
+                CancelInvoke("Poison");
+                poisonDamageAmountCounter = 0;
+                InvokeRepeating("Poison", 0, Constants.PoisonTickPerSecond);
+            }
+            else
+            {
+                InvokeRepeating("Poison", 0, Constants.PoisonTickPerSecond);
+            }
+
         }
-        else
-        {
-            InvokeRepeating("Poison", 0, Constants.PoisonTickPerSecond);
-        }
+
     }
 
     public void BecomeOiled()
     {
-        //stopping first to reset the cooldown
-        StopCoroutine("Oil");
-        StartCoroutine("Oil");
+        if(!isStatusEffectImmune)
+        {
+            //stopping first to reset the cooldown
+            StopCoroutine("Oil");
+            StartCoroutine("Oil");
+
+        }
     }
 
     public void BecomeBurned()
     {
-        if (IsInvoking("Burn"))
+        if (!isStatusEffectImmune)
         {
-            CancelInvoke("Burn");
-            burningDamageAmountCounter = 0;
-            InvokeRepeating("Burn", 0, Constants.BurningTickPerSecond);
-        }
-        else
-        {
-            InvokeRepeating("Burn", 0, Constants.BurningTickPerSecond);
+            if (IsInvoking("Burn"))
+            {
+                CancelInvoke("Burn");
+                burningDamageAmountCounter = 0;
+                InvokeRepeating("Burn", 0, Constants.BurningTickPerSecond);
+            }
+            else
+            {
+                InvokeRepeating("Burn", 0, Constants.BurningTickPerSecond);
+            }
+
         }
     }
 
     public void BecomeStunned()
     {
-        StopCoroutine("Stun");
-        StartCoroutine("Stun");
+        if (!isStatusEffectImmune)
+        {
+            StopCoroutine("Stun");
+            StartCoroutine("Stun");
+
+        }
     }
 
     public void TickHealing(float healAmount, float healDuration)
@@ -152,16 +176,15 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         movement.SetLockMovement(false);
     }
 
-    public void BecomeInvulnerable()
+    public void BecomeInvulnerable(bool isInvulnerable)
     {
-        health.SetIsInvulnerable(true);
+        health.SetIsInvulnerable(isInvulnerable);
     }
 
-    public void BecomeVulnerable()
+    public void BecomeStatusEffectImmune(bool isStatusEffectImmune)
     {
-        health.SetIsInvulnerable(false);
+        this.isStatusEffectImmune = isStatusEffectImmune;
     }
-
 
 
     private void Burn()

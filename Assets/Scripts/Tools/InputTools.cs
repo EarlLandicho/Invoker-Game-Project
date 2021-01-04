@@ -43,31 +43,31 @@ public class InputTools : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Keypad0))
         {
-            GameObject.Find("Player").GetComponent<PlayerHealth>().TakeDamage(20);
+            GameObject.Find("Player").GetComponent<IHealth>().TakeDamage(20);
         }
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            GameObject.Find("Player").GetComponent<PlayerHealth>().TakeHealing(30);
+            GameObject.Find("Player").GetComponent<IHealth>().TakeHealing(30);
         }
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            GameObject.Find("Player").GetComponent<StatusEffect>().BecomePoisoned();
+            GameObject.Find("Player").GetComponent<IStatusEffect>().BecomePoisoned();
         }
         if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            GameObject.Find("Player").GetComponent<StatusEffect>().BecomeBurned();
+            GameObject.Find("Player").GetComponent<IStatusEffect>().BecomeBurned();
         }
         if (Input.GetKeyDown(KeyCode.Keypad4))
         {
-            GameObject.Find("Player").GetComponent<StatusEffect>().BecomeOiled();
+            GameObject.Find("Player").GetComponent<IStatusEffect>().BecomeOiled();
         }
         if (Input.GetKeyDown(KeyCode.Keypad5))
         {
-            GameObject.Find("Player").GetComponent<StatusEffect>().Dispel(); ;
+            GameObject.Find("Player").GetComponent<IStatusEffect>().Dispel(); ;
         }
         if (Input.GetKeyDown(KeyCode.Keypad6))
         {
-            GameObject.Find("Player").GetComponent<StatusEffect>().BecomeStunned();
+            GameObject.Find("Player").GetComponent<IStatusEffect>().BecomeStunned();
         }
     }
 }

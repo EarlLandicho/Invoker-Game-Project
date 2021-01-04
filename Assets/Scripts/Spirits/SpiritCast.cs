@@ -28,7 +28,8 @@ public class SpiritCast : MonoBehaviour
         lavaBurst,
         wisp,
         solarFlare,
-        wings;
+        wings,
+        bubble;
 
 
 
@@ -285,6 +286,7 @@ public class SpiritCast : MonoBehaviour
 
     private void LLG()
     {
+        Instantiate(bubble, transform.position, player.transform.rotation);
     }
 
     private void LGG()

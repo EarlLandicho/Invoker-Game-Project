@@ -50,7 +50,6 @@ public class PlayerJump : MonoBehaviour, IJump
 
     public void SetJumpHeightToDefault()
     {
-        Debug.Log(jumpHeightTemp);
         jumpHeight = jumpHeightTemp;
     }
 

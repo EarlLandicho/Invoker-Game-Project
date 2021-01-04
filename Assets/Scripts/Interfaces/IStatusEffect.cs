@@ -12,7 +12,7 @@
 
     void Dispel();
 
-    void BecomeInvulnerable();
+    void BecomeInvulnerable(bool isVulnerable);
 
-    void BecomeVulnerable();
+    void BecomeStatusEffectImmune(bool isStatusEffectImmune);
 }
