@@ -159,6 +159,7 @@ MonoBehaviour:
   hibernate: {fileID: 8991311324295037006, guid: dd4a7fc482f44f14dac521668290fc58, type: 3}
   tornado: {fileID: 5505930430290055758, guid: 4f3f879986500d74d85f08bcc053c63e, type: 3}
   lavaBurst: {fileID: 1298435506902785049, guid: e806e338f8dce0848b0ae85fbb34599c, type: 3}
+  wisp: {fileID: 1959743420191501144, guid: f520d7c07db057243aeae16ce890fbf6, type: 3}
 --- !u!114 &1090407786
 MonoBehaviour:
   m_ObjectHideFlags: 0
