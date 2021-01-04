@@ -27,7 +27,7 @@ public class LightningCloudSpawn : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube((Vector2)transform.position + centerOffSet, size);

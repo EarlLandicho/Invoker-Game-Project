@@ -29,7 +29,8 @@ public class SpiritCast : MonoBehaviour
         wisp,
         solarFlare,
         wings,
-        bubble;
+        bubble,
+        trampoline;
 
 
 
@@ -291,6 +292,7 @@ public class SpiritCast : MonoBehaviour
 
     private void LGG()
     {
+        Instantiate(trampoline, transform.position, player.transform.rotation);
     }
 
     private void SLG()
