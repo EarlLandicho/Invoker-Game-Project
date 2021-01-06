@@ -30,8 +30,69 @@ public class SpiritCast : MonoBehaviour
         solarFlare,
         wings,
         bubble,
-        trampoline;
+        trampoline,
+        reseter;
 
+    [SerializeField]
+    private float boulderCd,
+        icicleCd,
+        lightningCd,
+        earthArmorCd,
+        slowHealCd,
+        lightningDashCd,
+        mudGolemCd,
+        fireSpiritCd,
+        poisonExplosionCd,
+        groundSlamCd,
+        hibernateCd,
+        tornadoCd,
+        lavaBurstCd,
+        wispCd,
+        solarFlareCd,
+        wingsCd,
+        bubbleCd,
+        trampolineCd,
+        reseterCd;
+
+    private float boulderTimer,
+        icicleTimer,
+        lightningTimer,
+        earthArmorTimer,
+        slowHealTimer,
+        lightningDashTimer,
+        mudGolemTimer,
+        fireSpiritTimer,
+        poisonExplosionTimer,
+        groundSlamTimer,
+        hibernateTimer,
+        tornadoTimer,
+        lavaBurstTimer,
+        wispTimer,
+        solarFlareTimer,
+        wingsTimer,
+        bubbleTimer,
+        trampolineTimer,
+        reseterTimer;
+
+    private bool boulderIsOffCd = true,
+        icicleIsOffCd = true,
+        lightningIsOffCd = true,
+        earthArmorIsOffCd = true,
+        slowHealIsOffCd = true,
+        lightningDashIsOffCd = true,
+        mudGolemIsOffCd = true,
+        fireSpiritIsOffCd = true,
+        poisonExplosionIsOffCd = true,
+        groundSlamIsOffCd = true,
+        hibernateIsOffCd = true,
+        tornadoIsOffCd = true,
+        lavaBurstIsOffCd = true,
+        wispIsOffCd = true,
+        solarFlareIsOffCd = true,
+        wingsIsOffCd = true,
+        bubbleIsOffCd = true,
+        trampolineIsOffCd = true,
+        reseterIsOffCd = true;
 
 
 
@@ -49,72 +110,335 @@ public class SpiritCast : MonoBehaviour
         spiritArrayManagerArray = spiritArrayManager.GetSpiritArray();
 
         player = GameObject.Find("Player");
+
+        boulderTimer = boulderCd;
+        icicleTimer = icicleCd;
+        lightningTimer = lightningCd;
+        earthArmorTimer = earthArmorCd;
+        slowHealTimer = slowHealCd;
+        lightningDashTimer = lightningCd;
+        mudGolemTimer = mudGolemCd;
+        fireSpiritTimer = fireSpiritCd;
+        poisonExplosionTimer = poisonExplosionCd;
+        groundSlamTimer = groundSlamCd;
+        hibernateTimer = hibernateCd;
+        tornadoTimer = tornadoCd;
+        lavaBurstTimer = lavaBurstCd;
+        wispTimer = wispCd;
+        solarFlareTimer = solarFlareCd;
+        wingsTimer = wingsCd;
+        bubbleTimer = bubbleCd;
+        trampolineTimer = trampolineCd;
+        reseterTimer = reseterCd;
+
+
     }
 
-    //Uses all spirits up. Sends an event that tells SpiritCast what to cast. Will set castNumber to 0.
-    //Will coolddown the used spirits
+    void Update()
+    {
+        CheckSpellCooldowns();
+    }
+
+    public void ResetAllCooldowns()
+    {
+        boulderTimer = boulderCd;
+        icicleTimer = icicleCd;
+        lightningTimer = lightningCd;
+        earthArmorTimer = earthArmorCd;
+        slowHealTimer = slowHealCd;
+        lightningDashTimer = lightningCd;
+        mudGolemTimer = mudGolemCd;
+        fireSpiritTimer = fireSpiritCd;
+        poisonExplosionTimer = poisonExplosionCd;
+        groundSlamTimer = groundSlamCd;
+        hibernateTimer = hibernateCd;
+        tornadoTimer = tornadoCd;
+        lavaBurstTimer = lavaBurstCd;
+        wispTimer = wispCd;
+        solarFlareTimer = solarFlareCd;
+        wingsTimer = wingsCd;
+        bubbleTimer = bubbleCd;
+        trampolineTimer = trampolineCd;
+        reseterTimer = reseterCd;
+
+        boulderIsOffCd = true;
+        icicleIsOffCd = true;
+        lightningIsOffCd = true;
+        earthArmorIsOffCd = true;
+        slowHealIsOffCd = true;
+        lightningDashIsOffCd = true;
+        mudGolemIsOffCd = true;
+        fireSpiritIsOffCd = true;
+        poisonExplosionIsOffCd = true;
+        groundSlamIsOffCd = true;
+        hibernateIsOffCd = true;
+        tornadoIsOffCd = true;
+        lavaBurstIsOffCd = true;
+        wispIsOffCd = true;
+        solarFlareIsOffCd = true;
+        wingsIsOffCd = true;
+        bubbleIsOffCd = true;
+        trampolineIsOffCd = true;
+        reseterIsOffCd = true;
+    }
+
+    private void CheckSpellCooldowns()
+    {
+        if (!boulderIsOffCd)
+        {
+            if (boulderTimer > 0)
+            {
+                boulderTimer -= Time.deltaTime;
+            }
+            else
+            {
+                boulderIsOffCd = true;
+            }
+        }
+
+        if (!icicleIsOffCd)
+        {
+            if (icicleTimer > 0)
+            {
+                icicleTimer -= Time.deltaTime;
+            }
+            else
+            {
+                icicleIsOffCd = true;
+            }
+        }
+
+        if (!lightningIsOffCd)
+        {
+            if (lightningTimer > 0)
+            {
+                lightningTimer -= Time.deltaTime;
+            }
+            else
+            {
+                lightningIsOffCd = true;
+            }
+        }
+
+        if (!earthArmorIsOffCd)
+        {
+            if (earthArmorTimer > 0)
+            {
+                earthArmorTimer -= Time.deltaTime;
+            }
+            else
+            {
+                earthArmorIsOffCd = true;
+            }
+        }
+
+        if (!slowHealIsOffCd)
+        {
+            if (slowHealTimer > 0)
+            {
+                slowHealTimer -= Time.deltaTime;
+            }
+            else
+            {
+                slowHealIsOffCd = true;
+            }
+        }
+
+        if (!lightningDashIsOffCd)
+        {
+            if (lightningDashTimer > 0)
+            {
+                lightningDashTimer -= Time.deltaTime;
+            }
+            else
+            {
+                lightningDashIsOffCd = true;
+            }
+        }
+
+        if (!mudGolemIsOffCd)
+        {
+            if (mudGolemTimer > 0)
+            {
+                mudGolemTimer -= Time.deltaTime;
+            }
+            else
+            {
+                mudGolemIsOffCd = true;
+            }
+        }
+
+        if (!fireSpiritIsOffCd)
+        {
+            if (fireSpiritTimer > 0)
+            {
+                fireSpiritTimer -= Time.deltaTime;
+            }
+            else
+            {
+                fireSpiritIsOffCd = true;
+            }
+        }
+
+        if (!poisonExplosionIsOffCd)
+        {
+            if (poisonExplosionTimer > 0)
+            {
+                poisonExplosionTimer -= Time.deltaTime;
+            }
+            else
+            {
+                poisonExplosionIsOffCd = true;
+            }
+        }
+
+        if (!groundSlamIsOffCd)
+        {
+            if (groundSlamTimer > 0)
+            {
+                groundSlamTimer -= Time.deltaTime;
+            }
+            else
+            {
+                groundSlamIsOffCd = true;
+            }
+        }
+
+        if (!hibernateIsOffCd)
+        {
+            if (hibernateTimer > 0)
+            {
+                hibernateTimer -= Time.deltaTime;
+            }
+            else
+            {
+                hibernateIsOffCd = true;
+            }
+        }
+
+        if (!tornadoIsOffCd)
+        {
+            if (tornadoTimer > 0)
+            {
+                tornadoTimer -= Time.deltaTime;
+            }
+            else
+            {
+                tornadoIsOffCd = true;
+            }
+        }
+
+        if (!lavaBurstIsOffCd)
+        {
+            if (lavaBurstTimer > 0)
+            {
+                lavaBurstTimer -= Time.deltaTime;
+            }
+            else
+            {
+                lavaBurstIsOffCd = true;
+            }
+        }
+
+        if (!wispIsOffCd)
+        {
+            if (wispTimer > 0)
+            {
+                wispTimer -= Time.deltaTime;
+            }
+            else
+            {
+                wispIsOffCd = true;
+            }
+        }
+
+        if (!solarFlareIsOffCd)
+        {
+            if (solarFlareTimer > 0)
+            {
+                solarFlareTimer -= Time.deltaTime;
+            }
+            else
+            {
+                solarFlareIsOffCd = true;
+            }
+        }
+
+        if (!wingsIsOffCd)
+        {
+            if (wingsTimer > 0)
+            {
+                wingsTimer -= Time.deltaTime;
+            }
+            else
+            {
+                wingsIsOffCd = true;
+            }
+        }
+
+        if (!bubbleIsOffCd)
+        {
+            if (bubbleTimer > 0)
+            {
+                bubbleTimer -= Time.deltaTime;
+            }
+            else
+            {
+                bubbleIsOffCd = true;
+            }
+        }
+
+        if (!trampolineIsOffCd)
+        {
+            if (trampolineTimer > 0)
+            {
+                trampolineTimer -= Time.deltaTime;
+            }
+            else
+            {
+                trampolineIsOffCd = true;
+            }
+        }
+
+        if (!reseterIsOffCd)
+        {
+            if (reseterTimer > 0)
+            {
+                reseterTimer -= Time.deltaTime;
+            }
+            else
+            {
+                reseterIsOffCd = true;
+            }
+        }
+    }
+
+
     private void InvokeSpirits()
     {
         for (int i = 0; i < spiritArrayManagerArray.Length; i++)
         {
             if (spiritArrayManagerArray[i] == 1)
             {
-                spiritArrayManager.DecrementSpiritCurrentAmount(1);
                 castNumber += 100;
-                CooldownSpirit(1);
             }
             else if (spiritArrayManagerArray[i] == 2)
             {
-                spiritArrayManager.DecrementSpiritCurrentAmount(2);
                 castNumber += 10;
-                CooldownSpirit(2);
             }
             else if (spiritArrayManagerArray[i] == 3)
             {
-                spiritArrayManager.DecrementSpiritCurrentAmount(3);
                 castNumber += 1;
-                CooldownSpirit(3);
             }
         }
 
         //PrintCastNumber();
         Cast(castNumber);
-        SpiritsHaveBeenCasted();
+        
         castNumber = 0;
     }
 
-    private void CooldownSpirit(int spiritNum)
-    {
-        if (spiritNum == 1)
-        {
-            StartCoroutine("SpiritCooldown", 1);
-        }
-        else if (spiritNum == 2)
-        {
-            StartCoroutine("SpiritCooldown", 2);
-        }
-        else if (spiritNum == 3)
-        {
-            StartCoroutine("SpiritCooldown", 3);
-        }
-    }
 
-    private IEnumerator SpiritCooldown(int spirit)
-    {
-        yield return new WaitForSeconds(spiritCooldown);
-        if (spirit == 1)
-        {
-            spiritArrayManager.IncrementSpiritCurrentAmount(1);
-        }
-        else if (spirit == 2)
-        {
-            spiritArrayManager.IncrementSpiritCurrentAmount(2);
-        }
-        else if (spirit == 3)
-        {
-            spiritArrayManager.IncrementSpiritCurrentAmount(3);
-        }
-    }
 
     private void Cast(int castNum)
     {
@@ -203,100 +527,311 @@ public class SpiritCast : MonoBehaviour
         }
     }
 
+
+
     private void S()
     {
-        Instantiate(boulder, transform.position, player.transform.rotation);
+        if(boulderIsOffCd)
+        {
+            Instantiate(boulder, transform.position, player.transform.rotation);
+            boulderTimer = boulderCd;
+            boulderIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
     }
 
     private void L()
     {
-        Instantiate(icicle, transform.position, player.transform.rotation);
+        if (icicleIsOffCd)
+        {
+            Instantiate(icicle, transform.position, player.transform.rotation);
+            icicleTimer = icicleCd;
+            icicleIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
     }
 
     private void G()
     {
-        float yOffSet = .45f;
-        RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, 500f, LayerMask.GetMask("Ground"));
-        Instantiate(lightning, hit.point + new Vector2(0, yOffSet), player.transform.rotation);
+        if (lightningIsOffCd)
+        {
+            float yOffSet = .45f;
+            RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, 500f, LayerMask.GetMask("Ground"));
+            Instantiate(lightning, hit.point + new Vector2(0, yOffSet), player.transform.rotation);
+
+            lightningTimer = lightningCd;
+            lightningIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
     }
 
     private void SS()
     {
-        Instantiate(earthArmor, transform.position, player.transform.rotation);
+        if (icicleIsOffCd)
+        {
+            Instantiate(earthArmor, transform.position, player.transform.rotation);
+            earthArmorTimer = earthArmorCd;
+            earthArmorIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
+
+        
     }
 
     private void LL()
     {
-        Instantiate(slowHeal, transform.position, player.transform.rotation);
+        if (slowHealIsOffCd)
+        {
+            Instantiate(slowHeal, transform.position, player.transform.rotation);
+            slowHealTimer = slowHealCd;
+            slowHealIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
+        
     }
 
     private void GG()
     {
-        Instantiate(lightningDash, transform.position, player.transform.rotation);
+        if (lightningDashIsOffCd)
+        {
+            Instantiate(lightningDash, transform.position, player.transform.rotation);
+            lightningDashTimer = lightningDashCd;
+            lightningDashIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
+        
     }
 
     private void SL()
     {
-        Instantiate(mudGolem, transform.position, player.transform.rotation);
+        if (mudGolemIsOffCd)
+        {
+            Instantiate(mudGolem, transform.position, player.transform.rotation);
+            mudGolemTimer = mudGolemCd;
+            mudGolemIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
+        
     }
 
     private void SG()
     {
-        Instantiate(fireSpirit, transform.position, player.transform.rotation);
+        if (fireSpiritIsOffCd)
+        {
+            Instantiate(fireSpirit, transform.position, player.transform.rotation);
+            fireSpiritTimer = fireSpiritCd;
+            fireSpiritIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
+        
     }
 
     private void LG()
     {
-        Instantiate(poisonExplosion, transform.position, player.transform.rotation);
+        if (poisonExplosionIsOffCd)
+        {
+            Instantiate(poisonExplosion, transform.position, player.transform.rotation);
+            poisonExplosionTimer = poisonExplosionCd;
+            poisonExplosionIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
+        
     }
 
     private void SSS()
     {
-        Instantiate(groundSlam, transform.position, player.transform.rotation);
+        if (groundSlamIsOffCd)
+        {
+            Instantiate(groundSlam, transform.position, player.transform.rotation);
+            groundSlamTimer = groundSlamCd;
+            groundSlamIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
+        
     }
 
     private void LLL()
     {
-        Instantiate(hibernate, transform.position, player.transform.rotation);
+        if (hibernateIsOffCd)
+        {
+            Instantiate(hibernate, transform.position, player.transform.rotation);
+            hibernateTimer = hibernateCd;
+            hibernateIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
+        
     }
 
     private void GGG()
     {
-       Instantiate(tornado, transform.position, player.transform.rotation);
+        if (tornadoIsOffCd)
+        {
+            Instantiate(tornado, transform.position, player.transform.rotation);
+            tornadoTimer = tornadoCd;
+            tornadoIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
+        
     }
 
     private void SSL()
     {
-        Instantiate(lavaBurst, transform.position, player.transform.rotation);
+        if (lavaBurstIsOffCd)
+        {
+            Instantiate(lavaBurst, transform.position, player.transform.rotation);
+            lavaBurstTimer = lavaBurstCd;
+            lavaBurstIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
+        
     }
 
     private void SSG()
     {
-        Instantiate(wisp, transform.position, player.transform.rotation);
+        if (wispIsOffCd)
+        {
+            Instantiate(wisp, transform.position, player.transform.rotation);
+            wispTimer = wispCd;
+            wispIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
+        
     }
 
     private void SLL()
     {
-        Instantiate(solarFlare, transform.position, player.transform.rotation);
+        if (solarFlareIsOffCd)
+        {
+            Instantiate(solarFlare, transform.position, player.transform.rotation);
+            solarFlareTimer = solarFlareCd;
+            solarFlareIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
+        
     }
 
     private void SGG()
     {
-        Instantiate(wings, transform.position, player.transform.rotation);
+        if (wingsIsOffCd)
+        {
+            Instantiate(wings, transform.position, player.transform.rotation);
+            wingsTimer = wingsCd;
+            wingsIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
+        
     }
 
     private void LLG()
     {
-        Instantiate(bubble, transform.position, player.transform.rotation);
+        if (bubbleIsOffCd)
+        {
+            Instantiate(bubble, transform.position, player.transform.rotation);
+            bubbleTimer = bubbleCd;
+            bubbleIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
+        
     }
 
     private void LGG()
     {
-        Instantiate(trampoline, transform.position, player.transform.rotation);
+        if (trampolineIsOffCd)
+        {
+            Instantiate(trampoline, transform.position, player.transform.rotation);
+            trampolineTimer = trampolineCd;
+            trampolineIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
+        
     }
 
     private void SLG()
     {
+        if (reseterIsOffCd)
+        {
+            Instantiate(reseter, transform.position, player.transform.rotation);
+            reseterTimer = reseterCd;
+            reseterIsOffCd = false;
+            spiritArrayManager.ClearSpirits();
+        }
+        else
+        {
+            Debug.Log("Still cooling down");
+        }
+        
     }
 
     private void PrintCastNumber()

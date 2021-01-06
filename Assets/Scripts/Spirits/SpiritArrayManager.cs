@@ -62,7 +62,6 @@ public class SpiritArrayManager : MonoBehaviour
 
         spiritInput.SpiritsActivateButtonPressed += ActivateSpirit;
         spiritInput.ClearSpiritsButtonPressed += ClearSpirits;
-        spiritCast.SpiritsHaveBeenCasted += ClearSpirits;
 
         spiritCurrentAmount1 = spiritMaxAmount1;
         spiritCurrentAmount2 = spiritMaxAmount2;
@@ -73,7 +72,6 @@ public class SpiritArrayManager : MonoBehaviour
     {
         spiritInput.SpiritsActivateButtonPressed -= ActivateSpirit;
         spiritInput.ClearSpiritsButtonPressed -= ClearSpirits;
-        spiritCast.SpiritsHaveBeenCasted -= ClearSpirits;
     }
 
     public int[] GetSpiritArray()
@@ -171,7 +169,7 @@ public class SpiritArrayManager : MonoBehaviour
         }
     }
 
-    private void ClearSpirits()
+    public void ClearSpirits()
     {
         spiritArray[0] = 0;
         spiritArray[1] = 0;
