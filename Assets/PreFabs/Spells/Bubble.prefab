@@ -108,5 +108,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a5ded5186269c49bd3135ab4291cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 2
+  bubbleDuration: 5
   movementSpeedFactor: 2

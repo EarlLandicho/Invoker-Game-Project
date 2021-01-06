@@ -4,14 +4,30 @@ using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
-    [SerializeField] private float duration = 0;
+    public static float bubbleDurationTemp;
+
+    [SerializeField] private float bubbleDuration = 0;
     [SerializeField] private float movementSpeedFactor = 0;
 
     private IStatusEffect playerStatusEffect;
     private IMovement playerMovement;
 
+    private static Bubble instance;
+
     void Awake()
     {
+        //Singleton
+        if (instance != null)
+        {
+            bubbleDurationTemp = bubbleDuration;
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            instance = this;
+        }
+
         playerStatusEffect = GameObject.Find("Player").GetComponent<IStatusEffect>();
         playerMovement = GameObject.Find("Player").GetComponent<IMovement>();
 
@@ -19,19 +35,22 @@ public class Bubble : MonoBehaviour
         playerStatusEffect.Dispel();
         playerMovement.SetMovementSpeedByFactor(movementSpeedFactor);
 
-
-        StartCoroutine("SpellLifeTime");
+        bubbleDurationTemp = bubbleDuration;
     }
 
-    private IEnumerator SpellLifeTime()
+    void Update()
     {
-        yield return new WaitForSeconds(duration);
+        if (bubbleDurationTemp > 0)
+        {
+            bubbleDurationTemp -= Time.deltaTime;
+        }
+        else
+        {
+            playerStatusEffect.BecomeStatusEffectImmune(false);
+            playerMovement.SetSpeedToDefault();
 
-        playerStatusEffect.BecomeStatusEffectImmune(false);
-        playerMovement.SetSpeedToDefault();
-
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
-
 
 }

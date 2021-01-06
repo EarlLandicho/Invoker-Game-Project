@@ -4,16 +4,30 @@ using UnityEngine;
 
 public class WingsMovement : MonoBehaviour
 {
+    public static float flightDurationTemp;
+
     [SerializeField] private float flightDuration = 0;
     [SerializeField] private float flightSpeedFactor = 0;
 
     private IMovement playerMovement;
     private Rigidbody2D playerRigidbody;
-    private float flightDurationTemp;
 
+    private static WingsMovement instance;
 
     void Awake()
     {
+        //Singleton
+        if (instance != null)
+        {
+            flightDurationTemp = flightDuration;
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            instance = this;
+        }
+
         playerMovement = GameObject.Find("Player").GetComponent<IMovement>();
         playerRigidbody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
 
@@ -40,7 +54,6 @@ public class WingsMovement : MonoBehaviour
             playerMovement.SetLockMovement(false);
             playerMovement.SetSpeedToDefault();
             Destroy(gameObject);
-            return;
         }
     }
 

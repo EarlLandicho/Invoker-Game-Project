@@ -9,9 +9,6 @@ using UnityEngine;
 [RequireComponent(typeof(SpiritInput))]
 public class SpiritCast : MonoBehaviour
 {
-    public event Action SpiritsHaveBeenCasted = delegate { };
-
-    [SerializeField] private float spiritCooldown = 5;
     [SerializeField] 
     private GameObject boulder,
         icicle,
