@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8234353518078221515}
   - component: {fileID: 2943478829385544535}
   m_Layer: 12
-  m_Name: icicleAttack
+  m_Name: IcicleAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2341251243618882059, guid: 9110c00d8608b1c43a57b4d061f23c49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0a5b0d7060b4a924c9529c6fd1559607, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

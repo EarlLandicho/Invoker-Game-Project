@@ -163,25 +163,25 @@ MonoBehaviour:
   bubble: {fileID: 6339496231643537219, guid: 85652ff951f1f3745b6689e53e9b3909, type: 3}
   trampoline: {fileID: 3238239614542348370, guid: 5094344d8173bb545b9d7507cba33678, type: 3}
   reseter: {fileID: 9143022345872520515, guid: e9b6d0ca8ec955f44875d5e9cb8d3ca2, type: 3}
-  boulderCd: 1
+  boulderCd: 2
   icicleCd: 1
-  lightningCd: 1
-  earthArmorCd: 3
-  slowHealCd: 3
-  lightningDashCd: 3
-  mudGolemCd: 3
-  fireSpiritCd: 3
-  poisonExplosionCd: 3
-  groundSlamCd: 5
-  hibernateCd: 5
-  tornadoCd: 5
-  lavaBurstCd: 5
-  wispCd: 5
-  solarFlareCd: 5
-  wingsCd: 5
-  bubbleCd: 5
-  trampolineCd: 5
-  reseterCd: 5
+  lightningCd: 5
+  earthArmorCd: 20
+  slowHealCd: 20
+  lightningDashCd: 10
+  mudGolemCd: 20
+  fireSpiritCd: 15
+  poisonExplosionCd: 15
+  groundSlamCd: 15
+  hibernateCd: 15
+  tornadoCd: 15
+  lavaBurstCd: 15
+  wispCd: 15
+  solarFlareCd: 15
+  wingsCd: 20
+  bubbleCd: 20
+  trampolineCd: 15
+  reseterCd: 20
 --- !u!114 &1090407786
 MonoBehaviour:
   m_ObjectHideFlags: 0

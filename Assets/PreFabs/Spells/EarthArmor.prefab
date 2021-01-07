@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   percentDamageDecrease: 50
-  duration: 5
+  duration: 10
   armorColor: {r: 0.8207547, g: 0.48854446, b: 0, a: 1}

@@ -8,7 +8,7 @@ public class SpellCooldownDisplay : MonoBehaviour
 
     private SpiritCast spiritCast;
 
-    private TextMeshProUGUI boulderCd,
+    [SerializeField] private TextMeshProUGUI boulderCd,
         icicleCd,
         lightningCd,
         earthArmorCd,
@@ -28,33 +28,12 @@ public class SpellCooldownDisplay : MonoBehaviour
         trampolineCd,
         reseterCd;
 
-    void Awake()
+    //[SerializeField] private TextMeshProUGUI icicleCd,  boulderCd;
+
+    void Start()
     {
         spiritCast = GameObject.Find("Spirits").GetComponent<SpiritCast>();
 
-
-        boulderCd = GameObject.Find("S").GetComponent<TextMeshProUGUI>();
-        icicleCd = GameObject.Find("L").GetComponent<TextMeshProUGUI>();
-        lightningCd = GameObject.Find("G").GetComponent<TextMeshProUGUI>();
-        earthArmorCd = GameObject.Find("SS").GetComponent<TextMeshProUGUI>();
-        slowHealCd = GameObject.Find("LL").GetComponent<TextMeshProUGUI>();
-        lightningDashCd = GameObject.Find("GG").GetComponent<TextMeshProUGUI>();
-        mudGolemCd = GameObject.Find("SL").GetComponent<TextMeshProUGUI>();
-        fireSpiritCd = GameObject.Find("SG").GetComponent<TextMeshProUGUI>();
-        poisonExplosionCd = GameObject.Find("LG").GetComponent<TextMeshProUGUI>();
-        groundSlamCd = GameObject.Find("SSS").GetComponent<TextMeshProUGUI>();
-        hibernateCd = GameObject.Find("LLL").GetComponent<TextMeshProUGUI>();
-        tornadoCd = GameObject.Find("GGG").GetComponent<TextMeshProUGUI>();
-        lavaBurstCd = GameObject.Find("SSL").GetComponent<TextMeshProUGUI>();
-        wispCd = GameObject.Find("SSG").GetComponent<TextMeshProUGUI>();
-        solarFlareCd = GameObject.Find("SLL").GetComponent<TextMeshProUGUI>();
-        wingsCd = GameObject.Find("SGG").GetComponent<TextMeshProUGUI>();
-        bubbleCd = GameObject.Find("LLG").GetComponent<TextMeshProUGUI>();
-        trampolineCd = GameObject.Find("LGG").GetComponent<TextMeshProUGUI>();
-        reseterCd = GameObject.Find("SLG").GetComponent<TextMeshProUGUI>();
-
-        Debug.Log(spiritCast);
-        Debug.Log(boulderCd);
 
     }
 
