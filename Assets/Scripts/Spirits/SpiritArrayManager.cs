@@ -35,7 +35,6 @@ public class SpiritArrayManager : MonoBehaviour
         {
             instance = this;
         }
-        DontDestroyOnLoad(gameObject);
 
         spiritMaxAmount1 = spiritStartingAmount1;
         spiritMaxAmount2 = spiritStartingAmount2;

@@ -91,9 +91,6 @@ public class SpiritCast : MonoBehaviour
         trampolineIsOffCd = true,
         reseterIsOffCd = true;
 
-
-
-
     private GameObject player;
     private SpiritArrayManager spiritArrayManager;
     private int[] spiritArrayManagerArray;
@@ -134,6 +131,101 @@ public class SpiritCast : MonoBehaviour
     void Update()
     {
         CheckSpellCooldowns();
+    }
+
+    public bool GetBoulderIsOffCd()
+    {
+        return boulderIsOffCd;
+    }
+
+    public bool GetIcicleIsOffCd()
+    {
+        return icicleIsOffCd;
+    }
+
+    public bool GetLightningIsOffCd()
+    {
+        return lightningIsOffCd;
+    }
+
+    public bool GetEarthArmorIsOffCd()
+    {
+        return earthArmorIsOffCd;
+    }
+
+    public bool GetSlowHealIsOffCd()
+    {
+        return slowHealIsOffCd;
+    }
+
+    public bool GetLightningDashIsOffCd()
+    {
+        return lightningDashIsOffCd;
+    }
+
+    public bool GetMudGolemIsOffCd()
+    {
+        return mudGolemIsOffCd;
+    }
+
+    public bool GetFireSpiritIsOffCd()
+    {
+        return fireSpiritIsOffCd;
+    }
+
+    public bool GetPoisonExplosionIsOffCd()
+    {
+        return poisonExplosionIsOffCd;
+    }
+
+    public bool GetGroundSlamIsOffCd()
+    {
+        return groundSlamIsOffCd;
+    }
+
+    public bool GetHibernateIsOffCd()
+    {
+        return hibernateIsOffCd;
+    }
+
+    public bool GetTornadoIsOffCd()
+    {
+        return tornadoIsOffCd;
+    }
+
+    public bool GetLavaBurstIsOffCd()
+    {
+        return lavaBurstIsOffCd;
+    }
+
+    public bool GetWispIsOffCd()
+    {
+        return wispIsOffCd;
+    }
+
+    public bool GetSolarFlareisOffCd()
+    {
+        return solarFlareIsOffCd;
+    }
+
+    public bool GetWingsIsOffCd()
+    {
+        return wingsIsOffCd;
+    }
+
+    public bool GetBubbleIsOffCd()
+    {
+        return bubbleIsOffCd;
+    }
+
+    public bool GetTrampolineIsOffCd()
+    {
+        return trampolineIsOffCd;
+    }
+
+    public bool GetReseterIsOfCd()
+    {
+        return reseterIsOffCd;
     }
 
     public void ResetAllCooldowns()
@@ -410,7 +502,6 @@ public class SpiritCast : MonoBehaviour
         }
     }
 
-
     private void InvokeSpirits()
     {
         for (int i = 0; i < spiritArrayManagerArray.Length; i++)
@@ -434,8 +525,6 @@ public class SpiritCast : MonoBehaviour
         
         castNumber = 0;
     }
-
-
 
     private void Cast(int castNum)
     {
@@ -523,8 +612,6 @@ public class SpiritCast : MonoBehaviour
                 break;
         }
     }
-
-
 
     private void S()
     {

@@ -25,11 +25,8 @@ public class SpiritUI : MonoBehaviour
 
     private void UpdateSpiritCurrentAmount()
     {
-        displaySpiritCurrentAmount1UI.text = spiritArrayManager.GetSpiritCurrentAmount(1)
-                                            + "/" + spiritArrayManager.GetSpiritMaxAmount(1);
-        displaySpiritCurrentAmount2UI.text = spiritArrayManager.GetSpiritCurrentAmount(2)
-                                            + "/" + spiritArrayManager.GetSpiritMaxAmount(2);
-        displaySpiritCurrentAmount3UI.text = spiritArrayManager.GetSpiritCurrentAmount(3)
-                                            + "/" + spiritArrayManager.GetSpiritMaxAmount(3); ;
+        displaySpiritCurrentAmount1UI.text = spiritArrayManager.GetSpiritMaxAmount(1).ToString();
+        displaySpiritCurrentAmount2UI.text = spiritArrayManager.GetSpiritMaxAmount(2).ToString();
+        displaySpiritCurrentAmount3UI.text = spiritArrayManager.GetSpiritMaxAmount(3).ToString(); ;
     }
 }

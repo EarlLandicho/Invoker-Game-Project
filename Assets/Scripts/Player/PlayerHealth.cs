@@ -43,17 +43,17 @@ public class PlayerHealth : MonoBehaviour, IHealth
         currentHealth = currentHealthTemp;
     }
 
-    //used in ui
-    public float GetMaxHealth()
-    {
-        return maxHealth;
-    }
+    ////used in ui
+    //public float GetMaxHealth()
+    //{
+    //    return maxHealth;
+    //}
 
-    //used in ui
-    public float GetCurrentHealth()
-    {
-        return currentHealth;
-    }
+    ////used in ui
+    //public float GetCurrentHealth()
+    //{
+    //    return currentHealth;
+    //}
 
     public void TakeDamage(float damage, bool isStatusEffectDamage = false)
     {

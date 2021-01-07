@@ -7,7 +7,7 @@ public class InstructionUI : MonoBehaviour
 
     private void Awake()
     {
-        GetComponent<InputTools>().InstructionButtonPressed += ShowOrHideInstructions;
+        GameObject.Find("GameController").GetComponent<InputTools>().InstructionButtonPressed += ShowOrHideInstructions;
         instruction = GameObject.Find("Instructions");
         instructionIsOpen = false;
         instruction.SetActive(false);
@@ -16,7 +16,7 @@ public class InstructionUI : MonoBehaviour
     private void OnDestroy()
     {
         //Debug.Log(GetComponent<InputTools>());
-        GetComponent<InputTools>().InstructionButtonPressed -= ShowOrHideInstructions;
+        GameObject.Find("GameController").GetComponent<InputTools>().InstructionButtonPressed -= ShowOrHideInstructions;
     }
 
     private void ShowOrHideInstructions()
