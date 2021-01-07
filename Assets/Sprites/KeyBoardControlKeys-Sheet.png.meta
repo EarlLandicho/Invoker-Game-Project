@@ -32,6 +32,39 @@ TextureImporter:
   - first:
       213: 1825184271756456892
     second: KeyBoardControlKeys-Sheet_9
+  - first:
+      213: -495438851146808170
+    second: KeyBoardControlKeys-Sheet_0
+  - first:
+      213: 3626273311875144096
+    second: KeyBoardControlKeys-Sheet_1
+  - first:
+      213: 4946122305093383386
+    second: KeyBoardControlKeys-Sheet_2
+  - first:
+      213: 3420364358684322045
+    second: KeyBoardControlKeys-Sheet_3
+  - first:
+      213: -7562865085192018672
+    second: KeyBoardControlKeys-Sheet_4
+  - first:
+      213: -3322652887324974176
+    second: KeyBoardControlKeys-Sheet_5
+  - first:
+      213: -766262998944409485
+    second: KeyBoardControlKeys-Sheet_6
+  - first:
+      213: -4792282648473270844
+    second: KeyBoardControlKeys-Sheet_7
+  - first:
+      213: 6042577121575571937
+    second: KeyBoardControlKeys-Sheet_8
+  - first:
+      213: 50538036830743280
+    second: KeyBoardControlKeys-Sheet_9
+  - first:
+      213: 5613456024403423969
+    second: KeyBoardControlKeys-Sheet_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -133,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8e92c9b88dffae40800000000000000
-      internalID: 5670029219556662924
+      spriteID: 69487756df8df19f0800000000000000
+      internalID: -495438851146808170
       vertices: []
       indices: 
       edges: []
@@ -154,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14fdac0810df63110800000000000000
-      internalID: 1240456930284724033
+      spriteID: 0a91cc44d5c135230800000000000000
+      internalID: 3626273311875144096
       vertices: []
       indices: 
       edges: []
@@ -175,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e8664d0455001230800000000000000
-      internalID: 3607389160081877219
+      spriteID: ad43ab2e70824a440800000000000000
+      internalID: 4946122305093383386
       vertices: []
       indices: 
       edges: []
@@ -196,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a92a97bf77be2c60800000000000000
-      internalID: 7795369764193970599
+      spriteID: df829c92343977f20800000000000000
+      internalID: 3420364358684322045
       vertices: []
       indices: 
       edges: []
@@ -217,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95bbbecf3502af900800000000000000
-      internalID: 718922635616697177
+      spriteID: 015ece8564e4b0790800000000000000
+      internalID: -7562865085192018672
       vertices: []
       indices: 
       edges: []
@@ -238,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17825d7cbef481a10800000000000000
-      internalID: 1880340718515726449
+      spriteID: 0a3a11b9dc093e1d0800000000000000
+      internalID: -3322652887324974176
       vertices: []
       indices: 
       edges: []
@@ -259,8 +292,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21e4806f77f023c00800000000000000
-      internalID: 878781885193932306
+      spriteID: 378946fbcdfad55f0800000000000000
+      internalID: -766262998944409485
       vertices: []
       indices: 
       edges: []
@@ -280,8 +313,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1da1a8de0b6afc220800000000000000
-      internalID: 2508406796298361553
+      spriteID: 4c58b7262546e7db0800000000000000
+      internalID: -4792282648473270844
       vertices: []
       indices: 
       edges: []
@@ -301,8 +334,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62ed4042b692ba740800000000000000
-      internalID: 5164266937852943910
+      spriteID: 1e11a6b80eb8bd350800000000000000
+      internalID: 6042577121575571937
       vertices: []
       indices: 
       edges: []
@@ -322,8 +355,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb37ca7cc6b545910800000000000000
-      internalID: 1825184271756456892
+      spriteID: 0fa21f4a31c83b000800000000000000
+      internalID: 50538036830743280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KeyBoardControlKeys-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 160
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e2b7d8438007ed40800000000000000
+      internalID: 5613456024403423969
       vertices: []
       indices: 
       edges: []
