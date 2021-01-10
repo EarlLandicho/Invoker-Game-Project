@@ -144,44 +144,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41a5d2117a5d6f48ba9cefdfc78e0d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boulder: {fileID: 1471515369836077349, guid: 4dcf66115c9166f4bac66d4fd7047d91, type: 3}
-  icicle: {fileID: 8416200993578898710, guid: bb601f40c9a40254ba3fc2809e02ef51, type: 3}
-  lightning: {fileID: 369233730298720890, guid: 12dcec51cc6e79c40882204bae731666, type: 3}
-  earthArmor: {fileID: 3610349487345982447, guid: bd6ae63846de89a4a8dd6011b4289cf5, type: 3}
-  slowHeal: {fileID: 9200465490575176053, guid: 9caf975faf4e1ea4aae9a8a9a030b562, type: 3}
-  lightningDash: {fileID: 300630622656980421, guid: 42ba32610d7e3f8489a803489c3e2577, type: 3}
-  mudGolem: {fileID: 8189821867304606167, guid: b8794ffe0f9bde542954e67d606a6299, type: 3}
-  fireSpirit: {fileID: 318463690089602158, guid: e4cadb19ccc46ce4286c90635e509195, type: 3}
-  poisonExplosion: {fileID: 8125049034846988064, guid: 4d4179f14130f8b4785f885ae1c66d4c, type: 3}
-  groundSlam: {fileID: 6398027715066408673, guid: 15916acaa6ff6434e90c6ed7d69d90c0, type: 3}
-  hibernate: {fileID: 8991311324295037006, guid: dd4a7fc482f44f14dac521668290fc58, type: 3}
-  tornado: {fileID: 5505930430290055758, guid: 4f3f879986500d74d85f08bcc053c63e, type: 3}
-  lavaBurst: {fileID: 1298435506902785049, guid: e806e338f8dce0848b0ae85fbb34599c, type: 3}
-  wisp: {fileID: 1959743420191501144, guid: f520d7c07db057243aeae16ce890fbf6, type: 3}
-  solarFlare: {fileID: 3084962701213884672, guid: 7c8479d8851809b448dbe3ad55db31fa, type: 3}
-  wings: {fileID: 1379291390893465058, guid: 6875db802e8c81c4198c0d44fa4e4c4c, type: 3}
-  bubble: {fileID: 6339496231643537219, guid: 85652ff951f1f3745b6689e53e9b3909, type: 3}
-  trampoline: {fileID: 3238239614542348370, guid: 5094344d8173bb545b9d7507cba33678, type: 3}
-  reseter: {fileID: 9143022345872520515, guid: e9b6d0ca8ec955f44875d5e9cb8d3ca2, type: 3}
-  boulderCd: 2
-  icicleCd: 1
-  lightningCd: 5
-  earthArmorCd: 20
-  slowHealCd: 20
-  lightningDashCd: 10
-  mudGolemCd: 20
-  fireSpiritCd: 15
-  poisonExplosionCd: 15
-  groundSlamCd: 15
-  hibernateCd: 15
-  tornadoCd: 15
-  lavaBurstCd: 15
-  wispCd: 15
-  solarFlareCd: 15
-  wingsCd: 20
-  bubbleCd: 20
-  trampolineCd: 15
-  reseterCd: 20
+  S_spell: {fileID: 1471515369836077349, guid: 4dcf66115c9166f4bac66d4fd7047d91, type: 3}
+  L_spell: {fileID: 0}
+  G_spell: {fileID: 0}
+  SS_spell: {fileID: 0}
+  LL_spell: {fileID: 0}
+  GG_spell: {fileID: 0}
+  SL_spell: {fileID: 0}
+  SG_spell: {fileID: 0}
+  LG_spell: {fileID: 0}
+  SSS_spell: {fileID: 0}
+  LLL_spell: {fileID: 0}
+  GGG_spell: {fileID: 0}
+  SSL_spell: {fileID: 0}
+  SSG_spell: {fileID: 0}
+  SLL_spell: {fileID: 0}
+  SGG_spell: {fileID: 0}
+  LLG_spell: {fileID: 0}
+  LGG_spell: {fileID: 0}
+  SLG_spell: {fileID: 0}
+  S_cooldown: 0
+  I_cooldown: 0
+  G_cooldown: 0
+  SS_cooldown: 0
+  LL_cooldown: 0
+  GG_cooldown: 0
+  SL_cooldown: 0
+  SG_cooldown: 0
+  LG_cooldown: 0
+  SSS_cooldown: 0
+  LLL_cooldown: 0
+  GGG_cooldown: 0
+  SSL_cooldown: 0
+  SSG_cooldown: 0
+  SLL_cooldown: 0
+  SGG_cooldown: 0
+  LLG_cooldown: 0
+  LGG_cooldown: 0
+  SLG_cooldown: 0
 --- !u!114 &1090407786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5122546d9dea96e41b7f4f1eb513a83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offSet: {x: 0, y: -0.06}
 --- !u!1 &7186232600221330935
 GameObject:
   m_ObjectHideFlags: 0

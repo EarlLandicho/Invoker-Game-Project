@@ -1260,9 +1260,85 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 361177303}
     - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: L_cooldownText
+      value: 
+      objectReference: {fileID: 789250797}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: S_cooldownText
+      value: 
+      objectReference: {fileID: 1367528324}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: GG_cooldownText
+      value: 
+      objectReference: {fileID: 2088044994}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: G__cooldownText
+      value: 
+      objectReference: {fileID: 285885798}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: LG_cooldownText
+      value: 
+      objectReference: {fileID: 1947227045}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: LL_cooldownText
+      value: 
+      objectReference: {fileID: 1199085790}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: SG_cooldownText
+      value: 
+      objectReference: {fileID: 1859458525}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: SL_cooldownText
+      value: 
+      objectReference: {fileID: 1639279916}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: SS_cooldownText
+      value: 
+      objectReference: {fileID: 2140824379}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
       propertyPath: lightningDashCd
       value: 
       objectReference: {fileID: 2088044994}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: GGG_cooldownText
+      value: 
+      objectReference: {fileID: 1705435098}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: LGG_cooldownText
+      value: 
+      objectReference: {fileID: 361177303}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: LLG_cooldownText
+      value: 
+      objectReference: {fileID: 1954061917}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: LLL_cooldownText
+      value: 
+      objectReference: {fileID: 1911890092}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: SGG_cooldownText
+      value: 
+      objectReference: {fileID: 1205186421}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: SLG_cooldownText
+      value: 
+      objectReference: {fileID: 270172669}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: SLL_cooldownText
+      value: 
+      objectReference: {fileID: 451009783}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: SSG_cooldownText
+      value: 
+      objectReference: {fileID: 1305992065}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: SSL_cooldownText
+      value: 
+      objectReference: {fileID: 952092415}
+    - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: SSS_cooldownText
+      value: 
+      objectReference: {fileID: 1410501474}
     - target: {fileID: 1751817916481222439, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
       propertyPath: poisonExplosionCd
       value: 

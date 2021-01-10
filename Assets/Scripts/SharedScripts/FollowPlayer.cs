@@ -2,6 +2,8 @@
 
 public class FollowPlayer : MonoBehaviour
 {
+    [SerializeField] private Vector2 offSet;
+
     private GameObject player;
 
     private void Awake()
@@ -11,6 +13,11 @@ public class FollowPlayer : MonoBehaviour
 
     private void Update()
     {
-        transform.position = player.transform.position;
+        transform.position = player.transform.position + (Vector3)offSet;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(offSet, .01f);
     }
 }

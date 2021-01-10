@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -8,25 +8,25 @@ public class SpellCooldownDisplay : MonoBehaviour
 
     private SpiritCast spiritCast;
 
-    [SerializeField] private TextMeshProUGUI boulderCd,
-        icicleCd,
-        lightningCd,
-        earthArmorCd,
-        slowHealCd,
-        lightningDashCd,
-        mudGolemCd,
-        fireSpiritCd,
-        poisonExplosionCd,
-        groundSlamCd,
-        hibernateCd,
-        tornadoCd,
-        lavaBurstCd,
-        wispCd,
-        solarFlareCd,
-        wingsCd,
-        bubbleCd,
-        trampolineCd,
-        reseterCd;
+    [SerializeField] private TextMeshProUGUI S_cooldownText,
+        L_cooldownText,
+        G__cooldownText,
+        SS_cooldownText,
+        LL_cooldownText,
+        GG_cooldownText,
+        SL_cooldownText,
+        SG_cooldownText,
+        LG_cooldownText,
+        SSS_cooldownText,
+        LLL_cooldownText,
+        GGG_cooldownText,
+        SSL_cooldownText,
+        SSG_cooldownText,
+        SLL_cooldownText,
+        SGG_cooldownText,
+        LLG_cooldownText,
+        LGG_cooldownText,
+        SLG_cooldownText;
 
     //[SerializeField] private TextMeshProUGUI icicleCd,  boulderCd;
 
@@ -44,175 +44,175 @@ public class SpellCooldownDisplay : MonoBehaviour
 
     private void UpdateCooldownsUI()
     {
-        if (spiritCast.GetBoulderIsOffCd())
+        if (spiritCast.GetS_isOffCooldown())
         {
-            boulderCd.text = "S\tBoulder Throw";
+            S_cooldownText.text = "S\tBoulder Throw";
         }
         else
         {
-            boulderCd.text = "";
+            S_cooldownText.text = (Math.Truncate(spiritCast.GetS_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetIcicleIsOffCd())
+        if (spiritCast.GetL_isOffCooldown())
         {
-            icicleCd.text = "L\tIcicle";
+            L_cooldownText.text = "L\tIcicle";
         }
         else
         {
-            icicleCd.text = "";
+            L_cooldownText.text = (Math.Truncate(spiritCast.GetL_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetLightningIsOffCd())
+        if (spiritCast.GetG_isOffCooldown())
         {
-            lightningCd.text = "G\tLightning";
+            G__cooldownText.text = "G\tLightning";
         }
         else
         {
-            lightningCd.text = "";
+            G__cooldownText.text = (Math.Truncate(spiritCast.GetG_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetEarthArmorIsOffCd())
+        if (spiritCast.GetSS_isOffCooldown())
         {
-            earthArmorCd.text = "SS\tEarth Armor";
+            SS_cooldownText.text = "SS\tEarth Armor";
         }
         else
         {
-            earthArmorCd.text = "";
+            SS_cooldownText.text = (Math.Truncate(spiritCast.GetSS_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetSlowHealIsOffCd())
+        if (spiritCast.GetLL_isOffCooldown())
         {
-            slowHealCd.text = "LL\tSlow Heal";
+            LL_cooldownText.text = "LL\tSlow Heal";
         }
         else
         {
-            slowHealCd.text = "";
+            LL_cooldownText.text = (Math.Truncate(spiritCast.GetLL_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetLightningDashIsOffCd())
+        if (spiritCast.GetGG_isOffCooldown())
         {
-            lightningDashCd.text = "GG\tLightning Dash";
+            GG_cooldownText.text = "GG\tLightning Dash";
         }
         else
         {
-            lightningDashCd.text = "";
+            GG_cooldownText.text = (Math.Truncate(spiritCast.GetGG_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetMudGolemIsOffCd())
+        if (spiritCast.GetSL_isOffCooldown())
         {
-            mudGolemCd.text = "SL\tMud Golem";
+            SL_cooldownText.text = "SL\tMud Golem";
         }
         else
         {
-            mudGolemCd.text = "";
+            SL_cooldownText.text = (Math.Truncate(spiritCast.GetSL_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetFireSpiritIsOffCd())
+        if (spiritCast.GetSG_isOffCooldown())
         {
-            fireSpiritCd.text = "SG\tFireSpirit";
+            SG_cooldownText.text = "SG\tFire Spirit";
         }
         else
         {
-            fireSpiritCd.text = "";
+            SG_cooldownText.text = (Math.Truncate(spiritCast.GetSG_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetPoisonExplosionIsOffCd())
+        if (spiritCast.GetLG_isOffCooldown())
         {
-            poisonExplosionCd.text = "LG\tPoisonExplosion";
+            LG_cooldownText.text = "LG\tPoison Explosion";
         }
         else
         {
-            poisonExplosionCd.text = "";
+            LG_cooldownText.text = (Math.Truncate(spiritCast.GetLG_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetGroundSlamIsOffCd())
+        if (spiritCast.GetSSS_isOffCooldown())
         {
-            groundSlamCd.text = "SSS\tGroundSlam";
+            SSS_cooldownText.text = "SSS\tGround Slam";
         }
         else
         {
-            groundSlamCd.text = "";
+            SSS_cooldownText.text = (Math.Truncate(spiritCast.GetSSS_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetHibernateIsOffCd())
+        if (spiritCast.GetLLL_isOffCooldown())
         {
-            hibernateCd.text = "LLL\tHibernate";
+            LLL_cooldownText.text = "LLL\tHibernate";
         }
         else
         {
-            hibernateCd.text = "";
+            LLL_cooldownText.text = (Math.Truncate(spiritCast.GetLLL_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetTornadoIsOffCd())
+        if (spiritCast.GetGGG_isOffCooldown())
         {
-            tornadoCd.text = "GGG\tTornado";
+            GGG_cooldownText.text = "GGG\tTornado";
         }
         else
         {
-            tornadoCd.text = "";
+            GGG_cooldownText.text = (Math.Truncate(spiritCast.GetGGG_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetLavaBurstIsOffCd())
+        if (spiritCast.GetSSL_isOffCooldown())
         {
-            lavaBurstCd.text = "SSL\tLavaBurst";
+            SSL_cooldownText.text = "SSL\tLava Burst";
         }
         else
         {
-            lavaBurstCd.text = "";
+            SSL_cooldownText.text = (Math.Truncate(spiritCast.GetSSL_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetWispIsOffCd())
+        if (spiritCast.GetSSG_isOffCooldown())
         {
-            wispCd.text = "SSG\tWisp";
+            SSG_cooldownText.text = "SSG\tWisp";
         }
         else
         {
-            wispCd.text = "";
+            SSG_cooldownText.text = (Math.Truncate(spiritCast.GetSSG_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetSolarFlareisOffCd())
+        if (spiritCast.GetSLL_isOffCooldown())
         {
-            solarFlareCd.text = "SLL\tSolar Flare";
+            SLL_cooldownText.text = "SLL\tSolar Flare";
         }
         else
         {
-            solarFlareCd.text = "";
+            SLL_cooldownText.text = (Math.Truncate(spiritCast.GetSLL_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetWingsIsOffCd())
+        if (spiritCast.GetSGG_isOffCooldown())
         {
-            wingsCd.text = "SGG\tWings";
+            SGG_cooldownText.text = "SGG\tWings";
         }
         else
         {
-            wingsCd.text = "";
+            SGG_cooldownText.text = (Math.Truncate(spiritCast.GetSGG_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetBubbleIsOffCd())
+        if (spiritCast.GetLLG_isOffCooldown())
         {
-            bubbleCd.text = "LLG\tBubble";
+            LLG_cooldownText.text = "LLG\tBubble";
         }
         else
         {
-            bubbleCd.text = "";
+            LLG_cooldownText.text = (Math.Truncate(spiritCast.GetLLG_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetTrampolineIsOffCd())
+        if (spiritCast.GetLGG_isOffCooldown())
         {
-            trampolineCd.text = "LGG\tTrampoline";
+            LGG_cooldownText.text = "LGG\tTrampoline";
         }
         else
         {
-            trampolineCd.text = "";
+            LGG_cooldownText.text = (Math.Truncate(spiritCast.GetLLG_timer() * 100) / 100).ToString();
         }
 
-        if (spiritCast.GetReseterIsOfCd())
+        if (spiritCast.GetSLG_isOffCooldown())
         {
-            reseterCd.text = "SLG\tReseter";
+            SLG_cooldownText.text = "SLG\tReseter";
         }
         else
         {
-            reseterCd.text = "";
+            SLG_cooldownText.text = (Math.Truncate(spiritCast.GetSLG_timer() * 100) / 100).ToString();
         }
     }
 
