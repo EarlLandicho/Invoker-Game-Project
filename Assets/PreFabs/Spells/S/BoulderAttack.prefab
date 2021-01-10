@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70df01469397b024e9f669cfdb675086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  damage: 0
   radiusRange: 0.1
 --- !u!1 &1471515369836077349
 GameObject:
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 5717528476901266364}
   - component: {fileID: 1847538446716090727}
   m_Layer: 12
-  m_Name: boulderAttack
+  m_Name: BoulderAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

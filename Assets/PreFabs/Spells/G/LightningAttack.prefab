@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 716644509812389060}
   - component: {fileID: 3602949204307200296}
   m_Layer: 12
-  m_Name: lightningAttack
+  m_Name: LightningAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae6cc2b476e86c5478d79f7c1be54e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  damage: 0
   delayTime: 1
   centerOffSet: {x: 0, y: -0.15}
   size: {x: 0.37, y: 0.68}

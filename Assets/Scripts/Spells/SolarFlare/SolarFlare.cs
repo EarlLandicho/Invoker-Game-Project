@@ -22,8 +22,15 @@ public class SolarFlare : MonoBehaviour
             enemy.gameObject.GetComponent<IStatusEffect>().BecomeBurned();
         }
 
-        Destroy(gameObject);
+        
+        StartCoroutine("Flash");
 
+    }
+
+    private IEnumerator Flash()
+    {
+        yield return new WaitForSeconds(.1f);
+        Destroy(gameObject);
     }
 
     void OnDrawGizmos()

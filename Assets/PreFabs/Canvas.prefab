@@ -1103,6 +1103,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4354118015177138620}
     m_Modifications:
+    - target: {fileID: 1751817916393480044, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
     - target: {fileID: 1751817916481222432, guid: 65688c9090af44f4dba6ca700dc88bb6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
