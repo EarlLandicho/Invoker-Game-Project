@@ -10,8 +10,15 @@ public class LightningCloudSpawn : MonoBehaviour
 
     private void Start()
     {
+        float yOffSet = .45f;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 500f, LayerMask.GetMask("Ground"));
+        transform.position = hit.point + new Vector2(0, yOffSet);
+
+
         //play animation while this is delaying. delayTime can be linked to animation duration
         StartCoroutine("WaitAndThenStrike");
+
+
     }
 
     private IEnumerator WaitAndThenStrike()

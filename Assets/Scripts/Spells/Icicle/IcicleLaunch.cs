@@ -2,32 +2,36 @@
 
 public class IcicleLaunch : MonoBehaviour
 {
-    [SerializeField] private float speed = 0;
-
-    private Rigidbody2D rb;
-    private PlayerJump playerJump;
+    [SerializeField] float speed;
+    private Rigidbody2D icicleRigidbody;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        playerJump = GameObject.Find("Player").GetComponent<PlayerJump>();
+        icicleRigidbody = GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
+    public void Launch(float zRotation)
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            rb.velocity = transform.up * speed;
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            rb.velocity = -transform.up * speed;
+        transform.eulerAngles = new Vector3(
+                transform.eulerAngles.x,
+                transform.eulerAngles.y,
+                transform.eulerAngles.z + zRotation);
+        icicleRigidbody.velocity = new Vector2(0f, speed);
 
-            playerJump.Jump();
-        }
-        else
+        switch(zRotation)
         {
-            rb.velocity = transform.right * speed;
+            case 90:
+                icicleRigidbody.velocity = new Vector2(0f, speed);
+                break;
+            case -90:
+                icicleRigidbody.velocity = new Vector2(0f, -speed);
+                break;
+            default:
+                icicleRigidbody.velocity = new Vector2(speed, 0f) * transform.right;
+                break;
+
         }
     }
+
+
 }

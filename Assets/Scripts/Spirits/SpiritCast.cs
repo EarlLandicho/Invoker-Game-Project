@@ -742,9 +742,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (G_isOffCooldown)
         {
-            float yOffSet = .45f;
-            RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, 500f, LayerMask.GetMask("Ground"));
-            Instantiate(G_spell, hit.point + new Vector2(0, yOffSet), player.transform.rotation);
+            Instantiate(G_spell, transform.position, player.transform.rotation);
 
             G_timer = G_cooldown;
             G_isOffCooldown = false;
