@@ -19,13 +19,13 @@ public class GodMode : MonoBehaviour
         if (!isGodeMode)
         {
             isGodeMode = true;
-            GameObject.Find("Player").GetComponent<PlayerHealth>().SetGodModeHealth();
+            GameObject.Find("Player").GetComponent<PlayerHealth>().SetGodModeHealth(true);
             GameObject.Find("Player").GetComponent<SpriteRenderer>().color = Color.black;
         }
         else
         {
             isGodeMode = false;
-            GameObject.Find("Player").GetComponent<PlayerHealth>().SetGodModeHealthToNormal();
+            GameObject.Find("Player").GetComponent<PlayerHealth>().SetGodModeHealth(false);
             GameObject.Find("Player").GetComponent<SpriteRenderer>().color = Color.white;
         }
     }

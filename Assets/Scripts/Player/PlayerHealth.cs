@@ -32,28 +32,21 @@ public class PlayerHealth : MonoBehaviour, IHealth
     }
 
     //Godmode used for debugging purposes
-    public void SetGodModeHealth()
+    public void SetGodModeHealth(bool isGodMode)
     {
-        currentHealthTemp = currentHealth;
-        currentHealth += 10000;
+        if(isGodMode)
+        {
+            currentHealthTemp = currentHealth;
+            currentHealth += 10000;
+
+        }
+        else
+        {
+            currentHealth = currentHealthTemp;
+        }
     }
 
-    public void SetGodModeHealthToNormal()
-    {
-        currentHealth = currentHealthTemp;
-    }
 
-    ////used in ui
-    //public float GetMaxHealth()
-    //{
-    //    return maxHealth;
-    //}
-
-    ////used in ui
-    //public float GetCurrentHealth()
-    //{
-    //    return currentHealth;
-    //}
 
     public void TakeDamage(float damage, bool isStatusEffectDamage = false)
     {

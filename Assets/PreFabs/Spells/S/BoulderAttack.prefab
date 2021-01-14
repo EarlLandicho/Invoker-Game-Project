@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 8029714952124271714}
   - component: {fileID: 5717528476901266364}
   - component: {fileID: 1847538446716090727}
+  - component: {fileID: 2603398899562072405}
   m_Layer: 12
   m_Name: BoulderAttack
   m_TagString: Untagged
@@ -196,3 +197,22 @@ MonoBehaviour:
   speedX: 5
   upwardForce: 50
   speedY: 5
+--- !u!95 &2603398899562072405
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471515369836077349}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14610274c8621624b8e4374121748cff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
