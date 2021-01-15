@@ -280,3 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cdef96be038944abd92754cdc9fb51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isImmuneToBurning: 0
+  isImmuneToPoison: 0
+  isImmuneToOil: 0
+  isImmuneToStun: 0

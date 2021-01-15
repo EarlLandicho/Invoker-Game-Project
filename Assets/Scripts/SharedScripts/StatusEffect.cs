@@ -1,11 +1,21 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
 public class StatusEffect : MonoBehaviour, IStatusEffect
 {
+    [SerializeField] private bool isImmuneToBurning;
+    [SerializeField] private bool isImmuneToPoison;
+    [SerializeField] private bool isImmuneToOil;
+    [SerializeField] private bool isImmuneToStun;
+    private bool isImmuneToBurningTemp;
+    private bool isImmuneToPoisonTemp;
+    private bool isImmuneToOilTemp;
+    private bool isImmuneToStunTemp;
+
+
     //can make the health, movement, and jump an interface such that this file can be used by many characters
     private IHealth health;
-
     private IMovement movement;
     private IJump jump;
     private IEnemyAttack enemyAttack;
@@ -22,7 +32,6 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
     private bool isOiled = false;
     private bool isTickHealing = false;
     private bool isStunned = false;
-    private bool isStatusEffectImmune = false;
 
     private void Awake()
     {
@@ -41,6 +50,12 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         {
             enemyAttack = GetComponent<IEnemyAttack>();
         }
+
+        isImmuneToBurningTemp = isImmuneToBurning;
+        isImmuneToOilTemp = isImmuneToOil;
+        isImmuneToPoisonTemp = isImmuneToPoison;
+        isImmuneToStunTemp = isImmuneToStun;
+
     }
 
     public bool GetIsPoisoned()
@@ -70,7 +85,7 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
 
     public void BecomePoisoned()
     {
-        if (!isStatusEffectImmune)
+        if (!isImmuneToPoisonTemp)
         {
             if (IsInvoking("Poison"))
             {
@@ -89,7 +104,7 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
 
     public void BecomeOiled()
     {
-        if(!isStatusEffectImmune)
+        if(!isImmuneToOilTemp)
         {
             //stopping first to reset the cooldown
             StopCoroutine("Oil");
@@ -100,7 +115,7 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
 
     public void BecomeBurned()
     {
-        if (!isStatusEffectImmune)
+        if (!isImmuneToBurningTemp)
         {
             if (IsInvoking("Burn"))
             {
@@ -118,7 +133,7 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
 
     public void BecomeStunned()
     {
-        if (!isStatusEffectImmune)
+        if (!isImmuneToStunTemp)
         {
             StopCoroutine("Stun");
             StartCoroutine("Stun");
@@ -183,7 +198,21 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
 
     public void BecomeStatusEffectImmune(bool isStatusEffectImmune)
     {
-        this.isStatusEffectImmune = isStatusEffectImmune;
+        if(isStatusEffectImmune == true)
+        {
+            isImmuneToBurningTemp = true;
+            isImmuneToPoisonTemp = true;
+            isImmuneToOilTemp = true;
+            isImmuneToStunTemp = true;
+        }
+        else
+        {
+            isImmuneToBurningTemp = isImmuneToBurning;
+            isImmuneToPoisonTemp = isImmuneToPoison;
+            isImmuneToOilTemp = isImmuneToOil;
+            isImmuneToStunTemp = isImmuneToStun;
+        }
+        
     }
 
 

@@ -180,53 +180,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b775be806549d364aa8df197c41a8ca8, type: 3}
---- !u!1 &49493787
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 49493788}
-  - component: {fileID: 49493789}
-  m_Layer: 0
-  m_Name: AttackRange
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &49493788
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 49493787}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1720317802}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &49493789
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 49493787}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2
 --- !u!114 &56363096 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4354118015324790669, guid: 2613bede0e994204395bbdc35db377f5, type: 3}
@@ -1650,6 +1603,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DemonKnightAttack
       objectReference: {fileID: 0}
+    - target: {fileID: 8047350490701011096, guid: eb1068f8c2c3fbb468ea00b4268caed1, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb1068f8c2c3fbb468ea00b4268caed1, type: 3}
 --- !u!1001 &1196396554
@@ -1722,21 +1679,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4116782711103600844, guid: b8794ffe0f9bde542954e67d606a6299, type: 3}
-      propertyPath: attackSpeed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8189821867304606165, guid: b8794ffe0f9bde542954e67d606a6299, type: 3}
       propertyPath: m_RootOrder
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8189821867304606165, guid: b8794ffe0f9bde542954e67d606a6299, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.899
+      value: 5.518
       objectReference: {fileID: 0}
     - target: {fileID: 8189821867304606165, guid: b8794ffe0f9bde542954e67d606a6299, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.036
+      value: 0.082
       objectReference: {fileID: 0}
     - target: {fileID: 8189821867304606165, guid: b8794ffe0f9bde542954e67d606a6299, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1773,10 +1726,6 @@ PrefabInstance:
     - target: {fileID: 8189821867304606167, guid: b8794ffe0f9bde542954e67d606a6299, type: 3}
       propertyPath: m_Name
       value: MudGolem
-      objectReference: {fileID: 0}
-    - target: {fileID: 8189821867304606167, guid: b8794ffe0f9bde542954e67d606a6299, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8794ffe0f9bde542954e67d606a6299, type: 3}
@@ -2051,11 +2000,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.12948978, y: 0.12643872}
   m_EdgeRadius: 0
---- !u!4 &1720317802 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8189821867304606165, guid: b8794ffe0f9bde542954e67d606a6299, type: 3}
-  m_PrefabInstance: {fileID: 1257608862}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1792775425
 GameObject:
   m_ObjectHideFlags: 0

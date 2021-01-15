@@ -19,16 +19,12 @@ public class GroundSlamDamage : MonoBehaviour
             component.CancelFlight();
 
         }
-
-
-
     }
 
     void Update()
     {
         if (playerJump.GetIsGrounded())
         {
-            
             Collider2D[] enemies = Physics2D.OverlapBoxAll((Vector2)transform.position, size, 0, 1 << LayerMask.NameToLayer("Enemy"));
             foreach (Collider2D enemy in enemies)
             {

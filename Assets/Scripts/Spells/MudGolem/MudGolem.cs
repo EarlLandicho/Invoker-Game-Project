@@ -7,6 +7,7 @@ public class MudGolem : MonoBehaviour
 
     private Rigidbody2D rigidBody;
     private Transform playerTranform;
+    private bool canMove = true;
 
     void Awake()
     {
@@ -19,11 +20,11 @@ public class MudGolem : MonoBehaviour
     {
         if(rigidBody.velocity.y == 0)
         {
-            if(playerTranform.position.x - transform.position.x > stopDistance + .1f)
+            if(playerTranform.position.x - transform.position.x > stopDistance + .1f && canMove)
             {
                 rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
             }
-            else if(playerTranform.position.x - transform.position.x < -stopDistance - .1f)
+            else if(playerTranform.position.x - transform.position.x < -stopDistance - .1f && canMove)
             {
                 rigidBody.velocity = new Vector2(-speed, rigidBody.velocity.y);
             }
@@ -33,6 +34,11 @@ public class MudGolem : MonoBehaviour
             }
 
         }
+    }
+
+    public void SetCanMove(bool canMove)
+    {
+        this.canMove = canMove;
     }
 
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 
 [RequireComponent(typeof(FlashWhenDamaged))]
+[RequireComponent(typeof(StatusEffect))]
 public class Health : MonoBehaviour, IHealth
 {
     [SerializeField] protected float maxHealth = 0;
