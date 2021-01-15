@@ -39,4 +39,9 @@ public class MovementFlip : MonoBehaviour
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
     }
+
+    static Quaternion LookAt2D(Vector2 forward)
+    {
+        return Quaternion.Euler(0, 0, Mathf.Atan2(forward.y, forward.x) * Mathf.Rad2Deg);
+    }
 }

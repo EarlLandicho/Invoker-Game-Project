@@ -128,7 +128,7 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
 
     public void TickHealing(float healAmount, float healDuration)
     {
-        this.healAmount = healAmount;
+        this.healAmount = this.healAmount + healAmount;
         this.healDuration = healDuration;
 
         if (IsInvoking("TickHeal"))
@@ -266,6 +266,7 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         {
             isTickHealing = false;
             healAmountCounter = 0;
+            healAmount = 0;
             CancelInvoke("TickHeal");
         }
     }

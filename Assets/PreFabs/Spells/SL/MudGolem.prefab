@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 8189821867304606166}
   - component: {fileID: 4352788160540790807}
   - component: {fileID: 1195375255369467947}
+  - component: {fileID: 2264716350354306304}
+  - component: {fileID: 1532888146250759381}
+  - component: {fileID: 4116782711103600844}
   m_Layer: 9
   m_Name: MudGolem
   m_TagString: Untagged
@@ -121,3 +124,44 @@ CapsuleCollider2D:
   m_Offset: {x: -0.046928808, y: -0.008281469}
   m_Size: {x: 0.22614238, y: 0.30343705}
   m_Direction: 0
+--- !u!114 &2264716350354306304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8189821867304606167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e85d1f83d21a669459897eaab8781658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  stopDistance: 0.2
+--- !u!114 &1532888146250759381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8189821867304606167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d0f149ce5f7a1948be2c8d21158c665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4116782711103600844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8189821867304606167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 391744edf647ff044b376b90528ca7ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1869486816503002355, guid: cbac3897e0d1090438e99d87096f9b79, type: 3}
+  speed: 1
+  arcHeight: 1

@@ -4,9 +4,7 @@
 
     void TakeHealing(float healAmount);
 
-    //used when FlashWhenDamaged script is attached
-    void FlashWhenDamaged();
-
     void SetIsInvulnerable(bool isInvulnerable);
+
 
 }
