@@ -2,12 +2,14 @@
 
 public class FireSpiritRotateAroundPlayer : MonoBehaviour
 {
-    [SerializeField] private GameObject fireRing1;
-    [SerializeField] private GameObject fireRing2;
-    [SerializeField] private GameObject fireRing3;
+    [SerializeField] private GameObject fireRing;
 
     [SerializeField] private float spiritRotationRadius;
     [SerializeField] private float spiritRotateSpeed;
+
+    private GameObject fireRing1;
+    private GameObject fireRing2;
+    private GameObject fireRing3;
 
     private float spiritRotationAngle = 0;
     private Transform playerTransform;
@@ -18,6 +20,11 @@ public class FireSpiritRotateAroundPlayer : MonoBehaviour
     private void Awake()
     {
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
+
+        fireRing1 = Instantiate(fireRing);
+        fireRing2 = Instantiate(fireRing);
+        fireRing3 = Instantiate(fireRing);
+
 
         oneThirdOfACircle = 4 * Mathf.PI / 6;
         twoThirdsOfACircle = 8 * Mathf.PI / 6;

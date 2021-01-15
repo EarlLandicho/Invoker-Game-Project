@@ -7,23 +7,23 @@ public class TrampolineDamage : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private Vector2 size = new Vector2(0, 0);
 
+    private TrampolineJump trampolineJump;
+
     void Awake()
     {
-        
+        trampolineJump = GetComponent<TrampolineJump>();
+        trampolineJump.TrampolineJumped += DamageEnemy;
     }
 
-    void Update()
+
+    private void DamageEnemy()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        Collider2D[] enemies = Physics2D.OverlapBoxAll((Vector2)transform.position, size, 0, 1 << LayerMask.NameToLayer("Enemy"));
+        foreach (Collider2D enemy in enemies)
         {
-            Collider2D[] enemies = Physics2D.OverlapBoxAll((Vector2)transform.position, size, 0, 1 << LayerMask.NameToLayer("Enemy"));
-            foreach (Collider2D enemy in enemies)
-            {
-                enemy.gameObject.GetComponent<IHealth>().TakeDamage(damage);
-            }
+            enemy.gameObject.GetComponent<IHealth>().TakeDamage(damage);
         }
     }
-
 
 
     private void OnDrawGizmos()

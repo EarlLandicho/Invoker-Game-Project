@@ -7,6 +7,7 @@ public class HibernateHeal : MonoBehaviour
     [SerializeField] private float healPerSec = 0;
     private IHealth playerHealth;
 
+    //SUGGESTION: Move to StatusEffect functionality
     void Awake()
     {
         playerHealth = GameObject.Find("Player").GetComponent<IHealth>();

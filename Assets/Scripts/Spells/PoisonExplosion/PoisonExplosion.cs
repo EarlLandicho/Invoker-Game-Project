@@ -4,8 +4,35 @@ public class PoisonExplosion : MonoBehaviour
 {
     [SerializeField] private float explosionRadius;
     [SerializeField] private float impactDamage;
+    [SerializeField] private float cloudPoisonCheck;
+    [SerializeField] private float poisonDuration;
+
+    private float cloudPoisonCheckTimer;
+
+    
 
     private void Awake()
+    {
+        cloudPoisonCheckTimer = cloudPoisonCheck;
+
+        
+        Destroy(gameObject, poisonDuration);
+    }
+
+    void Update()
+    {
+        if(cloudPoisonCheckTimer > 0)
+        {
+            cloudPoisonCheckTimer -= Time.deltaTime;
+        }
+        else
+        {
+            cloudPoisonCheckTimer = cloudPoisonCheck;
+            PoisonArea();
+        }
+    }
+
+    private void PoisonArea()
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius, 1 << LayerMask.NameToLayer("Enemy"));
         if (enemies.Length > 0)
@@ -16,7 +43,6 @@ public class PoisonExplosion : MonoBehaviour
                 enemyCol.gameObject.GetComponent<StatusEffect>().BecomePoisoned();
             }
         }
-        Destroy(gameObject, 1f);
     }
 
     private void OnDrawGizmos()

@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
 
 public class TrampolineJump : MonoBehaviour
 {
     [SerializeField] private float duration;
     [SerializeField] private float upwardForce;
     [SerializeField] private Vector2 size = new Vector2(0, 0);
+
+    public event Action TrampolineJumped = delegate { };
 
     private Rigidbody2D playerRigidBody;
     
@@ -26,6 +30,7 @@ public class TrampolineJump : MonoBehaviour
             {
                 playerRigidBody.velocity = new Vector2(0, 0);
                 playerRigidBody.AddForce(new Vector2(0, upwardForce));
+                TrampolineJumped();
             }
         }
     }

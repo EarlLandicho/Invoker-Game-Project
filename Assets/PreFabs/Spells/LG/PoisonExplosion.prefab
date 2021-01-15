@@ -97,3 +97,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionRadius: 0.5
   impactDamage: 0
+  cloudPoisonCheck: 0.2
+  poisonDuration: 5

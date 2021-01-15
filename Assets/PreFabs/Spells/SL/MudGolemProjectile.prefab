@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3938179745637272534}
   - component: {fileID: 7748386689377667421}
   - component: {fileID: 7613243628872381922}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: MudGolemProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
