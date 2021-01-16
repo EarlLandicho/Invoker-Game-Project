@@ -55,6 +55,16 @@ public class Health : MonoBehaviour, IHealth
         }
     }
 
+    public virtual float GetDamageModifier()
+    {
+        return damageModifier;
+    }
+
+    public virtual void SetDamageModifier(float damageModifier)
+    {
+        this.damageModifier = damageModifier;
+    }
+
     protected virtual void FlashWhenDamaged()
     {
         if (GetComponent<FlashWhenDamaged>() != null)

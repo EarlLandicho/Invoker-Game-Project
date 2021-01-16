@@ -61,26 +61,6 @@ public class PlayerHealth : Health
         }
     }
 
-    public void SetDamageModifier(float modifier)
-    {
-        damageModifier = modifier;
-    }
-
-    public float GetDamageModifier()
-    {
-        return damageModifier;
-    }
-
-    public void SetIsEarthArmored(bool isEarthArmored)
-    {
-        this.isEarthArmored = isEarthArmored;
-    }
-
-    public bool GetIsEarthArmored()
-    {
-        return isEarthArmored;
-    }
-
     public float GetCurrentHealth()
     {
         return currentHealth;

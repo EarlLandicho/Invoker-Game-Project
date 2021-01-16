@@ -28,7 +28,7 @@ public class EnemyMovement : MonoBehaviour, IMovement
         movementSpeed = movementSpeedTemp;
     }
 
-    public void SetLockMovement(bool isLocked)
+    public void SetLockXMovement(bool isLocked)
     {
         if(isLocked)
         {
@@ -41,4 +41,18 @@ public class EnemyMovement : MonoBehaviour, IMovement
         
     }
 
+    public void SetMovementSpeedByFactor(float factor, bool isSetting)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public float GetMovementSpeedModifier()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void SetMovementSpeedModifierToDefault()
+    {
+        throw new System.NotImplementedException();
+    }
 }

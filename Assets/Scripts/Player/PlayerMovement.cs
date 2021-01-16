@@ -1,68 +1,31 @@
 ﻿using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour, IMovement
+public class PlayerMovement : Movement
 {
-    [SerializeField]
-    private float movementSpeed = 5;
-
-    private float movementSpeedTemp;
-    private bool isLocked = false;
-
-    private Rigidbody2D rb;
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-
-        movementSpeedTemp = movementSpeed;
-    }
+    private bool isFlying;
 
     private void Update()
     {
         MoveCheck();
     }
 
-    public void SetMovementSpeedByFactor(float factor)
+    public void SetIsFlying(bool isFlying)
     {
-        movementSpeed *= factor;
+        this.isFlying = isFlying;
     }
-
-    public void SetSpeedToDefault()
-    {
-        if (!isLocked)
-        {
-            movementSpeed = movementSpeedTemp;
-
-        }
-    }
-
-    public void SetLockMovement(bool isLocked)
-    {
-        this.isLocked = isLocked;
-        if (isLocked)
-        {
-            
-            rb.velocity = new Vector2(0, rb.velocity.y);
-        }
-        else
-        {
-            movementSpeed = movementSpeedTemp;
-        }
-        
-    }
-
-    public float GetMovementSpeed()
-    {
-        return movementSpeed;
-    }
-
 
     private void MoveCheck()
     {
-        if(!isLocked)
+        if(!isXMovementSpeedLocked && !isFlying)
         {
-            rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementSpeed, rb.velocity.y);
-
+            rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementSpeed * movementSpeedModifier, rb.velocity.y);
+        }
+        else if(isFlying)
+        {
+            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * movementSpeed * movementSpeedModifier, rb.velocity.y);
+            rb.velocity = new Vector2(rb.velocity.x, Input.GetAxis("Vertical") * movementSpeed * movementSpeedModifier);
         }
     }
+
+    
 }

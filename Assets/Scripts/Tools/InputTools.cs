@@ -51,23 +51,23 @@ public class InputTools : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            GameObject.Find("Player").GetComponent<IStatusEffect>().BecomePoisoned();
+            GameObject.Find("Player").GetComponent<StatusEffect>().BecomePoisoned();
         }
         if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            GameObject.Find("Player").GetComponent<IStatusEffect>().BecomeBurned();
+            GameObject.Find("Player").GetComponent<StatusEffect>().BecomeBurned();
         }
         if (Input.GetKeyDown(KeyCode.Keypad4))
         {
-            GameObject.Find("Player").GetComponent<IStatusEffect>().BecomeOiled();
+            GameObject.Find("Player").GetComponent<StatusEffect>().BecomeOiled();
         }
         if (Input.GetKeyDown(KeyCode.Keypad5))
         {
-            GameObject.Find("Player").GetComponent<IStatusEffect>().Dispel(); ;
+            GameObject.Find("Player").GetComponent<StatusEffect>().Dispel(); ;
         }
         if (Input.GetKeyDown(KeyCode.Keypad6))
         {
-            GameObject.Find("Player").GetComponent<IStatusEffect>().BecomeStunned();
+            GameObject.Find("Player").GetComponent<StatusEffect>().BecomeStunned();
         }
     }
 }

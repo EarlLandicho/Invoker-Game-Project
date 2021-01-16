@@ -16,4 +16,6 @@
     public const float StunDuration = 1f;
 
     public const float HealTickPerSecond = .1f;
+
+
 }

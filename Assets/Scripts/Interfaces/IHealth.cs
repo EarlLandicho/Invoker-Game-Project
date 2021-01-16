@@ -6,5 +6,9 @@
 
     void SetIsInvulnerable(bool isInvulnerable);
 
+    float GetDamageModifier();
+
+    void SetDamageModifier(float damageModifier);
+
 
 }

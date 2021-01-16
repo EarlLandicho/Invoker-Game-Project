@@ -14,13 +14,13 @@ public class HibernateImmobilize : MonoBehaviour
         playerHealth = GameObject.Find("Player").GetComponent<IHealth>();
 
         playerHealth.SetIsInvulnerable(true);
-        playerMovement.SetLockMovement(true);
+        playerMovement.SetLockXMovement(true);
     }
 
     void OnDestroy()
     {
         playerHealth.SetIsInvulnerable(false);
-        playerMovement.SetLockMovement(false);
+        playerMovement.SetLockXMovement(false);
     }
 
 

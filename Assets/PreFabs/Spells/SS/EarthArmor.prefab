@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8577ef62abe94a468c076e12c9abb99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  percentDamageDecrease: 60
+  percentDamageDecrease: 0.5
   duration: 5
   armorColor: {r: 0.8207547, g: 0.48854446, b: 0, a: 1}
   deflectDamagePercent: 0

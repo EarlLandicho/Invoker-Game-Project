@@ -9,17 +9,18 @@ public class Bubble : MonoBehaviour
     [SerializeField] private float bubbleDuration = 0;
     [SerializeField] private float movementSpeedFactor = 0;
 
-    private IStatusEffect playerStatusEffect;
-    private IMovement playerMovement;
+    private StatusEffect playerStatusEffect;
 
     private static Bubble instance;
 
     void Awake()
     {
+        playerStatusEffect = GameObject.Find("Player").GetComponent<StatusEffect>();
+
         //Singleton
         if (instance != null)
         {
-            bubbleDurationTemp = bubbleDuration;
+            playerStatusEffect.BecomeBubbled(movementSpeedFactor, bubbleDuration);
             Destroy(gameObject);
             return;
         }
@@ -28,29 +29,16 @@ public class Bubble : MonoBehaviour
             instance = this;
         }
 
-        playerStatusEffect = GameObject.Find("Player").GetComponent<IStatusEffect>();
-        playerMovement = GameObject.Find("Player").GetComponent<IMovement>();
+        
 
-        playerStatusEffect.BecomeStatusEffectImmune(true);
+        playerStatusEffect.BecomeStatusEffectImmune(bubbleDuration);
         playerStatusEffect.Dispel();
-        playerMovement.SetMovementSpeedByFactor(movementSpeedFactor);
+        playerStatusEffect.BecomeBubbled(movementSpeedFactor, bubbleDuration);
 
         bubbleDurationTemp = bubbleDuration;
+
+        Destroy(gameObject, bubbleDuration);
     }
 
-    void Update()
-    {
-        if (bubbleDurationTemp > 0)
-        {
-            bubbleDurationTemp -= Time.deltaTime;
-        }
-        else
-        {
-            playerStatusEffect.BecomeStatusEffectImmune(false);
-            playerMovement.SetSpeedToDefault();
-
-            Destroy(gameObject);
-        }
-    }
 
 }

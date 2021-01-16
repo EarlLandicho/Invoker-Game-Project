@@ -9,8 +9,7 @@ public class WingsMovement : MonoBehaviour
     [SerializeField] private float flightDuration = 0;
     [SerializeField] private float flightSpeedFactor = 0;
 
-    private IMovement playerMovement;
-    private Rigidbody2D playerRigidbody;
+    private PlayerMovement playerMovement;
 
     private static WingsMovement instance;
 
@@ -19,7 +18,9 @@ public class WingsMovement : MonoBehaviour
         //Singleton
         if (instance != null)
         {
+            //reset duration here
             flightDurationTemp = flightDuration;
+
             Destroy(gameObject);
             return;
         }
@@ -28,11 +29,10 @@ public class WingsMovement : MonoBehaviour
             instance = this;
         }
 
-        playerMovement = GameObject.Find("Player").GetComponent<IMovement>();
-        playerRigidbody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
 
-        playerMovement.SetLockMovement(true);
-        playerMovement.SetMovementSpeedByFactor(flightSpeedFactor);
+        playerMovement.SetMovementSpeedByFactor(flightSpeedFactor, true);
+        playerMovement.SetIsFlying(true);
 
         flightDurationTemp = flightDuration;
     }
@@ -42,30 +42,27 @@ public class WingsMovement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             CancelFlight();
+            Destroy(gameObject);
         }
 
         if (flightDurationTemp > 0)
         {
             flightDurationTemp -= Time.deltaTime;
-            Fly();
+            
         }
         else
         {
-            playerMovement.SetLockMovement(false);
-            playerMovement.SetSpeedToDefault();
+            CancelFlight();
             Destroy(gameObject);
         }
     }
 
     public void CancelFlight()
     {
-        flightDurationTemp = 0;
+        playerMovement.SetMovementSpeedByFactor(flightSpeedFactor, false);
+        playerMovement.SetIsFlying(false);
     }
 
-    private void Fly()
-    {
-        playerRigidbody.velocity = new Vector2(Input.GetAxis("Horizontal") * playerMovement.GetMovementSpeed(), playerRigidbody.velocity.y);
-        playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, Input.GetAxis("Vertical") * playerMovement.GetMovementSpeed());
-    }
+
 
 }

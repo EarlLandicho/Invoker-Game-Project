@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
-public class StatusEffect : MonoBehaviour, IStatusEffect
+public class StatusEffect : MonoBehaviour
 {
     [SerializeField] private bool isImmuneToBurning;
     [SerializeField] private bool isImmuneToPoison;
@@ -20,12 +20,20 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
     private IJump jump;
     private IEnemyAttack enemyAttack;
 
-    private float poisonDamageAmountCounter = 0;
-    private float burningDamageAmountCounter = 0;
-    private float healAmountCounter = 0;
+    private float poisonDamageAmountCounter;
+    private float burningDamageAmountCounter;
+    private float healAmountCounter;
 
-    private float healAmount = 0;
-    private float healDuration = 0;
+    private float healAmount;
+    private float healDuration;
+
+    private float armorDuration;
+    private float armorDamageModifier;
+
+    private float bubbleDuration;
+    private float bubbleMovementSpeedModifier;
+
+    private float statusEffectImmuneDuration;
 
     private bool isBurning = false;
     private bool isPoisoned = false;
@@ -83,6 +91,20 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         return isStunned;
     }
 
+    public void BecomeArmored(float damageModifier, float duration)
+    {
+        armorDuration = duration;
+        armorDamageModifier = 1 - damageModifier;
+        StartCoroutine("Armor");
+    }
+
+    public void BecomeBubbled(float movementSpeedModifier, float duration)
+    {
+        bubbleDuration = duration;
+        bubbleMovementSpeedModifier = movementSpeedModifier;
+        StartCoroutine("Bubble");
+    }
+
     public void BecomePoisoned()
     {
         if (!isImmuneToPoisonTemp)
@@ -107,7 +129,6 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         if(!isImmuneToOilTemp)
         {
             //stopping first to reset the cooldown
-            StopCoroutine("Oil");
             StartCoroutine("Oil");
 
         }
@@ -168,7 +189,13 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         isPoisoned = false;
         CancelInvoke("Poison");
 
-        movement.SetSpeedToDefault();
+        //sets movementSppedModiier to 1
+        movement.SetMovementSpeedModifierToDefault();
+        jump.SetJumpHeightToDefault();
+        isOiled = false;
+        StopCoroutine("Oil");
+        
+
         if (GetComponent<IJump>() != null)
         {
             jump.SetJumpHeightToDefault();
@@ -188,7 +215,7 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
             jump.SetLockJump(false);
 
         }
-        movement.SetLockMovement(false);
+        movement.SetLockXMovement(false);
     }
 
     public void BecomeInvulnerable(bool isInvulnerable)
@@ -196,24 +223,15 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         health.SetIsInvulnerable(isInvulnerable);
     }
 
-    public void BecomeStatusEffectImmune(bool isStatusEffectImmune)
+    public void BecomeStatusEffectImmune(float duration)
     {
-        if(isStatusEffectImmune == true)
-        {
-            isImmuneToBurningTemp = true;
-            isImmuneToPoisonTemp = true;
-            isImmuneToOilTemp = true;
-            isImmuneToStunTemp = true;
-        }
-        else
-        {
-            isImmuneToBurningTemp = isImmuneToBurning;
-            isImmuneToPoisonTemp = isImmuneToPoison;
-            isImmuneToOilTemp = isImmuneToOil;
-            isImmuneToStunTemp = isImmuneToStun;
-        }
+        statusEffectImmuneDuration = duration;
+        StopCoroutine("StatusEffectImmune");
+        StartCoroutine("StatusEffectImmune");
+
         
     }
+
 
 
     private void Burn()
@@ -259,31 +277,6 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         }
     }
 
-    private IEnumerator Oil()
-    {
-        isOiled = true;
-
-        movement.SetSpeedToDefault();
-        movement.SetMovementSpeedByFactor(Constants.OilMovementDecreseFactor);
-
-        if (GetComponent<IJump>() != null)
-        {
-            jump.SetJumpHeightToDefault();
-            jump.SetJumpHeightByFactor(Constants.OilJumpHeightDecreseFactor);
-        }
-        
-
-        yield return new WaitForSeconds(Constants.OilDuration);
-
-        movement.SetSpeedToDefault();
-        if (GetComponent<IJump>() != null)
-        {
-            jump.SetJumpHeightToDefault();
-        }
-        
-        isOiled = false;
-    }
-
     private void TickHeal()
     {
         isTickHealing = true;
@@ -300,6 +293,31 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
         }
     }
 
+    private IEnumerator Oil()
+    {
+        isOiled = true;
+
+        movement.SetMovementSpeedByFactor(Constants.OilMovementDecreseFactor, true);
+
+        if (GetComponent<IJump>() != null)
+        {
+            jump.SetJumpHeightToDefault();
+            jump.SetJumpHeightByFactor(Constants.OilJumpHeightDecreseFactor);
+        }
+        
+
+        yield return new WaitForSeconds(Constants.OilDuration);
+
+        Debug.Log("coro");
+        if (GetComponent<IJump>() != null)
+        {
+            jump.SetJumpHeightToDefault();
+            movement.SetMovementSpeedByFactor(Constants.OilMovementDecreseFactor, false);
+        }
+        
+        isOiled = false;
+    }
+
     private IEnumerator Stun()
     {
         isStunned = true;
@@ -312,7 +330,7 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
             jump.SetLockJump(true);
 
         }
-        movement.SetLockMovement(true);
+        movement.SetLockXMovement(true);
 
         yield return new WaitForSeconds(Constants.StunDuration);
 
@@ -325,8 +343,41 @@ public class StatusEffect : MonoBehaviour, IStatusEffect
             jump.SetLockJump(false);
 
         }
-        movement.SetLockMovement(false);
+        movement.SetLockXMovement(false);
 
 
+    }
+
+    private IEnumerator Armor()
+    {
+        health.SetDamageModifier(health.GetDamageModifier() * armorDamageModifier);
+
+        yield return new WaitForSeconds(armorDuration);
+
+        health.SetDamageModifier(health.GetDamageModifier() / armorDamageModifier);
+    }
+
+    private IEnumerator Bubble()
+    {
+        movement.SetMovementSpeedByFactor(bubbleMovementSpeedModifier, true);
+        
+        yield return new WaitForSeconds(bubbleDuration);
+
+        movement.SetMovementSpeedByFactor(bubbleMovementSpeedModifier, false);
+    }
+
+    private IEnumerator StatusEffectImmune()
+    {
+        isImmuneToBurningTemp = true;
+        isImmuneToPoisonTemp = true;
+        isImmuneToOilTemp = true;
+        isImmuneToStunTemp = true;
+
+        yield return new WaitForSeconds(statusEffectImmuneDuration);
+
+        isImmuneToBurningTemp = isImmuneToBurning;
+        isImmuneToPoisonTemp = isImmuneToPoison;
+        isImmuneToOilTemp = isImmuneToOil;
+        isImmuneToStunTemp = isImmuneToStun;
     }
 }

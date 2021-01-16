@@ -23,7 +23,6 @@ public class WispLaunch : MonoBehaviour
         else
         {
             rb.velocity = transform.right * speed;
-            Debug.Log(rb.velocity);
         }
     }
 
