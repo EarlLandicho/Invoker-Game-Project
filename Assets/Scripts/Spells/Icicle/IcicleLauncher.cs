@@ -7,6 +7,7 @@ public class IcicleLauncher : MonoBehaviour
     [SerializeField] GameObject icicleProjetile;
     [SerializeField] float launchDelay;
     [SerializeField] int numberOfProjectiles;
+    [SerializeField] float randomLaunchPositionRadius;
 
     private float angle;
 
@@ -30,7 +31,7 @@ public class IcicleLauncher : MonoBehaviour
     {
         numberOfProjectiles--;
 
-        Instantiate(icicleProjetile, transform.position + new Vector3(Random.Range(-.1f, .1f) , Random.Range(-.1f, .1f)), transform.rotation).GetComponent<IcicleLaunch>().Launch(angle);
+        Instantiate(icicleProjetile, transform.position + new Vector3(Random.Range(-randomLaunchPositionRadius, randomLaunchPositionRadius) , Random.Range(-randomLaunchPositionRadius, randomLaunchPositionRadius)), transform.rotation).GetComponent<IcicleLaunch>().Launch(angle);
 
         if(numberOfProjectiles <= 0)
         {

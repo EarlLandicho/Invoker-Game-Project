@@ -63,3 +63,4 @@ MonoBehaviour:
   icicleProjetile: {fileID: 6897999062996099199, guid: 3607c79d5151e9a4f869962901c96b46, type: 3}
   launchDelay: 0.2
   numberOfProjectiles: 6
+  randomLaunchPositionRadius: 0.05

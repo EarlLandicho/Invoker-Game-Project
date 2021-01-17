@@ -4,6 +4,7 @@ public class MudGolem : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float stopDistance;
+    [SerializeField] private float duration;
 
     private Rigidbody2D rigidBody;
     private Transform playerTranform;
@@ -13,6 +14,8 @@ public class MudGolem : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         playerTranform = GameObject.Find("Player").GetComponent<Transform>();
+
+        Destroy(gameObject, duration);
     }
 
 

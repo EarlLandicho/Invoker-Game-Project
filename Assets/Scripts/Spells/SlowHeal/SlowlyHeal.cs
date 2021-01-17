@@ -6,11 +6,11 @@ public class SlowlyHeal : MonoBehaviour
     [SerializeField] private float healAmount;
     [SerializeField] private float healDuration;
 
-    private IStatusEffect statusEffect;
+    private StatusEffect statusEffect;
 
     private void Awake()
     {
-        statusEffect = GameObject.Find("Player").GetComponent<IStatusEffect>();
+        statusEffect = GameObject.Find("Player").GetComponent<StatusEffect>();
         statusEffect.Dispel();
         statusEffect.TickHealing(healAmount, healDuration);
 

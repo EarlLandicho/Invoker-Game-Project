@@ -1114,6 +1114,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5292311629926192703, guid: 512348bc14f7a5748b2bc7d1ea099e84, type: 3}
+      propertyPath: spiritStartingAmount1
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292311629926192703, guid: 512348bc14f7a5748b2bc7d1ea099e84, type: 3}
+      propertyPath: spiritStartingAmount2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292311629926192703, guid: 512348bc14f7a5748b2bc7d1ea099e84, type: 3}
+      propertyPath: spiritStartingAmount3
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1085605098, guid: 512348bc14f7a5748b2bc7d1ea099e84, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 512348bc14f7a5748b2bc7d1ea099e84, type: 3}
@@ -56661,7 +56673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6419591079411747716, guid: 76b7fdddbb006f64ba349d7629fd8b54, type: 3}
       propertyPath: orthographic size
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6419591079411747718, guid: 76b7fdddbb006f64ba349d7629fd8b54, type: 3}
       propertyPath: m_DefaultBlend.m_Style

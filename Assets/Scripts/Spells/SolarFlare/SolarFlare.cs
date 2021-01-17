@@ -19,7 +19,7 @@ public class SolarFlare : MonoBehaviour
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, 1 << LayerMask.NameToLayer("Enemy"));
         foreach (Collider2D enemy in enemies)
         {
-            enemy.gameObject.GetComponent<IStatusEffect>().BecomeBurned();
+            enemy.gameObject.GetComponent<StatusEffect>().BecomeBurned();
         }
 
         

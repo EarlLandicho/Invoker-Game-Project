@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlayerHealth : Health
 {
     private float currentHealthTemp; //used for GodMode
-    private bool isEarthArmored = false;
 
     public event Action IsDead = delegate { };
 

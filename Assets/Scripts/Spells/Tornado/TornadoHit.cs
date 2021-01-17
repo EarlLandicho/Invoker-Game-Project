@@ -11,7 +11,7 @@ public class TornadoHit : MonoBehaviour
         if (col.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             col.gameObject.GetComponent<IHealth>().TakeDamage(damage);
-            col.gameObject.GetComponent<IStatusEffect>().BecomeStunned();
+            col.gameObject.GetComponent<StatusEffect>().BecomeStunned();
         }
 
         if(col.gameObject.layer == LayerMask.NameToLayer("Ground"))

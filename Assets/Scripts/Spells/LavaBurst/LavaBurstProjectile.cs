@@ -11,7 +11,7 @@ public class LavaBurstProjectile : MonoBehaviour
         if (col.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             col.gameObject.GetComponent<IHealth>().TakeDamage(damage);
-            col.gameObject.GetComponent<IStatusEffect>().BecomeBurned();
+            col.gameObject.GetComponent<StatusEffect>().BecomeBurned();
         }
 
         if (col.gameObject.layer == LayerMask.NameToLayer("Ground"))
