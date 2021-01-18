@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6346676100098582807}
   - component: {fileID: 716644509812389060}
   - component: {fileID: 3602949204307200296}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: LightningAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

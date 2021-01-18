@@ -70,6 +70,7 @@ public class MudGolemProjectile : MonoBehaviour
         foreach (Collider2D enemy in enemies)
         {
             enemy.gameObject.GetComponent<IHealth>().TakeDamage(damage);
+            enemy.gameObject.GetComponent<StatusEffect>().BecomeOiled();
         }
         Destroy(gameObject);
     }

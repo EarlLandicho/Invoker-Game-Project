@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1234176957}
   - component: {fileID: 1234176958}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: BoulderAOEDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,12 +55,12 @@ GameObject:
   m_Component:
   - component: {fileID: 604636888622711988}
   - component: {fileID: 4516659608522303810}
+  - component: {fileID: 2603398899562072405}
   - component: {fileID: -252053267491340393}
   - component: {fileID: 8029714952124271714}
   - component: {fileID: 5717528476901266364}
   - component: {fileID: 1847538446716090727}
-  - component: {fileID: 2603398899562072405}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: BoulderAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,6 +133,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2603398899562072405
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471515369836077349}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14610274c8621624b8e4374121748cff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!58 &-252053267491340393
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -197,22 +216,3 @@ MonoBehaviour:
   speedX: 5
   upwardForce: 50
   speedY: 5
---- !u!95 &2603398899562072405
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471515369836077349}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 14610274c8621624b8e4374121748cff, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

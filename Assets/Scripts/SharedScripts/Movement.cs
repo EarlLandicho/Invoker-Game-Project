@@ -31,7 +31,7 @@ public class Movement : MonoBehaviour, IMovement
         return movementSpeedModifier;
     }
 
-    public void SetLockXMovement(bool isLocked)
+    public virtual void SetLockXMovement(bool isLocked)
     {
         this.isXMovementSpeedLocked = isLocked;
         if (isLocked)
@@ -42,7 +42,6 @@ public class Movement : MonoBehaviour, IMovement
         {
             movementSpeed = movementSpeedTemp * movementSpeedModifier;
         }
-
     }
 
     public virtual void SetMovementSpeedByFactor(float factor, bool isSetting)

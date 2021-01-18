@@ -1,7 +1,7 @@
 ﻿public static class Constants
 {
     public const float PoisonDamageAmount = 20f;
-    public const float PoisonTickPerSecond = 1f;
+    public const float PoisonTickPerSecond = .5f;
     public const float PoisonDuration = 15f;
 
     public const float BurningDamageAmount = 20f;

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7791199885495886684}
   - component: {fileID: 7787618501289467754}
   - component: {fileID: 4848448207828010824}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: IcicleProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

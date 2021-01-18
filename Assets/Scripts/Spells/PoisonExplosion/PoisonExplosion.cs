@@ -14,8 +14,6 @@ public class PoisonExplosion : MonoBehaviour
     private void Awake()
     {
         cloudPoisonCheckTimer = cloudPoisonCheck;
-
-        
         Destroy(gameObject, poisonDuration);
     }
 

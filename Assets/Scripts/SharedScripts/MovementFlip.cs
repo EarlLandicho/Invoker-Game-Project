@@ -24,24 +24,17 @@ public class MovementFlip : MonoBehaviour
 
     private void FlipCheck()
     {
-        if (rb.velocity.x < -0.1f && facingRight)
+        if (rb.velocity.x < -0.1f)
         {
-            Flip();
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+            facingRight = false;
         }
-        else if (rb.velocity.x > 0.1f && !facingRight)
+        else if (rb.velocity.x > 0.1f )
         {
-            Flip();
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            facingRight = true;
         }
     }
 
-    private void Flip()
-    {
-        facingRight = !facingRight;
-        transform.Rotate(0f, 180f, 0f);
-    }
 
-    static Quaternion LookAt2D(Vector2 forward)
-    {
-        return Quaternion.Euler(0, 0, Mathf.Atan2(forward.y, forward.x) * Mathf.Rad2Deg);
-    }
 }

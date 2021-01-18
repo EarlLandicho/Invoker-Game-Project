@@ -57,5 +57,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512193e8a3527e048897fde249e9c06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flightDuration: 10
+  flightDuration: 5
   flightSpeedFactor: 1.5

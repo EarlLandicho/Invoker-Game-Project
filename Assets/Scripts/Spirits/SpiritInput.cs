@@ -35,12 +35,12 @@ public class SpiritInput : MonoBehaviour
             SpiritsActivateButtonPressed(3);
             UpdateSpiritAnimation();
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.RightControl))
         {
             ClearSpiritsButtonPressed();
             UpdateSpiritAnimation();
         }
-        else if (Input.GetKeyDown(KeyCode.RightControl))
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             InvokeSpiritsButtonPressed();
             UpdateSpiritAnimation();

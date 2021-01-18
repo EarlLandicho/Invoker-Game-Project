@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 1896182544}
   - component: {fileID: 1896182545}
   - component: {fileID: 1896182546}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: MudGolem
   m_TagString: Untagged
   m_Icon: {fileID: 0}

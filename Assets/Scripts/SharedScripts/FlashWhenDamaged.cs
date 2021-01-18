@@ -7,6 +7,7 @@ public class FlashWhenDamaged : MonoBehaviour
     [SerializeField] private float flashTime = 0.05f;
 
     private Color color;
+
     private Color colorTemp;
 
     private void Awake()
@@ -17,13 +18,12 @@ public class FlashWhenDamaged : MonoBehaviour
     //called by IHealth objects
     public void FlashSprite()
     {
-        colorTemp = GetComponent<SpriteRenderer>().color;
         GetComponent<SpriteRenderer>().color = color;
         Invoke("ResetColor", flashTime);
     }
 
     private void ResetColor()
     {
-        GetComponent<SpriteRenderer>().color = colorTemp;
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 }

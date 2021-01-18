@@ -12,7 +12,7 @@ public class GroundSlamDownDash : MonoBehaviour
     {
         playerRigidBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
 
-        playerRigidBody.AddForce(new Vector2(0, -forceY));
+        playerRigidBody.AddForce(new Vector2(0, forceY));
 
     }
 

@@ -21,7 +21,8 @@ public class MudGolem : MonoBehaviour
 
     void Update()
     {
-        if(rigidBody.velocity.y == 0)
+        //check if golem is not moveing in the y direction with as small margin of error (between -.1 and .1)
+        if(rigidBody.velocity.y > -0.1f && rigidBody.velocity.y < 0.1f)
         {
             if(playerTranform.position.x - transform.position.x > stopDistance + .1f && canMove)
             {
@@ -37,6 +38,7 @@ public class MudGolem : MonoBehaviour
             }
 
         }
+        Debug.Log(rigidBody.velocity.y);
     }
 
     public void SetCanMove(bool canMove)

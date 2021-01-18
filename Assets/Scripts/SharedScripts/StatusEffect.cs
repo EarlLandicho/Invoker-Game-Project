@@ -308,7 +308,6 @@ public class StatusEffect : MonoBehaviour
 
         yield return new WaitForSeconds(Constants.OilDuration);
 
-        Debug.Log("coro");
         if (GetComponent<IJump>() != null)
         {
             jump.SetJumpHeightToDefault();
