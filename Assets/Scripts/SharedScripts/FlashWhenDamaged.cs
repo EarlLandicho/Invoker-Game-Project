@@ -4,8 +4,6 @@
 [RequireComponent(typeof(SpriteRenderer))]
 public class FlashWhenDamaged : MonoBehaviour
 {
-    [SerializeField] private float flashTime = 0.05f;
-
     private Color color;
 
     private Color colorTemp;
@@ -19,7 +17,7 @@ public class FlashWhenDamaged : MonoBehaviour
     public void FlashSprite()
     {
         GetComponent<SpriteRenderer>().color = color;
-        Invoke("ResetColor", flashTime);
+        Invoke("ResetColor", Constants.flashDuration);
     }
 
     private void ResetColor()

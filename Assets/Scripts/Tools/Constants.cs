@@ -17,5 +17,7 @@
 
     public const float HealTickPerSecond = .1f;
 
+    public const float flashDuration = 0.05f;
+
 
 }
