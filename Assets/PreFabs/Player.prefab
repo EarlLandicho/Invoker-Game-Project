@@ -217,7 +217,7 @@ MonoBehaviour:
   jumpHeight: 3.5
   groundLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 131328
 --- !u!114 &2248502101010824963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5826de5a50d8e8e4fa07420910a04073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashTime: 0.1
 --- !u!114 &9078203397812808279
 MonoBehaviour:
   m_ObjectHideFlags: 0

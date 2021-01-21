@@ -32,21 +32,18 @@ public class DemonKnightMovement : EnemyMovement
 
     void FixedUpdate()
     {
-        JumpAbleCheck();
+        TurnWhenAboutToFallCheck();
     }
 
     private void MovementCheck()
     {
-        
-        if (PlayerIsFacingRight())
+        if (PlayerIsOnTheRight())
         {
             willGoRight = true;
-
         }
         else
         {
             willGoRight = false;
-
         }
     }
 
@@ -67,7 +64,7 @@ public class DemonKnightMovement : EnemyMovement
     }
 
     //Will turn when wall is hit
-    private void OnCollisionEnter2D(Collision2D collision)
+    public override void OnCollisionEnter2D(Collision2D collision)
     {
         Collider2D collider = collision.collider;
 
@@ -86,7 +83,7 @@ public class DemonKnightMovement : EnemyMovement
     }
 
     //Will turn when about to fall
-    private void JumpAbleCheck()
+    private void TurnWhenAboutToFallCheck()
     {
         if (!(Physics2D.OverlapCircle(new Vector2(cliffCheckRight.position.x, cliffCheckRight.position.y), 0.05f, 1 << LayerMask.NameToLayer("Ground"))
             || Physics2D.OverlapCircle(new Vector2(cliffCheckRight.position.x, cliffCheckRight.position.y), 0.05f, 1 << LayerMask.NameToLayer("Ledge"))))

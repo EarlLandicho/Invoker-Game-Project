@@ -37,7 +37,7 @@ public class DemonKnightAttack : EnemyAttack
         yield return new WaitForSeconds(attackDelay);
         currentProjectile = Instantiate(projectile, transform.position, transform.rotation);
         currentProjectile.GetComponent<EnemyProjectile>().SetDamage(damage);
-        currentProjectile.GetComponent<EnemyProjectile>().SetPlayerDirection(GetNormalizedDirectionToPlayer2D());
+        currentProjectile.GetComponent<EnemyProjectile>().SetPlayerDirection(ExtensionMethods.GetNormalizedDirectionToPlayer2D(gameObject));
         currentProjectile.GetComponent<EnemyProjectile>().Launch();
         attackSpeedTemp = attackSpeed;
         isBeingDelayed = false;

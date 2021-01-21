@@ -100,7 +100,7 @@ public class SpellCooldownDisplay : MonoBehaviour
 
         if (spiritCast.GetSL_isOffCooldown())
         {
-            SL_cooldownText.text = "SL\tMud Golem";
+            SL_cooldownText.text = "SL\tGround Slam";
         }
         else
         {
@@ -127,7 +127,7 @@ public class SpellCooldownDisplay : MonoBehaviour
 
         if (spiritCast.GetSSS_isOffCooldown())
         {
-            SSS_cooldownText.text = "SSS\tGround Slam";
+            SSS_cooldownText.text = "SSS\tMud Golem";
         }
         else
         {

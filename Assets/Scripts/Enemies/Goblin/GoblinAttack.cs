@@ -3,117 +3,49 @@ using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class GoblinAttack : MonoBehaviour, IEnemyAttack
+public class GoblinAttack : EnemyAttack
 {
-    [SerializeField] private float damage = 0;
-    [SerializeField] private float attackDelay = 1;
-    private BoxCollider2D boxCollider;
-    private EnemyPatrol enemyPatrol;
-    private Rigidbody2D rb;
-    private bool isFacingRight = true;
-    private bool readyToAttack;
-    private bool playerInSight;
+    [SerializeField] private float attackDelay;
+    private GameObject currentProjectile;
+    private GoblinMovement goblinMovement;
+    private bool isBeingDelayed;
 
-    private void Awake()
+    new void Awake()
     {
-        boxCollider = transform.Find("EnemyAttackRange").GetComponent<BoxCollider2D>();
-        rb = GetComponent<Rigidbody2D>();
-        if (GetComponent<EnemyPatrol>() != null)
+        base.Awake();
+        goblinMovement = GetComponent<GoblinMovement>();
+
+    }
+
+    void Update()
+    {
+        if (attackSpeedTemp > 0)
         {
-            enemyPatrol = GetComponent<EnemyPatrol>();
+            attackSpeedTemp -= Time.deltaTime;
         }
-    }
-
-    private void Update()
-    {
-        //keeps attacking when player stays in line of sight
-        if (playerInSight && readyToAttack)
+        else if (!isBeingDelayed)
         {
-            readyToAttack = false;
-            StartCoroutine("MeleeAttack");
+            StartCoroutine("DelayAttack");
+
         }
-    }
-
-    public void SetLockAttack(bool isLocked)
-    {
 
     }
 
-    //only called once upon enter
-    public void Attack(GameObject player)
+    private IEnumerator DelayAttack()
     {
-        playerInSight = true;
-        readyToAttack = true;
-        OffSetCheck();
-        StopHere();
-        DisablePatrol();
-    }
+        isBeingDelayed = true;
+        goblinMovement.SetLockXMovement(true);
 
-    public void OutOfAttackRange()
-    {
-        playerInSight = false;
-        EnablePatrol();
-    }
-
-    private IEnumerator MeleeAttack()
-    {
         yield return new WaitForSeconds(attackDelay);
-        Vector2 boxColliderPosition;
-        //gives the correct offset to the overlapbox. Compensates for the turning of the sprite
-        if (isFacingRight)
-        {
-            boxColliderPosition = (Vector2)transform.position + boxCollider.offset;
-        }
-        else
-        {
-            boxColliderPosition = (Vector2)transform.position - boxCollider.offset;
-        }
+        currentProjectile = Instantiate(projectile, transform.position, transform.rotation);
+        currentProjectile.GetComponent<EnemyProjectile>().SetDamage(damage);
+        currentProjectile.GetComponent<EnemyProjectile>().SetPlayerDirection(ExtensionMethods.GetNormalizedDirectionToPlayer2D(gameObject));
+        currentProjectile.GetComponent<EnemyProjectile>().Launch();
+        attackSpeedTemp = attackSpeed;
+        isBeingDelayed = false;
+        goblinMovement.SetLockXMovement(false);
 
-        Collider2D player = Physics2D.OverlapBox(boxColliderPosition, boxCollider.size, 0, 1 << LayerMask.NameToLayer("Player"));
-        if (player != null)
-        {
-            player.gameObject.GetComponent<IHealth>().TakeDamage(damage);
-        }
-
-        //enemy is ready to attack again
-        readyToAttack = true;
     }
 
-    private void OffSetCheck()
-    {
-        if (GetComponent<Rigidbody2D>().velocity.x > 0.1f)
-        {
-            isFacingRight = true;
-        }
-        else if (GetComponent<Rigidbody2D>().velocity.x < -0.1f)
-        {
-            isFacingRight = false;
-        }
-    }
 
-    private void DisablePatrol()
-    {
-        if (enemyPatrol != null)
-        {
-            enemyPatrol.enabled = false;
-        }
-    }
-
-    private void EnablePatrol()
-    {
-        if (enemyPatrol != null)
-        {
-            enemyPatrol.enabled = true;
-        }
-    }
-
-    private void StopHere()
-    {
-        rb.velocity = new Vector2(0, rb.velocity.y);
-    }
-
-    //private void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.DrawCube(boxCollider.offset + (Vector2)transform.position, boxCollider.size);
-    //}
 }

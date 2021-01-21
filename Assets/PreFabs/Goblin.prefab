@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 1018608147}
   - component: {fileID: 851594698}
   - component: {fileID: 1407413021602689195}
+  - component: {fileID: 7211907229748224084}
   m_Layer: 11
   m_Name: Goblin
   m_TagString: Untagged
@@ -38,8 +39,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.38398385, y: 0.488706, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8649587910445299923}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -135,11 +135,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &851594687
 Animator:
@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0.5
+  isFlying: 0
 --- !u!114 &8329858675617243936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +212,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd2ce27c65df544184c0dfc0a35664e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 7423823298545190557, guid: eb1068f8c2c3fbb468ea00b4268caed1, type: 3}
   damage: 20
+  attackSpeed: 1
   attackDelay: 1
 --- !u!114 &1018608140
 MonoBehaviour:
@@ -225,7 +228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5826de5a50d8e8e4fa07420910a04073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashTime: 0.1
 --- !u!114 &1018608147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,73 +265,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cdef96be038944abd92754cdc9fb51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &7504956758710111717
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8649587910445299923}
-  - component: {fileID: 304829951124292636}
-  - component: {fileID: 595648929}
-  m_Layer: 0
-  m_Name: EnemyAttackRange
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8649587910445299923
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7504956758710111717}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5675175957052826811}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &304829951124292636
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7504956758710111717}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.09, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.15784308, y: 0.17290092}
-  m_EdgeRadius: 0
---- !u!114 &595648929
+  isImmuneToBurning: 0
+  isImmuneToPoison: 0
+  isImmuneToOil: 0
+  isImmuneToStun: 0
+--- !u!114 &7211907229748224084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7504956758710111717}
+  m_GameObject: {fileID: 5736262531107413476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a1ef016c7342f14fb0f86008ef6e5f1, type: 3}
+  m_Script: {fileID: 11500000, guid: ed043f1a237460948b05ab7e77b0e64f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.3
+  isFlying: 1

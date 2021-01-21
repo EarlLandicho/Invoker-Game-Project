@@ -150,10 +150,10 @@ MonoBehaviour:
   SS_spell: {fileID: 3610349487345982447, guid: bd6ae63846de89a4a8dd6011b4289cf5, type: 3}
   LL_spell: {fileID: 9200465490575176053, guid: 9caf975faf4e1ea4aae9a8a9a030b562, type: 3}
   GG_spell: {fileID: 300630622656980421, guid: 42ba32610d7e3f8489a803489c3e2577, type: 3}
-  SL_spell: {fileID: 8189821867304606167, guid: b8794ffe0f9bde542954e67d606a6299, type: 3}
+  SL_spell: {fileID: 6398027715066408673, guid: 15916acaa6ff6434e90c6ed7d69d90c0, type: 3}
   SG_spell: {fileID: 318463690089602158, guid: e4cadb19ccc46ce4286c90635e509195, type: 3}
   LG_spell: {fileID: 8125049034846988064, guid: 4d4179f14130f8b4785f885ae1c66d4c, type: 3}
-  SSS_spell: {fileID: 6398027715066408673, guid: 15916acaa6ff6434e90c6ed7d69d90c0, type: 3}
+  SSS_spell: {fileID: 8189821867304606167, guid: b8794ffe0f9bde542954e67d606a6299, type: 3}
   LLL_spell: {fileID: 8991311324295037006, guid: dd4a7fc482f44f14dac521668290fc58, type: 3}
   GGG_spell: {fileID: 5505930430290055758, guid: 4f3f879986500d74d85f08bcc053c63e, type: 3}
   SSL_spell: {fileID: 1298435506902785049, guid: e806e338f8dce0848b0ae85fbb34599c, type: 3}

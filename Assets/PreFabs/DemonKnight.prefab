@@ -47,9 +47,9 @@ GameObject:
   - component: {fileID: 800796972614611613}
   - component: {fileID: 5168592765086380275}
   - component: {fileID: 215690272}
-  - component: {fileID: 3342519022350517423}
   - component: {fileID: -630281413472055594}
   - component: {fileID: 7142374496556892250}
+  - component: {fileID: 8770829589468373705}
   m_Layer: 11
   m_Name: DemonKnight
   m_TagString: Untagged
@@ -231,19 +231,6 @@ MonoBehaviour:
   isImmuneToPoison: 0
   isImmuneToOil: 0
   isImmuneToStun: 0
---- !u!114 &3342519022350517423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9161466271623932687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d4abac11ffe19945896f60f64b561b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
 --- !u!114 &-630281413472055594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,3 +261,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1
   cliffCheckRight: {fileID: 4058555148081720161}
+--- !u!114 &8770829589468373705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9161466271623932687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ff7f4348f44ad4c8f8b09f799d1e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
