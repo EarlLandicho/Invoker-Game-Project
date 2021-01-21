@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 4945264610498500369}
   - component: {fileID: 2431412808034656460}
   - component: {fileID: 6717849925190451039}
-  - component: {fileID: 8047350490701011096}
-  - component: {fileID: 5511449303794264549}
+  - component: {fileID: -5448445388953057601}
   m_Layer: 14
-  m_Name: DemonKnightAttack
+  m_Name: EnemyProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +122,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.03
---- !u!114 &8047350490701011096
+--- !u!114 &-5448445388953057601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,19 +131,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7423823298545190557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 441bf748911a1d0498c46c9025e55b67, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e453b6c51e3cdb4fb7fbd68ebdecf81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
---- !u!114 &5511449303794264549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7423823298545190557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a531e534f765974db6a56d94d29d126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  projectileSpeed: 1

@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour, IMovement
 
     protected Rigidbody2D rb;
 
-    private void Awake()
+    protected void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
 

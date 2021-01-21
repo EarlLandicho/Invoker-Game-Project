@@ -38,7 +38,6 @@ public class MudGolem : MonoBehaviour
             }
 
         }
-        Debug.Log(rigidBody.velocity.y);
     }
 
     public void SetCanMove(bool canMove)

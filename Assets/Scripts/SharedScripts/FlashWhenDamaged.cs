@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
 
-//Hitting object must be layered as "Attack". Must also be a Trigger
 [RequireComponent(typeof(SpriteRenderer))]
 public class FlashWhenDamaged : MonoBehaviour
 {
     private Color color;
-
-    private Color colorTemp;
 
     private void Awake()
     {

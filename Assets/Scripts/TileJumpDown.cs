@@ -23,7 +23,7 @@ public class TileJumpDown : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.S))
         {
-            effector.rotationalOffset = 180f;
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Ledge"));
 
         }
         else if(Input.GetKeyUp(KeyCode.S))
@@ -42,12 +42,11 @@ public class TileJumpDown : MonoBehaviour
             else
             {
                 reverseCollisionTimerTemp = reverseCollisionTimer;
-                effector.rotationalOffset = 0f;
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Ledge"), false);
                 reverseDelay = false;
 
             }
         }
-        
     }
 
 

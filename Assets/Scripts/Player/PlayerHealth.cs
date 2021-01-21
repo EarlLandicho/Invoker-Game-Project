@@ -7,16 +7,6 @@ public class PlayerHealth : Health
 
     public event Action IsDead = delegate { };
 
-    private void Start()
-    {
-        //if (SceneManager.GetActiveScene().buildIndex == 1)
-        //{
-        //    currentHealth = maxHealth;
-        //}
-
-        currentHealth = maxHealth;
-    }
-
     public override void TakeDamage(float damage, bool isStatusEffectDamage = false)
     {
         if (!isInvulnerable)
@@ -39,11 +29,6 @@ public class PlayerHealth : Health
             Die();
             IsDead();
         }
-    }
-
-    public override void SetIsInvulnerable(bool isInvulnerable)
-    {
-        this.isInvulnerable = isInvulnerable;
     }
 
     public void SetGodModeHealth(bool isGodMode)

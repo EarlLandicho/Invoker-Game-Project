@@ -305,13 +305,13 @@ public class StatusEffect : MonoBehaviour
             jump.SetJumpHeightByFactor(Constants.OilJumpHeightDecreseFactor);
         }
         
-
         yield return new WaitForSeconds(Constants.OilDuration);
+
+        movement.SetMovementSpeedByFactor(Constants.OilMovementDecreseFactor, false);
 
         if (GetComponent<IJump>() != null)
         {
             jump.SetJumpHeightToDefault();
-            movement.SetMovementSpeedByFactor(Constants.OilMovementDecreseFactor, false);
         }
         
         isOiled = false;
