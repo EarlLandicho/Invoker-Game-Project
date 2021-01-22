@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 8029714952124271714}
   - component: {fileID: 5717528476901266364}
   - component: {fileID: 1847538446716090727}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: BoulderAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
