@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae6cc2b476e86c5478d79f7c1be54e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 50
   delayTime: 1
   centerOffSet: {x: 0, y: -0.15}
   size: {x: 0.37, y: 0.68}

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
+[RequireComponent(typeof(CompositeCollider2D))]
 public class TileJumpDown : MonoBehaviour
 {
 
-    private PlatformEffector2D effector;
+    private CompositeCollider2D compositeCollider;
     private float reverseCollisionTimer = .1f;
 
     private float reverseCollisionTimerTemp;
@@ -15,7 +15,7 @@ public class TileJumpDown : MonoBehaviour
 
     void Awake()
     {
-        effector = GetComponent<PlatformEffector2D>();
+        compositeCollider = GetComponent<CompositeCollider2D>();
         reverseCollisionTimerTemp = reverseCollisionTimer;
     }
 
@@ -24,6 +24,7 @@ public class TileJumpDown : MonoBehaviour
         if(Input.GetKey(KeyCode.S))
         {
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Ledge"));
+            compositeCollider.usedByEffector = false;
 
         }
         else if(Input.GetKeyUp(KeyCode.S))
@@ -43,6 +44,7 @@ public class TileJumpDown : MonoBehaviour
             {
                 reverseCollisionTimerTemp = reverseCollisionTimer;
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Ledge"), false);
+                compositeCollider.usedByEffector = true;
                 reverseDelay = false;
 
             }

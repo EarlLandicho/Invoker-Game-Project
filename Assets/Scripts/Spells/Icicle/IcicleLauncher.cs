@@ -31,7 +31,7 @@ public class IcicleLauncher : MonoBehaviour
     {
         numberOfProjectiles--;
 
-        Instantiate(icicleProjetile, transform.position + new Vector3(Random.Range(-randomLaunchPositionRadius, randomLaunchPositionRadius) + 0.1f, Random.Range(-randomLaunchPositionRadius, randomLaunchPositionRadius) + 0.1f), transform.rotation).GetComponent<IcicleLaunch>().Launch(angle);
+        Instantiate(icicleProjetile, transform.position + new Vector3(Random.Range(-randomLaunchPositionRadius, randomLaunchPositionRadius), Random.Range(-randomLaunchPositionRadius, randomLaunchPositionRadius) + 0.1f), transform.rotation).GetComponent<IcicleLaunch>().Launch(angle);
 
         if(numberOfProjectiles <= 0)
         {

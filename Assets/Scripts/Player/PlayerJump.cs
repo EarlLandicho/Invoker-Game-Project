@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+
 public class PlayerJump : MonoBehaviour, IJump
 {
     [SerializeField] private float jumpHeight;
@@ -55,7 +56,7 @@ public class PlayerJump : MonoBehaviour, IJump
 
     private void JumpAbleCheck()
     {
-        if (Physics2D.OverlapCircle(new Vector2(groundCheck.position.x, groundCheck.position.y), 0.05f, groundLayer))
+        if (Physics2D.OverlapCircle(groundCheck.position, 0.05f, groundLayer))
         {
             isGrounded = true;
         }
@@ -72,4 +73,11 @@ public class PlayerJump : MonoBehaviour, IJump
             Jump();
         }
     }
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawWireSphere(groundCheck.position, 0.05f);
+    //}
+
+
 }
