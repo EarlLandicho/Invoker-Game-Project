@@ -32,7 +32,6 @@ public class Bubble : MonoBehaviour
         
 
         playerStatusEffect.BecomeStatusEffectImmune(bubbleDuration);
-        playerStatusEffect.Dispel();
         playerStatusEffect.BecomeBubbled(movementSpeedFactor, bubbleDuration);
 
         bubbleDurationTemp = bubbleDuration;

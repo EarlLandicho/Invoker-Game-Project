@@ -17,7 +17,8 @@ public class DemonKnightMovement : EnemyMovement
 
     void Update()
     {
-        if(!isXMovementSpeedLocked)
+        
+        if (!isXMovementSpeedLocked)
         {
             if(willGoRight)
             {
@@ -74,8 +75,9 @@ public class DemonKnightMovement : EnemyMovement
             Vector3 center = collider.bounds.center;
 
             bool top = contactPoint.y > center.y;
+            bool right = contactPoint.x > center.x;
 
-            if(!top)
+            if (!top && !right)
             {
                 willGoRight = !willGoRight;
             }
@@ -90,6 +92,11 @@ public class DemonKnightMovement : EnemyMovement
         { 
             willGoRight = !willGoRight;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(cliffCheckRight.position, 0.05f);
     }
 
 }

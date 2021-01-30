@@ -99,3 +99,6 @@ MonoBehaviour:
   delayTime: 1
   centerOffSet: {x: 0, y: -0.15}
   size: {x: 0.37, y: 0.68}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 131328

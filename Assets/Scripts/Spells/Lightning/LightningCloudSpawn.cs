@@ -7,11 +7,13 @@ public class LightningCloudSpawn : MonoBehaviour
     [SerializeField] private float delayTime = 0;
     [SerializeField] private Vector2 centerOffSet = new Vector2(0, 0);
     [SerializeField] private Vector2 size = new Vector2(0, 0);
+    [SerializeField] private LayerMask layerMask;
+    
 
     private void Start()
     {
         float yOffSet = .45f;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 500f, LayerMask.GetMask("Ground"));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 500f, layerMask);
         transform.position = hit.point + new Vector2(0, yOffSet);
 
 

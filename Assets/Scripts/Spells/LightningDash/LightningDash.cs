@@ -33,7 +33,7 @@ public class LightningDash : MonoBehaviour
             wallImpactCushion = -wallImpactCushion;
         }
 
-        RaycastHit2D hit = Physics2D.CircleCast(startingPosition, .1f,
+        RaycastHit2D hit = Physics2D.CircleCast(startingPosition, .01f,
             movementFlip.GetIsFacingRight() ? playerTransform.transform.right : -playerTransform.transform.right,
             dashDistance, 1 << LayerMask.NameToLayer("Ground"));
 

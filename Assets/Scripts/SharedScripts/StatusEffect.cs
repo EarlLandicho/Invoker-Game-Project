@@ -189,12 +189,14 @@ public class StatusEffect : MonoBehaviour
         isPoisoned = false;
         CancelInvoke("Poison");
 
+
+        isOiled = false;
+        StopCoroutine("Oil");
+
         //sets movementSppedModiier to 1
         movement.SetMovementSpeedModifierToDefault();
         jump.SetJumpHeightToDefault();
-        isOiled = false;
-        StopCoroutine("Oil");
-        
+
 
         if (GetComponent<IJump>() != null)
         {
@@ -320,10 +322,6 @@ public class StatusEffect : MonoBehaviour
     private IEnumerator Stun()
     {
         isStunned = true;
-        if (GetComponent<IEnemyAttack>() != null)
-        {
-            enemyAttack.SetLockAttack(true);
-        }
         if (GetComponent<IJump>() != null)
         {
             jump.SetLockJump(true);
@@ -333,10 +331,6 @@ public class StatusEffect : MonoBehaviour
 
         yield return new WaitForSeconds(Constants.StunDuration);
 
-        if (GetComponent<IEnemyAttack>() != null)
-        {
-            enemyAttack.SetLockAttack(false);
-        }
         if (GetComponent<IJump>() != null)
         {
             jump.SetLockJump(false);

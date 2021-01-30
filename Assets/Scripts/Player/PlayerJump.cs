@@ -22,6 +22,7 @@ public class PlayerJump : MonoBehaviour, IJump
     private void FixedUpdate()
     {
         JumpAbleCheck();
+
     }
 
     private void Update()
@@ -56,9 +57,10 @@ public class PlayerJump : MonoBehaviour, IJump
 
     private void JumpAbleCheck()
     {
-        if (Physics2D.OverlapCircle(groundCheck.position, 0.05f, groundLayer))
+        if (Physics2D.OverlapCircle(groundCheck.position, 0.05f, groundLayer) && rb.velocity.y <= 0.01f && !Input.GetKey(KeyCode.S))
         {
             isGrounded = true;
+            
         }
         else
         {
