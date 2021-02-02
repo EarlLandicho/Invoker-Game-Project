@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(IMovement))]
-public class EnemyAttack : MonoBehaviour
+public class EnemyAttack : MonoBehaviour, IEnemyAttack
 {
     [SerializeField] protected GameObject projectile;
     [SerializeField] protected float damage;
@@ -11,6 +10,12 @@ public class EnemyAttack : MonoBehaviour
 
     protected float attackSpeedTemp;
     protected GameObject playerObject;
+    protected bool isStunned;
+
+    public  virtual void SetStun(bool isStunned)
+    {
+
+    }
 
     protected void Awake()
     {
@@ -22,6 +27,7 @@ public class EnemyAttack : MonoBehaviour
     {
         return (playerObject.transform.position - transform.position).normalized;
     }
+
 
  
 

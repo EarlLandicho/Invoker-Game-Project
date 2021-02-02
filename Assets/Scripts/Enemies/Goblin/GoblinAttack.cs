@@ -19,16 +19,30 @@ public class GoblinAttack : EnemyAttack
 
     void Update()
     {
-        if (attackSpeedTemp > 0)
+        if (attackSpeedTemp > 0 && !isStunned)
         {
             attackSpeedTemp -= Time.deltaTime;
         }
-        else if (!isBeingDelayed)
+        else if (!isBeingDelayed && attackSpeedTemp <= 0)
         {
             StartCoroutine("DelayAttack");
 
         }
 
+    }
+
+    public override void SetStun(bool isStunned)
+    {
+        this.isStunned = isStunned;
+        if (isStunned)
+        {
+            StopAllCoroutines();
+            attackSpeedTemp = attackSpeed;
+        }
+        else
+        {
+            StartCoroutine("DelayAttack");
+        }
     }
 
     private IEnumerator DelayAttack()

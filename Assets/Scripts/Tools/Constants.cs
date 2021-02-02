@@ -13,7 +13,7 @@
     public const float OilJumpHeightDecreseFactor = .9f;
     public const float OilDuration = 3f;
 
-    public const float StunDuration = 1f;
+    public const float StunDuration = 2f;
 
     public const float HealTickPerSecond = .1f;
 

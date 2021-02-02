@@ -210,7 +210,7 @@ public class StatusEffect : MonoBehaviour
 
         if (GetComponent<IEnemyAttack>() != null)
         {
-            enemyAttack.SetLockAttack(false);
+            enemyAttack.SetStun(true);
         }
         if (GetComponent<IJump>() != null)
         {
@@ -327,6 +327,11 @@ public class StatusEffect : MonoBehaviour
             jump.SetLockJump(true);
 
         }
+
+        if (GetComponent<IEnemyAttack>() != null)
+        {
+            enemyAttack.SetStun(true);
+        }
         movement.SetLockXMovement(true);
 
         yield return new WaitForSeconds(Constants.StunDuration);
@@ -335,6 +340,11 @@ public class StatusEffect : MonoBehaviour
         {
             jump.SetLockJump(false);
 
+        }
+
+        if (GetComponent<IEnemyAttack>() != null)
+        {
+            enemyAttack.SetStun(false);
         }
         movement.SetLockXMovement(false);
 

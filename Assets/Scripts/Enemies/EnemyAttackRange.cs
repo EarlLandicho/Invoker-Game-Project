@@ -8,7 +8,7 @@ public class EnemyAttackRange : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            transform.parent.GetComponent<IEnemyAttack>().Attack(collider.gameObject);
+            //transform.parent.GetComponent<IEnemyAttack>().Attack(collider.gameObject);
         }
     }
 
@@ -16,7 +16,7 @@ public class EnemyAttackRange : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            transform.parent.GetComponent<IEnemyAttack>().OutOfAttackRange();
+            //transform.parent.GetComponent<IEnemyAttack>().OutOfAttackRange();
         }
     }
 }
