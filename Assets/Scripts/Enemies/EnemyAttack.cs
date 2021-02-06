@@ -12,9 +12,9 @@ public class EnemyAttack : MonoBehaviour, IEnemyAttack
     protected GameObject playerObject;
     protected bool isStunned;
 
-    public  virtual void SetLockAttack(bool isStunned)
+    public virtual void SetLockAttack(bool isStunned)
     {
-
+        this.isStunned = isStunned;
     }
 
     protected void Awake()

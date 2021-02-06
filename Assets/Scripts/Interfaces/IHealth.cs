@@ -8,7 +8,7 @@
 
     float GetDamageModifier();
 
-    void SetDamageModifier(float damageModifier);
+    void SetDamageModifierByFactor(float damageModifier, bool isSetting);
 
 
 }

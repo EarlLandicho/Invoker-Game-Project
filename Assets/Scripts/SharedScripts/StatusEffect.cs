@@ -353,11 +353,11 @@ public class StatusEffect : MonoBehaviour
 
     private IEnumerator Armor()
     {
-        health.SetDamageModifier(health.GetDamageModifier() * armorDamageModifier);
+        health.SetDamageModifierByFactor(armorDamageModifier, true);
 
         yield return new WaitForSeconds(armorDuration);
 
-        health.SetDamageModifier(health.GetDamageModifier() / armorDamageModifier);
+        health.SetDamageModifierByFactor(armorDamageModifier, false);
     }
 
     private IEnumerator Bubble()

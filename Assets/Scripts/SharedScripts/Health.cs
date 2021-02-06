@@ -60,9 +60,19 @@ public class Health : MonoBehaviour, IHealth
         return damageModifier;
     }
 
-    public virtual void SetDamageModifier(float damageModifier)
+    public virtual void SetDamageModifierByFactor(float factor, bool isSetting)
     {
-        this.damageModifier = damageModifier;
+        if (isSetting)
+        {
+            damageModifier *= factor;
+            Debug.Log("damage modifier set to" + damageModifier);
+
+        }
+        else
+        {
+            damageModifier /= factor;
+            Debug.Log("damage modifier reset to " + damageModifier);
+        }
     }
 
     protected virtual void FlashWhenDamaged()

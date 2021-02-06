@@ -79,7 +79,8 @@ public class DemonKnightMovement : EnemyMovement
 
             if (!top && !right)
             {
-                willGoRight = !willGoRight;
+                Debug.Log("check2");
+                //willGoRight = !willGoRight;
             }
         }
     }

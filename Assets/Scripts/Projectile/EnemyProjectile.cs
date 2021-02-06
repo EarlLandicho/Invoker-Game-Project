@@ -5,14 +5,19 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyProjectile : MonoBehaviour
 {
-    [SerializeField] private float projectileSpeed;
-    protected float damage;
-    protected Vector2 playerDirection;
+    private float projectileSpeed;
+    private float damage;
+    private Vector2 playerDirection;
+    private Animator animator;
+
+
+
     protected Rigidbody2D projectileRigidbody;
 
-    protected void Awake()
+    private void Awake()
     {
         projectileRigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
 
@@ -26,23 +31,43 @@ public class EnemyProjectile : MonoBehaviour
         this.playerDirection = playerDirection;
     }
 
+    public void SetProjectileSpeed(float projectileSpeed)
+    {
+        this.projectileSpeed = projectileSpeed;
+    }
+
     public void Launch()
     {
         projectileRigidbody.velocity = projectileSpeed * playerDirection;
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D collider)
+
+    // Called by animator
+    public void DestroyThisObject()
+    {
+        Destroy(gameObject);
+    }
+
+    // Called by animator
+    public void StopMovement()
+    {
+        projectileRigidbody.velocity = new Vector2(0, 0);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.gameObject.layer == LayerMask.NameToLayer("Player") ||
             collider.gameObject.layer == LayerMask.NameToLayer("Ally"))
         {
             collider.GetComponent<IHealth>().TakeDamage(damage);
-            Destroy(gameObject);
+            animator.SetTrigger("hasHitSomething");
         }
         else if(collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            Destroy(gameObject);
+            animator.SetTrigger("hasHitSomething");
         }
     }
+
+
 
 }
