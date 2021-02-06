@@ -2,6 +2,6 @@
 
 public interface IEnemyAttack
 {
-    void SetStun(bool isStunned);
+    void SetLockAttack(bool isStunned);
 
 }

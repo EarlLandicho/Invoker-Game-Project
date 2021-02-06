@@ -31,7 +31,7 @@ public class GoblinAttack : EnemyAttack
 
     }
 
-    public override void SetStun(bool isStunned)
+    public override void SetLockAttack(bool isStunned)
     {
         this.isStunned = isStunned;
         if (isStunned)

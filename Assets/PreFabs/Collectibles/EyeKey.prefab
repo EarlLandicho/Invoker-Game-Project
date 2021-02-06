@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2056020464374699823}
   - component: {fileID: 5156475272003606735}
   - component: {fileID: 5699002824170409917}
+  - component: {fileID: 5172138899839465820}
   m_Layer: 0
   m_Name: EyeKey
   m_TagString: Untagged
@@ -102,3 +103,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &5172138899839465820
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4706963574872063728}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.005489275, y: -0.005031824}
+  m_Size: {x: 0.087620884, y: 0.154407}
+  m_Direction: 0

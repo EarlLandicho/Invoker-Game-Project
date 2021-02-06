@@ -12,7 +12,7 @@ public class EnemyAttack : MonoBehaviour, IEnemyAttack
     protected GameObject playerObject;
     protected bool isStunned;
 
-    public  virtual void SetStun(bool isStunned)
+    public  virtual void SetLockAttack(bool isStunned)
     {
 
     }
