@@ -13,6 +13,11 @@ GameObject:
   - component: {fileID: 108213683681893762}
   - component: {fileID: 1066322474}
   - component: {fileID: 1066322473}
+  - component: {fileID: 1066322475}
+  - component: {fileID: 1066322476}
+  - component: {fileID: 1066322477}
+  - component: {fileID: 1066322478}
+  - component: {fileID: 4615832539049297668}
   m_Layer: 11
   m_Name: KamikazeeGhost
   m_TagString: Untagged
@@ -141,3 +146,73 @@ CapsuleCollider2D:
   m_Offset: {x: 0.012167283, y: -0.0060836137}
   m_Size: {x: 0.19528578, y: 0.121268354}
   m_Direction: 1
+--- !u!114 &1066322475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108213683681893775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ff7f4348f44ad4c8f8b09f799d1e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+--- !u!114 &1066322476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108213683681893775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45cdef96be038944abd92754cdc9fb51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isImmuneToBurning: 0
+  isImmuneToPoison: 0
+  isImmuneToOil: 0
+  isImmuneToStun: 0
+--- !u!114 &1066322477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108213683681893775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5826de5a50d8e8e4fa07420910a04073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1066322478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108213683681893775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec82347317717347bd12756c4c72463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 0
+  isFlying: 0
+--- !u!114 &4615832539049297668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108213683681893775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635059b97bfbdf14d9e8bedfc7c6ad9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 0}
+  damage: 0
+  attackSpeed: 0

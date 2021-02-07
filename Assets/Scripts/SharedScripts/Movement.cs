@@ -14,11 +14,12 @@ public class Movement : MonoBehaviour, IMovement
 
     protected Rigidbody2D rb;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
 
         movementSpeedTemp = movementSpeed;
+
     }
 
     public virtual float GetMovementSpeed()

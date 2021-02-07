@@ -6,12 +6,12 @@ public class EnemyMovement : Movement
     [SerializeField] protected bool isFlying;
     protected GameObject playerObject;
 
-    protected new void Awake()
+    protected bool movementIsPaused;
+
+    protected override void Awake()
     {
         base.Awake();
         playerObject = GameObject.Find("Player");
-
-        
 
     }
 
@@ -37,6 +37,19 @@ public class EnemyMovement : Movement
         return true;
     }
 
+
+    // Called in Animator
+    public void PauseMovement()
+    {
+        movementIsPaused = true;
+        rb.velocity = new Vector2(0, rb.velocity.y);
+    }
+
+    // Called in Animator
+    public void UnpauseMovement()
+    {
+        movementIsPaused = false;
+    }
 
 
 
