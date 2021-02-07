@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingleProjectileAttack : EnemyAttack
+public class ProjectileAttack : EnemyAttack
 {
-    [SerializeField] private Transform projectileLaunchPosition;
-    [SerializeField] private float projectileSpeed;
+    [SerializeField] protected Transform projectileLaunchPosition;
+    [SerializeField] protected float projectileSpeed;
 
 
-    private GameObject currentProjectile;
+    protected GameObject currentProjectile;
 
-    private EnemyMovement enemyMovement;
-    private Animator animator;
-    private bool isAttacking;
+    protected EnemyMovement enemyMovement;
+    protected Animator animator;
+    protected bool isAttacking;
 
     new void Awake()
     {
@@ -45,7 +45,7 @@ public class SingleProjectileAttack : EnemyAttack
     }
 
     // Called in Animator
-    public void Attack()
+    public virtual void Attack()
     {
         currentProjectile = Instantiate(projectile, projectileLaunchPosition.position, transform.rotation);
         currentProjectile.GetComponent<EnemyProjectile>().SetDamage(damage);
@@ -53,5 +53,4 @@ public class SingleProjectileAttack : EnemyAttack
         currentProjectile.GetComponent<EnemyProjectile>().SetProjectileSpeed(projectileSpeed);
         currentProjectile.GetComponent<EnemyProjectile>().Launch();
     }
-
 }

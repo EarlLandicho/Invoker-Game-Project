@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &503212372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 503212373}
+  m_Layer: 11
+  m_Name: ProjectileLaunchPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &503212373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503212372}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.062, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7942827208894185435}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1590243007
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1590243008}
   m_Layer: 11
-  m_Name: CliffCheckRight (1)
+  m_Name: CliffCheckRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,6 +78,7 @@ GameObject:
   - component: {fileID: 163312800}
   - component: {fileID: 163312801}
   - component: {fileID: 3226243509519032604}
+  - component: {fileID: 2057922617}
   m_Layer: 11
   m_Name: BlueMushroomSingle
   m_TagString: Untagged
@@ -67,6 +98,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1590243008}
+  - {fileID: 503212373}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -174,8 +206,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0018708706, y: -0.026185751}
-  m_Size: {x: 0.20380926, y: 0.20380926}
+  m_Offset: {x: 0.0012745857, y: -0.026185751}
+  m_Size: {x: 0.14090061, y: 0.20380926}
   m_Direction: 0
 --- !u!114 &163312798
 MonoBehaviour:
@@ -245,3 +277,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d0f149ce5f7a1948be2c8d21158c665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2057922617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7942827208894185433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de1ff5410876f64ebd40b1eb746c876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 3700684290034660002, guid: b5f180f14f25561408690cee27f342eb, type: 3}
+  damage: 0
+  attackSpeed: 1
+  projectileLaunchPosition: {fileID: 503212373}
+  projectileSpeed: 1
