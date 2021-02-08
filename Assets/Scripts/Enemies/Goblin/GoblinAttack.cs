@@ -19,7 +19,7 @@ public class GoblinAttack : EnemyAttack
 
     void Update()
     {
-        if (attackSpeedTemp > 0 && !isStunned)
+        if (attackSpeedTemp > 0 && !isLockedAttack)
         {
             attackSpeedTemp -= Time.deltaTime;
         }
@@ -33,7 +33,7 @@ public class GoblinAttack : EnemyAttack
 
     public override void SetLockAttack(bool isStunned)
     {
-        this.isStunned = isStunned;
+        this.isLockedAttack = isStunned;
         if (isStunned)
         {
             StopAllCoroutines();

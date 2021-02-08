@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class TouchAttack : EnemyAttack
 {
-    [SerializeField] private GameObject explosion;
-    [SerializeField] private Vector2 centerOffSet = new Vector2(0, 0);
     [SerializeField] private float explosionRadius;
 
     private Animator animator;
@@ -21,8 +19,6 @@ public class TouchAttack : EnemyAttack
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        
-
         if(collider.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             animator.SetTrigger("attack");

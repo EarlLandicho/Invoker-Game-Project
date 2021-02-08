@@ -24,16 +24,36 @@ public class ProjectileAttack : EnemyAttack
 
     void Update()
     {
-        if (attackSpeedTemp > 0)
+
+        if(!isLockedAttack)
         {
-            attackSpeedTemp -= Time.deltaTime;
-        }
-        else if (attackSpeedTemp <= 0 && !isAttacking)
-        {
-            animator.SetTrigger("attack");
-            isAttacking = true;
+            if (attackSpeedTemp > 0)
+            {
+                attackSpeedTemp -= Time.deltaTime;
+            }
+            else if (attackSpeedTemp <= 0 && !isAttacking)
+            {
+                animator.SetTrigger("attack");
+                isAttacking = true;
+            }
         }
 
+
+    }
+
+    public override void SetLockAttack(bool isStunned)
+    {
+        base.SetLockAttack(isStunned);
+
+        if(!isStunned)
+        {
+            ResetAttackSpeed();
+            animator.SetBool("isStunned", false);
+        }
+        else
+        {
+            animator.SetBool("isStunned", true);
+        }
     }
 
 

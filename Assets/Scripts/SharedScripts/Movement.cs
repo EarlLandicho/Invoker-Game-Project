@@ -34,7 +34,8 @@ public class Movement : MonoBehaviour, IMovement
 
     public virtual void SetLockXMovement(bool isLocked)
     {
-        this.isXMovementSpeedLocked = isLocked;
+        
+        isXMovementSpeedLocked = isLocked;
         if (isLocked)
         {
             rb.velocity = new Vector2(0, rb.velocity.y);

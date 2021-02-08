@@ -18,7 +18,7 @@ public class StatusEffect : MonoBehaviour
     private IHealth health;
     private IMovement movement;
     private IJump jump;
-    private IEnemyAttack enemyAttack;
+    private EnemyAttack enemyAttack;
 
     private float poisonDamageAmountCounter;
     private float burningDamageAmountCounter;
@@ -43,20 +43,22 @@ public class StatusEffect : MonoBehaviour
 
     private void Awake()
     {
+       
         //when refactored, this will always refer to the gameobject it's attached to
         health = GetComponent<IHealth>();
         movement = GetComponent<IMovement>();
         
 
-        if(GetComponent<IJump>() != null)
+
+        if (GetComponent<IJump>() != null)
         {
             jump = GetComponent<IJump>();
 
         }
 
-        if(GetComponent<IEnemyAttack>() != null)
+        if(GetComponent<EnemyAttack>() != null)
         {
-            enemyAttack = GetComponent<IEnemyAttack>();
+            enemyAttack = GetComponent<EnemyAttack>();
         }
 
         isImmuneToBurningTemp = isImmuneToBurning;
@@ -328,7 +330,7 @@ public class StatusEffect : MonoBehaviour
 
         }
 
-        if (GetComponent<IEnemyAttack>() != null)
+        if (GetComponent<EnemyAttack>() != null)
         {
             enemyAttack.SetLockAttack(true);
         }
@@ -342,7 +344,7 @@ public class StatusEffect : MonoBehaviour
 
         }
 
-        if (GetComponent<IEnemyAttack>() != null)
+        if (GetComponent<EnemyAttack>() != null)
         {
             enemyAttack.SetLockAttack(false);
         }

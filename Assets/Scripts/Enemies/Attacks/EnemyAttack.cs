@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttack : MonoBehaviour, IEnemyAttack
+public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] protected GameObject projectile;
     [SerializeField] protected float damage;
@@ -10,11 +10,11 @@ public class EnemyAttack : MonoBehaviour, IEnemyAttack
 
     protected float attackSpeedTemp;
     protected GameObject playerObject;
-    protected bool isStunned;
+    protected bool isLockedAttack;
 
     public virtual void SetLockAttack(bool isStunned)
     {
-        this.isStunned = isStunned;
+        this.isLockedAttack = isStunned;
     }
 
     protected void Awake()

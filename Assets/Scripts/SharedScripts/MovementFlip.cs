@@ -1,15 +1,26 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class MovementFlip : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    [SerializeField] private bool initialSpriteIsTurnedLeft;
+
+
+    private Rigidbody2D rigidbody;
+    private SpriteRenderer spriteRenderer;
 
     private bool facingRight = true;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (initialSpriteIsTurnedLeft)
+        {
+            spriteRenderer.flipX = true;
+        }
     }
 
     private void Update()
@@ -24,12 +35,12 @@ public class MovementFlip : MonoBehaviour
 
     private void FlipCheck()
     {
-        if (rb.velocity.x < -0.1f)
+        if (rigidbody.velocity.x < -0.1f)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
             facingRight = false;
         }
-        else if (rb.velocity.x > 0.1f )
+        else if (rigidbody.velocity.x > 0.1f )
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
             facingRight = true;
