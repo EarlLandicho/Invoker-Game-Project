@@ -15,6 +15,7 @@ public class EnemyFlyingStraightMovement : EnemyMovement
     protected override void Awake()
     {
         base.Awake();
+        MovementCheck();
     }
 
     void Update()
