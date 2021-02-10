@@ -42,7 +42,6 @@ public class Health : MonoBehaviour, IHealth
 
         if (currentHealth <= 0)
         {
-            Debug.Log(currentHealth);
             Die();
         }
     }
