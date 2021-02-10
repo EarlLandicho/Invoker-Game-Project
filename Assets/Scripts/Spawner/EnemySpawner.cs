@@ -10,16 +10,6 @@ public class EnemySpawner : MonoBehaviour
     private bool isActivated;
     private int enemyCounter;
 
-    private void Awake()
-    {
-        
-    }
-
-    private void Update()
-    {
-
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

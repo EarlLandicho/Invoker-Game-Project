@@ -12,7 +12,7 @@ public class Health : MonoBehaviour, IHealth
     protected bool isInvulnerable = false;
     protected float damageModifier = 1;
 
-    private void Awake()
+    protected void Awake()
     {
         currentHealth = maxHealth;
     }
@@ -42,6 +42,7 @@ public class Health : MonoBehaviour, IHealth
 
         if (currentHealth <= 0)
         {
+            Debug.Log(currentHealth);
             Die();
         }
     }
