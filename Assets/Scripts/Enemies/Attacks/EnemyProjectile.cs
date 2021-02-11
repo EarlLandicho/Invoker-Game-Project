@@ -54,6 +54,11 @@ public class EnemyProjectile : MonoBehaviour
         projectileRigidbody.velocity = new Vector2(0, 0);
     }
 
+    public void DestroyWithAnimation()
+    {
+        animator.SetTrigger("hasHitSomething");
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.gameObject.layer == LayerMask.NameToLayer("Player") ||
@@ -68,6 +73,7 @@ public class EnemyProjectile : MonoBehaviour
         }
     }
 
+    
 
 
 }

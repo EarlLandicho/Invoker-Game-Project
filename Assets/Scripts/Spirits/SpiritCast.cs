@@ -9,6 +9,8 @@ using UnityEngine;
 [RequireComponent(typeof(SpiritInput))]
 public class SpiritCast : MonoBehaviour
 {
+    [SerializeField] private float spellCastComboBarIncreaseAmount;
+
     [SerializeField] 
     private GameObject S_spell,
         L_spell,
@@ -628,78 +630,97 @@ public class SpiritCast : MonoBehaviour
         {
             case 100:
                 S();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 10:
                 L();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 1:
                 G();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 200:
                 SS();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 20:
                 LL();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 2:
                 GG();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 110:
                 SL();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 101:
                 SG();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 11:
                 LG();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 300:
                 SSS();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 30:
                 LLL();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 3:
                 GGG();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 210:
                 SSL();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 201:
                 SSG();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 120:
                 SLL();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 102:
                 SGG();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 21:
                 LLG();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 12:
                 LGG();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 111:
                 SLG();
+                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             default:

@@ -3,6 +3,7 @@
 public class EnemyHealth : Health
 {
     [SerializeField] private GameObject DeathAnimationObject;
+    [SerializeField] private float comboBarIncreaseAmount = 5;
 
     private bool isFromSpawner;
 
@@ -18,6 +19,8 @@ public class EnemyHealth : Health
 
     protected override void Die()
     {
+        AddToComboBar();
+
         if (isFromSpawner)
         {
             EnemySpawner.numberOfEnemiesSpawned--;
@@ -27,6 +30,21 @@ public class EnemyHealth : Health
         Destroy(gameObject);
     }
 
-    
+    private void SelfDie()
+    {
+        if (isFromSpawner)
+        {
+            EnemySpawner.numberOfEnemiesSpawned--;
+        }
+
+        Instantiate(DeathAnimationObject, transform.position, transform.rotation);
+        Destroy(gameObject);
+    }
+
+    private void AddToComboBar()
+    {
+        ComboBar.currentBarLevel += comboBarIncreaseAmount;
+    }
+
 
 }

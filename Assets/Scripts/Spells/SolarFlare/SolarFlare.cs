@@ -9,11 +9,7 @@ public class SolarFlare : MonoBehaviour
     void Awake()
     {
 
-        Collider2D[] projectiles = Physics2D.OverlapCircleAll(transform.position, radius, 1 << LayerMask.NameToLayer("Enemy Projectile"));
-        foreach(Collider2D projectile in projectiles)
-        {
-            Destroy(projectile.gameObject);
-        }
+        
 
 
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, 1 << LayerMask.NameToLayer("Enemy"));
@@ -30,6 +26,14 @@ public class SolarFlare : MonoBehaviour
     private IEnumerator Flash()
     {
         yield return new WaitForSeconds(.1f);
+
+        Collider2D[] projectiles = Physics2D.OverlapCircleAll(transform.position, radius, 1 << LayerMask.NameToLayer("Enemy Projectile"));
+        foreach (Collider2D projectile in projectiles)
+        {
+            projectile.gameObject.GetComponent<EnemyProjectile>().DestroyWithAnimation();
+            //Destroy(projectile.gameObject);
+        }
+
         Destroy(gameObject);
     }
 
