@@ -16,7 +16,7 @@ public class MultipleProjectileAttack : ProjectileAttack
             float randomAngle = Random.Range(-launchDirecitonAngleRandomness / 2, launchDirecitonAngleRandomness / 2);
             currentProjectile = Instantiate(projectile, position.position, transform.rotation);
             currentProjectile.GetComponent<EnemyProjectile>().SetDamage(damage);
-            currentProjectile.GetComponent<EnemyProjectile>().SetPlayerDirection(Quaternion.AngleAxis(randomAngle, Vector3.forward) * ExtensionMethods.GetNormalizedDirectionToPlayer2D(gameObject));
+            currentProjectile.GetComponent<EnemyProjectile>().SetPlayerDirection((Quaternion.AngleAxis(randomAngle, Vector3.forward) * ExtensionMethods.GetNormalizedDirectionToPlayer2D(gameObject)).normalized);
             currentProjectile.GetComponent<EnemyProjectile>().SetProjectileSpeed(projectileSpeed);
             currentProjectile.GetComponent<EnemyProjectile>().Launch();
 

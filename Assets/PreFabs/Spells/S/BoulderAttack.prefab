@@ -214,5 +214,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedX: 5
-  upwardForce: 50
+  upwardForce: 70
   speedY: 5

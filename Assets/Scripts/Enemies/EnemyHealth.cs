@@ -21,7 +21,6 @@ public class EnemyHealth : Health
         if (isFromSpawner)
         {
             EnemySpawner.numberOfEnemiesSpawned--;
-            Debug.Log(EnemySpawner.numberOfEnemiesSpawned + " " + gameObject.name);
         }
 
         Instantiate(DeathAnimationObject, transform.position, transform.rotation);

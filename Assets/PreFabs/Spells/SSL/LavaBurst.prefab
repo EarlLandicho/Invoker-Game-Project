@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 7129028002308927082, guid: c2dbe98668f08cf468ef1cf4339018f5, type: 3}
+  numberofProjectiles: 10
+  projectileForce: 230
