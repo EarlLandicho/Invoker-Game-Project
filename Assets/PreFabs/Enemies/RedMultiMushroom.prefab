@@ -404,13 +404,13 @@ MonoBehaviour:
   damage: 0
   attackSpeed: 1
   projectileLaunchPosition: {fileID: 0}
-  projectileSpeed: 1
+  projectileSpeed: 1.3
   projectileLaunchPositions:
   - {fileID: 2031552283}
   - {fileID: 1402904414}
   - {fileID: 855278970}
   - {fileID: 1606377082}
-  launchDirecitonAngleRandomness: 0.1
+  launchDirecitonAngleRandomness: 30
 --- !u!114 &1708437850
 MonoBehaviour:
   m_ObjectHideFlags: 0

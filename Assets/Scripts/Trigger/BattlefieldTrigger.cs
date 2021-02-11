@@ -6,9 +6,8 @@ using System;
 [RequireComponent(typeof(Collider2D))]
 public class BattlefieldTrigger : MonoBehaviour
 {
-
-
     public event Action PlayerTriggered = delegate { };
+    
 
     private Collider2D collider2d;
 

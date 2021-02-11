@@ -8,19 +8,21 @@ public class MultipleProjectileAttack : ProjectileAttack
     [SerializeField] private float launchDirecitonAngleRandomness;
     
 
-
     // Called in Animator
     public override void Attack()
     {
         foreach(Transform position in projectileLaunchPositions)
         {
+            float randomAngle = Random.Range(-launchDirecitonAngleRandomness / 2, launchDirecitonAngleRandomness / 2);
             currentProjectile = Instantiate(projectile, position.position, transform.rotation);
             currentProjectile.GetComponent<EnemyProjectile>().SetDamage(damage);
-            currentProjectile.GetComponent<EnemyProjectile>().SetPlayerDirection(ExtensionMethods.GetNormalizedDirectionToPlayer2D(gameObject));
+            currentProjectile.GetComponent<EnemyProjectile>().SetPlayerDirection(Quaternion.AngleAxis(randomAngle, Vector3.forward) * ExtensionMethods.GetNormalizedDirectionToPlayer2D(gameObject));
             currentProjectile.GetComponent<EnemyProjectile>().SetProjectileSpeed(projectileSpeed);
             currentProjectile.GetComponent<EnemyProjectile>().Launch();
 
         }
     }
+
+
 
 }

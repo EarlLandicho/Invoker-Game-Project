@@ -28,11 +28,7 @@ public class EnemyFlyingStraightMovement : EnemyMovement
             
             rb.velocity = targetToMoveTo * movementSpeed;
         }
-        
-
     }
-
-
 
     // Called in Animator
     public void MovementCheck()
@@ -56,7 +52,7 @@ public class EnemyFlyingStraightMovement : EnemyMovement
 
     private void WallCheck()
     {
-        if (Physics2D.OverlapCircle(new Vector2(wallCheck.position.x, wallCheck.position.y), 0.03f, 1 << LayerMask.NameToLayer("Ground")))
+        if (Physics2D.OverlapCircle(new Vector2(wallCheck.position.x, wallCheck.position.y), 0.04f, 1 << LayerMask.NameToLayer("Ground")))
         {
             targetToMoveTo = Vector2.right;
         }
@@ -64,7 +60,7 @@ public class EnemyFlyingStraightMovement : EnemyMovement
 
     private void UpperWallCheck()
     {
-        if (Physics2D.OverlapCircle(new Vector2(upperWallCheck.position.x, upperWallCheck.position.y), 0.03f, 1 << LayerMask.NameToLayer("Ground")))
+        if (Physics2D.OverlapCircle(new Vector2(upperWallCheck.position.x, upperWallCheck.position.y), 0.04f, 1 << LayerMask.NameToLayer("Ground")))
         {
             targetToMoveTo = Vector2.down;
         }
@@ -72,7 +68,7 @@ public class EnemyFlyingStraightMovement : EnemyMovement
 
     private void LowerWallCheck()
     {
-        if (Physics2D.OverlapCircle(new Vector2(lowerWallCheck.position.x, lowerWallCheck.position.y), 0.03f, 1 << LayerMask.NameToLayer("Ground")))
+        if (Physics2D.OverlapCircle(new Vector2(lowerWallCheck.position.x, lowerWallCheck.position.y), 0.04f, 1 << LayerMask.NameToLayer("Ground")))
         {
             targetToMoveTo = Vector2.up;
         }
@@ -80,9 +76,9 @@ public class EnemyFlyingStraightMovement : EnemyMovement
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(wallCheck.position, 0.03f);
-        Gizmos.DrawWireSphere(upperWallCheck.position, 0.03f);
-        Gizmos.DrawWireSphere(lowerWallCheck.position, 0.03f);
+        Gizmos.DrawWireSphere(wallCheck.position, 0.04f);
+        Gizmos.DrawWireSphere(upperWallCheck.position, 0.04f);
+        Gizmos.DrawWireSphere(lowerWallCheck.position, 0.04f);
     }
 
 

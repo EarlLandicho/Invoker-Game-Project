@@ -7,14 +7,14 @@ public class MovementFlip : MonoBehaviour
     [SerializeField] private bool initialSpriteIsTurnedLeft;
 
 
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rigidbody2d;
     private SpriteRenderer spriteRenderer;
 
     private bool facingRight = true;
 
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         if (initialSpriteIsTurnedLeft)
@@ -35,12 +35,12 @@ public class MovementFlip : MonoBehaviour
 
     private void FlipCheck()
     {
-        if (rigidbody.velocity.x < -0.1f)
+        if (rigidbody2d.velocity.x < -0.1f)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
             facingRight = false;
         }
-        else if (rigidbody.velocity.x > 0.1f )
+        else if (rigidbody2d.velocity.x > 0.1f )
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
             facingRight = true;

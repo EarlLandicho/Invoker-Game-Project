@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ff7f4348f44ad4c8f8b09f799d1e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 10
   DeathAnimationObject: {fileID: 8840700803071947239, guid: b49b357b82623be489b4729575cca4b3, type: 3}
 --- !u!114 &1066322476
 MonoBehaviour:
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2711fe337a5edb7498989b2c82f783fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.2
+  movementSpeed: 0.4
   isFlying: 1
 --- !u!114 &1370409726
 MonoBehaviour:

@@ -38,13 +38,6 @@ public class TouchAttack : EnemyAttack
 
     }
 
-    // Called by Animator
-    public void DestroyThis()
-    {
-        Destroy(gameObject);
-    }
-
-
 
 
     private void OnDrawGizmos()

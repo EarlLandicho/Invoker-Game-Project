@@ -17,12 +17,20 @@ public class DoorLock : MonoBehaviour
 
 
         battlefieldTrigger.PlayerTriggered += LockDoor;
+        EnemySpawner.EnemiesKilledInBattleField += UnlockDoor;
+
     }
 
     private void LockDoor()
     {
-        animator.SetTrigger("isTriggered");
+        animator.SetTrigger("lockDoor");
         collider2d.enabled = true;
+    }
+
+    private void UnlockDoor()
+    {
+        animator.SetTrigger("unlockDoor");
+        collider2d.enabled = false;
     }
 
 }
