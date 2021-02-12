@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32fb97e9fb7fd2e49bcf6df0d0aa447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionAnimation: {fileID: 8918235738224915177, guid: 50847b738de76af45a5f6a47b55cb893, type: 3}
 --- !u!114 &1847538446716090727
 MonoBehaviour:
   m_ObjectHideFlags: 0

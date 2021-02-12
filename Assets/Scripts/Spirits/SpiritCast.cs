@@ -9,6 +9,8 @@ using UnityEngine;
 [RequireComponent(typeof(SpiritInput))]
 public class SpiritCast : MonoBehaviour
 {
+    public event Action CastSuccessful = delegate { };
+
     [SerializeField] private float spellCastComboBarIncreaseAmount;
 
     [SerializeField] 
@@ -101,6 +103,7 @@ public class SpiritCast : MonoBehaviour
     private void Awake()
     {
         GetComponent<SpiritInput>().InvokeSpiritsButtonPressed += InvokeSpirits;
+        CastSuccessful += AddToComboBar;
 
         spiritArrayManager = GameObject.Find("GameManager").GetComponent<SpiritArrayManager>();
         spiritArrayManagerArray = spiritArrayManager.GetSpiritArray();
@@ -630,103 +633,89 @@ public class SpiritCast : MonoBehaviour
         {
             case 100:
                 S();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 10:
                 L();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 1:
                 G();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 200:
                 SS();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 20:
                 LL();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 2:
                 GG();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 110:
                 SL();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 101:
                 SG();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 11:
                 LG();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 300:
                 SSS();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 30:
                 LLL();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 3:
                 GGG();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 210:
                 SSL();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 201:
                 SSG();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 120:
                 SLL();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 102:
                 SGG();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 21:
                 LLG();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 12:
                 LGG();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             case 111:
                 SLG();
-                ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
                 break;
 
             default:
                 Debug.Log("Nothing casted");
                 break;
         }
+    }
+
+    private void AddToComboBar()
+    {
+        ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
     }
 
     private void S()
@@ -736,6 +725,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(S_spell, transform.position, player.transform.rotation);
             S_timer = S_cooldown;
             S_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -751,6 +741,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(L_spell, transform.position, player.transform.rotation);
             L_timer = I_cooldown;
             L_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -767,6 +758,7 @@ public class SpiritCast : MonoBehaviour
 
             G_timer = G_cooldown;
             G_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -782,6 +774,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(SS_spell, transform.position, player.transform.rotation);
             SS_timer = SS_cooldown;
             SS_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -799,6 +792,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(LL_spell, transform.position, player.transform.rotation);
             LL_timer = LL_cooldown;
             LL_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -815,6 +809,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(GG_spell, transform.position, player.transform.rotation);
             GG_timer = GG_cooldown;
             GG_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -831,6 +826,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(SL_spell, transform.position, player.transform.rotation);
             SL_timer = SL_cooldown;
             SL_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -847,6 +843,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(SG_spell, transform.position, player.transform.rotation);
             SG_timer = SG_cooldown;
             SG_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -863,6 +860,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(LG_spell, transform.position, player.transform.rotation);
             LG_timer = LG_cooldown;
             LG_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -879,6 +877,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(SSS_spell, transform.position, player.transform.rotation);
             SSS_timer = SSS_cooldown;
             SSS_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -895,6 +894,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(LLL_spell, transform.position, player.transform.rotation);
             LLL_timer = LLL_cooldown;
             LLL_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -911,6 +911,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(GGG_spell, transform.position, player.transform.rotation);
             GGG_timer = GGG_cooldown;
             GGG_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -927,6 +928,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(SSL_spell, transform.position, player.transform.rotation);
             SSL_timer = SSL_cooldown;
             SSL_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -943,6 +945,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(SSG_spell, transform.position, player.transform.rotation);
             SSG_timer = SSG_cooldown;
             SSG_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -959,6 +962,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(SLL_spell, transform.position, player.transform.rotation);
             SLL_timer = SLL_cooldown;
             SLL_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -975,6 +979,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(SGG_spell, transform.position, player.transform.rotation);
             SGG_timer = SGG_cooldown;
             SGG_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -991,6 +996,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(LLG_spell, transform.position, player.transform.rotation);
             LLG_timer = LLG_cooldown;
             LLG_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -1007,6 +1013,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(LGG_spell, transform.position, player.transform.rotation);
             LGG_timer = LGG_cooldown;
             LGG_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else
@@ -1023,6 +1030,7 @@ public class SpiritCast : MonoBehaviour
             Instantiate(SLG_spell, transform.position, player.transform.rotation);
             SLG_timer = SLG_cooldown;
             SLG_isOffCooldown = false;
+            CastSuccessful();
             spiritArrayManager.ClearSpirits();
         }
         else

@@ -1,55 +1,40 @@
 fileFormatVersion: 2
-guid: 3f0d1452ddf8a51489c8685a8b978679
+guid: a48e3b5ff2abcac4a814a987c21e4a31
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9169147295439734256
-    second: boulderAttack-Sheet_0
+      213: 5363426429841554253
+    second: LightningStrike-Sheet_0
   - first:
-      213: -1747833067064400527
-    second: boulderAttack-Sheet_1
+      213: -1343758244822312704
+    second: LightningStrike-Sheet_1
   - first:
-      213: 3226521305802588332
-    second: boulderAttack-Sheet_2
+      213: -4629596891044372630
+    second: LightningStrike-Sheet_2
   - first:
-      213: 9134537494510740807
-    second: boulderAttack-Sheet_3
+      213: -6596764701427667271
+    second: LightningStrike-Sheet_3
   - first:
-      213: -7312089604892020842
-    second: boulderAttack-Sheet_4
+      213: 304539558197804259
+    second: LightningStrike-Sheet_4
   - first:
-      213: 450840608551297732
-    second: boulderAttack-Sheet_5
+      213: -6695006764372783693
+    second: LightningStrike-Sheet_5
   - first:
-      213: 7687419672525627167
-    second: boulderAttack-Sheet_6
+      213: 9184712386211701328
+    second: LightningStrike-Sheet_6
   - first:
-      213: 616340083038408292
-    second: boulderAttack-Sheet_7
+      213: 4134167584091938408
+    second: LightningStrike-Sheet_7
   - first:
-      213: -5326234476440664983
-    second: boulderAttack-Sheet_8
+      213: 4874948543923447627
+    second: LightningStrike-Sheet_8
   - first:
-      213: -7804557881813334911
-    second: boulderAttack-Sheet_9
+      213: -902382601589962990
+    second: LightningStrike-Sheet_9
   - first:
-      213: -906885114244445326
-    second: boulderAttack-Sheet_10
-  - first:
-      213: -478984359704883464
-    second: boulderAttack-Sheet_11
-  - first:
-      213: -6363455229268413897
-    second: boulderAttack-Sheet_12
-  - first:
-      213: -583064871744201730
-    second: boulderAttack-Sheet_13
-  - first:
-      213: -1268602173566990882
-    second: boulderAttack-Sheet_14
-  - first:
-      213: 7430357254829877807
-    second: boulderAttack-Sheet_15
+      213: -2136854805206470445
+    second: LightningStrike-Sheet_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,6 +88,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -137,13 +124,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boulderAttack-Sheet_0
+      name: LightningStrike-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,41 +138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01ab4127d15a0c080800000000000000
-      internalID: -9169147295439734256
+      spriteID: d4bb5a9dbe7be6a40800000000000000
+      internalID: 5363426429841554253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boulderAttack-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 175e1fef5137eb7e0800000000000000
-      internalID: -1747833067064400527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boulderAttack-Sheet_2
+      name: LightningStrike-Sheet_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,41 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca0c7946808e6cc20800000000000000
-      internalID: 3226521305802588332
+      spriteID: 0091d51fef20a5de0800000000000000
+      internalID: -1343758244822312704
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boulderAttack-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 745acc3547564ce70800000000000000
-      internalID: 9134537494510740807
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boulderAttack-Sheet_4
+      name: LightningStrike-Sheet_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,41 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69fa596de3d368a90800000000000000
-      internalID: -7312089604892020842
+      spriteID: a6f1c00082e50cfb0800000000000000
+      internalID: -4629596891044372630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boulderAttack-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c265031525b14600800000000000000
-      internalID: 450840608551297732
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boulderAttack-Sheet_6
+      name: LightningStrike-Sheet_3
       rect:
         serializedVersion: 2
         x: 96
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,41 +201,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1f5d3466733faa60800000000000000
-      internalID: 7687419672525627167
+      spriteID: 9be619884759374a0800000000000000
+      internalID: -6596764701427667271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boulderAttack-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46ec65e3a0ead8800800000000000000
-      internalID: 616340083038408292
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boulderAttack-Sheet_8
+      name: LightningStrike-Sheet_4
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,41 +222,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 964c05996f96516b0800000000000000
-      internalID: -5326234476440664983
+      spriteID: 3ec3f6a5d11f93400800000000000000
+      internalID: 304539558197804259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boulderAttack-Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1848a81f4f3a0b390800000000000000
-      internalID: -7804557881813334911
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boulderAttack-Sheet_10
+      name: LightningStrike-Sheet_5
       rect:
         serializedVersion: 2
         x: 160
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -361,41 +243,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27bce512bc81a63f0800000000000000
-      internalID: -906885114244445326
+      spriteID: 3bd09b8c1de8613a0800000000000000
+      internalID: -6695006764372783693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boulderAttack-Sheet_11
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8fe82da334e4a59f0800000000000000
-      internalID: -478984359704883464
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boulderAttack-Sheet_12
+      name: LightningStrike-Sheet_6
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -403,41 +264,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 732ba5b1f2770b7a0800000000000000
-      internalID: -6363455229268413897
+      spriteID: 0526748a047a67f70800000000000000
+      internalID: 9184712386211701328
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boulderAttack-Sheet_13
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: efb9dae969988e7f0800000000000000
-      internalID: -583064871744201730
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boulderAttack-Sheet_14
+      name: LightningStrike-Sheet_7
       rect:
         serializedVersion: 2
         x: 224
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -445,20 +285,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed540436b05056ee0800000000000000
-      internalID: -1268602173566990882
+      spriteID: 86e1cb393838f5930800000000000000
+      internalID: 4134167584091938408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boulderAttack-Sheet_15
+      name: LightningStrike-Sheet_8
       rect:
         serializedVersion: 2
-        x: 240
+        x: 256
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -466,8 +306,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2aa1683e8eed1760800000000000000
-      internalID: 7430357254829877807
+      spriteID: b476dd24fdb47a340800000000000000
+      internalID: 4874948543923447627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightningStrike-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 217ccbc0ec71a73f0800000000000000
+      internalID: -902382601589962990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightningStrike-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d0f41f40ed5852e0800000000000000
+      internalID: -2136854805206470445
       vertices: []
       indices: 
       edges: []

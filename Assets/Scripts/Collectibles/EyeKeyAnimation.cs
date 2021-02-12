@@ -18,6 +18,9 @@ public class EyeKeyAnimation : MonoBehaviour
     void Start()
     {
         animationTimeDelayTemp = animationTimeDelay;
+
+        LeanTween.moveY(gameObject, gameObject.transform.position.y + .1f, 1f).setEaseInOutSine().setLoopPingPong();
+
     }
 
     void Update()

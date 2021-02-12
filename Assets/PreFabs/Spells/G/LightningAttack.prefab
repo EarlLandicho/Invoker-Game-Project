@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6346676100098582807}
   - component: {fileID: 716644509812389060}
   - component: {fileID: 3602949204307200296}
+  - component: {fileID: 8592450136900570323}
+  - component: {fileID: 1264844032}
   m_Layer: 0
   m_Name: LightningAttack
   m_TagString: Untagged
@@ -72,12 +74,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2887647616944702933, guid: 63f15b2d0b9f7b34e8fb295ab31708c3, type: 3}
+  m_Sprite: {fileID: -6695006764372783693, guid: a48e3b5ff2abcac4a814a987c21e4a31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.96}
+  m_Size: {x: 0.32, y: 0.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -96,9 +98,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
-  delayTime: 1
-  centerOffSet: {x: 0, y: -0.15}
-  size: {x: 0.37, y: 0.68}
+  centerOffSet: {x: 0, y: -0.09}
+  size: {x: 0.22, y: 0.6}
   layerMask:
     serializedVersion: 2
     m_Bits: 131328
+--- !u!95 &8592450136900570323
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369233730298720890}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 756191a4f147a5f4c97c79fe6e620240, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1264844032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369233730298720890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d30eb5428872534d8769b933c6c5f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTimedDestroy: 0
+  timedDestroyTime: 0
