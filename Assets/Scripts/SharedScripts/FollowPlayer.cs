@@ -3,8 +3,11 @@
 public class FollowPlayer : MonoBehaviour
 {
     [SerializeField] private Vector2 offSet;
+    [SerializeField] private float damping;
 
     private GameObject player;
+
+    private Vector3 velocity = Vector3.zero;
 
     private void Awake()
     {
@@ -13,7 +16,7 @@ public class FollowPlayer : MonoBehaviour
 
     private void Update()
     {
-        transform.position = player.transform.position + (Vector3)offSet;
+        transform.position = Vector3.SmoothDamp(transform.position + (Vector3)offSet, player.transform.position, ref velocity, damping);
     }
 
     private void OnDrawGizmos()

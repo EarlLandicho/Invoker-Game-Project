@@ -3,6 +3,7 @@
 public class BoulderAOEDamage : MonoBehaviour
 {
     [SerializeField] private float damage = 0;
+    [SerializeField] private float addedDamagePerComboBarStage;
     [SerializeField] private float radiusRange = 0;
 
     private void Awake()
@@ -17,7 +18,7 @@ public class BoulderAOEDamage : MonoBehaviour
             1 << LayerMask.NameToLayer("Enemy"));
         foreach (Collider2D enemy in enemies)
         {
-            enemy.gameObject.GetComponent<IHealth>().TakeDamage(damage);
+            enemy.gameObject.GetComponent<IHealth>().TakeDamage(damage + (addedDamagePerComboBarStage * ComboBar.comboBarStage));
         }
     }
 

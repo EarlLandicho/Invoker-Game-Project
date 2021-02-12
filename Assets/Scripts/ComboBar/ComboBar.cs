@@ -35,9 +35,13 @@ public class ComboBar : MonoBehaviour
         {
             comboBarStage = 3;
         }
-        else if (ExtensionMethods.IsBetweenTwoValues(75f, 101f, currentBarLevel))
+        else if (currentBarLevel >= 75f)
         {
             comboBarStage = 4;
+        }
+        else
+        {
+            Debug.LogError("Something wrong with the stages in the combo bar");
         }
 
     }
