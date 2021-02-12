@@ -175,7 +175,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -192,8 +192,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.012167283, y: -0.0060836137}
-  m_Size: {x: 0.19528578, y: 0.121268354}
+  m_Offset: {x: -0.005229416, y: -0.015477986}
+  m_Size: {x: 0.2300807, y: 0.17346083}
   m_Direction: 1
 --- !u!114 &1066322475
 MonoBehaviour:
@@ -209,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   DeathAnimationObject: {fileID: 8840700803071947239, guid: b49b357b82623be489b4729575cca4b3, type: 3}
+  comboBarIncreaseAmount: 5
 --- !u!114 &1066322476
 MonoBehaviour:
   m_ObjectHideFlags: 0

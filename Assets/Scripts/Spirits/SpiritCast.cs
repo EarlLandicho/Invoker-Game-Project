@@ -722,7 +722,7 @@ public class SpiritCast : MonoBehaviour
     {
         if(S_isOffCooldown)
         {
-            Instantiate(S_spell, transform.position, player.transform.rotation);
+            Instantiate(S_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             S_timer = S_cooldown;
             S_isOffCooldown = false;
             CastSuccessful();
@@ -738,7 +738,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (L_isOffCooldown)
         {
-            Instantiate(L_spell, transform.position, player.transform.rotation);
+            Instantiate(L_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             L_timer = I_cooldown;
             L_isOffCooldown = false;
             CastSuccessful();
@@ -754,7 +754,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (G_isOffCooldown)
         {
-            Instantiate(G_spell, transform.position, player.transform.rotation);
+            Instantiate(G_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
 
             G_timer = G_cooldown;
             G_isOffCooldown = false;
@@ -771,7 +771,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (L_isOffCooldown)
         {
-            Instantiate(SS_spell, transform.position, player.transform.rotation);
+            Instantiate(SS_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             SS_timer = SS_cooldown;
             SS_isOffCooldown = false;
             CastSuccessful();
@@ -789,7 +789,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (LL_isOffCooldown)
         {
-            Instantiate(LL_spell, transform.position, player.transform.rotation);
+            Instantiate(LL_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             LL_timer = LL_cooldown;
             LL_isOffCooldown = false;
             CastSuccessful();
@@ -806,7 +806,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (GG_isOffCooldown)
         {
-            Instantiate(GG_spell, transform.position, player.transform.rotation);
+            Instantiate(GG_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             GG_timer = GG_cooldown;
             GG_isOffCooldown = false;
             CastSuccessful();
@@ -823,7 +823,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (SL_isOffCooldown)
         {
-            Instantiate(SL_spell, transform.position, player.transform.rotation);
+            Instantiate(SL_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             SL_timer = SL_cooldown;
             SL_isOffCooldown = false;
             CastSuccessful();
@@ -840,7 +840,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (SG_isOffCooldown)
         {
-            Instantiate(SG_spell, transform.position, player.transform.rotation);
+            Instantiate(SG_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             SG_timer = SG_cooldown;
             SG_isOffCooldown = false;
             CastSuccessful();
@@ -857,7 +857,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (LG_isOffCooldown)
         {
-            Instantiate(LG_spell, transform.position, player.transform.rotation);
+            Instantiate(LG_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             LG_timer = LG_cooldown;
             LG_isOffCooldown = false;
             CastSuccessful();
@@ -874,7 +874,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (SSS_isOffCooldown)
         {
-            Instantiate(SSS_spell, transform.position, player.transform.rotation);
+            Instantiate(SSS_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             SSS_timer = SSS_cooldown;
             SSS_isOffCooldown = false;
             CastSuccessful();
@@ -891,7 +891,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (LLL_isOffCooldown)
         {
-            Instantiate(LLL_spell, transform.position, player.transform.rotation);
+            Instantiate(LLL_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             LLL_timer = LLL_cooldown;
             LLL_isOffCooldown = false;
             CastSuccessful();
@@ -908,7 +908,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (GGG_isOffCooldown)
         {
-            Instantiate(GGG_spell, transform.position, player.transform.rotation);
+            Instantiate(GGG_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             GGG_timer = GGG_cooldown;
             GGG_isOffCooldown = false;
             CastSuccessful();
@@ -925,7 +925,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (SSL_isOffCooldown)
         {
-            Instantiate(SSL_spell, transform.position, player.transform.rotation);
+            Instantiate(SSL_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             SSL_timer = SSL_cooldown;
             SSL_isOffCooldown = false;
             CastSuccessful();
@@ -942,7 +942,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (SSG_isOffCooldown)
         {
-            Instantiate(SSG_spell, transform.position, player.transform.rotation);
+            Instantiate(SSG_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             SSG_timer = SSG_cooldown;
             SSG_isOffCooldown = false;
             CastSuccessful();
@@ -959,7 +959,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (SLL_isOffCooldown)
         {
-            Instantiate(SLL_spell, transform.position, player.transform.rotation);
+            Instantiate(SLL_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             SLL_timer = SLL_cooldown;
             SLL_isOffCooldown = false;
             CastSuccessful();
@@ -976,7 +976,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (SGG_isOffCooldown)
         {
-            Instantiate(SGG_spell, transform.position, player.transform.rotation);
+            Instantiate(SGG_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             SGG_timer = SGG_cooldown;
             SGG_isOffCooldown = false;
             CastSuccessful();
@@ -993,7 +993,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (LLG_isOffCooldown)
         {
-            Instantiate(LLG_spell, transform.position, player.transform.rotation);
+            Instantiate(LLG_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             LLG_timer = LLG_cooldown;
             LLG_isOffCooldown = false;
             CastSuccessful();
@@ -1010,7 +1010,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (LGG_isOffCooldown)
         {
-            Instantiate(LGG_spell, transform.position, player.transform.rotation);
+            Instantiate(LGG_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             LGG_timer = LGG_cooldown;
             LGG_isOffCooldown = false;
             CastSuccessful();
@@ -1027,7 +1027,7 @@ public class SpiritCast : MonoBehaviour
     {
         if (SLG_isOffCooldown)
         {
-            Instantiate(SLG_spell, transform.position, player.transform.rotation);
+            Instantiate(SLG_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             SLG_timer = SLG_cooldown;
             SLG_isOffCooldown = false;
             CastSuccessful();

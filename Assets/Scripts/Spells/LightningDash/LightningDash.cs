@@ -6,9 +6,11 @@ public class LightningDash : MonoBehaviour
     [SerializeField] private float dashDistance;
     [SerializeField] private float wallImpactCushion = .1f;
     [SerializeField] private float yHitboxSize = .1f;
+    [SerializeField] private GameObject lightningDashAnimation;
 
     private Transform playerTransform;
     private MovementFlip movementFlip;
+    private Rigidbody2D playerRigidBody;
 
     private Vector3 startingPosition;
     private Vector3 endingPosition;
@@ -18,11 +20,15 @@ public class LightningDash : MonoBehaviour
     {
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         movementFlip = GameObject.Find("Player").GetComponent<MovementFlip>();
+        playerRigidBody= GameObject.Find("Player").GetComponent<Rigidbody2D>();
 
         startingPosition = playerTransform.transform.position;
 
         FindTeleportPosition();
         DealDamageInPath();
+        
+
+        Instantiate(lightningDashAnimation, transform.position, transform.rotation);
     }
 
     private void FindTeleportPosition()
@@ -45,9 +51,9 @@ public class LightningDash : MonoBehaviour
         {
             playerTransform.transform.position = hit.point + new Vector2(-wallImpactCushion, 0);
         }
+        playerRigidBody.velocity = new Vector2(0, 0);
 
         endingPosition = playerTransform.transform.position;
-
         Destroy(gameObject, 1f);
     }
 

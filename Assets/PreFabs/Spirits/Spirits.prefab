@@ -14650,6 +14650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offSet: {x: 0, y: 0}
+  enableDamping: 1
   damping: 0.08
 --- !u!1 &7186232600221330935
 GameObject:

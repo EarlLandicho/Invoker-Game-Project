@@ -23,7 +23,7 @@ public class ComboBar : MonoBehaviour
 
     private void ComboBarStageCheck()
     {
-        if (ExtensionMethods.IsBetweenTwoValues(0f, 25f, currentBarLevel))
+        if (currentBarLevel < 25f)
         {
             comboBarStage = 1;
         }

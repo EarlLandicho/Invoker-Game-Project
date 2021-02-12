@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 815242861370666967}
   - component: {fileID: 4723164620662502411}
+  - component: {fileID: -4985923643141958633}
   m_Layer: 0
   m_Name: LightningDash
   m_TagString: Untagged
@@ -44,6 +45,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  dashDistance: 1
+  dashDistance: 1.1
   wallImpactCushion: 0.1
   yHitboxSize: 0.1
+  lightningDashAnimation: {fileID: 3906724726234216503, guid: 6821c973d5c308343a9dec3309f006c0, type: 3}
+--- !u!114 &-4985923643141958633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300630622656980421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5122546d9dea96e41b7f4f1eb513a83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offSet: {x: 0, y: 0}
+  damping: 0

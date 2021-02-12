@@ -40,4 +40,9 @@ public static class ExtensionMethods
             return false;
         }
     }
+
+    public static Vector3 GetPlayerPosition()
+    {
+        return GameObject.Find("Player").transform.position;
+    }
 }
