@@ -252,8 +252,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ff7f4348f44ad4c8f8b09f799d1e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 20
   DeathAnimationObject: {fileID: 8840700803071947239, guid: b49b357b82623be489b4729575cca4b3, type: 3}
+  comboBarIncreaseAmount: 5
 --- !u!114 &163312799
 MonoBehaviour:
   m_ObjectHideFlags: 0
