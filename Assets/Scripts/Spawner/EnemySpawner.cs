@@ -4,7 +4,7 @@ using System;
 public class EnemySpawner : MonoBehaviour
 {
     public static int numberOfEnemiesSpawned;
-    public static event Action EnemiesKilledInBattleField = delegate { };
+    public event Action EnemiesKilledInBattleField = delegate { };
 
     [SerializeField] private BattlefieldTrigger battlefieldTrigger;
     [SerializeField] private float spawnSpeedInitialEnemy;
@@ -22,6 +22,17 @@ public class EnemySpawner : MonoBehaviour
     void Awake()
     {
         battlefieldTrigger.PlayerTriggered += BeginSpawning;
+
+        if(initialEnemy.Length == 0)
+        {
+            initialSpawnerDone = true;
+        }
+
+
+        if (continuousEnemy.Length == 0)
+        {
+            continuousSpawnerDone = true;
+        }
     }
 
     void Update()
@@ -36,6 +47,7 @@ public class EnemySpawner : MonoBehaviour
             enemyCounterContinuous = 0;
             numberOfEnemiesSpawned = 0;
         }
+
     }
 
     private void BeginSpawning()

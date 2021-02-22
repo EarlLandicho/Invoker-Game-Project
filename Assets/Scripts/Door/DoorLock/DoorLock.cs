@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorLock : MonoBehaviour
 {
     [SerializeField] private BattlefieldTrigger battlefieldTrigger;
+    [SerializeField] private EnemySpawner enemySpawner;
     private Animator animator;
     private Collider2D collider2d;
 
@@ -17,7 +18,7 @@ public class DoorLock : MonoBehaviour
 
 
         battlefieldTrigger.PlayerTriggered += LockDoor;
-        EnemySpawner.EnemiesKilledInBattleField += UnlockDoor;
+        enemySpawner.EnemiesKilledInBattleField += UnlockDoor;
 
     }
 
@@ -25,12 +26,14 @@ public class DoorLock : MonoBehaviour
     {
         animator.SetTrigger("lockDoor");
         collider2d.enabled = true;
+        //Debug.Log("lock");
     }
 
     private void UnlockDoor()
     {
         animator.SetTrigger("unlockDoor");
         collider2d.enabled = false;
+        //Debug.Log("unlock");
     }
 
 }

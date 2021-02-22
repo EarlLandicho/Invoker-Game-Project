@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 3700684290034660002, guid: b5f180f14f25561408690cee27f342eb, type: 3}
-  damage: 0
+  damage: 10
   attackSpeed: 2
   projectileLaunchPosition: {fileID: 1886879253}
   projectileSpeed: 1
