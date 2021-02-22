@@ -6,6 +6,7 @@ public class GroundSlamDamage : MonoBehaviour
 {
     [SerializeField] private Vector2 size = new Vector2(0, 0);
     [SerializeField] private float damage = 0;
+    [SerializeField] private GameObject slamParticleEffect;
 
     private PlayerJump playerJump;
 
@@ -33,6 +34,7 @@ public class GroundSlamDamage : MonoBehaviour
                 enemy.gameObject.GetComponent<StatusEffect>().BecomeOiled();
             }
 
+            Instantiate(slamParticleEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
