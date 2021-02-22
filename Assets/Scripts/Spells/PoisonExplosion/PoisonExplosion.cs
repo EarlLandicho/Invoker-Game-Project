@@ -17,6 +17,11 @@ public class PoisonExplosion : MonoBehaviour
         Destroy(gameObject, poisonDuration);
     }
 
+    void Start()
+    {
+        LeanTween.moveY(gameObject, gameObject.transform.position.y + .05f, 1.5f).setEaseInOutSine().setLoopPingPong();
+    }
+
     void Update()
     {
         if(cloudPoisonCheckTimer > 0)
