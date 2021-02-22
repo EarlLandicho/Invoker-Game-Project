@@ -3,9 +3,7 @@
 public class FireSpirit : MonoBehaviour
 {
     [SerializeField] private float impactDamage = 0;
-    private float durationTemp;
-
-
+    [SerializeField] private GameObject explosionAnimation;
 
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -14,11 +12,13 @@ public class FireSpirit : MonoBehaviour
         {
             collider.gameObject.GetComponent<StatusEffect>().BecomeBurned();
             collider.gameObject.GetComponent<IHealth>().TakeDamage(impactDamage);
+            Instantiate(explosionAnimation, transform.position, transform.rotation);
             Destroy(gameObject);
         }
 
         if (collider.gameObject.layer == LayerMask.NameToLayer("Enemy Projectile"))
         {
+            Instantiate(explosionAnimation, transform.position, transform.rotation);
             Destroy(collider.gameObject);
         }
     }

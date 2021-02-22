@@ -14557,7 +14557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41a5d2117a5d6f48ba9cefdfc78e0d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellCastComboBarIncreaseAmount: 7
+  spellCastComboBarIncreaseAmount: 5
   S_spell: {fileID: 1471515369836077349, guid: 4dcf66115c9166f4bac66d4fd7047d91, type: 3}
   L_spell: {fileID: 8416200993578898710, guid: bb601f40c9a40254ba3fc2809e02ef51, type: 3}
   G_spell: {fileID: 369233730298720890, guid: 12dcec51cc6e79c40882204bae731666, type: 3}

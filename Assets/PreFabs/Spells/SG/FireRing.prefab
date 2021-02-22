@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3496564786925742891}
   - component: {fileID: 8506788995809432275}
-  - component: {fileID: 4059124106326980811}
   - component: {fileID: 1421006999445658105}
+  - component: {fileID: 5890115985583220347}
   - component: {fileID: 6534258837619241943}
-  - component: {fileID: 5782179096610419367}
+  - component: {fileID: -3791979830464528158}
   m_Layer: 15
   m_Name: FireRing
   m_TagString: Untagged
@@ -28,9 +28,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7882184107876905522}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.66247547, y: 0.039440244, z: 0.2423791}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9e67eccae0571694eae7162ad0bfafd7, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -3973932835725659011, guid: c41650dde6cf02c47b5c2d9c6a54cf12, type: 3}
   m_Color: {r: 1, g: 0.3689251, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,32 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4059124106326980811
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7882184107876905522}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
-  m_EdgeRadius: 0
 --- !u!50 &1421006999445658105
 Rigidbody2D:
   serializedVersion: 4
@@ -133,6 +107,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!58 &5890115985583220347
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7882184107876905522}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00031667948, y: 0.00031673908}
+  serializedVersion: 2
+  m_Radius: 0.0381971
 --- !u!114 &6534258837619241943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactDamage: 20
---- !u!114 &5782179096610419367
+  explosionAnimation: {fileID: 2906731147557065520, guid: 1621ec61cf3c1894999102580c5d7979, type: 3}
+--- !u!114 &-3791979830464528158
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,7 +146,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7882184107876905522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc51bf08b3144ba42bdf14daacde19a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d30eb5428872534d8769b933c6c5f81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 3
+  isTimedDestroy: 1
+  timedDestroyTime: 6

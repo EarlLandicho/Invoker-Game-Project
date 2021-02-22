@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offSet: {x: 0, y: 0}
+  enableDamping: 0
+  damping: 0
 --- !u!114 &318463690089602159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,4 +61,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRing: {fileID: 7882184107876905522, guid: 4f20d2876617bc345bbdfeba86f237d7, type: 3}
   spiritRotationRadius: 0.25
-  spiritRotateSpeed: 4
+  spiritRotateSpeed: 5
