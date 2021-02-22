@@ -1,6 +1,6 @@
 # Invoker (Game Summary)
 
-![](sample.gif)
+![](invoker.gif)
 
 Invoker is a 2D bullet-hell, adventure game that lets you combine spirits to cast different spells. There are three different spirits that you can use. 
 You can combine up to three spirits, making the total number of spells to be 19. Spells allow you to damage enemies, maneuver more easily, protect/heal yourself, and 
