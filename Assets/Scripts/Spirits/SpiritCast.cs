@@ -769,7 +769,7 @@ public class SpiritCast : MonoBehaviour
 
     private void SS()
     {
-        if (L_isOffCooldown)
+        if (SS_isOffCooldown)
         {
             Instantiate(SS_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             SS_timer = SS_cooldown;

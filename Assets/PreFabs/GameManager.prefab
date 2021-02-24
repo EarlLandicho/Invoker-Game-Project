@@ -72,4 +72,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 137855f433f2f464b88571fe397a9264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboLevelDrainFactor: 1
+  comboLevelDrainFactor: 3

@@ -7,6 +7,7 @@ public class GameOver : MonoBehaviour
     private void Awake()
     {
         GameObject.FindObjectOfType<PlayerHealth>().IsDead += EndGame;
+        TouchToEndGame.EndGameByTouch += EndGame;
         gameOverScreen = GameObject.Find("GameOverScreen");
         gameOverScreen.SetActive(false);
     }
