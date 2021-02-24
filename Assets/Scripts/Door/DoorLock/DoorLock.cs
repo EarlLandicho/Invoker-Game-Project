@@ -26,14 +26,14 @@ public class DoorLock : MonoBehaviour
     {
         animator.SetTrigger("lockDoor");
         collider2d.enabled = true;
-        //Debug.Log("lock");
+        Debug.Log("door locked");
     }
 
     private void UnlockDoor()
     {
         animator.SetTrigger("unlockDoor");
         collider2d.enabled = false;
-        //Debug.Log("unlock");
+        Debug.Log("door unlocked");
     }
 
 }

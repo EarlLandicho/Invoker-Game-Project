@@ -131,11 +131,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6183735780459977747, guid: 773c65c90982be5409b8075ba2283517, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 6183735780459977747, guid: 773c65c90982be5409b8075ba2283517, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6183735780459977747, guid: 773c65c90982be5409b8075ba2283517, type: 3}
       propertyPath: m_LocalRotation.w
@@ -164,6 +164,38 @@ PrefabInstance:
     - target: {fileID: 6183735780459977747, guid: 773c65c90982be5409b8075ba2283517, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183735780459977748, guid: 773c65c90982be5409b8075ba2283517, type: 3}
+      propertyPath: lengthInSec
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183735780459977748, guid: 773c65c90982be5409b8075ba2283517, type: 3}
+      propertyPath: ShapeModule.type
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183735780459977748, guid: 773c65c90982be5409b8075ba2283517, type: 3}
+      propertyPath: ShapeModule.donutRadius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183735780459977748, guid: 773c65c90982be5409b8075ba2283517, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183735780459977748, guid: 773c65c90982be5409b8075ba2283517, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183735780459977748, guid: 773c65c90982be5409b8075ba2283517, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183735780459977748, guid: 773c65c90982be5409b8075ba2283517, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183735780459977748, guid: 773c65c90982be5409b8075ba2283517, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.8772891
       objectReference: {fileID: 0}
     - target: {fileID: 6183735780459977750, guid: 773c65c90982be5409b8075ba2283517, type: 3}
       propertyPath: m_Name

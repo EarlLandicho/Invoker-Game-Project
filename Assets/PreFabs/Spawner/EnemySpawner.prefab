@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battlefieldTrigger: {fileID: 0}
-  spawnSpeedInitialEnemy: 0
-  spawnSpeedContinuousEnemy: 0
+  spawnSpeedInitialEnemy: 0.3
+  spawnSpeedContinuousEnemy: 3
   initialEnemy: []
   continuousEnemy: []
   spawnPoints: []

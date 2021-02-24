@@ -60,6 +60,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemyCounterInitial >= initialEnemy.Length)
         {
+            initialSpawnerDone = true;
             CancelInvoke("SpawnEnemyInitial");
             return;
         }
@@ -71,13 +72,14 @@ public class EnemySpawner : MonoBehaviour
         currentObject.GetComponent<EnemyHealth>().SetisFromSpawner(true);
         enemyCounterInitial++;
         numberOfEnemiesSpawned++;
-        initialSpawnerDone = true;
+        
     }
 
     private void SpawnEnemyContinuous()
     {
         if (enemyCounterContinuous >= continuousEnemy.Length)
         {
+            continuousSpawnerDone = true;
             CancelInvoke("SpawnEnemyContinuous");
             return;
         }
@@ -89,7 +91,7 @@ public class EnemySpawner : MonoBehaviour
         currentObject.GetComponent<EnemyHealth>().SetisFromSpawner(true);
         enemyCounterContinuous++;
         numberOfEnemiesSpawned++;
-        continuousSpawnerDone = true;
+        
     }
 
     private void OnDrawGizmos()
