@@ -39,7 +39,7 @@ public class ComboBar : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Something wrong with the stages in the combo bar");
+            Debug.LogError("Something wrong with the stages in the combo bar. Level is outside of 1-100");
         }
     }
 

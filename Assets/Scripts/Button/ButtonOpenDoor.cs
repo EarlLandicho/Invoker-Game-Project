@@ -6,7 +6,6 @@ public class ButtonOpenDoor : MonoBehaviour, IButton
 
     public void ActivateButton()
     {
-        //Throws an error
         door.GetComponent<CloseAndOpenDoor>().OpenDoor();
     }
 }

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-//Animation goes in here. Maybe refactor someday. Put animation elsewhere
 [RequireComponent(typeof(Animator))]
 public class ButtonPress : MonoBehaviour
 {
