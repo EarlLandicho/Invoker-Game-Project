@@ -74,6 +74,8 @@ There are four negative status effects that enemies and the player can have:
 * Stun - disables the target for a short time. The player can still cast spells while stunned.
 
 
-## Why am I creating this game?
+## From the developer
 
 This game allows me to do what I'm passionate about: creating games. Above 90% percent of what you see here is made by myself, art/animation and programming included. I used third-party modules such as CineMachine, LeanTween, TextMeshPro to help me create the game faster. Making this game gives me an opportunity to showcase what I can do with Unity, as well as what kind of art I can produce myself. This game has been in development for some months and I work in it on my free time as a passion project and as a sharpening tool as a programmer. As of now, the name "Invoker" is not set in stone. I may or may not change this name depending on how development goes. I may think of a better name someday.
+
+The game is inspired by a character from DOTA 2. A hero named "Invoker" combines spirits that let him cast different spells. I've also taken insperation from Magicka.
