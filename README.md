@@ -2,11 +2,52 @@
 
 ![](invoker.gif)
 
-Invoker is a 2D bullet-hell, adventure game that lets you combine spirits to cast different spells. There are three different spirits that you can use. 
+Invoker is a 2D bullet-hell, adventure game that lets you combine spirits to cast different spells. There are three different spirits that you can use. They represent the three main states of matter: solid, liquid, gas.
 You can combine up to three spirits, making the total number of spells to be 19. Spells allow you to damage enemies, maneuver more easily, protect/heal yourself, and 
 allows you to creatively combo them to increase their potency. You can poison, stun, and burn enemies. Enemies may inflict these status effects on you as well and may kill you if you don't dispel them with you spells. Each spirit is given to you one-by-one and you can discover what kind of spells you can create by combining them. Each spell has a cooldown on its own, so you have to keep using different spells if you want to constantly dish out damage. Using different spells and killing enemies fills up a combo bar that increases improves all your spells. Be sure to keep casting and killing enemies because this bar drains over time. The game rewards creativity and fast actions per minute.
 
 Invoker is made using c# and Unity as the engine. I use Aseprite to create the pixel art.
+
+# Mechanics
+Each spirit is represented as a letter. S for solid, L for liquid, G for gas. These S, L, G, spirits can be combined in many different ways. You can combine up to three. There are 19 total spells each with its own combination:
+
+S (Boulder Throw) - throw a boulder that damages enemies in an area. Can be used as a double jump if aimed down.  
+
+L (Icicle Shot) - shoot fast-moving icicles that damage enemies.  
+
+G (Lightning Strike) - create a lightning strike that deals heavy area damage and stuns enemies.  
+
+SS (Earth Armor and Shield) -  buff your physical resistance and gain oil status immunity. Take less damage from direct damage for a limited time. Summon a shield that can destroy projectiles on hit.  
+
+LL (Heal) - heal for a short time and also dispels any negative status effect.  
+
+GG (Lightning Dash) - dash for a short distance. Damage enemies in between.  
+
+SL (Ground Slam) - slam the ground damaging enemies in your path. Oils and poisons enemies hit.  
+
+SG (Ring of Fire) - spin fireballs around you. Damages enemies on impact and burns them. Fireballs destroy projectiles on hit.  
+
+LG (Poison Explosion) - create a poison bubble that continuously damages enemies in the area. Also applies poison for enemies hit.  
+
+SSS (Summon Oil Golem) - summon an oil golem that attacks nearby enemies with a projectile that oils enemies that it hits. Useful for blocking enemy projectile.  
+
+LLL (Hibernate) - gain immunity to all damage and lock player movement for a short time. Dispels negative status effects.
+
+GGG (Tornado) - create a moving tornado that deals damage and stuns enemies in a huge area.
+
+SSL (Lava Burst) - shoot molten lava in multiple directions that damages and burn enemies on hit.
+
+SSG (Wisp) - summon a slow-moving wisp that damages nearby enemies continuously.
+
+SLL (Solar Flare) - destroy all projectiles on screen and burn nearby enemies.
+
+SGG (Wings) - gain the ability to fly for a short time.
+
+LLG (Bubble) - gain negative status effect immunity for a short time. Increase movement speed and jump height.
+
+LGG (Wind Trampoline) - create an area that increases your jump height drastically. Damages any nearby enemies besides the trampoline whenever it's used.
+
+SLG (Cooldown Reset) - resets all spell cooldowns. Useful for spell combos.
 
 # Why am I creating this game?
 
