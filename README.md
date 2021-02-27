@@ -5,7 +5,9 @@
 ## Game Summary
 Invoker is a 2D bullet-hell, adventure game that lets you combine spirits to cast different spells. There are three different spirits that you can use. They represent the three main states of matter: solid, liquid, gas.
 You can combine up to three spirits, making the total number of spells to be 19. Spells allow you to damage enemies, maneuver more easily, protect/heal yourself, and 
-allows you to creatively combo them to increase their potency. You can poison, stun, and burn enemies. Enemies may inflict these status effects on you as well and may kill you if you don't dispel them with you spells. Each spirit is given to you one-by-one and you can discover what kind of spells you can create by combining them. Each spell has a cooldown on its own, so you have to keep using different spells if you want to constantly dish out damage. Using different spells and killing enemies fills up a combo bar that increases improves all your spells. Be sure to keep casting and killing enemies because this bar drains over time. The game rewards creativity and fast actions per minute.
+allows you to creatively combo them to increase their potency. You can poison, stun, and burn enemies. Enemies may inflict these status effects on you as well and may kill you if you don't dispel them with you spells. Stunning or immobilizing the player does not disable spell casting. Spirits are independent to the player. The player can cast spells at any point of the game as long as it's not in cooldown.
+
+Each spirit is given to you one-by-one and you can discover what kind of spells you can create by combining them. Each spell has a cooldown on its own, so you have to keep using different spells if you want to constantly dish out damage. Using different spells and killing enemies fills up a combo bar that increases improves all your spells. Be sure to keep casting and killing enemies because this bar drains over time. The game rewards creativity and fast actions per minute.
 
 Invoker is made using c# and Unity as the engine. I use Aseprite to create the pixel art.
 
@@ -35,7 +37,7 @@ Each spirit is represented as a letter. S for solid, L for liquid, G for gas. Th
 
 * SSS (Summon Oil Golem) - summon an oil golem that attacks nearby enemies with a projectile that oils enemies that it hits. Useful for blocking enemy projectile.  
 
-* LLL (Hibernate) - gain immunity to all damage and lock player movement for a short time. Dispels negative status effects.
+* LLL (Hibernate) - gain immunity to all damage and lock player movement for a short time. Dispels negative status effects. Even if you're immobalized, you may still cast spells.
 
 * GGG (Tornado) - create a moving tornado that deals damage and stuns enemies in a huge area.
 
@@ -62,6 +64,14 @@ Casting spells while not hitting enemies is not enough to fill up the bar. So ma
 
 ### Game Areas and Levels
 You don't start with all the spells at your disposal. You increase the number of spirits you have as you progress throughout the game. Each spirit you collect makes you stronger. You gain more spells to use to defeat enemies and fill your combo bar. Areas have battlefields where you have to defeat all enemies in the area to progress. Find the key to unlock the exit.
+
+### Status Effects
+There are four negative status effects that enemies and the player can have: 
+
+* Poison - deals constant damage. Each tick damage is small but poisons last long.
+* Oil - slows movement and decrease jump height. Will increase burning damage.
+* Buring - deals constant damage. Each tick damage is big but only lasts quickly. If target is oiled when buring is applied, total burning damage is increased.
+* Stun - disables the target for a short time. The player can still cast spells while stunned.
 
 
 ## Why am I creating this game?
