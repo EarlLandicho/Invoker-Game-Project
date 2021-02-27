@@ -7,7 +7,7 @@ Invoker is a 2D bullet-hell, adventure game that lets you combine spirits to cas
 You can combine up to three spirits, making the total number of spells to be 19. Spells allow you to damage enemies, maneuver more easily, protect/heal yourself, and 
 allows you to creatively combo them to increase their potency. You can poison, stun, and burn enemies. Enemies may inflict these status effects on you as well and may kill you if you don't dispel them with your spells. Stunning or immobilizing the player does not disable spell casting. Spirits are independent to the player. The player can cast spells at any point of the game as long as it's not in cooldown.
 
-Each spirit is given to you one-by-one as you discover and collect them throughout the game.  You can discover what kind of spells you can create by combining them. Each spell has a cooldown on its own, so you have to keep using different spells if you want to constantly dish out damage. Using different spells and killing enemies fills up a combo bar and improves all your spells. Be sure to keep casting and defeating enemies because this bar drains over time. The game rewards creativity and fast actions per minute.
+Each spirit is given to you one-by-one as you discover and collect them throughout the game.  You can discover what kind of spells you can create by combining them. Each spell has a cooldown on its own, so you have to keep using different spells if you want to constantly dish out damage. Using different spells and killing enemies fills up a combo bar and improves all your spells. Be sure to keep casting and defeating enemies while avoiding taking damage because this bar drains over time and decreases whenever you take damage. The game rewards creativity and fast actions per minute.
 
 Invoker is made using C# and Unity as the engine. I use Aseprite to create the pixel art.
 
@@ -60,7 +60,7 @@ Each spell has its own cooldown. Using only a few spells may not be enough, you 
 ### Combo Bar and Comboing Spells
 Casting spells and defeating enemies fills up your combo bar. The combo bar depletes over time. The combo bar has 4 stages that determine how potent your spells will be. Each stage grants each spell different upgrades and additional effects. The stage of the combo bar is determined by how much it's filled.
 
-Casting spells while not hitting enemies is not enough to fill up the bar. So make sure you keep defeating enemies.
+Casting spells while not hitting enemies is not enough to fill up the bar. Taking damage will slightly decrease the combo bar as well. So make sure you keep defeating enemies while avoiding taking damage.
 
 ### Game Areas and Levels
 You don't start with all the spells at your disposal. You increase the number of spirits you have as you progress throughout the game. Each spirit you collect makes you stronger. You gain more spells to use to defeat enemies and fill your combo bar. Areas have battlefields where you have to defeat all enemies in the area to progress. Find the key to unlock the exit.
