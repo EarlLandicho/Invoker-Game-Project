@@ -52,8 +52,12 @@ Each spirit is represented as a letter. S for solid, L for liquid, G for gas. Th
 
 * SLG (Cooldown Reset) - resets all spell cooldowns. Useful for spell combos.
 
+Each spell has its own cooldown. Using only a few spells may not be enough, you have to utilize your entire arsenal Cast different spells while the others are cooling down. Spells casted using only one spirit will always have a lower cooldown than spells casted using two. This is pattern is true for spells casted with two and three spells. Spells casted with fewer spirits will always have a lower cooldown.
+
 ### Combo Bar and Comboing Spells
-Casting spells and defeating enemies fills up your combo bar. The combo bar depletes over time. The combo bar has 4 stages that determine how potent your spells will be. Each stage grants each spell different upgrades and additional effects. Casting spells while not hitting enemies is not enough to fill up the bar. So make sure you keep defeating enemies.
+Casting spells and defeating enemies fills up your combo bar. The combo bar depletes over time. The combo bar has 4 stages that determine how potent your spells will be. Each stage grants each spell different upgrades and additional effects. The stage of the combo bar is determined by how much it's filled.
+
+Casting spells while not hitting enemies is not enough to fill up the bar. So make sure you keep defeating enemies.
 
 ### Game Areas and Levels
 You don't start with all the spells at your disposal. You increase the number of spirits you have as you progress throughout the game. Each spirit you collect makes you stronger. You gain more spells to use to defeat enemies and fill your combo bar. Areas have battlefields where you have to defeat all enemies in the area to progress. Find the key to unlock the exit.
