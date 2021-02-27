@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WispAttack : MonoBehaviour
@@ -10,15 +9,15 @@ public class WispAttack : MonoBehaviour
     [SerializeField] private float radius = 0;
 
     private float attackSpeedTemp = 0;
-    void Awake()
+
+    private void Awake()
     {
         attackSpeedTemp = attackSpeed;
 
         StartCoroutine("Lifetime");
-        
     }
 
-    void Update()
+    private void Update()
     {
         if (attackSpeedTemp > 0)
         {
@@ -29,8 +28,6 @@ public class WispAttack : MonoBehaviour
             attackSpeedTemp = attackSpeed;
             Attack();
         }
-
-
     }
 
     private IEnumerator Lifetime()
@@ -43,19 +40,17 @@ public class WispAttack : MonoBehaviour
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, 1 << LayerMask.NameToLayer("Enemy"));
 
-        if(enemies.Length > 0)
+        if (enemies.Length > 0)
         {
             int ranNum = Random.Range(0, enemies.Length);
             enemies[ranNum].gameObject.GetComponent<IHealth>().TakeDamage(damage);
         }
-
     }
 
-    void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         // Display the explosion radius when selected
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
     }
-
 }

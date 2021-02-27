@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LavaBurstLaunch : MonoBehaviour
 {
@@ -8,7 +6,7 @@ public class LavaBurstLaunch : MonoBehaviour
     [SerializeField] private int numberofProjectiles;
     [SerializeField] private float projectileForce;
 
-    void Awake()
+    private void Awake()
     {
         ////up right
         //Instantiate(projectile, transform.position, transform.rotation).GetComponent<Rigidbody2D>().AddForce(new Vector2(100, 150));
@@ -28,12 +26,9 @@ public class LavaBurstLaunch : MonoBehaviour
         ////left
         //Instantiate(projectile, transform.position, transform.rotation).GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 10));
 
-        for(int i = 0; i < numberofProjectiles; i++)
+        for (int i = 0; i < numberofProjectiles; i++)
         {
             Instantiate(projectile, transform.position, transform.rotation).GetComponent<Rigidbody2D>().AddForce((Quaternion.AngleAxis((360 / numberofProjectiles) * i, Vector3.forward).normalized * new Vector2(projectileForce, 0)));
         }
     }
-
-
-
 }

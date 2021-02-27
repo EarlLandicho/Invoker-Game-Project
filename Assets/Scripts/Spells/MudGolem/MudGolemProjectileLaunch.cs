@@ -1,6 +1,4 @@
-﻿
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class MudGolemProjectileLaunch : MonoBehaviour
@@ -15,31 +13,26 @@ public class MudGolemProjectileLaunch : MonoBehaviour
     private float attackRangeRadius;
     private Vector3 target;
 
-    void Start()
+    private void Start()
     {
         attackSpeedTemp = attackSpeed;
         attackRangeRadius = transform.GetChild(0).GetComponent<CircleCollider2D>().radius;
     }
 
-    void Update()
+    private void Update()
     {
-        if(attackSpeedTemp > 0)
+        if (attackSpeedTemp > 0)
         {
-            if(!canAttack && !isAttacking)
+            if (!canAttack && !isAttacking)
             {
                 attackSpeedTemp -= Time.deltaTime;
-
             }
-            
         }
         else
         {
             canAttack = true;
             attackSpeedTemp = attackSpeed;
         }
-
-
-
     }
 
     private void OnTriggerStay2D(Collider2D collider)
@@ -58,7 +51,7 @@ public class MudGolemProjectileLaunch : MonoBehaviour
         {
             int ranNum = Random.Range(0, enemies.Length);
             target = enemies[ranNum].gameObject.transform.position;
-            
+
             StartCoroutine("DelayAttack");
         }
     }
@@ -68,16 +61,14 @@ public class MudGolemProjectileLaunch : MonoBehaviour
         canAttack = false;
         isAttacking = true;
         GetComponent<MudGolem>().SetCanMove(false);
-        
+
         yield return new WaitForSeconds(attackDelay);
 
         GameObject projectileObject = Instantiate(projectile, transform.position, transform.rotation);
         projectileObject.GetComponent<MudGolemProjectile>().SetTarget(target);
         projectileObject.GetComponent<MudGolemProjectile>().SetMoxGolemRange(attackRangeRadius);
-        
+
         GetComponent<MudGolem>().SetCanMove(true);
         isAttacking = false;
-
     }
-
 }

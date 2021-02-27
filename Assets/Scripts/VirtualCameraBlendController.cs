@@ -1,13 +1,12 @@
 ﻿using Cinemachine;
 using UnityEngine;
 
-
 public class VirtualCameraBlendController : MonoBehaviour
 {
     [SerializeField] private BattlefieldTrigger battlefieldTrigger;
     private CinemachineVirtualCamera virtualCamera;
 
-    void Awake()
+    private void Awake()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
         battlefieldTrigger.PlayerTriggered += SwitchCamera;
@@ -22,5 +21,4 @@ public class VirtualCameraBlendController : MonoBehaviour
     {
         virtualCamera.Priority = 100;
     }
-
 }

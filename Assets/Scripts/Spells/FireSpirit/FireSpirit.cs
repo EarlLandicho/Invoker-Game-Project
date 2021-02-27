@@ -5,7 +5,6 @@ public class FireSpirit : MonoBehaviour
     [SerializeField] private float impactDamage = 0;
     [SerializeField] private GameObject explosionAnimation;
 
-
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TouchAttack : EnemyAttack
@@ -8,18 +6,15 @@ public class TouchAttack : EnemyAttack
 
     private Animator animator;
 
-
-
-    new void Awake()
+    private new void Awake()
     {
         base.Awake();
         animator = GetComponent<Animator>();
     }
 
-
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             animator.SetTrigger("attack");
         }
@@ -29,20 +24,15 @@ public class TouchAttack : EnemyAttack
     public void Explode()
     {
         Collider2D player = Physics2D.OverlapCircle(transform.position, explosionRadius, 1 << LayerMask.NameToLayer("Player"));
-        
-        if(player != null)
+
+        if (player != null)
         {
             player.gameObject.GetComponent<IHealth>().TakeDamage(damage);
         }
-
-
     }
-
-
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
-
 }

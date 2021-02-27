@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HibernateHeal : MonoBehaviour
 {
@@ -8,23 +6,20 @@ public class HibernateHeal : MonoBehaviour
     private IHealth playerHealth;
 
     //SUGGESTION: Move to StatusEffect functionality
-    void Awake()
+    private void Awake()
     {
         playerHealth = GameObject.Find("Player").GetComponent<IHealth>();
 
         InvokeRepeating("HibernateTickHealing", 0, Constants.HealTickPerSecond);
-
     }
-
 
     private void HibernateTickHealing()
     {
         playerHealth.TakeHealing(healPerSec * Constants.HealTickPerSecond);
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         CancelInvoke("HibernateTickHealing");
     }
-
 }

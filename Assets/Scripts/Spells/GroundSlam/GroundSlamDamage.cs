@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GroundSlamDamage : MonoBehaviour
 {
@@ -10,19 +8,18 @@ public class GroundSlamDamage : MonoBehaviour
 
     private PlayerJump playerJump;
 
-    void Awake()
+    private void Awake()
     {
         playerJump = GameObject.Find("Player").GetComponent<PlayerJump>();
 
-        if(FindObjectOfType(typeof(WingsMovement)) != null)
+        if (FindObjectOfType(typeof(WingsMovement)) != null)
         {
             WingsMovement component = (WingsMovement)FindObjectOfType(typeof(WingsMovement));
             component.CancelFlight();
-
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (playerJump.GetIsGrounded())
         {

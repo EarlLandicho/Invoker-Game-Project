@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine;
 
 public class PlayerHealth : Health
 {
@@ -19,7 +18,6 @@ public class PlayerHealth : Health
             {
                 damage = damage * damageModifier;
                 currentHealth -= damage;
-
             }
             FlashWhenDamaged();
         }
@@ -33,11 +31,10 @@ public class PlayerHealth : Health
 
     public void SetGodModeHealth(bool isGodMode)
     {
-        if(isGodMode)
+        if (isGodMode)
         {
             currentHealthTemp = currentHealth;
             currentHealth += 10000;
-
         }
         else
         {

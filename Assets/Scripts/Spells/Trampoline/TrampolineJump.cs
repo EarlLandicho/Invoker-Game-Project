@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using UnityEngine;
-using System;
-
 
 public class TrampolineJump : MonoBehaviour
 {
@@ -13,18 +11,17 @@ public class TrampolineJump : MonoBehaviour
     public event Action TrampolineJumped = delegate { };
 
     private Rigidbody2D playerRigidBody;
-    
 
-    void Awake()
+    private void Awake()
     {
         playerRigidBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
 
         StartCoroutine("SpellLifetime");
     }
 
-    void Update()
+    private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (Physics2D.OverlapBox(transform.position, size, 0, 1 << LayerMask.NameToLayer("Player")))
             {
@@ -47,6 +44,4 @@ public class TrampolineJump : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube((Vector2)transform.position, size);
     }
-
-
 }

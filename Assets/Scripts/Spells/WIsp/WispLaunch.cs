@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WispLaunch : MonoBehaviour
 {
@@ -33,5 +31,4 @@ public class WispLaunch : MonoBehaviour
             rb.velocity = new Vector2(0f, 0f);
         }
     }
-
 }

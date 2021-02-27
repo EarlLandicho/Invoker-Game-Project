@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour, IMovement
@@ -19,7 +17,6 @@ public class Movement : MonoBehaviour, IMovement
         rb = GetComponent<Rigidbody2D>();
 
         movementSpeedTemp = movementSpeed;
-
     }
 
     public virtual float GetMovementSpeed()
@@ -34,7 +31,6 @@ public class Movement : MonoBehaviour, IMovement
 
     public virtual void SetLockXMovement(bool isLocked)
     {
-        
         isXMovementSpeedLocked = isLocked;
         if (isLocked)
         {
@@ -48,18 +44,16 @@ public class Movement : MonoBehaviour, IMovement
 
     public virtual void SetMovementSpeedByFactor(float factor, bool isSetting)
     {
-        if(isSetting)
+        if (isSetting)
         {
             movementSpeedModifier *= factor;
             Debug.Log("movement modifier set to" + movementSpeedModifier);
-
         }
         else
         {
             movementSpeedModifier /= factor;
             Debug.Log("movement modifier reset to " + movementSpeedModifier);
         }
-        
     }
 
     public virtual void SetMovementSpeedModifierToDefault()

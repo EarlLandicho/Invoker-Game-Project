@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LavaBurstProjectile : MonoBehaviour
 {
     [SerializeField] private float damage = 0;
 
-    void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
@@ -19,10 +17,4 @@ public class LavaBurstProjectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
-
-
-
-
 }

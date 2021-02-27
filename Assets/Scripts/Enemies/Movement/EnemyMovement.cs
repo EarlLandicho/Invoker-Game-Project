@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyMovement : Movement
 {
@@ -12,7 +11,6 @@ public class EnemyMovement : Movement
     {
         base.Awake();
         playerObject = GameObject.Find("Player");
-
     }
 
     public virtual void OnCollisionEnter2D(Collision2D collision)
@@ -24,7 +22,6 @@ public class EnemyMovement : Movement
                 Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider); ;
             }
         }
-
     }
 
     protected bool PlayerIsOnTheRight()
@@ -37,13 +34,12 @@ public class EnemyMovement : Movement
         return true;
     }
 
-
     // Called in Animator
     public virtual void PauseMovement()
     {
         isXMovementSpeedLocked = true;
 
-        if(isFlying)
+        if (isFlying)
         {
             rb.velocity = new Vector2(0, 0);
         }
@@ -51,7 +47,6 @@ public class EnemyMovement : Movement
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
-        
     }
 
     // Called in Animator
@@ -59,7 +54,4 @@ public class EnemyMovement : Movement
     {
         isXMovementSpeedLocked = false;
     }
-
-
-
 }

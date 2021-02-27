@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
@@ -27,10 +25,4 @@ public class EnemyAttack : MonoBehaviour
     {
         return (playerObject.transform.position - transform.position).normalized;
     }
-
-
-
-
- 
-
 }

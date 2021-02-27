@@ -13,9 +13,9 @@ public class StatusEffect : MonoBehaviour
     private bool isImmuneToOilTemp;
     private bool isImmuneToStunTemp;
 
-
     //can make the health, movement, and jump an interface such that this file can be used by many characters
     private IHealth health;
+
     private IMovement movement;
     private IJump jump;
     private EnemyAttack enemyAttack;
@@ -43,20 +43,16 @@ public class StatusEffect : MonoBehaviour
 
     private void Awake()
     {
-       
         //when refactored, this will always refer to the gameobject it's attached to
         health = GetComponent<IHealth>();
         movement = GetComponent<IMovement>();
-        
-
 
         if (GetComponent<IJump>() != null)
         {
             jump = GetComponent<IJump>();
-
         }
 
-        if(GetComponent<EnemyAttack>() != null)
+        if (GetComponent<EnemyAttack>() != null)
         {
             enemyAttack = GetComponent<EnemyAttack>();
         }
@@ -65,7 +61,6 @@ public class StatusEffect : MonoBehaviour
         isImmuneToOilTemp = isImmuneToOil;
         isImmuneToPoisonTemp = isImmuneToPoison;
         isImmuneToStunTemp = isImmuneToStun;
-
     }
 
     public bool GetIsPoisoned()
@@ -121,18 +116,15 @@ public class StatusEffect : MonoBehaviour
             {
                 InvokeRepeating("Poison", 0, Constants.PoisonTickPerSecond);
             }
-
         }
-
     }
 
     public void BecomeOiled()
     {
-        if(!isImmuneToOilTemp)
+        if (!isImmuneToOilTemp)
         {
             //stopping first to reset the cooldown
             StartCoroutine("Oil");
-
         }
     }
 
@@ -150,7 +142,6 @@ public class StatusEffect : MonoBehaviour
             {
                 InvokeRepeating("Burn", 0, Constants.BurningTickPerSecond);
             }
-
         }
     }
 
@@ -160,7 +151,6 @@ public class StatusEffect : MonoBehaviour
         {
             StopCoroutine("Stun");
             StartCoroutine("Stun");
-
         }
     }
 
@@ -191,14 +181,12 @@ public class StatusEffect : MonoBehaviour
         isPoisoned = false;
         CancelInvoke("Poison");
 
-
         isOiled = false;
         StopCoroutine("Oil");
 
         //sets movementSppedModiier to 1
         movement.SetMovementSpeedModifierToDefault();
         jump.SetJumpHeightToDefault();
-
 
         if (GetComponent<IJump>() != null)
         {
@@ -217,7 +205,6 @@ public class StatusEffect : MonoBehaviour
         if (GetComponent<IJump>() != null)
         {
             jump.SetLockJump(false);
-
         }
         movement.SetLockXMovement(false);
     }
@@ -232,11 +219,7 @@ public class StatusEffect : MonoBehaviour
         statusEffectImmuneDuration = duration;
         StopCoroutine("StatusEffectImmune");
         StartCoroutine("StatusEffectImmune");
-
-        
     }
-
-
 
     private void Burn()
     {
@@ -308,7 +291,7 @@ public class StatusEffect : MonoBehaviour
             jump.SetJumpHeightToDefault();
             jump.SetJumpHeightByFactor(Constants.OilJumpHeightDecreseFactor);
         }
-        
+
         yield return new WaitForSeconds(Constants.OilDuration);
 
         movement.SetMovementSpeedByFactor(Constants.OilMovementDecreseFactor, false);
@@ -317,7 +300,7 @@ public class StatusEffect : MonoBehaviour
         {
             jump.SetJumpHeightToDefault();
         }
-        
+
         isOiled = false;
     }
 
@@ -327,7 +310,6 @@ public class StatusEffect : MonoBehaviour
         if (GetComponent<IJump>() != null)
         {
             jump.SetLockJump(true);
-
         }
 
         if (GetComponent<EnemyAttack>() != null)
@@ -341,7 +323,6 @@ public class StatusEffect : MonoBehaviour
         if (GetComponent<IJump>() != null)
         {
             jump.SetLockJump(false);
-
         }
 
         if (GetComponent<EnemyAttack>() != null)
@@ -349,8 +330,6 @@ public class StatusEffect : MonoBehaviour
             enemyAttack.SetLockAttack(false);
         }
         movement.SetLockXMovement(false);
-
-
     }
 
     private IEnumerator Armor()
@@ -365,7 +344,7 @@ public class StatusEffect : MonoBehaviour
     private IEnumerator Bubble()
     {
         movement.SetMovementSpeedByFactor(bubbleMovementSpeedModifier, true);
-        
+
         yield return new WaitForSeconds(bubbleDuration);
 
         movement.SetMovementSpeedByFactor(bubbleMovementSpeedModifier, false);

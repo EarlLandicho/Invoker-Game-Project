@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyFollowMovement : EnemyMovement
 {
-
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (!isXMovementSpeedLocked)
         {
@@ -14,7 +11,6 @@ public class EnemyFollowMovement : EnemyMovement
             rb.velocity = playerDirection * movementSpeed;
         }
     }
-
 
     public override void SetLockXMovement(bool isLocked)
     {
@@ -28,9 +24,4 @@ public class EnemyFollowMovement : EnemyMovement
             movementSpeed = movementSpeedTemp * movementSpeedModifier;
         }
     }
-
-
-
-
-
 }

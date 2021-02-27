@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class SpellCooldownDisplay : MonoBehaviour
 {
-
     private SpiritCast spiritCast;
 
-    [SerializeField] private TextMeshProUGUI S_cooldownText,
+    [SerializeField]
+    private TextMeshProUGUI S_cooldownText,
         L_cooldownText,
         G__cooldownText,
         SS_cooldownText,
@@ -30,14 +29,12 @@ public class SpellCooldownDisplay : MonoBehaviour
 
     //[SerializeField] private TextMeshProUGUI icicleCd,  boulderCd;
 
-    void Start()
+    private void Start()
     {
         spiritCast = GameObject.Find("Spirits").GetComponent<SpiritCast>();
-
-
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
         UpdateCooldownsUI();
     }
@@ -215,5 +212,4 @@ public class SpellCooldownDisplay : MonoBehaviour
             SLG_cooldownText.text = (Math.Truncate(spiritCast.GetSLG_timer() * 100) / 100).ToString();
         }
     }
-
 }

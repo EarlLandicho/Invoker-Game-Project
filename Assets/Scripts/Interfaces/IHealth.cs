@@ -9,6 +9,4 @@
     float GetDamageModifier();
 
     void SetDamageModifierByFactor(float damageModifier, bool isSetting);
-
-
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileAttack : EnemyAttack
@@ -7,25 +5,22 @@ public class ProjectileAttack : EnemyAttack
     [SerializeField] protected Transform projectileLaunchPosition;
     [SerializeField] protected float projectileSpeed;
 
-
     protected GameObject currentProjectile;
 
     protected EnemyMovement enemyMovement;
     protected Animator animator;
     protected bool isAttacking;
 
-    new void Awake()
+    private new void Awake()
     {
         base.Awake();
         enemyMovement = GetComponent<EnemyMovement>();
         animator = GetComponent<Animator>();
-
     }
 
-    void Update()
+    private void Update()
     {
-
-        if(!isLockedAttack)
+        if (!isLockedAttack)
         {
             if (attackSpeedTemp > 0)
             {
@@ -37,15 +32,13 @@ public class ProjectileAttack : EnemyAttack
                 isAttacking = true;
             }
         }
-
-
     }
 
     public override void SetLockAttack(bool isStunned)
     {
         base.SetLockAttack(isStunned);
 
-        if(!isStunned)
+        if (!isStunned)
         {
             ResetAttackSpeed();
             animator.SetBool("isStunned", false);
@@ -55,7 +48,6 @@ public class ProjectileAttack : EnemyAttack
             animator.SetBool("isStunned", true);
         }
     }
-
 
     // Called in Animator
     public void ResetAttackSpeed()

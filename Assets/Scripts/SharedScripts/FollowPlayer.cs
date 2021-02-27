@@ -18,7 +18,7 @@ public class FollowPlayer : MonoBehaviour
 
     private void Update()
     {
-        if(enableDamping)
+        if (enableDamping)
         {
             transform.position = Vector3.SmoothDamp(transform.position + (Vector3)offSet, player.transform.position, ref velocity, damping);
         }
@@ -26,7 +26,6 @@ public class FollowPlayer : MonoBehaviour
         {
             transform.position = player.transform.position + (Vector3)offSet;
         }
-        
     }
 
     private void OnDrawGizmos()

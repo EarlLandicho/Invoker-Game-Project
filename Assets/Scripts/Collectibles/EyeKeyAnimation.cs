@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EyeKeyAnimation : MonoBehaviour
@@ -10,22 +8,21 @@ public class EyeKeyAnimation : MonoBehaviour
 
     private Animator animator;
 
-    void Awake()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
     }
 
-    void Start()
+    private void Start()
     {
         animationTimeDelayTemp = animationTimeDelay;
 
         LeanTween.moveY(gameObject, gameObject.transform.position.y + .1f, 1f).setEaseInOutSine().setLoopPingPong();
-
     }
 
-    void Update()
+    private void Update()
     {
-        if(!isAnimating)
+        if (!isAnimating)
         {
             if (animationTimeDelayTemp > 0)
             {
@@ -37,7 +34,6 @@ public class EyeKeyAnimation : MonoBehaviour
                 AnimateRandomIdle();
             }
         }
-
     }
 
     // Called in Animator
@@ -49,28 +45,18 @@ public class EyeKeyAnimation : MonoBehaviour
     private void AnimateRandomIdle()
     {
         float randomNum = Random.Range(0f, 1f);
-        if(randomNum >= 0 && randomNum < .33f)
+        if (randomNum >= 0 && randomNum < .33f)
         {
             animator.SetTrigger("idle1");
         }
-        else if(randomNum >= .33f && randomNum < .66f)
+        else if (randomNum >= .33f && randomNum < .66f)
         {
             animator.SetTrigger("idle2");
         }
-        else if(randomNum >= .66f && randomNum < 1f)
+        else if (randomNum >= .66f && randomNum < 1f)
         {
             animator.SetTrigger("idle3");
         }
         isAnimating = true;
-
     }
-
-
-
-
-
-
-
-
-
 }

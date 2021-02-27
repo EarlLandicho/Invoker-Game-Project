@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
@@ -13,7 +11,7 @@ public class Bubble : MonoBehaviour
 
     private static Bubble instance;
 
-    void Awake()
+    private void Awake()
     {
         playerStatusEffect = GameObject.Find("Player").GetComponent<StatusEffect>();
 
@@ -29,8 +27,6 @@ public class Bubble : MonoBehaviour
             instance = this;
         }
 
-        
-
         playerStatusEffect.BecomeStatusEffectImmune(bubbleDuration);
         playerStatusEffect.BecomeBubbled(movementSpeedFactor, bubbleDuration);
 
@@ -38,6 +34,4 @@ public class Bubble : MonoBehaviour
 
         Destroy(gameObject, bubbleDuration);
     }
-
-
 }

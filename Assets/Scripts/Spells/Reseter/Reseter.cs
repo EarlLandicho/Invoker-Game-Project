@@ -1,17 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Reseter : MonoBehaviour
 {
     private SpiritCast spiritCast;
-    void Awake()
+
+    private void Awake()
     {
         spiritCast = (SpiritCast)GameObject.FindObjectOfType(typeof(SpiritCast));
 
         spiritCast.ResetAllCooldowns();
     }
-
-
-
 }

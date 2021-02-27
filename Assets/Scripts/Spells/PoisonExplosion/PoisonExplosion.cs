@@ -9,22 +9,20 @@ public class PoisonExplosion : MonoBehaviour
 
     private float cloudPoisonCheckTimer;
 
-    
-
     private void Awake()
     {
         cloudPoisonCheckTimer = cloudPoisonCheck;
         Destroy(gameObject, poisonDuration);
     }
 
-    void Start()
+    private void Start()
     {
         LeanTween.moveY(gameObject, gameObject.transform.position.y + .05f, 1.5f).setEaseInOutSine().setLoopPingPong();
     }
 
-    void Update()
+    private void Update()
     {
-        if(cloudPoisonCheckTimer > 0)
+        if (cloudPoisonCheckTimer > 0)
         {
             cloudPoisonCheckTimer -= Time.deltaTime;
         }

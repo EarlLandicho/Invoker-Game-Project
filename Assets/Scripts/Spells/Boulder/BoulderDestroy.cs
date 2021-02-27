@@ -10,9 +10,10 @@ public class BoulderDestroy : MonoBehaviour
 
     //prevents multiple collisions therefore preventing multiple calls to OnTriggerEnter2D
     private bool isColliding;
+
     private Animator animator;
 
-    void Awake()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
     }

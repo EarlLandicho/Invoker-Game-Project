@@ -10,7 +10,7 @@ public class MudGolem : MonoBehaviour
     private Transform playerTranform;
     private bool canMove = true;
 
-    void Awake()
+    private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         playerTranform = GameObject.Find("Player").GetComponent<Transform>();
@@ -18,17 +18,16 @@ public class MudGolem : MonoBehaviour
         Destroy(gameObject, duration);
     }
 
-
-    void Update()
+    private void Update()
     {
         //check if golem is not moveing in the y direction with as small margin of error (between -.1 and .1)
-        if(rigidBody.velocity.y > -0.1f && rigidBody.velocity.y < 0.1f)
+        if (rigidBody.velocity.y > -0.1f && rigidBody.velocity.y < 0.1f)
         {
-            if(playerTranform.position.x - transform.position.x > stopDistance + .1f && canMove)
+            if (playerTranform.position.x - transform.position.x > stopDistance + .1f && canMove)
             {
                 rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
             }
-            else if(playerTranform.position.x - transform.position.x < -stopDistance - .1f && canMove)
+            else if (playerTranform.position.x - transform.position.x < -stopDistance - .1f && canMove)
             {
                 rigidBody.velocity = new Vector2(-speed, rigidBody.velocity.y);
             }
@@ -36,7 +35,6 @@ public class MudGolem : MonoBehaviour
             {
                 rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
             }
-
         }
     }
 
@@ -44,10 +42,4 @@ public class MudGolem : MonoBehaviour
     {
         this.canMove = canMove;
     }
-
-
-
-
-
-
 }

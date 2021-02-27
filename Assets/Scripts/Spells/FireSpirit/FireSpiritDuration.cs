@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FireSpiritDuration : MonoBehaviour
 {
@@ -8,13 +6,12 @@ public class FireSpiritDuration : MonoBehaviour
 
     private float durationTemp;
 
-    void Awake()
+    private void Awake()
     {
         durationTemp = duration;
     }
 
-
-    void Update()
+    private void Update()
     {
         if (durationTemp > 0)
         {
@@ -25,6 +22,4 @@ public class FireSpiritDuration : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }

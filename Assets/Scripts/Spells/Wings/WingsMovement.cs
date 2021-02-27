@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WingsMovement : MonoBehaviour
 {
@@ -13,7 +11,7 @@ public class WingsMovement : MonoBehaviour
 
     private static WingsMovement instance;
 
-    void Awake()
+    private void Awake()
     {
         //Singleton
         if (instance != null)
@@ -37,9 +35,9 @@ public class WingsMovement : MonoBehaviour
         flightDurationTemp = flightDuration;
     }
 
-    void Update()
+    private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             CancelFlight();
             Destroy(gameObject);
@@ -48,7 +46,6 @@ public class WingsMovement : MonoBehaviour
         if (flightDurationTemp > 0)
         {
             flightDurationTemp -= Time.deltaTime;
-            
         }
         else
         {
@@ -62,7 +59,4 @@ public class WingsMovement : MonoBehaviour
         playerMovement.SetMovementSpeedByFactor(flightSpeedFactor, false);
         playerMovement.SetIsFlying(false);
     }
-
-
-
 }

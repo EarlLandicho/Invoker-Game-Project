@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LightningCloudSpawn : MonoBehaviour
 {
@@ -7,17 +6,12 @@ public class LightningCloudSpawn : MonoBehaviour
     [SerializeField] private Vector2 centerOffSet = new Vector2(0, 0);
     [SerializeField] private Vector2 size = new Vector2(0, 0);
     [SerializeField] private LayerMask layerMask;
-    
 
     private void Start()
     {
         float yOffSet = .40f;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 500f, layerMask);
         transform.position = hit.point + new Vector2(0, yOffSet);
-
-
-
-
     }
 
     // Called in Animator
@@ -30,9 +24,6 @@ public class LightningCloudSpawn : MonoBehaviour
             enemy.gameObject.GetComponent<StatusEffect>().BecomeStunned();
         }
     }
-
-
-
 
     private void OnDrawGizmos()
     {

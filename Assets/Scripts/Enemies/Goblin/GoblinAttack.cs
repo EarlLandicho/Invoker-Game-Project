@@ -10,14 +10,13 @@ public class GoblinAttack : EnemyAttack
     private GoblinMovement goblinMovement;
     private bool isBeingDelayed;
 
-    new void Awake()
+    private new void Awake()
     {
         base.Awake();
         goblinMovement = GetComponent<GoblinMovement>();
-
     }
 
-    void Update()
+    private void Update()
     {
         if (attackSpeedTemp > 0 && !isLockedAttack)
         {
@@ -26,9 +25,7 @@ public class GoblinAttack : EnemyAttack
         else if (!isBeingDelayed && attackSpeedTemp <= 0)
         {
             StartCoroutine("DelayAttack");
-
         }
-
     }
 
     public override void SetLockAttack(bool isStunned)
@@ -58,8 +55,5 @@ public class GoblinAttack : EnemyAttack
         attackSpeedTemp = attackSpeed;
         isBeingDelayed = false;
         goblinMovement.SetLockXMovement(false);
-
     }
-
-
 }

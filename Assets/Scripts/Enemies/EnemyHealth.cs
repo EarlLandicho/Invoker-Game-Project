@@ -7,7 +7,7 @@ public class EnemyHealth : Health
 
     private bool isFromSpawner;
 
-    new void Awake()
+    private new void Awake()
     {
         base.Awake();
     }
@@ -45,6 +45,4 @@ public class EnemyHealth : Health
     {
         ComboBar.currentBarLevel += comboBarIncreaseAmount;
     }
-
-
 }

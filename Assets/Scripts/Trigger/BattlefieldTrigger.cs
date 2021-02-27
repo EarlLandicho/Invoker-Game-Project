@@ -1,17 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
+using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class BattlefieldTrigger : MonoBehaviour
 {
     public event Action PlayerTriggered = delegate { };
-    
 
     private Collider2D collider2d;
 
-    void Awake()
+    private void Awake()
     {
         collider2d = GetComponent<Collider2D>();
     }

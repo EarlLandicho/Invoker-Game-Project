@@ -1,17 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class IcicleLauncher : MonoBehaviour
 {
-    [SerializeField] GameObject icicleProjetile;
-    [SerializeField] float launchDelay;
-    [SerializeField] int numberOfProjectiles;
-    [SerializeField] float randomLaunchPositionRadius;
+    [SerializeField] private GameObject icicleProjetile;
+    [SerializeField] private float launchDelay;
+    [SerializeField] private int numberOfProjectiles;
+    [SerializeField] private float randomLaunchPositionRadius;
 
     private float angle;
 
-    void Awake()
+    private void Awake()
     {
         if (Input.GetKey(KeyCode.W))
         {
@@ -22,8 +20,6 @@ public class IcicleLauncher : MonoBehaviour
             angle = -90;
         }
 
-
-
         InvokeRepeating("Launch", 0f, launchDelay);
     }
 
@@ -33,7 +29,7 @@ public class IcicleLauncher : MonoBehaviour
 
         Instantiate(icicleProjetile, transform.position + new Vector3(Random.Range(-randomLaunchPositionRadius, randomLaunchPositionRadius), Random.Range(-randomLaunchPositionRadius, randomLaunchPositionRadius) + 0.1f), transform.rotation).GetComponent<IcicleLaunch>().Launch(angle);
 
-        if(numberOfProjectiles <= 0)
+        if (numberOfProjectiles <= 0)
         {
             CancelInvoke();
             Destroy(gameObject);

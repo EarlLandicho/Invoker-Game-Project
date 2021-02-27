@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyProjectile : MonoBehaviour
@@ -10,8 +8,6 @@ public class EnemyProjectile : MonoBehaviour
     private Vector2 playerDirection;
     private Animator animator;
 
-
-
     protected Rigidbody2D projectileRigidbody;
 
     private void Awake()
@@ -19,7 +15,6 @@ public class EnemyProjectile : MonoBehaviour
         projectileRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
-
 
     public void SetDamage(float damage)
     {
@@ -41,7 +36,6 @@ public class EnemyProjectile : MonoBehaviour
         projectileRigidbody.velocity = projectileSpeed * playerDirection;
     }
 
-
     // Called by animator
     public void DestroyThisObject()
     {
@@ -61,19 +55,15 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.gameObject.layer == LayerMask.NameToLayer("Player") ||
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Player") ||
             collider.gameObject.layer == LayerMask.NameToLayer("Ally"))
         {
             collider.GetComponent<IHealth>().TakeDamage(damage);
             animator.SetTrigger("hasHitSomething");
         }
-        else if(collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        else if (collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             animator.SetTrigger("hasHitSomething");
         }
     }
-
-    
-
-
 }

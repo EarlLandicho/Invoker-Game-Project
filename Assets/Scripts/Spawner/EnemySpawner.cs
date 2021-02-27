@@ -1,9 +1,10 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
+using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
     public static int numberOfEnemiesSpawned;
+
     public event Action EnemiesKilledInBattleField = delegate { };
 
     [SerializeField] private BattlefieldTrigger battlefieldTrigger;
@@ -19,15 +20,14 @@ public class EnemySpawner : MonoBehaviour
     private bool initialSpawnerDone;
     private bool continuousSpawnerDone;
 
-    void Awake()
+    private void Awake()
     {
         battlefieldTrigger.PlayerTriggered += BeginSpawning;
 
-        if(initialEnemy.Length == 0)
+        if (initialEnemy.Length == 0)
         {
             initialSpawnerDone = true;
         }
-
 
         if (continuousEnemy.Length == 0)
         {
@@ -35,9 +35,9 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
-        if(initialSpawnerDone && continuousSpawnerDone && numberOfEnemiesSpawned <= 0)
+        if (initialSpawnerDone && continuousSpawnerDone && numberOfEnemiesSpawned <= 0)
         {
             EnemiesKilledInBattleField();
 
@@ -47,7 +47,6 @@ public class EnemySpawner : MonoBehaviour
             enemyCounterContinuous = 0;
             numberOfEnemiesSpawned = 0;
         }
-
     }
 
     private void BeginSpawning()
@@ -72,7 +71,6 @@ public class EnemySpawner : MonoBehaviour
         currentObject.GetComponent<EnemyHealth>().SetisFromSpawner(true);
         enemyCounterInitial++;
         numberOfEnemiesSpawned++;
-        
     }
 
     private void SpawnEnemyContinuous()
@@ -91,7 +89,6 @@ public class EnemySpawner : MonoBehaviour
         currentObject.GetComponent<EnemyHealth>().SetisFromSpawner(true);
         enemyCounterContinuous++;
         numberOfEnemiesSpawned++;
-        
     }
 
     private void OnDrawGizmos()

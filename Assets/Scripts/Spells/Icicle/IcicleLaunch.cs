@@ -3,7 +3,7 @@
 [RequireComponent(typeof(Rigidbody2D))]
 public class IcicleLaunch : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] private float speed;
     private Rigidbody2D icicleRigidbody;
 
     private void Awake()
@@ -19,20 +19,19 @@ public class IcicleLaunch : MonoBehaviour
                 transform.eulerAngles.z + zRotation);
         icicleRigidbody.velocity = new Vector2(0f, speed);
 
-        switch(zRotation)
+        switch (zRotation)
         {
             case 90:
                 icicleRigidbody.velocity = new Vector2(0f, speed);
                 break;
+
             case -90:
                 icicleRigidbody.velocity = new Vector2(0f, -speed);
                 break;
+
             default:
                 icicleRigidbody.velocity = new Vector2(speed, 0f) * transform.right;
                 break;
-
         }
     }
-
-
 }

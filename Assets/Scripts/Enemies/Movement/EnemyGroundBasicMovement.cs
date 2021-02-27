@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyGroundBasicMovement : EnemyMovement
@@ -8,7 +6,6 @@ public class EnemyGroundBasicMovement : EnemyMovement
     [SerializeField] private Transform wallCheck;
 
     private bool willGoRight;
-    
 
     protected override void Awake()
     {
@@ -16,23 +13,21 @@ public class EnemyGroundBasicMovement : EnemyMovement
         TurnToPlayerDirection();
     }
 
-
-    void Update()
+    private void Update()
     {
         CliffCheck();
         WallCheck();
 
-        if(!isXMovementSpeedLocked)
+        if (!isXMovementSpeedLocked)
         {
             Move();
         }
-
     }
 
     // Called in Animator
     public void TurnToPlayerDirection()
     {
-        if(PlayerIsOnTheRight())
+        if (PlayerIsOnTheRight())
         {
             willGoRight = true;
         }
@@ -65,7 +60,7 @@ public class EnemyGroundBasicMovement : EnemyMovement
 
     private void WallCheck()
     {
-        if(Physics2D.OverlapCircle(new Vector2(wallCheck.position.x, wallCheck.position.y), 0.03f, 1 << LayerMask.NameToLayer("Ground")))
+        if (Physics2D.OverlapCircle(new Vector2(wallCheck.position.x, wallCheck.position.y), 0.03f, 1 << LayerMask.NameToLayer("Ground")))
         {
             willGoRight = !willGoRight;
         }
@@ -76,6 +71,4 @@ public class EnemyGroundBasicMovement : EnemyMovement
         Gizmos.DrawWireSphere(cliffCheck.position, 0.03f);
         Gizmos.DrawWireSphere(wallCheck.position, 0.03f);
     }
-
-
 }

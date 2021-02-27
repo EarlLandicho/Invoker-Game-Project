@@ -25,7 +25,6 @@ public class FireSpiritRotateAroundPlayer : MonoBehaviour
         fireRing2 = Instantiate(fireRing);
         fireRing3 = Instantiate(fireRing);
 
-
         oneThirdOfACircle = 4 * Mathf.PI / 6;
         twoThirdsOfACircle = 8 * Mathf.PI / 6;
     }

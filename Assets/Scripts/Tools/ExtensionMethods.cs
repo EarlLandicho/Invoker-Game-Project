@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public static class ExtensionMethods
 {
@@ -18,7 +16,7 @@ public static class ExtensionMethods
     // min is inclusive and max is exclusive
     public static bool IsBetweenTwoValues(float min, float max, float value)
     {
-        if(value >= min && value < max)
+        if (value >= min && value < max)
         {
             return true;
         }

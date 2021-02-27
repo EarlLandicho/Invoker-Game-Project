@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyFlyingStraightMovement : EnemyMovement
@@ -8,9 +6,7 @@ public class EnemyFlyingStraightMovement : EnemyMovement
     [SerializeField] private Transform upperWallCheck;
     [SerializeField] private Transform lowerWallCheck;
 
-
     private Vector2 targetToMoveTo;
-
 
     protected override void Awake()
     {
@@ -18,14 +14,13 @@ public class EnemyFlyingStraightMovement : EnemyMovement
         MovementCheck();
     }
 
-    void Update()
+    private void Update()
     {
         WallCheck();
         UpperWallCheck();
         LowerWallCheck();
-        if(!isXMovementSpeedLocked)
+        if (!isXMovementSpeedLocked)
         {
-            
             rb.velocity = targetToMoveTo * movementSpeed;
         }
     }
@@ -35,7 +30,6 @@ public class EnemyFlyingStraightMovement : EnemyMovement
     {
         targetToMoveTo = ExtensionMethods.GetNormalizedDirectionToPlayer2D(gameObject);
     }
-
 
     public override void SetLockXMovement(bool isLocked)
     {
@@ -80,7 +74,4 @@ public class EnemyFlyingStraightMovement : EnemyMovement
         Gizmos.DrawWireSphere(upperWallCheck.position, 0.04f);
         Gizmos.DrawWireSphere(lowerWallCheck.position, 0.04f);
     }
-
-
-
 }

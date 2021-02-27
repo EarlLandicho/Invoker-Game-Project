@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EarthArmorShieldAnimation : MonoBehaviour
@@ -9,14 +7,9 @@ public class EarthArmorShieldAnimation : MonoBehaviour
 
     private float spiritRotationAngle = 0;
 
-
-
-    void Update()
+    private void Update()
     {
         spiritRotationAngle += spiritRotateSpeed * Time.deltaTime;
         transform.position = transform.parent.transform.position + new Vector3(Mathf.Sin(spiritRotationAngle / 2), Mathf.Sin(spiritRotationAngle), 0) * spiritRotationRadius;
     }
-
-
-
 }

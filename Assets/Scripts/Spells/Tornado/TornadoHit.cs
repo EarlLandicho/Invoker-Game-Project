@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TornadoHit : MonoBehaviour
 {
     [SerializeField] private float damage = 0;
 
-    void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
@@ -14,13 +12,9 @@ public class TornadoHit : MonoBehaviour
             col.gameObject.GetComponent<StatusEffect>().BecomeStunned();
         }
 
-        if(col.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (col.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             Destroy(gameObject);
         }
     }
-
-
-
-
 }

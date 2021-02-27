@@ -1,20 +1,18 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HibernateDestroy : MonoBehaviour
 {
     [SerializeField] private float duration = 0;
 
-
-    void Awake()
+    private void Awake()
     {
         StartCoroutine("HibernateDuration");
     }
 
-    void Update()
+    private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             StopAllCoroutines();
             Destroy(gameObject);
@@ -31,6 +29,4 @@ public class HibernateDestroy : MonoBehaviour
     {
         return duration;
     }
-
-
 }

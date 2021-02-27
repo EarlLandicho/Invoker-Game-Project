@@ -10,7 +10,6 @@ public class PlayerMovement : Movement
         MoveCheck();
     }
 
-
     public void SetIsFlying(bool isFlying)
     {
         this.isFlying = isFlying;
@@ -23,11 +22,11 @@ public class PlayerMovement : Movement
 
     private void MoveCheck()
     {
-        if(!isXMovementSpeedLocked && !isFlying && !isHibernating)
+        if (!isXMovementSpeedLocked && !isFlying && !isHibernating)
         {
             rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementSpeed * movementSpeedModifier, rb.velocity.y);
         }
-        else if(isFlying)
+        else if (isFlying)
         {
             rb.velocity = new Vector2(Input.GetAxis("Horizontal") * movementSpeed * movementSpeedModifier, rb.velocity.y);
             rb.velocity = new Vector2(rb.velocity.x, Input.GetAxis("Vertical") * movementSpeed * movementSpeedModifier);
@@ -37,8 +36,4 @@ public class PlayerMovement : Movement
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
     }
-
-
-
-
 }

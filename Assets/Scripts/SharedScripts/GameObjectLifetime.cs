@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameObjectLifetime : MonoBehaviour
 {
@@ -8,13 +6,12 @@ public class GameObjectLifetime : MonoBehaviour
 
     private float lifeTImeTemp;
 
-    void Awake()
+    private void Awake()
     {
         lifeTImeTemp = lifeTime;
     }
 
-
-    void Update()
+    private void Update()
     {
         if (lifeTImeTemp > 0)
         {
@@ -25,5 +22,4 @@ public class GameObjectLifetime : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }

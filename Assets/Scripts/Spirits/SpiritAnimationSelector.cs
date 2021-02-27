@@ -5,6 +5,7 @@ public class SpiritAnimationSelector : MonoBehaviour
 {
     //SpriteRenderers of the child sprite objects
     [SerializeField] private SpriteRenderer spiritPosition1SpriteRenderer;
+
     [SerializeField] private SpriteRenderer spiritPosition2SpriteRenderer;
     [SerializeField] private SpriteRenderer spiritPosition3SpriteRenderer;
 
@@ -31,7 +32,6 @@ public class SpiritAnimationSelector : MonoBehaviour
     private Color brown;
     private Color blue;
     private Color violet;
-
 
     private void Awake()
     {
@@ -64,54 +64,63 @@ public class SpiritAnimationSelector : MonoBehaviour
 
     private void AnimateSpiritExplosion()
     {
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
-            if(i == 0)
+            if (i == 0)
             {
                 switch (spiritArrayManagerArray[i])
                 {
                     case 0:
                         break;
+
                     case 1:
                         Instantiate(spirit1Animation, spiritPosition1SpriteRenderer.gameObject.transform.position, spiritPosition1SpriteRenderer.transform.rotation);
                         break;
+
                     case 2:
                         Instantiate(spirit2Animation, spiritPosition1SpriteRenderer.gameObject.transform.position, spiritPosition2SpriteRenderer.transform.rotation);
                         break;
+
                     case 3:
                         Instantiate(spirit3Animation, spiritPosition1SpriteRenderer.gameObject.transform.position, spiritPosition3SpriteRenderer.transform.rotation);
                         break;
                 }
             }
-            else if(i == 1)
+            else if (i == 1)
             {
                 switch (spiritArrayManagerArray[i])
                 {
                     case 0:
                         break;
+
                     case 1:
                         Instantiate(spirit1Animation, spiritPosition2SpriteRenderer.gameObject.transform.position, spiritPosition1SpriteRenderer.transform.rotation);
                         break;
+
                     case 2:
                         Instantiate(spirit2Animation, spiritPosition2SpriteRenderer.gameObject.transform.position, spiritPosition2SpriteRenderer.transform.rotation);
                         break;
+
                     case 3:
                         Instantiate(spirit3Animation, spiritPosition2SpriteRenderer.gameObject.transform.position, spiritPosition3SpriteRenderer.transform.rotation);
                         break;
                 }
             }
-            else if(i == 2)
+            else if (i == 2)
             {
                 switch (spiritArrayManagerArray[i])
                 {
                     case 0:
                         break;
+
                     case 1:
                         Instantiate(spirit1Animation, spiritPosition3SpriteRenderer.gameObject.transform.position, spiritPosition1SpriteRenderer.transform.rotation);
                         break;
+
                     case 2:
                         Instantiate(spirit2Animation, spiritPosition3SpriteRenderer.gameObject.transform.position, spiritPosition2SpriteRenderer.transform.rotation);
                         break;
+
                     case 3:
                         Instantiate(spirit3Animation, spiritPosition3SpriteRenderer.gameObject.transform.position, spiritPosition3SpriteRenderer.transform.rotation);
                         break;

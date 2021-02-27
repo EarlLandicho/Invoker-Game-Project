@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 
 //S = earth spirit
@@ -13,7 +12,7 @@ public class SpiritCast : MonoBehaviour
 
     [SerializeField] private float spellCastComboBarIncreaseAmount;
 
-    [SerializeField] 
+    [SerializeField]
     private GameObject S_spell,
         L_spell,
         G_spell,
@@ -129,11 +128,9 @@ public class SpiritCast : MonoBehaviour
         LLG_timer = LLG_cooldown;
         LGG_timer = LGG_cooldown;
         SLG_timer = SLG_cooldown;
-
-
     }
 
-    void Update()
+    private void Update()
     {
         CheckSpellCooldowns();
     }
@@ -622,7 +619,7 @@ public class SpiritCast : MonoBehaviour
 
         //PrintCastNumber();
         Cast(castNumber);
-        
+
         castNumber = 0;
     }
 
@@ -720,7 +717,7 @@ public class SpiritCast : MonoBehaviour
 
     private void S()
     {
-        if(S_isOffCooldown)
+        if (S_isOffCooldown)
         {
             Instantiate(S_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
             S_timer = S_cooldown;
@@ -781,8 +778,6 @@ public class SpiritCast : MonoBehaviour
         {
             Debug.Log("Still cooling down");
         }
-
-        
     }
 
     private void LL()
@@ -799,7 +794,6 @@ public class SpiritCast : MonoBehaviour
         {
             Debug.Log("Still cooling down");
         }
-        
     }
 
     private void GG()
@@ -816,7 +810,6 @@ public class SpiritCast : MonoBehaviour
         {
             Debug.Log("Still cooling down");
         }
-        
     }
 
     private void SL()
@@ -833,7 +826,6 @@ public class SpiritCast : MonoBehaviour
         {
             Debug.Log("Still cooling down");
         }
-        
     }
 
     private void SG()
@@ -850,7 +842,6 @@ public class SpiritCast : MonoBehaviour
         {
             Debug.Log("Still cooling down");
         }
-        
     }
 
     private void LG()
@@ -867,7 +858,6 @@ public class SpiritCast : MonoBehaviour
         {
             Debug.Log("Still cooling down");
         }
-        
     }
 
     private void SSS()
@@ -884,7 +874,6 @@ public class SpiritCast : MonoBehaviour
         {
             Debug.Log("Still cooling down");
         }
-        
     }
 
     private void LLL()
@@ -901,7 +890,6 @@ public class SpiritCast : MonoBehaviour
         {
             Debug.Log("Still cooling down");
         }
-        
     }
 
     private void GGG()
@@ -918,7 +906,6 @@ public class SpiritCast : MonoBehaviour
         {
             Debug.Log("Still cooling down");
         }
-        
     }
 
     private void SSL()
@@ -935,7 +922,6 @@ public class SpiritCast : MonoBehaviour
         {
             Debug.Log("Still cooling down");
         }
-        
     }
 
     private void SSG()
@@ -952,7 +938,6 @@ public class SpiritCast : MonoBehaviour
         {
             Debug.Log("Still cooling down");
         }
-        
     }
 
     private void SLL()
@@ -969,7 +954,6 @@ public class SpiritCast : MonoBehaviour
         {
             Debug.Log("Still cooling down");
         }
-        
     }
 
     private void SGG()
@@ -986,7 +970,6 @@ public class SpiritCast : MonoBehaviour
         {
             Debug.Log("Still cooling down");
         }
-        
     }
 
     private void LLG()
@@ -1003,7 +986,6 @@ public class SpiritCast : MonoBehaviour
         {
             Debug.Log("Still cooling down");
         }
-        
     }
 
     private void LGG()
@@ -1020,7 +1002,6 @@ public class SpiritCast : MonoBehaviour
         {
             Debug.Log("Still cooling down");
         }
-        
     }
 
     private void SLG()
@@ -1037,7 +1018,6 @@ public class SpiritCast : MonoBehaviour
         {
             Debug.Log("Still cooling down");
         }
-        
     }
 
     private void PrintCastNumber()

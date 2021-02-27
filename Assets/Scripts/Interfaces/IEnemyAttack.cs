@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-
-public interface IEnemyAttack
+﻿public interface IEnemyAttack
 {
     void SetLockAttack(bool isStunned);
-
 }

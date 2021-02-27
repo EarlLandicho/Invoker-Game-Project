@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DemonKnightMovement : EnemyMovement
 {
@@ -8,19 +6,17 @@ public class DemonKnightMovement : EnemyMovement
 
     private bool willGoRight;
 
-    new void Awake()
+    private new void Awake()
     {
         base.Awake();
         MovementCheck();
-        
     }
 
-    void Update()
+    private void Update()
     {
-        
         if (!isXMovementSpeedLocked)
         {
-            if(willGoRight)
+            if (willGoRight)
             {
                 rb.velocity = new Vector2(movementSpeed, rb.velocity.y);
             }
@@ -31,7 +27,7 @@ public class DemonKnightMovement : EnemyMovement
         }
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         TurnWhenAboutToFallCheck();
     }
@@ -90,7 +86,7 @@ public class DemonKnightMovement : EnemyMovement
     {
         if (!(Physics2D.OverlapCircle(new Vector2(cliffCheckRight.position.x, cliffCheckRight.position.y), 0.05f, 1 << LayerMask.NameToLayer("Ground"))
             || Physics2D.OverlapCircle(new Vector2(cliffCheckRight.position.x, cliffCheckRight.position.y), 0.05f, 1 << LayerMask.NameToLayer("Ledge"))))
-        { 
+        {
             willGoRight = !willGoRight;
         }
     }
@@ -99,5 +95,4 @@ public class DemonKnightMovement : EnemyMovement
     {
         Gizmos.DrawWireSphere(cliffCheckRight.position, 0.05f);
     }
-
 }

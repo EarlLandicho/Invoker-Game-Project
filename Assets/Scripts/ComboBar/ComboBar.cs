@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ComboBar : MonoBehaviour
@@ -9,12 +7,12 @@ public class ComboBar : MonoBehaviour
 
     [SerializeField] private float comboLevelDrainFactor = 1;
 
-    void Awake()
+    private void Awake()
     {
         currentBarLevel = 0;
     }
 
-    void Update()
+    private void Update()
     {
         DrainBarLevel();
         BarLevelMaxReachedCheck();
@@ -43,7 +41,6 @@ public class ComboBar : MonoBehaviour
         {
             Debug.LogError("Something wrong with the stages in the combo bar");
         }
-
     }
 
     private void DrainBarLevel()

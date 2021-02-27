@@ -1,15 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GoblinMovement : EnemyMovement
 {
     private bool willAdvanceTowardPlayer = true;
     private Vector2 targetToMoveTo;
 
-
-
-    void Update()
+    private void Update()
     {
         if (!isXMovementSpeedLocked)
         {
@@ -37,7 +33,6 @@ public class GoblinMovement : EnemyMovement
 
             MovementCheck();
         }
-
     }
 
     public override void OnCollisionEnter2D(Collision2D collision)
@@ -71,9 +66,6 @@ public class GoblinMovement : EnemyMovement
                 targetToMoveTo = -transform.right;
             }
         }
-
-
-
     }
 
     private void MovementCheck()

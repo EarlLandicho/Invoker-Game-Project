@@ -20,13 +20,12 @@ public class LightningDash : MonoBehaviour
     {
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         movementFlip = GameObject.Find("Player").GetComponent<MovementFlip>();
-        playerRigidBody= GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        playerRigidBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
 
         startingPosition = playerTransform.transform.position;
 
         FindTeleportPosition();
         DealDamageInPath();
-        
 
         Instantiate(lightningDashAnimation, transform.position, transform.rotation);
     }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MudGolemProjectile : MonoBehaviour
 {
@@ -9,8 +7,8 @@ public class MudGolemProjectile : MonoBehaviour
     [SerializeField] private float damageRadius;
     [SerializeField] private float damage;
 
-	private Vector3 targetPositon;
-	private Vector3 startPosition;
+    private Vector3 targetPositon;
+    private Vector3 startPosition;
     private float xPosStart;
     private float xPosTarget;
     private float dist;
@@ -19,14 +17,13 @@ public class MudGolemProjectile : MonoBehaviour
     private float arc;
     private float maxGolemRange;
 
-
-    void Start()
-	{
-		startPosition = transform.position;
+    private void Start()
+    {
+        startPosition = transform.position;
         arcHeight = Mathf.Abs(arcHeight * (targetPositon.x - startPosition.x) / maxGolemRange);
     }
 
-    void Update()
+    private void Update()
     {
         xPosStart = startPosition.x;
         xPosTarget = targetPositon.x;
@@ -35,7 +32,6 @@ public class MudGolemProjectile : MonoBehaviour
         baseY = Mathf.Lerp(startPosition.y, targetPositon.y, (nextXPos - xPosStart) / dist);
         arc = arcHeight * (nextXPos - xPosStart) * (nextXPos - xPosTarget) / (-0.25f * dist * dist);
         transform.position = new Vector3(nextXPos, baseY + arc, transform.position.z);
-
 
         if (transform.position == targetPositon)
         {
@@ -61,8 +57,6 @@ public class MudGolemProjectile : MonoBehaviour
         maxGolemRange = range;
     }
 
-
-
     private void ExplosionDamage()
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, damageRadius,
@@ -75,11 +69,9 @@ public class MudGolemProjectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, damageRadius);
     }
 }
-

@@ -9,5 +9,4 @@
     float GetMovementSpeed();
 
     float GetMovementSpeedModifier();
-
 }

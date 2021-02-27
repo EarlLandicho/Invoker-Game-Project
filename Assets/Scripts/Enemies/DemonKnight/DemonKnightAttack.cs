@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
 public class DemonKnightAttack : EnemyAttack
 {
@@ -8,14 +8,13 @@ public class DemonKnightAttack : EnemyAttack
     private bool isBeingDelayed;
     private DemonKnightMovement demonKnightMovement;
 
-    new void Awake()
+    private new void Awake()
     {
         base.Awake();
         demonKnightMovement = GetComponent<DemonKnightMovement>();
-
     }
 
-    void Update()
+    private void Update()
     {
         if (attackSpeedTemp > 0 && !isLockedAttack)
         {
@@ -24,9 +23,7 @@ public class DemonKnightAttack : EnemyAttack
         else if (!isBeingDelayed && attackSpeedTemp <= 0)
         {
             StartCoroutine("DelayAttack");
-
         }
-
     }
 
     public override void SetLockAttack(bool isStunned)
@@ -56,6 +53,5 @@ public class DemonKnightAttack : EnemyAttack
         attackSpeedTemp = attackSpeed;
         isBeingDelayed = false;
         demonKnightMovement.SetLockXMovement(false);
-        
     }
 }

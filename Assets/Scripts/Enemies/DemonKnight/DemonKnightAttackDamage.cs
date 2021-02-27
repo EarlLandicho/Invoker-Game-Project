@@ -10,7 +10,7 @@ public class DemonKnightAttackDamage : MonoBehaviour
         {
             collider.gameObject.GetComponent<IHealth>().TakeDamage(damage);
 
-            if(collider.gameObject.GetComponent<PlayerHealth>() != null)
+            if (collider.gameObject.GetComponent<PlayerHealth>() != null)
             {
                 //have enemies be damaged here by a percent
             }

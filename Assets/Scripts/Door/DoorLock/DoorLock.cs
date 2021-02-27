@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DoorLock : MonoBehaviour
@@ -9,17 +7,15 @@ public class DoorLock : MonoBehaviour
     private Animator animator;
     private Collider2D collider2d;
 
-    void Awake()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
         collider2d = GetComponent<Collider2D>();
 
         collider2d.enabled = false;
 
-
         battlefieldTrigger.PlayerTriggered += LockDoor;
         enemySpawner.EnemiesKilledInBattleField += UnlockDoor;
-
     }
 
     private void LockDoor()
@@ -35,5 +31,4 @@ public class DoorLock : MonoBehaviour
         collider2d.enabled = false;
         Debug.Log("door unlocked");
     }
-
 }

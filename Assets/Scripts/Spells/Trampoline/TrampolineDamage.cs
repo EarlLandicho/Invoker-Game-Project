@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TrampolineDamage : MonoBehaviour
 {
@@ -9,12 +7,11 @@ public class TrampolineDamage : MonoBehaviour
 
     private TrampolineJump trampolineJump;
 
-    void Awake()
+    private void Awake()
     {
         trampolineJump = GetComponent<TrampolineJump>();
         trampolineJump.TrampolineJumped += DamageEnemy;
     }
-
 
     private void DamageEnemy()
     {
@@ -25,12 +22,9 @@ public class TrampolineDamage : MonoBehaviour
         }
     }
 
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
         Gizmos.DrawWireCube((Vector2)transform.position, size);
     }
-
-
 }

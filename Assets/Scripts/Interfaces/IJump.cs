@@ -5,5 +5,4 @@
     void SetJumpHeightToDefault();
 
     void SetLockJump(bool isLocked);
-
 }

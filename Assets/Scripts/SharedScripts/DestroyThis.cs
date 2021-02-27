@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DestroyThis : MonoBehaviour
@@ -13,9 +12,9 @@ public class DestroyThis : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void Update()
+    private void Update()
     {
-        if(isTimedDestroy)
+        if (isTimedDestroy)
         {
             isTimedDestroy = false;
             StartCoroutine("DestroyTimedObject");

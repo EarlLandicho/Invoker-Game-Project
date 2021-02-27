@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(FlashWhenDamaged))]
 [RequireComponent(typeof(StatusEffect))]
@@ -35,7 +32,6 @@ public class Health : MonoBehaviour, IHealth
             {
                 damage = damage * damageModifier;
                 currentHealth -= damage;
-
             }
             FlashWhenDamaged();
         }
@@ -66,7 +62,6 @@ public class Health : MonoBehaviour, IHealth
         {
             damageModifier *= factor;
             Debug.Log("damage modifier set to" + damageModifier);
-
         }
         else
         {

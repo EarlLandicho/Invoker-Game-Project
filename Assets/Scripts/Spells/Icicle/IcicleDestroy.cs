@@ -6,10 +6,11 @@ public class IcicleDestroy : MonoBehaviour
 
     private Animator animator;
 
-    void Awake()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
     }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.layer == LayerMask.NameToLayer("Enemy")
