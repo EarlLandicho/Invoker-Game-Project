@@ -8,7 +8,7 @@ allows you to creatively combo them to increase their potency. You can poison, s
 
 Invoker is made using c# and Unity as the engine. I use Aseprite to create the pixel art.
 
-# Mechanics
+## Mechanics
 
 ### Spells
 
@@ -53,9 +53,12 @@ Each spirit is represented as a letter. S for solid, L for liquid, G for gas. Th
 * SLG (Cooldown Reset) - resets all spell cooldowns. Useful for spell combos.
 
 ### Combo Bar and Comboing Spells
-Casting spells and killing enemies fills up your combo bar. The combo bar depletes over time. The combo bar has 4 stages that determines how potent your spells will be. Each stage grants each spell different upgrades and additional effects.
+Casting spells and defeating enemies fills up your combo bar. The combo bar depletes over time. The combo bar has 4 stages that determine how potent your spells will be. Each stage grants each spell different upgrades and additional effects. Casting spells while not hitting enemies is not enough to fill up the bar. So make sure you keep defeating enemies.
+
+### Game Areas and Levels
+You don't start with all the spells at your disposal. You increase the number of spirits you have as you progress throughout the game. Each spirit you collect makes you stronger. You gain more spells to use to defeat enemies and fill your combo bar. Areas have battlefields where you have to defeat all enemies in the area to progress. Find the key to unlock the exit.
 
 
-# Why am I creating this game?
+## Why am I creating this game?
 
-This game allows me to do what I'm passionate about: creating games. Above 100% percent of what you see here is made by myself, art/animation and programming included. Making this game gives me an opportunity to showcase what I can do with Unity, as well as what kind of art I can produce myself. This game has been in development for some months and I work on it on my free time as a passion project and as a sharpening tool as a programmer. As of now, the name "Invoker" is not set in stone. I may or may not change this name depending on how development goes. I may think of a better name someday.
+This game allows me to do what I'm passionate about: creating games. Above 90% percent of what you see here is made by myself, art/animation and programming included. I used third-party modules such as CineMachine, LeanTween, TextMeshPro to help me create the game faster. Making this game gives me an opportunity to showcase what I can do with Unity, as well as what kind of art I can produce myself. This game has been in development for some months and I work in it on my free time as a passion project and as a sharpening tool as a programmer. As of now, the name "Invoker" is not set in stone. I may or may not change this name depending on how development goes. I may think of a better name someday.
