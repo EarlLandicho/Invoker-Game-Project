@@ -6,10 +6,14 @@ public class EnemyHealth : Health
     [SerializeField] private float comboBarIncreaseAmount = 5;
 
     private bool isFromSpawner;
+    private ComboBar comboBar;
 
     private new void Awake()
     {
         base.Awake();
+        comboBar = FindObjectOfType<ComboBar>();
+
+
     }
 
     public void SetisFromSpawner(bool isFromSpawner)
@@ -19,7 +23,7 @@ public class EnemyHealth : Health
 
     protected override void Die()
     {
-        AddToComboBar();
+        comboBar.AddToComboBarLevel(comboBarIncreaseAmount);
 
         if (isFromSpawner)
         {
@@ -41,8 +45,5 @@ public class EnemyHealth : Health
         Destroy(gameObject);
     }
 
-    private void AddToComboBar()
-    {
-        ComboBar.currentBarLevel += comboBarIncreaseAmount;
-    }
+
 }

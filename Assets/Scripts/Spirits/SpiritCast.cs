@@ -99,6 +99,8 @@ public class SpiritCast : MonoBehaviour
     private int[] spiritArrayManagerArray;
     private int castNumber = 0;
 
+    private ComboBar comboBar;
+
     private void Awake()
     {
         GetComponent<SpiritInput>().InvokeSpiritsButtonPressed += InvokeSpirits;
@@ -109,6 +111,11 @@ public class SpiritCast : MonoBehaviour
 
         player = GameObject.Find("Player");
 
+        comboBar = FindObjectOfType<ComboBar>();
+    }
+
+    private void Start()
+    {
         S_timer = S_cooldown;
         L_timer = I_cooldown;
         G_timer = G_cooldown;
@@ -711,7 +718,7 @@ public class SpiritCast : MonoBehaviour
 
     private void AddToComboBar()
     {
-        ComboBar.currentBarLevel += spellCastComboBarIncreaseAmount;
+        comboBar.AddToComboBarLevel(spellCastComboBarIncreaseAmount);
     }
 
     private void S()

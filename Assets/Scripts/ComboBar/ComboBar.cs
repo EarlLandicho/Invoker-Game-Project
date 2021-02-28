@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class ComboBar : MonoBehaviour
 {
-    public static float currentBarLevel;
     public static int comboBarStage;
+
+    private float currentBarLevel;
 
     [SerializeField] private float comboLevelDrainFactor = 1;
 
@@ -17,6 +18,16 @@ public class ComboBar : MonoBehaviour
         DrainBarLevel();
         BarLevelMaxReachedCheck();
         ComboBarStageCheck();
+    }
+
+    public float GetComboBarLevel()
+    {
+        return currentBarLevel;
+    }
+
+    public void AddToComboBarLevel(float increaseValue)
+    {
+        currentBarLevel += increaseValue;
     }
 
     private void ComboBarStageCheck()
