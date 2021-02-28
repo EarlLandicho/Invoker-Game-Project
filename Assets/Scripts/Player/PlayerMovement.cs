@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using EasyFeedback;
 
 public class PlayerMovement : Movement
 {
@@ -7,7 +8,11 @@ public class PlayerMovement : Movement
 
     private void Update()
     {
-        MoveCheck();
+        if(!FeedbackForm.formIsOpened)
+        {
+            MoveCheck();
+        }
+        
     }
 
     public void SetIsFlying(bool isFlying)

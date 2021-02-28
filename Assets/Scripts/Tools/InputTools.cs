@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using EasyFeedback;
 
 //Debugging Tools
 public class InputTools : MonoBehaviour
@@ -10,6 +11,14 @@ public class InputTools : MonoBehaviour
     public event Action GodModeActivated = delegate { };
 
     private void Update()
+    {
+        if (!FeedbackForm.formIsOpened)
+        {
+            CheckForInput();
+        }
+    }
+
+    private void CheckForInput()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {

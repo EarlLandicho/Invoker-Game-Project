@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using EasyFeedback;
 
 public class SpiritInput : MonoBehaviour
 {
@@ -14,7 +15,10 @@ public class SpiritInput : MonoBehaviour
 
     private void Update()
     {
-        InputCheck();
+        if (!FeedbackForm.formIsOpened)
+        {
+            InputCheck();
+        }
     }
 
     private void InputCheck()
