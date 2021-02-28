@@ -569,7 +569,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261338713}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -15361,7 +15361,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 398535979, guid: 2613bede0e994204395bbdc35db377f5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 417415677, guid: 2613bede0e994204395bbdc35db377f5, type: 3}
       propertyPath: m_AnchorMax.x
