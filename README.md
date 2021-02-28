@@ -1,6 +1,6 @@
 # Invoker (still in development)
 
-![](invoker.gif)
+![sample](Assets/gifs/invoker.gif)
 
 ## Game Summary
 Invoker is a 2D bullet-hell, adventure game that lets you combine spirits to cast different spells. There are three different spirits that you can use. They represent the three main states of matter: solid, liquid, gas.
