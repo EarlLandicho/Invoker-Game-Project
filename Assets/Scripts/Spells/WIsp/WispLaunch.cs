@@ -5,6 +5,8 @@ public class WispLaunch : MonoBehaviour
     [SerializeField] private float speed;
 
     private Rigidbody2D rb;
+    private bool isDownDirection;
+    private bool isUpDirection;
 
     private void Awake()
     {
@@ -12,23 +14,32 @@ public class WispLaunch : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            rb.velocity = transform.up * speed;
+            isUpDirection = true;
+            
         }
         else if (Input.GetKey(KeyCode.S))
         {
+            isDownDirection = true;
+            
+        }
+    }
+
+    private void Update()
+    {
+
+        if(isDownDirection)
+        {
             rb.velocity = -transform.up * speed;
+        }
+        else if(isUpDirection)
+        {
+            rb.velocity = transform.up * speed;
         }
         else
         {
             rb.velocity = transform.right * speed;
         }
+        
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
-        {
-            rb.velocity = new Vector2(0f, 0f);
-        }
-    }
 }

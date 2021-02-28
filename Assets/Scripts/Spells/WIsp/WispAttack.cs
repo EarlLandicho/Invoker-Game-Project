@@ -7,6 +7,7 @@ public class WispAttack : MonoBehaviour
     [SerializeField] private float attackSpeed = 0;
     [SerializeField] private float lifetimeDuration = 0;
     [SerializeField] private float radius = 0;
+    [SerializeField] private GameObject projectile;
 
     private float attackSpeedTemp = 0;
 
@@ -43,7 +44,11 @@ public class WispAttack : MonoBehaviour
         if (enemies.Length > 0)
         {
             int ranNum = Random.Range(0, enemies.Length);
-            enemies[ranNum].gameObject.GetComponent<IHealth>().TakeDamage(damage);
+            GameObject currentEnemy = enemies[ranNum].gameObject;
+            currentEnemy.GetComponent<IHealth>().TakeDamage(damage);
+
+            GameObject currentProjectile = Instantiate(projectile, transform.position, transform.rotation);
+            currentProjectile.GetComponent<WispProjectile>().GoToEnemyPosition(currentEnemy.transform.position);
         }
     }
 

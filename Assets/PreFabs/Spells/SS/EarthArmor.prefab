@@ -62,7 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offSet: {x: 0, y: 0}
   enableDamping: 1
-  damping: 0.2
+  damping: 0
 --- !u!1001 &5882996553347540489
 PrefabInstance:
   m_ObjectHideFlags: 0
