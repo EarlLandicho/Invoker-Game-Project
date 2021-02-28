@@ -30,9 +30,14 @@ public class ComboBar : MonoBehaviour
         return comboBarStage;
     }
 
-    public void AddToComboBarLevel(float increaseValue)
+    public void IncreaseComboBarLevel(float increaseValue)
     {
         currentBarLevel += increaseValue;
+    }
+
+    public void DecreaseComboBarLevel(float decreaseValue)
+    {
+        currentBarLevel -= decreaseValue;
     }
 
     private void ComboBarStageCheck()

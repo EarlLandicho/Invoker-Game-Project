@@ -1,10 +1,20 @@
 ﻿using System;
+using UnityEngine;
 
 public class PlayerHealth : Health
 {
+    [SerializeField] private float comboBarDecreaseValue;
+
     private float currentHealthTemp; //used for GodMode
+    private ComboBar comboBar;
 
     public event Action IsDead = delegate { };
+
+    private new void Awake()
+    {
+        base.Awake();
+        comboBar = FindObjectOfType<ComboBar>();
+    }
 
     public override void TakeDamage(float damage, bool isStatusEffectDamage = false)
     {
@@ -20,6 +30,7 @@ public class PlayerHealth : Health
                 currentHealth -= damage;
             }
             FlashWhenDamaged();
+            comboBar.DecreaseComboBarLevel(comboBarDecreaseValue);
         }
 
         if (currentHealth <= 0)

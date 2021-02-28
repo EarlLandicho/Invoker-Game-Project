@@ -718,7 +718,7 @@ public class SpiritCast : MonoBehaviour
 
     private void AddToComboBar()
     {
-        comboBar.AddToComboBarLevel(spellCastComboBarIncreaseAmount);
+        comboBar.IncreaseComboBarLevel(spellCastComboBarIncreaseAmount);
     }
 
     private void S()

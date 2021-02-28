@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  comboBarDecreaseValue: 5
 --- !u!114 &1244208140
 MonoBehaviour:
   m_ObjectHideFlags: 0

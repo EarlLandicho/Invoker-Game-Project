@@ -23,7 +23,7 @@ public class EnemyHealth : Health
 
     protected override void Die()
     {
-        comboBar.AddToComboBarLevel(comboBarIncreaseAmount);
+        comboBar.IncreaseComboBarLevel(comboBarIncreaseAmount);
 
         if (isFromSpawner)
         {
