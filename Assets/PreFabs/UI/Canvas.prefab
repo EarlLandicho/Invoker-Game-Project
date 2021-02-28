@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 514322a0fe6d81a40aec57eade7b4c9d, type: 3}
+  m_Sprite: {fileID: 2267125295417724387, guid: 8dfb7ecb32e6da24781acad8d958364e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -196,8 +196,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.92829895, y: -0.92819977}
-  m_SizeDelta: {x: -9.6947, y: -38.9847}
+  m_AnchoredPosition: {x: 0.000015258789, y: 0.08090019}
+  m_SizeDelta: {x: 0.000030518, y: -16.9674}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &934077903
 CanvasRenderer:
@@ -377,8 +377,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 89.51694, y: 33.190216}
-  m_SizeDelta: {x: 139.7695, y: 51.8565}
+  m_AnchoredPosition: {x: 87.9137, y: 22.4588}
+  m_SizeDelta: {x: 153.1887, y: 30.3936}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1949884176
 CanvasRenderer:
@@ -400,6 +400,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08072bdf2bf47044388e477c7fae2da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stage1ComboBar: {fileID: 2267125295417724387, guid: 8dfb7ecb32e6da24781acad8d958364e, type: 3}
+  stage2ComboBar: {fileID: 4465833280301393803, guid: 8dfb7ecb32e6da24781acad8d958364e, type: 3}
+  stage3ComboBar: {fileID: 500819161679384319, guid: 8dfb7ecb32e6da24781acad8d958364e, type: 3}
+  stage4ComboBar: {fileID: 2953400502275495972, guid: 8dfb7ecb32e6da24781acad8d958364e, type: 3}
 --- !u!114 &1732274092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,7 +451,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -485,7 +489,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 69.885, y: -25}
+  m_AnchoredPosition: {x: 78.8, y: -7.9}
   m_SizeDelta: {x: 139.77, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1951294611
@@ -1979,7 +1983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1924404340048306629, guid: 328a854946908c24590335143eacb3e4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1924404340048306630, guid: 328a854946908c24590335143eacb3e4, type: 3}
       propertyPath: m_Pivot.x

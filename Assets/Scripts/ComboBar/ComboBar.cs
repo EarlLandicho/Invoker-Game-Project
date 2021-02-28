@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ComboBar : MonoBehaviour
 {
-    public static int comboBarStage;
+    private int comboBarStage;
 
     private float currentBarLevel;
 
@@ -23,6 +23,11 @@ public class ComboBar : MonoBehaviour
     public float GetComboBarLevel()
     {
         return currentBarLevel;
+    }
+
+    public int GetComboBarStage()
+    {
+        return comboBarStage;
     }
 
     public void AddToComboBarLevel(float increaseValue)

@@ -18,7 +18,7 @@ public class BoulderAOEDamage : MonoBehaviour
             1 << LayerMask.NameToLayer("Enemy"));
         foreach (Collider2D enemy in enemies)
         {
-            enemy.gameObject.GetComponent<IHealth>().TakeDamage(damage + (addedDamagePerComboBarStage * ComboBar.comboBarStage));
+            enemy.gameObject.GetComponent<IHealth>().TakeDamage(damage);
         }
     }
 
