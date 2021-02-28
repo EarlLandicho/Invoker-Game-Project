@@ -46,4 +46,9 @@ public class PlayerHealth : Health
     {
         return currentHealth;
     }
+
+    protected override void Die()
+    {
+        gameObject.SetActive(false);
+    }
 }
