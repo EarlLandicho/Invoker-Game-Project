@@ -2,6 +2,8 @@
 
 public class HibernateImmobilize : MonoBehaviour
 {
+    [SerializeField] private GameObject hibernateRealeaseSprite;
+
     private PlayerMovement playerMovement;
     private IHealth playerHealth;
 
@@ -13,10 +15,12 @@ public class HibernateImmobilize : MonoBehaviour
         playerHealth.SetIsInvulnerable(true);
         playerMovement.SetLockXMovement(true);
         playerMovement.SetisHibernating(true);
+        
     }
 
     private void OnDestroy()
     {
+        Instantiate(hibernateRealeaseSprite, transform.position, transform.rotation);
         playerHealth.SetIsInvulnerable(false);
         playerMovement.SetLockXMovement(false);
         playerMovement.SetisHibernating(false);
