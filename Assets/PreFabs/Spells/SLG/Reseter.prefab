@@ -43,3 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef44a442893484429591dc042644815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reseterAnimation: {fileID: 1531355862429447181, guid: 3fd5b559c5d63e7468cc07fe9ccfc36f, type: 3}
