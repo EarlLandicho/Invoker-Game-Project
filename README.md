@@ -16,6 +16,7 @@ A - move left
 D - move right  
 W - aim up  
 D - aim down  
+R - restart stage  
 Space - jump  
 Down Arrow - invoke spirits  
 Left Arrow - summon S spirit  
