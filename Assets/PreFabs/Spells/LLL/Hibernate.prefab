@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5960952349156819536}
   - component: {fileID: 3725901138432656128}
   - component: {fileID: 7721199606600173661}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Hibernate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ MonoBehaviour:
   - {fileID: 1629704300233260662, guid: a348afe63a275be4198052838cfa61e0, type: 3}
   - {fileID: 4336978713064833652, guid: 4e961b12f99f13041bd0e52d4d0796f6, type: 3}
   numberOfShards: 7
-  shardsLaunchForce: 150
+  shardsLaunchForce: 100
 --- !u!114 &7721199606600173661
 MonoBehaviour:
   m_ObjectHideFlags: 0

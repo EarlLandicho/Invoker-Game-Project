@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7743108897055060531}
   - component: {fileID: 5015892147888203992}
+  - component: {fileID: 9003563236366390445}
   - component: {fileID: 9142623735033434873}
   - component: {fileID: 5365911344495187835}
+  - component: {fileID: 5992657384606152357}
   m_Layer: 0
   m_Name: Trampoline
   m_TagString: Untagged
@@ -28,8 +30,9 @@ Transform:
   m_GameObject: {fileID: 3238239614542348370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.1515, y: 0.0234, z: -0.021185767}
-  m_LocalScale: {x: 1.5916029, y: 0.64711505, z: 1}
-  m_Children: []
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1610719723}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -73,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ad6a0a0213430b74f9bbe515d65bb7d7, type: 3}
-  m_Color: {r: 0.679154, g: 1, b: 0.25, a: 1}
+  m_Sprite: {fileID: -3103174016717674128, guid: 9314acf89946f4f4da08e3584a5d1578, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84,6 +87,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &9003563236366390445
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238239614542348370}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f5fbed65fa8674143a4625cb1f7af74c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &9142623735033434873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a447dada29338e4195eaabf758e17c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 10
+  duration: 50
   upwardForce: 450
   size: {x: 0.5, y: 0.2}
 --- !u!114 &5365911344495187835
@@ -113,3 +135,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   size: {x: 1.43, y: 0.08}
+  projectile: {fileID: 6009750786411843648, guid: c726f50bedda48c4993199ae0ef0cd66, type: 3}
+--- !u!114 &5992657384606152357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238239614542348370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d30eb5428872534d8769b933c6c5f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTimedDestroy: 1
+  timedDestroyTime: 5
+--- !u!1001 &8540763814618398591
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7743108897055060531}
+    m_Modifications:
+    - target: {fileID: 8540763814081552020, guid: 2a9d9e3da3ddbe84a8eba5613811c51c, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540763814081552020, guid: 2a9d9e3da3ddbe84a8eba5613811c51c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540763814081552020, guid: 2a9d9e3da3ddbe84a8eba5613811c51c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.10200001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540763814081552020, guid: 2a9d9e3da3ddbe84a8eba5613811c51c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540763814081552020, guid: 2a9d9e3da3ddbe84a8eba5613811c51c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540763814081552020, guid: 2a9d9e3da3ddbe84a8eba5613811c51c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540763814081552020, guid: 2a9d9e3da3ddbe84a8eba5613811c51c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540763814081552020, guid: 2a9d9e3da3ddbe84a8eba5613811c51c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540763814081552020, guid: 2a9d9e3da3ddbe84a8eba5613811c51c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540763814081552020, guid: 2a9d9e3da3ddbe84a8eba5613811c51c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540763814081552020, guid: 2a9d9e3da3ddbe84a8eba5613811c51c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540763814081552023, guid: 2a9d9e3da3ddbe84a8eba5613811c51c, type: 3}
+      propertyPath: m_Name
+      value: WindTrampolineParticleParent
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540763814081552023, guid: 2a9d9e3da3ddbe84a8eba5613811c51c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2a9d9e3da3ddbe84a8eba5613811c51c, type: 3}
+--- !u!4 &1610719723 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8540763814081552020, guid: 2a9d9e3da3ddbe84a8eba5613811c51c, type: 3}
+  m_PrefabInstance: {fileID: 8540763814618398591}
+  m_PrefabAsset: {fileID: 0}
