@@ -11,6 +11,18 @@ Each spirit is given to you one-by-one as you discover and collect them througho
 
 Invoker is made using C# and Unity as the engine. I use Aseprite to create the pixel art.
 
+## Controls
+A - move left  
+D - move right  
+W - aim up  
+D - aim down  
+Space - jump  
+Down Arrow - invoke spirits  
+Left Arrow - summon S spirit  
+Up Arrow - summon L spirit  
+Right Arrow - summon G spirit  
+Right Control - cancel summoned spirits  
+
 ## Mechanics
 
 ### Spells
