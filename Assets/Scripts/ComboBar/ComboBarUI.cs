@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class ComboBarUI : MonoBehaviour
 {
-    [SerializeField] Sprite stage1ComboBar;
-    [SerializeField] Sprite stage2ComboBar;
-    [SerializeField] Sprite stage3ComboBar;
-    [SerializeField] Sprite stage4ComboBar;
+    [SerializeField] private Sprite stage1ComboBar;
+    [SerializeField] private Sprite stage2ComboBar;
+    [SerializeField] private Sprite stage3ComboBar;
+    [SerializeField] private Sprite stage4ComboBar;
     private Slider slider;
     private ComboBar comboBar;
     private Image comboBarImage;
@@ -27,16 +27,18 @@ public class ComboBarUI : MonoBehaviour
             case 1:
                 comboBarImage.sprite = stage1ComboBar;
                 break;
+
             case 2:
                 comboBarImage.sprite = stage2ComboBar;
                 break;
+
             case 3:
                 comboBarImage.sprite = stage3ComboBar;
                 break;
+
             case 4:
                 comboBarImage.sprite = stage4ComboBar;
                 break;
         }
-
     }
 }

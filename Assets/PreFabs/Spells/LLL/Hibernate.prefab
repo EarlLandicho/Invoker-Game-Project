@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2a319832d8b5c4f8ede8d40784cf20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 3
+  duration: 4
   shards:
   - {fileID: 1258973011459308314, guid: 245fed9fab20e314984f97c1dbbc3883, type: 3}
   - {fileID: 3013167024989228063, guid: ad43b6b16fc877d43bc2404c00cd1040, type: 3}

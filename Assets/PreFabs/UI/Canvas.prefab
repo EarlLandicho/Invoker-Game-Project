@@ -2389,7 +2389,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Press R to restart
 
-        Press F to return to main menu'
+'
       objectReference: {fileID: 0}
     - target: {fileID: 5269926809611003099, guid: 705e45beaa727e4498ff47343a0f6b9a, type: 3}
       propertyPath: m_Name

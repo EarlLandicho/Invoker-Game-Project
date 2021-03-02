@@ -15,23 +15,20 @@ public class WispLaunch : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             isUpDirection = true;
-            
         }
         else if (Input.GetKey(KeyCode.S))
         {
             isDownDirection = true;
-            
         }
     }
 
     private void Update()
     {
-
-        if(isDownDirection)
+        if (isDownDirection)
         {
             rb.velocity = -transform.up * speed;
         }
-        else if(isUpDirection)
+        else if (isUpDirection)
         {
             rb.velocity = transform.up * speed;
         }
@@ -39,7 +36,5 @@ public class WispLaunch : MonoBehaviour
         {
             rb.velocity = transform.right * speed;
         }
-        
     }
-
 }

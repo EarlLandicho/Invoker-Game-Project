@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8b8f8a07734cf40853127b6e04b1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 30
   dashDistance: 1.1
   wallImpactCushion: 0.1
   yHitboxSize: 0.1
@@ -62,4 +62,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offSet: {x: 0, y: 0}
+  enableDamping: 0
   damping: 0

@@ -15,7 +15,6 @@ public class HibernateImmobilize : MonoBehaviour
         playerHealth.SetIsInvulnerable(true);
         playerMovement.SetLockXMovement(true);
         playerMovement.SetisHibernating(true);
-        
     }
 
     private void OnDestroy()

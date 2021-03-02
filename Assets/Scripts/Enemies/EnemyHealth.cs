@@ -12,8 +12,6 @@ public class EnemyHealth : Health
     {
         base.Awake();
         comboBar = FindObjectOfType<ComboBar>();
-
-
     }
 
     public void SetisFromSpawner(bool isFromSpawner)
@@ -44,6 +42,4 @@ public class EnemyHealth : Health
         Instantiate(DeathAnimationObject, transform.position, transform.rotation);
         Destroy(gameObject);
     }
-
-
 }

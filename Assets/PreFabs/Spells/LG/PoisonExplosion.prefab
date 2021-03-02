@@ -96,6 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 0.5
-  impactDamage: 10
-  cloudPoisonCheck: 0.2
-  poisonDuration: 5
+  impactDamage: 5
+  poisonBubbleDamageSpeed: 1
+  poisonBubbleDuration: 5

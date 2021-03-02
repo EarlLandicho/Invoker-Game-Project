@@ -6,8 +6,6 @@ public class LavaBurstProjectile : MonoBehaviour
 
     [SerializeField] private GameObject explosionAnimation;
 
-
-
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Enemy"))

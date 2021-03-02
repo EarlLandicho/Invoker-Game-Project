@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using EasyFeedback;
+﻿using EasyFeedback;
+using UnityEngine;
 
 public class PlayerJump : MonoBehaviour, IJump
 {
@@ -26,7 +26,6 @@ public class PlayerJump : MonoBehaviour, IJump
 
     private void Update()
     {
-        
         if (!FeedbackForm.formIsOpened)
         {
             JumpCheck();

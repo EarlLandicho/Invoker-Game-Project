@@ -1,7 +1,7 @@
-﻿using System;
+﻿using EasyFeedback;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using EasyFeedback;
 
 //Debugging Tools
 public class InputTools : MonoBehaviour

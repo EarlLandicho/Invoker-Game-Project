@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3586392846667408179}
   - component: {fileID: 2732864962199795562}
-  - component: {fileID: 4547115082013999366}
   - component: {fileID: 2149872390891350459}
+  - component: {fileID: 4547115082013999366}
   m_Layer: 0
   m_Name: BoulderExplosion
   m_TagString: Untagged
@@ -52,18 +52,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4547115082013999366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8918235738224915177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d30eb5428872534d8769b933c6c5f81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &2149872390891350459
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -115,3 +103,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4547115082013999366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8918235738224915177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d30eb5428872534d8769b933c6c5f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTimedDestroy: 0
+  timedDestroyTime: 0

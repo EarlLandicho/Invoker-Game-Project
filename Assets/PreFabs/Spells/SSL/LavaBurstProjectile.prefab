@@ -134,5 +134,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02a1aa7c8d18bb4c8a34fa13f9315eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 10
   explosionAnimation: {fileID: 2435197901553512469, guid: b0e9dc9a626dea746b8b94810fce2474, type: 3}

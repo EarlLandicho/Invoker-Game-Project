@@ -6,11 +6,9 @@ public class TrampolineDamage : MonoBehaviour
     [SerializeField] private Vector2 size = new Vector2(0, 0);
 
     [SerializeField] private GameObject projectile;
-    
 
     private TrampolineJump trampolineJump;
     private Animator animator;
-
 
     private void Awake()
     {
@@ -18,7 +16,6 @@ public class TrampolineDamage : MonoBehaviour
         animator = GetComponent<Animator>();
         trampolineJump.TrampolineJumped += DamageEnemy;
     }
-
 
     private void DamageEnemy()
     {

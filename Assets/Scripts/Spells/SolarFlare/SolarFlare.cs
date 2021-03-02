@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SolarFlare : MonoBehaviour
 {
@@ -28,15 +27,12 @@ public class SolarFlare : MonoBehaviour
         {
             projectile.gameObject.GetComponent<EnemyProjectile>().DestroyWithAnimation();
         }
-
     }
 
     private void OnComplete()
     {
         Destroy(gameObject);
     }
-
-
 
     private void OnDrawGizmos()
     {

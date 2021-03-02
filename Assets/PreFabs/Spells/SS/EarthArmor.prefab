@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8577ef62abe94a468c076e12c9abb99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  percentDamageDecrease: 0.5
+  percentDamageDecrease: 0.75
   duration: 5
   armorShield: {fileID: 97043733981914975, guid: 7a8c0584bcc1eb74b9558428de7a47b5, type: 3}
 --- !u!114 &7816995918776448051

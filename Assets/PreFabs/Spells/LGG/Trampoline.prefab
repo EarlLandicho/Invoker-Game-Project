@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6e305bb5ade9a4090472da309d9269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 25
   size: {x: 1.43, y: 0.2}
   projectile: {fileID: 6009750786411843648, guid: c726f50bedda48c4993199ae0ef0cd66, type: 3}
 --- !u!114 &5992657384606152357

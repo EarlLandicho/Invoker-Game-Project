@@ -4,15 +4,15 @@ public class PoisonExplosion : MonoBehaviour
 {
     [SerializeField] private float explosionRadius;
     [SerializeField] private float impactDamage;
-    [SerializeField] private float cloudPoisonCheck;
-    [SerializeField] private float poisonDuration;
+    [SerializeField] private float poisonBubbleDamageSpeed;
+    [SerializeField] private float poisonBubbleDuration;
 
     private float cloudPoisonCheckTimer;
 
     private void Awake()
     {
-        cloudPoisonCheckTimer = cloudPoisonCheck;
-        Destroy(gameObject, poisonDuration);
+        cloudPoisonCheckTimer = poisonBubbleDamageSpeed;
+        Destroy(gameObject, poisonBubbleDuration);
     }
 
     private void Start()
@@ -28,7 +28,7 @@ public class PoisonExplosion : MonoBehaviour
         }
         else
         {
-            cloudPoisonCheckTimer = cloudPoisonCheck;
+            cloudPoisonCheckTimer = poisonBubbleDamageSpeed;
             PoisonArea();
         }
     }

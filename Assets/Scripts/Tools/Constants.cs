@@ -5,7 +5,7 @@
     public const float PoisonDuration = 15f;
 
     public const float BurningDamageAmount = 20f;
-    public const float BurningOiledDamageAmount = 40f;
+    public const float BurningOiledDamageAmount = 50f;
     public const float BurningTickPerSecond = .2f;
     public const float BurningDuration = 5f;
 

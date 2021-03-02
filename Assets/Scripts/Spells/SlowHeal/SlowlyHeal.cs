@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SlowlyHeal : MonoBehaviour
 {
-    [SerializeField] private float healAmount;
+    [SerializeField] private float healTotalAmount;
     [SerializeField] private float healDuration;
 
     private StatusEffect statusEffect;
@@ -12,7 +12,7 @@ public class SlowlyHeal : MonoBehaviour
     {
         statusEffect = GameObject.Find("Player").GetComponent<StatusEffect>();
         statusEffect.Dispel();
-        statusEffect.TickHealing(healAmount, healDuration);
+        statusEffect.TickHealing(healTotalAmount, healDuration);
 
         StartCoroutine("DestroyThis");
     }

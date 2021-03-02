@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RotateContinuously : MonoBehaviour
@@ -7,10 +5,9 @@ public class RotateContinuously : MonoBehaviour
     [SerializeField] private float rotationSpeed = 1;
     [SerializeField] private bool clockWise;
 
-
-    void Update()
+    private void Update()
     {
-        if(!clockWise)
+        if (!clockWise)
         {
             transform.Rotate(Vector3.up * Time.deltaTime * rotationSpeed);
         }
@@ -18,6 +15,5 @@ public class RotateContinuously : MonoBehaviour
         {
             transform.Rotate(-Vector3.up * Time.deltaTime * rotationSpeed);
         }
-
     }
 }

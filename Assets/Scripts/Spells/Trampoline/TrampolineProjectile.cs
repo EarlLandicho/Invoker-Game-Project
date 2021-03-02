@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TrampolineProjectile : MonoBehaviour
@@ -9,7 +7,7 @@ public class TrampolineProjectile : MonoBehaviour
 
     private bool isRight;
 
-    void Start()
+    private void Start()
     {
         if (isRight)
         {
@@ -27,7 +25,6 @@ public class TrampolineProjectile : MonoBehaviour
             newColor.a = value;
             spriteRenderer.color = newColor;
         }).setOnComplete(DestroyProjectile);
-
     }
 
     public void SetIsRight(bool isRight)

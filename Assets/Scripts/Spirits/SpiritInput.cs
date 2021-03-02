@@ -1,6 +1,6 @@
-﻿using System;
+﻿using EasyFeedback;
+using System;
 using UnityEngine;
-using EasyFeedback;
 
 public class SpiritInput : MonoBehaviour
 {

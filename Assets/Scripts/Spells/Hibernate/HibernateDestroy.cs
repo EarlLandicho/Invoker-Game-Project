@@ -8,12 +8,10 @@ public class HibernateDestroy : MonoBehaviour
     [SerializeField] private int numberOfShards;
     [SerializeField] private float shardsLaunchForce;
 
-
     private void Awake()
     {
         StartCoroutine("HibernateDuration");
     }
-
 
     private void Update()
     {

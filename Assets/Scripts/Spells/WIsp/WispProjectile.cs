@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WispProjectile : MonoBehaviour
 {
     [SerializeField] private float animationTime;
-    
+
     public void GoToEnemyPosition(Vector3 enemyPosition)
     {
         LeanTween.moveX(gameObject, enemyPosition.x, animationTime).setOnComplete(OnComplete);
@@ -16,7 +14,4 @@ public class WispProjectile : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
-
-
 }
