@@ -66,7 +66,7 @@ Each spirit is represented as a letter. S for solid, L for liquid, G for gas. Th
 
 * SLG (Cooldown Reset) - resets all spell cooldowns. Useful for spell combos.
 
-Each spell has its own cooldown. Using only a few spells may not be enough, you have to utilize your entire arsenal Cast different spells while the others are cooling down. Spells casted using only one spirit will always have a lower cooldown than spells casted using two. This is pattern is true for spells casted with two and three spells. Spells casted with fewer spirits will always have a lower cooldown.
+Each spell has its own cooldown. Using only a few spells may not be enough, you have to utilize your entire arsenal Cast different spells while the others are cooling down. Spells casted using only one spirit will always have a lower cooldown than spells casted using two. This pattern is true for spells casted with two and three spells. Spells casted with fewer spirits will always have a lower cooldown.
 
 ### Combo Bar and Comboing Spells
 Casting spells and defeating enemies fills up your combo bar. The combo bar depletes over time. The combo bar has 4 stages that determine how potent your spells will be. Each stage grants each spell different upgrades and additional effects. The stage of the combo bar is determined by how much it's filled.
