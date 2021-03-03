@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+using System.Text;
 
 public static class ExtensionMethods
 {
@@ -42,5 +44,18 @@ public static class ExtensionMethods
     public static Vector3 GetPlayerPosition()
     {
         return GameObject.Find("Player").transform.position;
+    }
+
+    public static string PrintListElements<T>(List<T> list)
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.Append("[");
+        foreach (T item in list)
+        {
+            stringBuilder.Append(item + " ");
+        }
+        stringBuilder.Append("]");
+
+        return stringBuilder.ToString();
     }
 }

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
+//[RequireComponent(typeof(Collider2D))]
 public class BattlefieldTrigger : MonoBehaviour
 {
     public event Action PlayerTriggered = delegate { };
@@ -18,12 +18,15 @@ public class BattlefieldTrigger : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             PlayerTriggered();
-            TurnOffCollider();
+            TurnOffChildren();
         }
     }
 
-    private void TurnOffCollider()
+    private void TurnOffChildren()
     {
-        collider2d.enabled = false;
+        foreach(Transform child in transform)
+        {
+            child.gameObject.SetActive(false);
+        }
     }
 }

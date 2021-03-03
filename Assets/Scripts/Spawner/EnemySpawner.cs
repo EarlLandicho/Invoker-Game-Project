@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public static int numberOfEnemiesSpawned;
 
     public event Action EnemiesKilledInBattleField = delegate { };
 
@@ -20,6 +20,8 @@ public class EnemySpawner : MonoBehaviour
     private bool initialSpawnerDone;
     private bool continuousSpawnerDone;
 
+    private List<GameObject> enemiesSpawnedList = new List<GameObject>();
+
     private void Awake()
     {
         battlefieldTrigger.PlayerTriggered += BeginSpawning;
@@ -33,20 +35,55 @@ public class EnemySpawner : MonoBehaviour
         {
             continuousSpawnerDone = true;
         }
+
     }
 
     private void Update()
     {
-        if (initialSpawnerDone && continuousSpawnerDone && numberOfEnemiesSpawned <= 0)
+        if (initialSpawnerDone && continuousSpawnerDone)
         {
-            EnemiesKilledInBattleField();
-
-            initialSpawnerDone = false;
-            continuousSpawnerDone = false;
-            enemyCounterInitial = 0;
-            enemyCounterContinuous = 0;
-            numberOfEnemiesSpawned = 0;
+            
+            if (EnemySpawnedListHasAllNullElements())
+            {
+                EnemiesKilledInBattleField();
+                ResetInitialValues();
+            }
         }
+
+        if (enemyCounterContinuous >= continuousEnemy.Length && !continuousSpawnerDone)
+        {
+            continuousSpawnerDone = true;
+            CancelInvoke("SpawnEnemyContinuous");
+            return;
+        }
+
+        if (enemyCounterInitial >= initialEnemy.Length && !initialSpawnerDone)
+        {
+            initialSpawnerDone = true;
+            CancelInvoke("SpawnEnemyInitial");
+            return;
+        }
+    }
+
+    private void ResetInitialValues()
+    {
+        initialSpawnerDone = false;
+        continuousSpawnerDone = false;
+        enemyCounterInitial = 0;
+        enemyCounterContinuous = 0;
+    }
+
+    private bool EnemySpawnedListHasAllNullElements()
+    {
+        foreach(GameObject obj in enemiesSpawnedList)
+        {
+            if(obj != null)
+            {
+                return false;
+            }
+
+        }
+        return true;
     }
 
     private void BeginSpawning()
@@ -57,38 +94,25 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemyInitial()
     {
-        if (enemyCounterInitial >= initialEnemy.Length)
-        {
-            initialSpawnerDone = true;
-            CancelInvoke("SpawnEnemyInitial");
-            return;
-        }
-
         int randomNum = UnityEngine.Random.Range(0, spawnPoints.Length);
 
         GameObject currentObject;
         currentObject = Instantiate(initialEnemy[enemyCounterInitial], spawnPoints[randomNum], transform.rotation);
+        enemiesSpawnedList.Add(currentObject);
         currentObject.GetComponent<EnemyHealth>().SetisFromSpawner(true);
         enemyCounterInitial++;
-        numberOfEnemiesSpawned++;
+
     }
 
     private void SpawnEnemyContinuous()
     {
-        if (enemyCounterContinuous >= continuousEnemy.Length)
-        {
-            continuousSpawnerDone = true;
-            CancelInvoke("SpawnEnemyContinuous");
-            return;
-        }
-
         int randomNum = UnityEngine.Random.Range(0, spawnPoints.Length);
 
         GameObject currentObject;
         currentObject = Instantiate(continuousEnemy[enemyCounterContinuous], spawnPoints[randomNum], transform.rotation);
+        enemiesSpawnedList.Add(currentObject);
         currentObject.GetComponent<EnemyHealth>().SetisFromSpawner(true);
         enemyCounterContinuous++;
-        numberOfEnemiesSpawned++;
     }
 
     private void OnDrawGizmos()

@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70df01469397b024e9f669cfdb675086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 50
   addedDamagePerComboBarStage: 0
   radiusRange: 0.1

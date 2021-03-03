@@ -23,23 +23,16 @@ public class EnemyHealth : Health
     {
         comboBar.IncreaseComboBarLevel(comboBarIncreaseAmount);
 
-        if (isFromSpawner)
-        {
-            EnemySpawner.numberOfEnemiesSpawned--;
-        }
-
         Instantiate(DeathAnimationObject, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
     private void SelfDie()
     {
-        if (isFromSpawner)
-        {
-            EnemySpawner.numberOfEnemiesSpawned--;
-        }
-
         Instantiate(DeathAnimationObject, transform.position, transform.rotation);
         Destroy(gameObject);
+
+        
+
     }
 }
