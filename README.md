@@ -1,15 +1,26 @@
-# Invoker (still in development)
+# Spirit Invoker (still in development)
 
 ![sample](Assets/gifs/invoker.gif)
 
 ## Game Summary
-Invoker is a 2D bullet-hell, adventure game that lets you combine spirits to cast different spells. There are three different spirits that you can use. They represent the three main states of matter: solid, liquid, gas.
-You can combine up to three spirits, making the total number of spells to be 19. Spells allow you to damage enemies, maneuver more easily, protect/heal yourself, and 
-allows you to creatively combo them to increase their potency. You can poison, stun, and burn enemies. Enemies may inflict these status effects on you as well and may kill you if you don't dispel them with your spells. Stunning or immobilizing the player does not disable spell casting. Spirits are independent to the player. The player can cast spells at any point of the game as long as it's not in cooldown.
+Invoker is a 2D bullet-hell, adventure game that lets you combine spirits to cast different spells. There are three different spirits that you can use. They represent the three main states of matter: solid, liquid, gas. You can combine up to three spirits, making the total number of spells to be 19. Spells allow you to damage enemies, maneuver more easily, protect/heal yourself, and  allows you to creatively combo them to increase their potency. You can poison, stun, oil, and burn enemies. Enemies may inflict these status effects on you as well and may kill you if you don't dispel them with your spells. Stunning or immobilizing the player does not disable spell casting. Spirits are independent to the player. The player can cast spells at any point of the game as long as it's not in cooldown.
 
 Each spirit is given to you one-by-one as you discover and collect them throughout the game.  You can discover what kind of spells you can create by combining them. Each spell has a cooldown on its own, so you have to keep using different spells if you want to constantly dish out damage. Using different spells and killing enemies fills up a combo bar and improves all your spells. Be sure to keep casting and defeating enemies while avoiding taking damage because this bar drains over time and decreases whenever you take damage. The game rewards creativity and fast actions per minute.
 
 Invoker is made using C# and Unity as the engine. I use Aseprite to create the pixel art.
+
+## Controls
+A - move left  
+D - move right  
+W - aim up  
+D - aim down  
+R - restart stage  
+Space - jump  
+Down Arrow - invoke spirits  
+Left Arrow - summon S spirit  
+Up Arrow - summon L spirit  
+Right Arrow - summon G spirit  
+Right Control - cancel summoned spirits  
 
 ## Mechanics
 
@@ -55,7 +66,7 @@ Each spirit is represented as a letter. S for solid, L for liquid, G for gas. Th
 
 * SLG (Cooldown Reset) - resets all spell cooldowns. Useful for spell combos.
 
-Each spell has its own cooldown. Using only a few spells may not be enough, you have to utilize your entire arsenal Cast different spells while the others are cooling down. Spells casted using only one spirit will always have a lower cooldown than spells casted using two. This is pattern is true for spells casted with two and three spells. Spells casted with fewer spirits will always have a lower cooldown.
+Each spell has its own cooldown. Using only a few spells may not be enough, you have to utilize your entire arsenal Cast different spells while the others are cooling down. Spells casted using only one spirit will always have a lower cooldown than spells casted using two. This pattern is true for spells casted with two and three spells. Spells casted with fewer spirits will always have a lower cooldown.
 
 ### Combo Bar and Comboing Spells
 Casting spells and defeating enemies fills up your combo bar. The combo bar depletes over time. The combo bar has 4 stages that determine how potent your spells will be. Each stage grants each spell different upgrades and additional effects. The stage of the combo bar is determined by how much it's filled.
@@ -76,6 +87,6 @@ There are four negative status effects that enemies and the player can have:
 
 ## From the developer
 
-This game allows me to do what I'm passionate about: creating games. Above 90% percent of what you see here is made by myself, art/animation and programming included. I used third-party modules such as CineMachine, LeanTween, TextMeshPro to help me create the game faster. Making this game gives me an opportunity to showcase what I can do with Unity, as well as what kind of art I can produce myself. This game has been in development for some months and I work in it on my free time as a passion project and as a sharpening tool as a programmer. As of now, the name "Invoker" is not set in stone. I may or may not change this name depending on how development goes. I may think of a better name someday.
+This game allows me to do what I'm passionate about: creating games. Above 90% percent of what you see here is made by myself, art/animation and programming included. I used third-party modules such as CineMachine, LeanTween, TextMeshPro to help me create the game faster. Making this game gives me an opportunity to showcase what I can do with Unity, as well as what kind of art I can produce myself. This game has been in development for some months and I work in it on my free time as a passion project and as a sharpening tool as a programmer. 
 
-The game is inspired by a character from DOTA 2. A hero named "Invoker" combines spirits that let him cast different spells. I've also taken insperation from Magicka.
+As of now, the name "Spirit Invoker" is not set in stone. I may or may not change this name depending on how development goes. I may think of a better name someday. The game is inspired by a character from DOTA 2. A hero named "Invoker" combines spirits that let him cast different spells. I've also taken insperation from Magicka.
