@@ -2383,13 +2383,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1903966336111489103, guid: 705e45beaa727e4498ff47343a0f6b9a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -96.2
+      value: -98.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835196167755331741, guid: 705e45beaa727e4498ff47343a0f6b9a, type: 3}
+      propertyPath: m_Name
+      value: Prompt
       objectReference: {fileID: 0}
     - target: {fileID: 5072475181814233271, guid: 705e45beaa727e4498ff47343a0f6b9a, type: 3}
       propertyPath: m_text
-      value: 'Press R to restart
+      value: 'Thanks for playing!
+
+        Press R to restart
+
+        Press ESC
+        to send feedback or report bugs
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5072475181814233271, guid: 705e45beaa727e4498ff47343a0f6b9a, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5072475181814233271, guid: 705e45beaa727e4498ff47343a0f6b9a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5269926809611003099, guid: 705e45beaa727e4498ff47343a0f6b9a, type: 3}
       propertyPath: m_Name
@@ -2410,6 +2427,14 @@ PrefabInstance:
     - target: {fileID: 6981122471683157238, guid: 705e45beaa727e4498ff47343a0f6b9a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -56.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414572012349162473, guid: 705e45beaa727e4498ff47343a0f6b9a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9175938462015498523, guid: 705e45beaa727e4498ff47343a0f6b9a, type: 3}
+      propertyPath: m_Color.a
+      value: 0.72156864
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 705e45beaa727e4498ff47343a0f6b9a, type: 3}

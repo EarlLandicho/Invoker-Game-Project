@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6973909265765621487}
   - component: {fileID: 3938179745637272534}
   - component: {fileID: 7613243628872381922}
+  - component: {fileID: 3774295901227059001}
   - component: {fileID: 7748386689377667421}
   m_Layer: 15
   m_Name: MudGolemProjectile
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1869486816503002355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.4080962, y: -0.062187865, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b5b4e4df37d8d7841bda2c1ada2d421b, type: 3}
-  m_Color: {r: 0.2735849, g: 0.26734474, b: 0, a: 1}
+  m_Sprite: {fileID: -9169147295439734256, guid: 3f0d1452ddf8a51489c8685a8b978679, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,6 +101,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.03
+--- !u!95 &3774295901227059001
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869486816503002355}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14610274c8621624b8e4374121748cff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7748386689377667421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,3 +136,4 @@ MonoBehaviour:
   arcHeight: 0.5
   damageRadius: 0.15
   damage: 20
+  explosionAnimation: {fileID: 8918235738224915177, guid: 50847b738de76af45a5f6a47b55cb893, type: 3}

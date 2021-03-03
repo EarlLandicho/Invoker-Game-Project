@@ -12,6 +12,12 @@ public class MudGolemProjectileLaunch : MonoBehaviour
     private bool isAttacking;
     private float attackRangeRadius;
     private Vector3 target;
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Start()
     {
@@ -43,6 +49,17 @@ public class MudGolemProjectileLaunch : MonoBehaviour
         }
     }
 
+    // Called in Animator
+    public void ThrowBoulderProjectile()
+    {
+        GameObject projectileObject = Instantiate(projectile, transform.position, transform.rotation);
+        projectileObject.GetComponent<MudGolemProjectile>().SetTarget(target);
+        projectileObject.GetComponent<MudGolemProjectile>().SetMoxGolemRange(attackRangeRadius);
+
+        GetComponent<MudGolem>().SetCanMove(true);
+        isAttacking = false;
+    }
+
     private void AttackRandomEnemyInRange()
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, attackRangeRadius, 1 << LayerMask.NameToLayer("Enemy"));
@@ -64,11 +81,9 @@ public class MudGolemProjectileLaunch : MonoBehaviour
 
         yield return new WaitForSeconds(attackDelay);
 
-        GameObject projectileObject = Instantiate(projectile, transform.position, transform.rotation);
-        projectileObject.GetComponent<MudGolemProjectile>().SetTarget(target);
-        projectileObject.GetComponent<MudGolemProjectile>().SetMoxGolemRange(attackRangeRadius);
+        animator.SetTrigger("attack");
 
-        GetComponent<MudGolem>().SetCanMove(true);
-        isAttacking = false;
     }
+
+
 }

@@ -6,6 +6,7 @@ public class MudGolemProjectile : MonoBehaviour
     [SerializeField] private float arcHeight;
     [SerializeField] private float damageRadius;
     [SerializeField] private float damage;
+    [SerializeField] private GameObject explosionAnimation;
 
     private Vector3 targetPositon;
     private Vector3 startPosition;
@@ -66,6 +67,7 @@ public class MudGolemProjectile : MonoBehaviour
             enemy.gameObject.GetComponent<IHealth>().TakeDamage(damage);
             enemy.gameObject.GetComponent<StatusEffect>().BecomeOiled();
         }
+        Instantiate(explosionAnimation, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 

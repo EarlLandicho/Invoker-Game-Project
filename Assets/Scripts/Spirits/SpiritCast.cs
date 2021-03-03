@@ -711,7 +711,7 @@ public class SpiritCast : MonoBehaviour
                 break;
 
             default:
-                Debug.Log("Nothing casted");
+                //Debug.Log("Nothing casted");
                 break;
         }
     }
@@ -733,7 +733,7 @@ public class SpiritCast : MonoBehaviour
         }
         else
         {
-            Debug.Log("Still cooling down");
+            //Debug.Log("Still cooling down");
         }
     }
 
