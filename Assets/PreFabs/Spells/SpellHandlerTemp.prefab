@@ -1395,6 +1395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IcicleProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 7791199885495886684, guid: 3607c79d5151e9a4f869962901c96b46, type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3607c79d5151e9a4f869962901c96b46, type: 3}
 --- !u!4 &8896421304521404760 stripped

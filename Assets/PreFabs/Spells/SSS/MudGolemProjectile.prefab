@@ -135,5 +135,5 @@ MonoBehaviour:
   speed: 2
   arcHeight: 0.5
   damageRadius: 0.15
-  damage: 20
+  damage: 30
   explosionAnimation: {fileID: 8918235738224915177, guid: 50847b738de76af45a5f6a47b55cb893, type: 3}

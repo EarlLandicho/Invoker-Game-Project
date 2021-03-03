@@ -1035,4 +1035,9 @@ public class SpiritCast : MonoBehaviour
     {
         Debug.LogFormat("Current Array: [ {0}, {1}, {2} ]", spiritArrayManagerArray[0], spiritArrayManagerArray[1], spiritArrayManagerArray[2]);
     }
+
+    private void CooldownAlert()
+    {
+
+    }
 }
