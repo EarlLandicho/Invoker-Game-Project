@@ -42,7 +42,6 @@ public class EnemySpawner : MonoBehaviour
     {
         if (initialSpawnerDone && continuousSpawnerDone)
         {
-            
             if (EnemySpawnedListHasAllNullElements())
             {
                 EnemiesKilledInBattleField();
