@@ -48,7 +48,7 @@ Each spirit is represented as a letter. S for solid, L for liquid, G for gas. Th
 
 * SSS (Summon Oil Golem) - summon an oil golem that attacks nearby enemies with a projectile that oils enemies that it hits. Useful for blocking enemy projectile.  
 
-* LLL (Hibernate) - gain immunity to all damage and lock player movement for a short time. Dispels negative status effects. Even if you're immobalized, you may still cast spells.
+* LLL (Hibernate) - gain immunity to all damage and lock player movement for a short time. Dispels negative status effects. Even if you're immobilized, you may still cast spells.
 
 * GGG (Tornado) - create a moving tornado that deals damage and stuns enemies in a huge area.
 
