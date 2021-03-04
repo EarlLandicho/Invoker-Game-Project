@@ -80,8 +80,8 @@ You don't start with all the spells at your disposal. You increase the number of
 There are four negative status effects that enemies and the player can have: 
 
 * Poison - deals constant damage. Each tick damage is small but poisons last long.
-* Oil - slows movement and decrease jump height. Will increase burning damage.
-* Buring - deals constant damage. Each tick damage is big but only lasts quickly. If target is oiled when buring is applied, total burning damage is increased.
+* Oil - slows movement and decreases jump height. Will increase burning damage.
+* Buring - deals constant damage. Each tick damage is big but only lasts quickly. If the target is oiled when burning is applied, total burning damage is increased.
 * Stun - disables the target for a short time. The player can still cast spells while stunned.
 
 
