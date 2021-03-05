@@ -2,6 +2,8 @@
 
 ![sample](Assets/gifs/invoker.gif)
 
+Check out a demo here: https://earllandicho.itch.io/spirit-invoker?secret=fqb1twMBvNfsWCLLsPbabpngj0
+
 ## Game Summary
 Invoker is a 2D bullet-hell, adventure game that lets you combine spirits to cast different spells. There are three different spirits that you can use. They represent the three main states of matter: solid, liquid, gas. You can combine up to three spirits, making the total number of spells to be 19. Spells allow you to damage enemies, maneuver more easily, protect/heal yourself, and  allows you to creatively combo them to increase their potency. You can poison, stun, oil, and burn enemies. Enemies may inflict these status effects on you as well and may kill you if you don't dispel them with your spells. Stunning or immobilizing the player does not disable spell casting. Spirits are independent to the player. The player can cast spells at any point of the game as long as it's not in cooldown.
 
