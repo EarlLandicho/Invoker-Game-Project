@@ -2,6 +2,8 @@
 
 ![sample](Assets/gifs/invoker.gif)
 
+Check out a demo here: https://earllandicho.itch.io/spirit-invoker?secret=fqb1twMBvNfsWCLLsPbabpngj0
+
 ## Game Summary
 Invoker is a 2D bullet-hell, adventure game that lets you combine spirits to cast different spells. There are three different spirits that you can use. They represent the three main states of matter: solid, liquid, gas. You can combine up to three spirits, making the total number of spells to be 19. Spells allow you to damage enemies, maneuver more easily, protect/heal yourself, and  allows you to creatively combo them to increase their potency. You can poison, stun, oil, and burn enemies. Enemies may inflict these status effects on you as well and may kill you if you don't dispel them with your spells. Stunning or immobilizing the player does not disable spell casting. Spirits are independent to the player. The player can cast spells at any point of the game as long as it's not in cooldown.
 
@@ -48,7 +50,7 @@ Each spirit is represented as a letter. S for solid, L for liquid, G for gas. Th
 
 * SSS (Summon Oil Golem) - summon an oil golem that attacks nearby enemies with a projectile that oils enemies that it hits. Useful for blocking enemy projectile.  
 
-* LLL (Hibernate) - gain immunity to all damage and lock player movement for a short time. Dispels negative status effects. Even if you're immobalized, you may still cast spells.
+* LLL (Hibernate) - gain immunity to all damage and lock player movement for a short time. Dispels negative status effects. Even if you're immobilized, you may still cast spells.
 
 * GGG (Tornado) - create a moving tornado that deals damage and stuns enemies in a huge area.
 
@@ -66,7 +68,7 @@ Each spirit is represented as a letter. S for solid, L for liquid, G for gas. Th
 
 * SLG (Cooldown Reset) - resets all spell cooldowns. Useful for spell combos.
 
-Each spell has its own cooldown. Using only a few spells may not be enough, you have to utilize your entire arsenal Cast different spells while the others are cooling down. Spells casted using only one spirit will always have a lower cooldown than spells casted using two. This pattern is true for spells casted with two and three spells. Spells casted with fewer spirits will always have a lower cooldown.
+Each spell has its own cooldown. Using only a few spells may not be enough, you have to utilize your entire arsenal. Cast different spells while the others are cooling down. Spells cast using only one spirit will always have a lower cooldown than spells cast using two. This pattern is true for spells cast with two and three spells. Spells cast with fewer spirits will always have a lower cooldown.
 
 ### Combo Bar and Comboing Spells
 Casting spells and defeating enemies fills up your combo bar. The combo bar depletes over time. The combo bar has 4 stages that determine how potent your spells will be. Each stage grants each spell different upgrades and additional effects. The stage of the combo bar is determined by how much it's filled.
@@ -80,8 +82,8 @@ You don't start with all the spells at your disposal. You increase the number of
 There are four negative status effects that enemies and the player can have: 
 
 * Poison - deals constant damage. Each tick damage is small but poisons last long.
-* Oil - slows movement and decrease jump height. Will increase burning damage.
-* Buring - deals constant damage. Each tick damage is big but only lasts quickly. If target is oiled when buring is applied, total burning damage is increased.
+* Oil - slows movement and decreases jump height. Will increase burning damage.
+* Buring - deals constant damage. Each tick damage is big but only lasts quickly. If the target is oiled when burning is applied, total burning damage is increased.
 * Stun - disables the target for a short time. The player can still cast spells while stunned.
 
 
