@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3092816935238274475}
   - component: {fileID: 3563530270097365162}
+  - component: {fileID: 2030620007}
   - component: {fileID: 3065389478977500620}
   - component: {fileID: 9091821100777639424}
+  - component: {fileID: 1562403756854939827}
   m_Layer: 0
   m_Name: Wings
   m_TagString: Untagged
@@ -78,12 +80,31 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.64, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2030620007
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379291390893465058}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 249aa9061e334744bbee2fba9a83bb7d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &3065389478977500620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,3 +134,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flightDuration: 5
   flightSpeedFactor: 1.5
+--- !u!114 &1562403756854939827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379291390893465058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0c2acb27bc0d3439ea061c2158f6d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
