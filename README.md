@@ -1,6 +1,6 @@
 # Spirit Invoker (still in development)
 
-![sample](Assets/gifs/invoker.gif)
+![sample](Assets/gifs/sample.gif)
 
 Check out a demo here: https://earllandicho.itch.io/spirit-invoker?secret=fqb1twMBvNfsWCLLsPbabpngj0
 
