@@ -13,10 +13,12 @@ public class MudGolemProjectileLaunch : MonoBehaviour
     private float attackRangeRadius;
     private Vector3 target;
     private Animator animator;
+    private MovementFlip movementFlip;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        movementFlip = GetComponent<MovementFlip>();
     }
 
     private void Start()
@@ -78,12 +80,23 @@ public class MudGolemProjectileLaunch : MonoBehaviour
         canAttack = false;
         isAttacking = true;
         GetComponent<MudGolem>().SetCanMove(false);
-
+        
         yield return new WaitForSeconds(attackDelay);
-
+        
+        FaceCorrectDirection();
         animator.SetTrigger("attack");
 
     }
 
-
+    private void FaceCorrectDirection()
+    {
+        if (target.x < transform.position.x)
+        {
+            movementFlip.FaceLeft();
+        }
+        else
+        {
+            movementFlip.FaceRight();
+        }
+    }
 }

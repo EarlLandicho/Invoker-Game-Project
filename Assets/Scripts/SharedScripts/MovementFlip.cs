@@ -32,6 +32,20 @@ public class MovementFlip : MonoBehaviour
         return facingRight;
     }
 
+    public void FaceRight()
+    {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        facingRight = true;
+    }
+    
+    public void FaceLeft()
+    {
+        transform.rotation = Quaternion.Euler(0, 180, 0);
+        facingRight = false;
+    }
+    
+    
+
     private void FlipCheck()
     {
         if (rigidbody2d.velocity.x < -0.1f)
