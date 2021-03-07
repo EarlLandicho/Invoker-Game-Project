@@ -2,11 +2,29 @@
 
 public class GodMode : MonoBehaviour
 {
-    private bool isGodeMode = false;
+    private bool isGodMode = false;
+    private SpriteRenderer spriteRenderer;
+    private PlayerHealth playerHealth;
+    private SpiritArrayManager spiritArrayManager;
+    private SpiritCast spiritCast;
 
     private void Awake()
     {
         GetComponent<InputTools>().GodModeActivated += ActivateGodMode;
+
+        spriteRenderer = GameObject.Find("Player").GetComponent<SpriteRenderer>();
+        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
+        spiritArrayManager = GameObject.Find("GameManager").GetComponent<SpiritArrayManager>();
+        spiritCast = GameObject.Find("Spirits").GetComponent<SpiritCast>();
+    }
+    
+    void Update()
+    {
+        if (isGodMode)
+        {
+            spriteRenderer.color = Color.black;
+            spiritCast.ResetAllCooldowns();
+        }
     }
 
     private void OnDestroy()
@@ -16,22 +34,40 @@ public class GodMode : MonoBehaviour
 
     private void ActivateGodMode()
     {
-        if (!isGodeMode)
+        if (!isGodMode)
         {
-            isGodeMode = true;
-            GameObject.Find("Player").GetComponent<PlayerHealth>().SetGodModeHealth(true);
-            GameObject.Find("Player").GetComponent<SpriteRenderer>().color = Color.black;
+            isGodMode = true;
+            playerHealth.SetGodModeHealth(true);
+            ObtainAllSpirits(true);
+
         }
         else
         {
-            isGodeMode = false;
-            GameObject.Find("Player").GetComponent<PlayerHealth>().SetGodModeHealth(false);
-            GameObject.Find("Player").GetComponent<SpriteRenderer>().color = Color.white;
+            isGodMode = false;
+            playerHealth.SetGodModeHealth(false);
+            spriteRenderer.color = Color.white;
+            ObtainAllSpirits(false);
         }
     }
-
-    void Update()
+    
+    private void ObtainAllSpirits(bool isObtaining)
     {
+        if (isObtaining)
+        {
+            spiritArrayManager.IncrementSpiritCurrentAmount();
+            spiritArrayManager.IncrementSpiritCurrentAmount();
+            spiritArrayManager.IncrementSpiritCurrentAmount();
+        }
+        else
+        {
+            spiritArrayManager.DecrementSpiritCurrentAmount();
+            spiritArrayManager.DecrementSpiritCurrentAmount();
+            spiritArrayManager.DecrementSpiritCurrentAmount();
+        }
+        
 
     }
+    
+
+
 }

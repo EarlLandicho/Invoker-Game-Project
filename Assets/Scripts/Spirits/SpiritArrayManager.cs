@@ -131,7 +131,13 @@ public class SpiritArrayManager : MonoBehaviour
                 break;
         }
     }
-
+    public void IncrementSpiritCurrentAmount()
+    {
+        spiritCurrentAmount1++;
+        spiritCurrentAmount2++;
+        spiritCurrentAmount3++;
+    }
+    
     public void DecrementSpiritCurrentAmount(int spiritNumber)
     {
         switch (spiritNumber)
@@ -148,6 +154,13 @@ public class SpiritArrayManager : MonoBehaviour
                 spiritCurrentAmount3--;
                 break;
         }
+    }
+    
+    public void DecrementSpiritCurrentAmount()
+    {
+        spiritCurrentAmount1--;
+        spiritCurrentAmount2--;
+        spiritCurrentAmount3--;
     }
 
     public void IncrementSpiritMaxAmount(int spiritNumber)

@@ -14,11 +14,13 @@ public class MudGolemProjectileLaunch : MonoBehaviour
     private Vector3 target;
     private Animator animator;
     private MovementFlip movementFlip;
+    private MudGolem mudGolem;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         movementFlip = GetComponent<MovementFlip>();
+        mudGolem = GetComponent<MudGolem>();
     }
 
     private void Start()
@@ -58,7 +60,7 @@ public class MudGolemProjectileLaunch : MonoBehaviour
         projectileObject.GetComponent<MudGolemProjectile>().SetTarget(target);
         projectileObject.GetComponent<MudGolemProjectile>().SetMoxGolemRange(attackRangeRadius);
 
-        GetComponent<MudGolem>().SetCanMove(true);
+        mudGolem.SetCanMove(true);
         isAttacking = false;
     }
 
@@ -79,7 +81,7 @@ public class MudGolemProjectileLaunch : MonoBehaviour
     {
         canAttack = false;
         isAttacking = true;
-        GetComponent<MudGolem>().SetCanMove(false);
+        mudGolem.SetCanMove(false);
         
         yield return new WaitForSeconds(attackDelay);
         

@@ -8,35 +8,30 @@ public class BoulderDestroy : MonoBehaviour
 
     [SerializeField] private GameObject explosionAnimation;
 
-    //prevents multiple collisions therefore preventing multiple calls to OnTriggerEnter2D
-    private bool isColliding;
-
-    private Animator animator;
-
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (isColliding)
-        {
-            return;
-        }
-        isColliding = true;
-
+        
         if (collider.gameObject.layer == LayerMask.NameToLayer("Enemy")
             || collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            BoulderDestroyed();
-            Instantiate(explosionAnimation, transform.position, transform.rotation);
-            Destroy(gameObject);
+            DestroyBoulder();
+        }
+    }
+    // OnTriggerStay is here so that it OnTriggerEnter fails to detect collision, then it will do additional checks to make sure it hits.
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Enemy")
+            || collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            DestroyBoulder();
         }
     }
 
-    private void Update()
+    private void DestroyBoulder()
     {
-        isColliding = false;
+        BoulderDestroyed();
+        Instantiate(explosionAnimation, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

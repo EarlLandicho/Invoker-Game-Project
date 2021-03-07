@@ -1,21 +1,31 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
+    private bool gameIsOver;
     private GameObject gameOverScreen;
 
     private void Awake()
     {
-        GameObject.FindObjectOfType<PlayerHealth>().IsDead += EndGame;
+        FindObjectOfType<PlayerHealth>().IsDead += EndGame;
         TouchToEndGame.EndGameByTouch += EndGame;
         gameOverScreen = GameObject.Find("GameOverScreen");
         gameOverScreen.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (gameIsOver)
+        {
+            StopGame();
+        }
+    }
+
     private void EndGame()
     {
+        gameIsOver = true;
         GameOverScreen();
-        StopGame();
     }
 
     private void GameOverScreen()

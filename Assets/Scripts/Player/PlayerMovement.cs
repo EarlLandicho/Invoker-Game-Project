@@ -24,6 +24,11 @@ public class PlayerMovement : Movement
         this.isHibernating = isHibernating;
     }
 
+    public bool GetIsHibernating()
+    {
+        return isHibernating;
+    }
+
     private void MoveCheck()
     {
         if (!isXMovementSpeedLocked && !isFlying && !isHibernating)

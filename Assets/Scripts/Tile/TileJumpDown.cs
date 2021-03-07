@@ -9,18 +9,25 @@ public class TileJumpDown : MonoBehaviour
     private float reverseCollisionTimerTemp;
     private bool reverseDelay;
 
+    private PlayerMovement playerMovement;
+
     private void Awake()
     {
         compositeCollider = GetComponent<CompositeCollider2D>();
         reverseCollisionTimerTemp = reverseCollisionTimer;
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
     }
 
     private void Update()
     {
         if (Input.GetKey(KeyCode.S))
         {
-            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Ledge"));
-            compositeCollider.usedByEffector = false;
+            if (!playerMovement.GetIsHibernating())
+            {
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Ledge"));
+                compositeCollider.usedByEffector = false;
+            }
+
         }
         else if (Input.GetKeyUp(KeyCode.S))
         {
