@@ -15,10 +15,5 @@ public class FireSpirit : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (collider.gameObject.layer == LayerMask.NameToLayer("Enemy Projectile"))
-        {
-            Instantiate(explosionAnimation, transform.position, transform.rotation);
-            Destroy(collider.gameObject);
-        }
     }
 }

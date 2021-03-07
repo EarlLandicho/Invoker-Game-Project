@@ -8,7 +8,7 @@ public class EnemyProjectile : MonoBehaviour
     private Vector2 playerDirection;
     private Animator animator;
 
-    protected Rigidbody2D projectileRigidbody;
+    private Rigidbody2D projectileRigidbody;
 
     private void Awake()
     {
@@ -61,7 +61,8 @@ public class EnemyProjectile : MonoBehaviour
             collider.GetComponent<IHealth>().TakeDamage(damage);
             animator.SetTrigger("hasHitSomething");
         }
-        else if (collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        else if (collider.gameObject.layer == LayerMask.NameToLayer("Ground") ||
+                 collider.gameObject.layer == LayerMask.NameToLayer("Player Projectile"))
         {
             animator.SetTrigger("hasHitSomething");
         }

@@ -29,4 +29,9 @@ public class GodMode : MonoBehaviour
             GameObject.Find("Player").GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
+
+    void Update()
+    {
+
+    }
 }
