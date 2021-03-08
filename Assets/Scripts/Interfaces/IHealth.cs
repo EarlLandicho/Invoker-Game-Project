@@ -1,12 +1,12 @@
 ﻿public interface IHealth
 {
-    void TakeDamage(float damage, bool isStatusEffectDamage = false);
+	void TakeDamage(float damage, bool isStatusEffectDamage = false);
 
-    void TakeHealing(float healAmount);
+	void TakeHealing(float healAmount);
 
-    void SetIsInvulnerable(bool isInvulnerable);
+	void SetIsInvulnerable(bool isInvulnerable);
 
-    float GetDamageModifier();
+	float GetDamageModifier();
 
-    void SetDamageModifierByFactor(float damageModifier, bool isSetting);
+	void SetDamageModifierByFactor(float damageModifier, bool isSetting);
 }

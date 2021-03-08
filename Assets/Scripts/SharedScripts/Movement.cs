@@ -1,63 +1,63 @@
-﻿using UnityEngine;
+﻿#region
+
+using UnityEngine;
+
+#endregion
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour, IMovement
 {
-    [SerializeField]
-    protected float movementSpeed;
+	[SerializeField] protected float movementSpeed;
+	protected bool isXMovementSpeedLocked;
+	protected float movementSpeedModifier = 1;
+	protected float movementSpeedTemp;
+	protected Rigidbody2D rb;
 
-    protected float movementSpeedTemp;
-    protected bool isXMovementSpeedLocked = false;
-    protected float movementSpeedModifier = 1;
+	protected virtual void Awake()
+	{
+		rb = GetComponent<Rigidbody2D>();
+		movementSpeedTemp = movementSpeed;
+	}
 
-    protected Rigidbody2D rb;
+	public virtual float GetMovementSpeed()
+	{
+		return movementSpeed;
+	}
 
-    protected virtual void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
+	public virtual float GetMovementSpeedModifier()
+	{
+		return movementSpeedModifier;
+	}
 
-        movementSpeedTemp = movementSpeed;
-    }
+	public virtual void SetLockXMovement(bool isLocked)
+	{
+		isXMovementSpeedLocked = isLocked;
+		if (isLocked)
+		{
+			rb.velocity = new Vector2(0, rb.velocity.y);
+		}
+		else
+		{
+			movementSpeed = movementSpeedTemp * movementSpeedModifier;
+		}
+	}
 
-    public virtual float GetMovementSpeed()
-    {
-        return movementSpeed;
-    }
+	public virtual void SetMovementSpeedByFactor(float factor, bool isSetting)
+	{
+		if (isSetting)
+		{
+			movementSpeedModifier *= factor;
+			Debug.Log("movement modifier set to" + movementSpeedModifier);
+		}
+		else
+		{
+			movementSpeedModifier /= factor;
+			Debug.Log("movement modifier reset to " + movementSpeedModifier);
+		}
+	}
 
-    public virtual float GetMovementSpeedModifier()
-    {
-        return movementSpeedModifier;
-    }
-
-    public virtual void SetLockXMovement(bool isLocked)
-    {
-        isXMovementSpeedLocked = isLocked;
-        if (isLocked)
-        {
-            rb.velocity = new Vector2(0, rb.velocity.y);
-        }
-        else
-        {
-            movementSpeed = movementSpeedTemp * movementSpeedModifier;
-        }
-    }
-
-    public virtual void SetMovementSpeedByFactor(float factor, bool isSetting)
-    {
-        if (isSetting)
-        {
-            movementSpeedModifier *= factor;
-            Debug.Log("movement modifier set to" + movementSpeedModifier);
-        }
-        else
-        {
-            movementSpeedModifier /= factor;
-            Debug.Log("movement modifier reset to " + movementSpeedModifier);
-        }
-    }
-
-    public virtual void SetMovementSpeedModifierToDefault()
-    {
-        movementSpeedModifier = 1;
-    }
+	public virtual void SetMovementSpeedModifierToDefault()
+	{
+		movementSpeedModifier = 1;
+	}
 }

@@ -1,25 +1,29 @@
-﻿using UnityEngine;
+﻿#region
+
+using UnityEngine;
 using UnityEngine.UI;
+
+#endregion
 
 [RequireComponent(typeof(Slider))]
 public class HealthBar : MonoBehaviour
 {
-    private Slider slider;
-    private PlayerHealth playerHealth;
+	private PlayerHealth playerHealth;
+	private Slider slider;
 
-    private void Awake()
-    {
-        slider = GetComponent<Slider>();
-        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
-    }
+	private void Awake()
+	{
+		slider = GetComponent<Slider>();
+		playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
+	}
 
-    private void LateUpdate()
-    {
-        SetHealth(playerHealth.GetCurrentHealth());
-    }
+	private void LateUpdate()
+	{
+		SetHealth(playerHealth.GetCurrentHealth());
+	}
 
-    private void SetHealth(float health)
-    {
-        slider.value = health;
-    }
+	private void SetHealth(float health)
+	{
+		slider.value = health;
+	}
 }

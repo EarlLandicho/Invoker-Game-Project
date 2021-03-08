@@ -1,20 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+#region
+
 using UnityEngine;
+
+#endregion
 
 public class WingsAnimation : MonoBehaviour
 {
-    private Animator animator;
-    private Rigidbody2D rb;
+	private Animator animator;
+	private Rigidbody2D rb;
 
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-        rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
-    }
+	private void Awake()
+	{
+		animator = GetComponent<Animator>();
+		rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+	}
 
-    private void Update()
-    {
-        animator.SetFloat("velocityY", rb.velocity.y);
-    }
+	private void Update()
+	{
+		animator.SetFloat("velocityY", rb.velocity.y);
+	}
 }

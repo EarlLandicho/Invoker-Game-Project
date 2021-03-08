@@ -1,15 +1,19 @@
+#region
+
 using System;
 using UnityEngine;
 
+#endregion
+
 public class TouchToEndGame : MonoBehaviour
 {
-    public static event Action EndGameByTouch = delegate { };
+	private void OnTriggerEnter2D(Collider2D collider)
+	{
+		if (collider.gameObject.CompareTag("Player"))
+		{
+			EndGameByTouch();
+		}
+	}
 
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.CompareTag("Player"))
-        {
-            EndGameByTouch();
-        }
-    }
+	public static event Action EndGameByTouch = delegate { };
 }

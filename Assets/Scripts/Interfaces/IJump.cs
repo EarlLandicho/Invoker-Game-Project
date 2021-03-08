@@ -1,8 +1,8 @@
 ﻿public interface IJump
 {
-    void SetJumpHeightByFactor(float factor);
+	void SetJumpHeightByFactor(float factor);
 
-    void SetJumpHeightToDefault();
+	void SetJumpHeightToDefault();
 
-    void SetLockJump(bool isLocked);
+	void SetLockJump(bool isLocked);
 }

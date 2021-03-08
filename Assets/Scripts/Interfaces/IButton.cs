@@ -1,4 +1,4 @@
 ﻿public interface IButton
 {
-    void ActivateButton();
+	void ActivateButton();
 }

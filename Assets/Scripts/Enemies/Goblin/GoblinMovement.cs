@@ -1,75 +1,75 @@
-﻿using UnityEngine;
+﻿#region
+
+using UnityEngine;
+
+#endregion
 
 public class GoblinMovement : EnemyMovement
 {
-    private bool willAdvanceTowardPlayer = true;
-    private Vector2 targetToMoveTo;
+	private Vector2 targetToMoveTo;
+	private readonly bool willAdvanceTowardPlayer = true;
 
-    private void Update()
-    {
-        if (!isXMovementSpeedLocked)
-        {
-            if (willAdvanceTowardPlayer)
-            {
-                rb.velocity = targetToMoveTo * movementSpeed;
-            }
-            else
-            {
-                rb.velocity = -1 * targetToMoveTo * movementSpeed;
-            }
-        }
-    }
+	private void Update()
+	{
+		if (!isXMovementSpeedLocked)
+		{
+			if (willAdvanceTowardPlayer)
+			{
+				rb.velocity = targetToMoveTo * movementSpeed;
+			}
+			else
+			{
+				rb.velocity = -1 * targetToMoveTo * movementSpeed;
+			}
+		}
+	}
 
-    public override void SetLockXMovement(bool isLocked)
-    {
-        isXMovementSpeedLocked = isLocked;
-        if (isLocked)
-        {
-            rb.velocity = new Vector2(0, 0);
-        }
-        else
-        {
-            movementSpeed = movementSpeedTemp * movementSpeedModifier;
+	public override void OnCollisionEnter2D(Collision2D collision)
+	{
+		base.OnCollisionEnter2D(collision);
+		var collider = collision.collider;
+		if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+		{
+			Vector3 contactPoint = collision.contacts[0].point;
+			var center = collider.bounds.center;
+			var top = contactPoint.y > center.y;
+			var right = contactPoint.x > center.x;
+			if (top)
+			{
+				targetToMoveTo = transform.up;
+			}
+			else
+			{
+				targetToMoveTo = -transform.up;
+			}
 
-            MovementCheck();
-        }
-    }
+			if (right)
+			{
+				targetToMoveTo = transform.right;
+			}
+			else
+			{
+				targetToMoveTo = -transform.right;
+			}
+		}
+	}
 
-    public override void OnCollisionEnter2D(Collision2D collision)
-    {
-        base.OnCollisionEnter2D(collision);
+	public override void SetLockXMovement(bool isLocked)
+	{
+		isXMovementSpeedLocked = isLocked;
+		if (isLocked)
+		{
+			rb.velocity = new Vector2(0, 0);
+		}
+		else
+		{
+			movementSpeed = movementSpeedTemp * movementSpeedModifier;
+			MovementCheck();
+		}
+	}
 
-        Collider2D collider = collision.collider;
-
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
-        {
-            Vector3 contactPoint = collision.contacts[0].point;
-            Vector3 center = collider.bounds.center;
-
-            bool top = contactPoint.y > center.y;
-            bool right = contactPoint.x > center.x;
-            if (top)
-            {
-                targetToMoveTo = transform.up;
-            }
-            else
-            {
-                targetToMoveTo = -transform.up;
-            }
-
-            if (right)
-            {
-                targetToMoveTo = transform.right;
-            }
-            else
-            {
-                targetToMoveTo = -transform.right;
-            }
-        }
-    }
-
-    private void MovementCheck()
-    {
-        targetToMoveTo = ExtensionMethods.GetNormalizedDirectionToPlayer2D(gameObject);
-    }
+	private void MovementCheck()
+	{
+		targetToMoveTo = ExtensionMethods.GetNormalizedDirectionToPlayer2D(gameObject);
+	}
 }

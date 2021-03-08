@@ -1,25 +1,28 @@
-﻿using UnityEngine;
+﻿#region
+
+using UnityEngine;
+
+#endregion
 
 public class FireSpiritDuration : MonoBehaviour
 {
-    [SerializeField] private float duration;
+	[SerializeField] private float duration;
+	private float durationTemp;
 
-    private float durationTemp;
+	private void Awake()
+	{
+		durationTemp = duration;
+	}
 
-    private void Awake()
-    {
-        durationTemp = duration;
-    }
-
-    private void Update()
-    {
-        if (durationTemp > 0)
-        {
-            durationTemp -= Time.deltaTime;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+	private void Update()
+	{
+		if (durationTemp > 0)
+		{
+			durationTemp -= Time.deltaTime;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
 }

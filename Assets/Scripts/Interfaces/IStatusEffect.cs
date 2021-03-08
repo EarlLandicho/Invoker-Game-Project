@@ -1,18 +1,18 @@
 ﻿public interface IStatusEffect
 {
-    void BecomePoisoned();
+	void BecomePoisoned();
 
-    void BecomeOiled();
+	void BecomeOiled();
 
-    void BecomeBurned();
+	void BecomeBurned();
 
-    void BecomeStunned();
+	void BecomeStunned();
 
-    void TickHealing(float healAmount, float healDuration);
+	void TickHealing(float healAmount, float healDuration);
 
-    void Dispel();
+	void Dispel();
 
-    void BecomeInvulnerable(bool isVulnerable);
+	void BecomeInvulnerable(bool isVulnerable);
 
-    void BecomeStatusEffectImmune(bool isStatusEffectImmune);
+	void BecomeStatusEffectImmune(bool isStatusEffectImmune);
 }

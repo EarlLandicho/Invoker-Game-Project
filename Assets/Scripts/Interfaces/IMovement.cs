@@ -1,12 +1,12 @@
 ﻿public interface IMovement
 {
-    void SetMovementSpeedByFactor(float factor, bool isSetting);
+	void SetMovementSpeedByFactor(float factor, bool isSetting);
 
-    void SetMovementSpeedModifierToDefault();
+	void SetMovementSpeedModifierToDefault();
 
-    void SetLockXMovement(bool isLocked);
+	void SetLockXMovement(bool isLocked);
 
-    float GetMovementSpeed();
+	float GetMovementSpeed();
 
-    float GetMovementSpeedModifier();
+	float GetMovementSpeedModifier();
 }

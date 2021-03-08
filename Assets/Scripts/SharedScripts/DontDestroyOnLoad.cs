@@ -1,15 +1,19 @@
-﻿using UnityEngine;
+﻿#region
+
+using UnityEngine;
+
+#endregion
 
 public class DontDestroyOnLoad : MonoBehaviour
 {
-    // Activate this when the Menu is done
-    private void Awake()
-    {
-        //if (gameObject.name == "GameManager" && SceneManager.GetActiveScene().buildIndex == 0)
-        //{
-        //    Destroy(gameObject);
-        //}
+	// Activate this when the Menu is done
+	private void Awake()
+	{
+		//if (gameObject.name == "GameManager" && SceneManager.GetActiveScene().buildIndex == 0)
+		//{
+		//    Destroy(gameObject);
+		//}
 
-        //DontDestroyOnLoad(gameObject);
-    }
+		//DontDestroyOnLoad(gameObject);
+	}
 }

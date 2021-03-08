@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be446ae73b707b45ad23be1be2cd075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 0.5, y: 0.5}
+  size: {x: 0.7, y: 0.5}
   damage: 50
   slamParticleEffect: {fileID: 8265116852416997968, guid: fedae943c5d65744bbab0cec749ebe69, type: 3}
 --- !u!114 &6550760768082469529

@@ -1,37 +1,33 @@
-﻿using UnityEngine;
+﻿#region
+
+using UnityEngine;
+
+#endregion
 
 public class Bubble : MonoBehaviour
 {
-    public static float bubbleDurationTemp;
+	public static float bubbleDurationTemp;
+	private static Bubble instance;
+	[SerializeField] private float bubbleDuration;
+	[SerializeField] private float movementSpeedFactor;
+	private StatusEffect playerStatusEffect;
 
-    [SerializeField] private float bubbleDuration = 0;
-    [SerializeField] private float movementSpeedFactor = 0;
+	private void Awake()
+	{
+		playerStatusEffect = GameObject.Find("Player").GetComponent<StatusEffect>();
 
-    private StatusEffect playerStatusEffect;
+		//Singleton
+		if (instance != null)
+		{
+			playerStatusEffect.BecomeBubbled(movementSpeedFactor, bubbleDuration);
+			Destroy(gameObject);
+			return;
+		}
 
-    private static Bubble instance;
-
-    private void Awake()
-    {
-        playerStatusEffect = GameObject.Find("Player").GetComponent<StatusEffect>();
-
-        //Singleton
-        if (instance != null)
-        {
-            playerStatusEffect.BecomeBubbled(movementSpeedFactor, bubbleDuration);
-            Destroy(gameObject);
-            return;
-        }
-        else
-        {
-            instance = this;
-        }
-
-        playerStatusEffect.BecomeStatusEffectImmune(bubbleDuration);
-        playerStatusEffect.BecomeBubbled(movementSpeedFactor, bubbleDuration);
-
-        bubbleDurationTemp = bubbleDuration;
-
-        Destroy(gameObject, bubbleDuration);
-    }
+		instance = this;
+		playerStatusEffect.BecomeStatusEffectImmune(bubbleDuration);
+		playerStatusEffect.BecomeBubbled(movementSpeedFactor, bubbleDuration);
+		bubbleDurationTemp = bubbleDuration;
+		Destroy(gameObject, bubbleDuration);
+	}
 }
