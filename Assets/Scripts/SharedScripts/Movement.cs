@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour, IMovement
 {
 	[SerializeField] protected float movementSpeed;
 	protected bool isXMovementSpeedLocked;
-	protected float movementSpeedModifier = 0;
+	protected float movementSpeedModifier;
 	protected float movementSpeedTemp;
 	protected Rigidbody2D rb;
 

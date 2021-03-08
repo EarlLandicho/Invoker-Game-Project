@@ -150,12 +150,11 @@ public class StatusEffect : MonoBehaviour
 		RemoveBurning();
 		RemovePoison();
 		RemoveOil();
-		
+
 		// if (GetComponent<IEnemyAttack>() != null)
 		// {
 		// 	enemyAttack.SetLockAttack(true);
 		// }
-
 		if (GetComponent<IJump>() != null)
 		{
 			jump.SetLockJump(false);
@@ -175,7 +174,7 @@ public class StatusEffect : MonoBehaviour
 		StopCoroutine("StatusEffectImmune");
 		StartCoroutine("StatusEffectImmune");
 	}
-	
+
 	private void RemovePoison()
 	{
 		poisonDamageAmountCounter = 0;
@@ -198,6 +197,7 @@ public class StatusEffect : MonoBehaviour
 			{
 				jump.SetJumpHeightToDefault();
 			}
+
 			isOiled = false;
 			StopCoroutine("Oil");
 		}
@@ -227,7 +227,7 @@ public class StatusEffect : MonoBehaviour
 
 	private void Poison()
 	{
-		var poisonTickDamage = Constants.PoisonDamageAmount * Constants.PoisonTickPerSecond / Constants.PoisonDuration;
+		float poisonTickDamage = Constants.PoisonDamageAmount * Constants.PoisonTickPerSecond / Constants.PoisonDuration;
 		health.TakeDamage(poisonTickDamage, true);
 		poisonDamageAmountCounter += poisonTickDamage;
 		if (poisonDamageAmountCounter >= Constants.PoisonDamageAmount)
@@ -238,7 +238,7 @@ public class StatusEffect : MonoBehaviour
 
 	private void TickHeal()
 	{
-		var healTick = healAmount * Constants.HealTickPerSecond / healDuration;
+		float healTick = healAmount * Constants.HealTickPerSecond / healDuration;
 		health.TakeHealing(healTick);
 		healAmountCounter += healTick;
 		if (healAmountCounter >= healAmount)

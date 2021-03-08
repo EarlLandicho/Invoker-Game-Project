@@ -1,6 +1,5 @@
 ﻿#region
 
-using System;
 using UnityEngine;
 
 #endregion
@@ -11,6 +10,7 @@ public class HibernateImmobilize : MonoBehaviour
 	private IHealth playerHealth;
 	private PlayerMovement playerMovement;
 	private StatusEffect statusEffect;
+
 	private void Awake()
 	{
 		playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
