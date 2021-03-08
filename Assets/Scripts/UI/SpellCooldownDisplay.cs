@@ -203,7 +203,7 @@ public class SpellCooldownDisplay : MonoBehaviour
 		}
 		else
 		{
-			LGG_cooldownText.text = (Math.Truncate(spiritCast.GetLLG_timer() * 100) / 100).ToString();
+			LGG_cooldownText.text = (Math.Truncate(spiritCast.GetLGG_timer() * 100) / 100).ToString();
 		}
 
 		if (spiritCast.GetSLG_isOffCooldown())

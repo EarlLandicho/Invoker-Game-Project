@@ -11,9 +11,9 @@ public class SolarFlare : MonoBehaviour
 
 	private void Start()
 	{
-		var enemies =
+		Collider2D[] enemies =
 			Physics2D.OverlapCircleAll(transform.position, enemyBurnRadius, 1 << LayerMask.NameToLayer("Enemy"));
-		foreach (var enemy in enemies)
+		foreach (Collider2D enemy in enemies)
 		{
 			enemy.gameObject.GetComponent<StatusEffect>().BecomeBurned();
 		}
@@ -21,17 +21,14 @@ public class SolarFlare : MonoBehaviour
 		//StartCoroutine("Flash");
 		LeanTween.value(gameObject, 1f, 0, .8f).setEaseInOutSine().setOnUpdate(value =>
 																			   {
-																				   var spriteRenderer =
-																					   gameObject
-																						  .GetComponent<SpriteRenderer
-																						   >();
-																				   var newColor = spriteRenderer.color;
+																				   SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+																				   Color newColor = spriteRenderer.color;
 																				   newColor.a = value;
 																				   spriteRenderer.color = newColor;
 																			   }).setOnComplete(OnComplete);
-		var projectiles = Physics2D.OverlapCircleAll(transform.position, projectileDestroyRadius,
-													 1 << LayerMask.NameToLayer("Enemy Projectile"));
-		foreach (var projectile in projectiles)
+		Collider2D[] projectiles = Physics2D.OverlapCircleAll(transform.position, projectileDestroyRadius,
+															  1 << LayerMask.NameToLayer("Enemy Projectile"));
+		foreach (Collider2D projectile in projectiles)
 		{
 			projectile.gameObject.GetComponent<EnemyProjectile>().DestroyWithAnimation();
 		}

@@ -14,6 +14,7 @@ public class SpiritCast : MonoBehaviour
 {
 	[SerializeField] private float spellCastComboBarIncreaseAmount;
 
+	
 	[SerializeField] private GameObject S_spell,
 										L_spell,
 										G_spell,
@@ -34,8 +35,9 @@ public class SpiritCast : MonoBehaviour
 										LGG_spell,
 										SLG_spell;
 
+
 	[SerializeField] private float S_cooldown,
-								   I_cooldown,
+								   L_cooldown,
 								   G_cooldown,
 								   SS_cooldown,
 								   LL_cooldown,
@@ -113,25 +115,25 @@ public class SpiritCast : MonoBehaviour
 
 	private void Start()
 	{
-		S_timer = S_cooldown;
-		L_timer = I_cooldown;
-		G_timer = G_cooldown;
-		SS_timer = SS_cooldown;
-		LL_timer = LL_cooldown;
-		GG_timer = G_cooldown;
-		SL_timer = SL_cooldown;
-		SG_timer = SG_cooldown;
-		LG_timer = LG_cooldown;
-		SSS_timer = SSS_cooldown;
-		LLL_timer = LLL_cooldown;
-		GGG_timer = GGG_cooldown;
-		SSL_timer = SSL_cooldown;
-		SSG_timer = SSG_cooldown;
-		SLL_timer = SLL_cooldown;
-		SGG_timer = SGG_cooldown;
-		LLG_timer = LLG_cooldown;
-		LGG_timer = LGG_cooldown;
-		SLG_timer = SLG_cooldown;
+		// S_timer = S_cooldown;
+		// L_timer = L_cooldown;
+		// G_timer = G_cooldown;
+		// SS_timer = SS_cooldown;
+		// LL_timer = LL_cooldown;
+		// GG_timer = G_cooldown;
+		// SL_timer = SL_cooldown;
+		// SG_timer = SG_cooldown;
+		// LG_timer = LG_cooldown;
+		// SSS_timer = SSS_cooldown;
+		// LLL_timer = LLL_cooldown;
+		// GGG_timer = GGG_cooldown;
+		// SSL_timer = SSL_cooldown;
+		// SSG_timer = SSG_cooldown;
+		// SLL_timer = SLL_cooldown;
+		// SGG_timer = SGG_cooldown;
+		// LLG_timer = LLG_cooldown;
+		// LGG_timer = LGG_cooldown;
+		// SLG_timer = SLG_cooldown;
 	}
 
 	private void Update()
@@ -236,6 +238,101 @@ public class SpiritCast : MonoBehaviour
 		return SLG_isOffCooldown;
 	}
 
+	public float GetS_cooldown()
+	{
+		return S_cooldown;
+	}
+
+	public float GetL_cooldown()
+	{
+		return L_cooldown;
+	}
+
+	public float GetG_cooldown()
+	{
+		return G_cooldown;
+	}
+
+	public float GetSS_cooldown()
+	{
+		return SS_cooldown;
+	}
+
+	public float GetLL_cooldown()
+	{
+		return LL_cooldown;
+	}
+
+	public float GetGG_cooldown()
+	{
+		return GG_cooldown;
+	}
+
+	public float GetSL_cooldown()
+	{
+		return SL_cooldown;
+	}
+
+	public float GetSG_cooldown()
+	{
+		return SG_cooldown;
+	}
+
+	public float GetLG_cooldown()
+	{
+		return LG_cooldown;
+	}
+
+	public float GetSSS_cooldown()
+	{
+		return SSS_cooldown;
+	}
+
+	public float GetLLL_cooldown()
+	{
+		return LLL_cooldown;
+	}
+
+	public float GetGGG_cooldown()
+	{
+		return GGG_cooldown;
+	}
+
+	public float GetSSL_cooldown()
+	{
+		return SSL_cooldown;
+	}
+
+	public float GetSSG_cooldown()
+	{
+		return SSG_cooldown;
+	}
+
+	public float GetSLL_cooldown()
+	{
+		return SLL_cooldown;
+	}
+
+	public float GetSGG_cooldown()
+	{
+		return SGG_cooldown;
+	}
+
+	public float GetLLG_cooldown()
+	{
+		return LLG_cooldown;
+	}
+
+	public float GetLGG_cooldown()
+	{
+		return LGG_cooldown;
+	}
+
+	public float GetSLG_cooldown()
+	{
+		return SLG_cooldown;
+	}
+	
 	public float GetS_timer()
 	{
 		return S_timer;
@@ -334,7 +431,7 @@ public class SpiritCast : MonoBehaviour
 	public void ResetAllCooldowns()
 	{
 		S_timer = S_cooldown;
-		L_timer = I_cooldown;
+		L_timer = L_cooldown;
 		G_timer = G_cooldown;
 		SS_timer = SS_cooldown;
 		LL_timer = LL_cooldown;
@@ -713,7 +810,7 @@ public class SpiritCast : MonoBehaviour
 		if (L_isOffCooldown)
 		{
 			Instantiate(L_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
-			L_timer = I_cooldown;
+			L_timer = L_cooldown;
 			L_isOffCooldown = false;
 			CastSuccessful();
 			spiritArrayManager.ClearSpirits();
