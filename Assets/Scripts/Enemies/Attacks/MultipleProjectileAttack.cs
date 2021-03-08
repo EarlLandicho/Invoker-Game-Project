@@ -12,9 +12,9 @@ public class MultipleProjectileAttack : ProjectileAttack
 	// Called in Animator
 	public override void Attack()
 	{
-		foreach (var position in projectileLaunchPositions)
+		foreach (Transform position in projectileLaunchPositions)
 		{
-			var randomAngle = Random.Range(-launchDirecitonAngleRandomness / 2, launchDirecitonAngleRandomness / 2);
+			float randomAngle = Random.Range(-launchDirecitonAngleRandomness / 2, launchDirecitonAngleRandomness / 2);
 			currentProjectile = Instantiate(projectile, position.position, transform.rotation);
 			currentProjectile.GetComponent<EnemyProjectile>().SetDamage(damage);
 			currentProjectile.GetComponent<EnemyProjectile>()

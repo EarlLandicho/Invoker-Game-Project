@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class GoblinMovement : EnemyMovement
 {
-	private Vector2 targetToMoveTo;
 	private readonly bool willAdvanceTowardPlayer = true;
+	private Vector2 targetToMoveTo;
 
 	private void Update()
 	{
@@ -27,13 +27,13 @@ public class GoblinMovement : EnemyMovement
 	public override void OnCollisionEnter2D(Collision2D collision)
 	{
 		base.OnCollisionEnter2D(collision);
-		var collider = collision.collider;
+		Collider2D collider = collision.collider;
 		if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
 		{
 			Vector3 contactPoint = collision.contacts[0].point;
-			var center = collider.bounds.center;
-			var top = contactPoint.y > center.y;
-			var right = contactPoint.x > center.x;
+			Vector3 center = collider.bounds.center;
+			bool top = contactPoint.y > center.y;
+			bool right = contactPoint.x > center.x;
 			if (top)
 			{
 				targetToMoveTo = transform.up;

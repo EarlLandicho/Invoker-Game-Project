@@ -58,7 +58,7 @@ public class SpiritAnimationSelector : MonoBehaviour
 
 	private void AnimateSpiritExplosion()
 	{
-		for (var i = 0; i < 3; i++)
+		for (int i = 0; i < 3; i++)
 		{
 			if (i == 0)
 			{

@@ -63,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.red;
-		foreach (var i in spawnPoints)
+		foreach (Vector2 i in spawnPoints)
 		{
 			Gizmos.DrawWireSphere(i, .05f);
 		}
@@ -81,7 +81,7 @@ public class EnemySpawner : MonoBehaviour
 
 	private bool EnemySpawnedListHasAllNullElements()
 	{
-		foreach (var obj in enemiesSpawnedList)
+		foreach (GameObject obj in enemiesSpawnedList)
 		{
 			if (obj != null)
 			{
@@ -100,7 +100,7 @@ public class EnemySpawner : MonoBehaviour
 
 	private void SpawnEnemyInitial()
 	{
-		var randomNum = Random.Range(0, spawnPoints.Length);
+		int randomNum = Random.Range(0, spawnPoints.Length);
 		GameObject currentObject;
 		currentObject = Instantiate(initialEnemy[enemyCounterInitial], spawnPoints[randomNum], transform.rotation);
 		enemiesSpawnedList.Add(currentObject);
@@ -109,7 +109,7 @@ public class EnemySpawner : MonoBehaviour
 
 	private void SpawnEnemyContinuous()
 	{
-		var randomNum = Random.Range(0, spawnPoints.Length);
+		int randomNum = Random.Range(0, spawnPoints.Length);
 		GameObject currentObject;
 		currentObject = Instantiate(continuousEnemy[enemyCounterContinuous], spawnPoints[randomNum],
 									transform.rotation);

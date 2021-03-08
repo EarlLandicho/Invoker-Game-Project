@@ -174,10 +174,10 @@ public class SpiritArrayManager : MonoBehaviour
 	//Puts spirits in the array. Will loop around the array. Will not put spirits if spirits are in cooldown.
 	private void ActivateSpirit(int spiritNum)
 	{
-		var count = 0;
+		int count = 0;
 		if (spiritNum == 1 && spiritCurrentAmount1 > 0)
 		{
-			foreach (var num in spiritArray)
+			foreach (int num in spiritArray)
 			{
 				if (num == 1)
 				{
@@ -193,7 +193,7 @@ public class SpiritArrayManager : MonoBehaviour
 		}
 		else if (spiritNum == 2 && spiritCurrentAmount2 > 0)
 		{
-			foreach (var num in spiritArray)
+			foreach (int num in spiritArray)
 			{
 				if (num == 2)
 				{
@@ -209,7 +209,7 @@ public class SpiritArrayManager : MonoBehaviour
 		}
 		else if (spiritNum == 3 && spiritCurrentAmount3 > 0)
 		{
-			foreach (var num in spiritArray)
+			foreach (int num in spiritArray)
 			{
 				if (num == 3)
 				{

@@ -23,13 +23,13 @@ public class TrampolineProjectile : MonoBehaviour
 					 .setEaseOutQuad();
 		}
 
-		LeanTween.value(gameObject, 1f, 0, projectileTime).setEaseInOutSine().setOnUpdate(value =>
-		{
-			var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-			var newColor = spriteRenderer.color;
-			newColor.a = value;
-			spriteRenderer.color = newColor;
-		}).setOnComplete(DestroyProjectile);
+		LeanTween.value(gameObject, 1f, 0, projectileTime).setEaseInOutSine().setOnUpdate(onUpdate: value =>
+																									{
+																										SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+																										Color newColor = spriteRenderer.color;
+																										newColor.a = value;
+																										spriteRenderer.color = newColor;
+																									}).setOnComplete(DestroyProjectile);
 	}
 
 	public void SetIsRight(bool isRight)

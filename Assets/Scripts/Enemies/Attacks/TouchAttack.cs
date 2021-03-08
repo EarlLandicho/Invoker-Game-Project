@@ -31,7 +31,7 @@ public class TouchAttack : EnemyAttack
 	// Called by Animator
 	public void Explode()
 	{
-		var player = Physics2D.OverlapCircle(transform.position, explosionRadius, 1 << LayerMask.NameToLayer("Player"));
+		Collider2D player = Physics2D.OverlapCircle(transform.position, explosionRadius, 1 << LayerMask.NameToLayer("Player"));
 		if (player != null)
 		{
 			player.gameObject.GetComponent<IHealth>().TakeDamage(damage);

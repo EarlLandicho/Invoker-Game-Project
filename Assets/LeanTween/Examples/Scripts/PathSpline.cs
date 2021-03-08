@@ -23,7 +23,7 @@ public class ExampleSpline : MonoBehaviour
 		ltLogo2 = GameObject.Find("LeanTweenLogo2");
 		LeanTween.moveSpline(ltLogo2, spline.pts, 1f).setEase(LeanTweenType.easeInOutQuad).setLoopPingPong()
 				 .setOrientToPath(true);
-		var zoomInPath_LT =
+		LTDescr zoomInPath_LT =
 			LeanTween.moveSpline(ltLogo2,
 								 new[]
 								 {

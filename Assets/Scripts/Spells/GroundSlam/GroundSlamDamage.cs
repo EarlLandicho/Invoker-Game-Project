@@ -16,7 +16,7 @@ public class GroundSlamDamage : MonoBehaviour
 		playerJump = GameObject.Find("Player").GetComponent<PlayerJump>();
 		if (FindObjectOfType(typeof(WingsMovement)) != null)
 		{
-			var component = (WingsMovement) FindObjectOfType(typeof(WingsMovement));
+			WingsMovement component = (WingsMovement) FindObjectOfType(typeof(WingsMovement));
 			component.CancelFlight();
 		}
 	}
@@ -25,8 +25,8 @@ public class GroundSlamDamage : MonoBehaviour
 	{
 		if (playerJump.GetIsGrounded())
 		{
-			var enemies = Physics2D.OverlapBoxAll(transform.position, size, 0, 1 << LayerMask.NameToLayer("Enemy"));
-			foreach (var enemy in enemies)
+			Collider2D[] enemies = Physics2D.OverlapBoxAll(transform.position, size, 0, 1 << LayerMask.NameToLayer("Enemy"));
+			foreach (Collider2D enemy in enemies)
 			{
 				enemy.gameObject.GetComponent<IHealth>().TakeDamage(damage);
 				enemy.gameObject.GetComponent<StatusEffect>().BecomePoisoned();

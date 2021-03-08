@@ -19,13 +19,13 @@ public class SolarFlare : MonoBehaviour
 		}
 
 		//StartCoroutine("Flash");
-		LeanTween.value(gameObject, 1f, 0, .8f).setEaseInOutSine().setOnUpdate(value =>
-																			   {
-																				   SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-																				   Color newColor = spriteRenderer.color;
-																				   newColor.a = value;
-																				   spriteRenderer.color = newColor;
-																			   }).setOnComplete(OnComplete);
+		LeanTween.value(gameObject, 1f, 0, .8f).setEaseInOutSine().setOnUpdate(onUpdate: value =>
+																						 {
+																							 SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+																							 Color newColor = spriteRenderer.color;
+																							 newColor.a = value;
+																							 spriteRenderer.color = newColor;
+																						 }).setOnComplete(OnComplete);
 		Collider2D[] projectiles = Physics2D.OverlapCircleAll(transform.position, projectileDestroyRadius,
 															  1 << LayerMask.NameToLayer("Enemy Projectile"));
 		foreach (Collider2D projectile in projectiles)

@@ -60,7 +60,7 @@ public class GeneralUISpace : MonoBehaviour
 				 .setDelay(0.6f);
 
 		// Punch Pause Symbol
-		var pauseText = pauseWindow.Find("PauseText").GetComponent<RectTransform>();
+		RectTransform pauseText = pauseWindow.Find("PauseText").GetComponent<RectTransform>();
 		LeanTween.moveZ(pauseText, pauseText.anchoredPosition3D.z - 80f, 1.5f).setEase(LeanTweenType.punch)
 				 .setDelay(2.0f);
 
@@ -82,10 +82,10 @@ public class GeneralUISpace : MonoBehaviour
 		LeanTween.scale(chatBar2, new Vector2(1f, 0.7f), 1.2f).setEase(LeanTweenType.easeInQuad).setLoopPingPong();
 
 		// Write in paragraph text
-		var origText = chatText.text;
+		string origText = chatText.text;
 		chatText.text = "";
 		LeanTween.value(gameObject, 0, origText.Length, 6f).setEase(LeanTweenType.easeOutQuad)
-				 .setOnUpdate(val => { chatText.text = origText.Substring(0, Mathf.RoundToInt(val)); }).setLoopClamp()
+				 .setOnUpdate(onUpdate: val => { chatText.text = origText.Substring(0, Mathf.RoundToInt(val)); }).setLoopClamp()
 				 .setDelay(2.0f);
 
 		// Raw Image

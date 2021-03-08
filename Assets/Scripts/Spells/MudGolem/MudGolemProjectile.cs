@@ -68,9 +68,9 @@ public class MudGolemProjectile : MonoBehaviour
 
 	private void ExplosionDamage()
 	{
-		var enemies = Physics2D.OverlapCircleAll(transform.position, damageRadius,
-												 1 << LayerMask.NameToLayer("Enemy"));
-		foreach (var enemy in enemies)
+		Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, damageRadius,
+														  1 << LayerMask.NameToLayer("Enemy"));
+		foreach (Collider2D enemy in enemies)
 		{
 			enemy.gameObject.GetComponent<IHealth>().TakeDamage(damage);
 			enemy.gameObject.GetComponent<StatusEffect>().BecomeOiled();

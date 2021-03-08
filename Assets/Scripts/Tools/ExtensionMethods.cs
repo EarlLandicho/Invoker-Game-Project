@@ -15,7 +15,7 @@ public static class ExtensionMethods
 
 	public static Vector2 GetNormalizedDirectionToPlayer2D(GameObject currentObject)
 	{
-		var playerObject = GameObject.Find("Player");
+		GameObject playerObject = GameObject.Find("Player");
 		return (playerObject.transform.position - currentObject.transform.position).normalized;
 	}
 
@@ -48,9 +48,9 @@ public static class ExtensionMethods
 
 	public static string PrintListElements<T>(List<T> list)
 	{
-		var stringBuilder = new StringBuilder();
+		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.Append("[");
-		foreach (var item in list)
+		foreach (T item in list)
 		{
 			stringBuilder.Append(item + " ");
 		}

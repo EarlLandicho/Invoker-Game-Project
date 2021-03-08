@@ -21,23 +21,23 @@ public class GeneralSimpleUI : MonoBehaviour
 
 		// Tweening various values in a block callback style
 		LeanTween.value(button.gameObject, button.anchoredPosition, new Vector2(200f, 100f), 1f).setOnUpdate(
-			 (Vector2 val) => { button.anchoredPosition = val; }
-			);
+																											 onUpdate: (Vector2 val) => { button.anchoredPosition = val; }
+																											);
 		LeanTween.value(gameObject, 1f, 0.5f, 1f).setOnUpdate(
-															  (float volume) => { Debug.Log("volume:" + volume); }
+															  onUpdate: (float volume) => { Debug.Log("volume:" + volume); }
 															 );
 		LeanTween.value(gameObject, gameObject.transform.position,
 						gameObject.transform.position + new Vector3(0, 1f, 0), 1f).setOnUpdate(
-			 (Vector3 val) => { gameObject.transform.position = val; }
-			);
+																							   onUpdate: (Vector3 val) => { gameObject.transform.position = val; }
+																							  );
 		LeanTween.value(gameObject, Color.red, Color.green, 1f).setOnUpdate(
-																			val =>
-																			{
-																				var image =
-																					(Image) button.gameObject
-																					   .GetComponent(typeof(Image));
-																				image.color = val;
-																			}
+																			onUpdate: val =>
+																					  {
+																						  Image image =
+																							  (Image) button.gameObject
+																											.GetComponent(typeof(Image));
+																						  image.color = val;
+																					  }
 																		   );
 
 		// Tweening Using Unity's new Canvas GUI System

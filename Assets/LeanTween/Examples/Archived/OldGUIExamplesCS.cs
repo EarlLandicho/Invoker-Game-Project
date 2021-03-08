@@ -37,13 +37,13 @@ public class OldGUIExamplesCS : MonoBehaviour
 	private void OnGUI()
 	{
 		GUI.DrawTexture(grumpyRect.rect, grumpy);
-		var staticRect = new Rect(0.0f * w, 0.0f * h, 0.2f * w, 0.14f * h);
+		Rect staticRect = new Rect(0.0f * w, 0.0f * h, 0.2f * w, 0.14f * h);
 		if (GUI.Button(staticRect, "Move Cat"))
 		{
 			if (LeanTween.isTweening(grumpyRect) == false)
 			{
 				// Check to see if the cat is already tweening, so it doesn't freak out
-				var orig = new Vector2(grumpyRect.rect.x, grumpyRect.rect.y);
+				Vector2 orig = new Vector2(grumpyRect.rect.x, grumpyRect.rect.y);
 				LeanTween.move(grumpyRect, new Vector2(1.0f * Screen.width - grumpy.width, 0.0f * Screen.height), 1.0f)
 						 .setEase(LeanTweenType.easeOutBounce).setOnComplete(catMoved);
 				LeanTween.move(grumpyRect, orig, 1.0f).setDelay(1.0f).setEase(LeanTweenType.easeOutBounce);

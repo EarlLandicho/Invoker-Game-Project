@@ -12,17 +12,17 @@ public class LavaBurstLaunch : MonoBehaviour
 
 	private void Awake()
 	{
-		for (var i = 0; i < numberofProjectiles; i++)
+		for (int i = 0; i < numberofProjectiles; i++)
 		{
 			Instantiate(projectile, transform.position, transform.rotation).GetComponent<Rigidbody2D>()
 																		   .AddForce((Quaternion
-																							   .AngleAxis((360 / numberofProjectiles) * i,
-																									Vector3
-																									   .forward)
-																							   .normalized *
-																							new
-																								Vector2(projectileForce,
-																									0)));
+																					 .AngleAxis((360 / numberofProjectiles) * i,
+																								Vector3
+																								   .forward)
+																					 .normalized *
+																					  new
+																						  Vector2(projectileForce,
+																								  0)));
 		}
 	}
 }

@@ -43,11 +43,11 @@ public class PoisonExplosion : MonoBehaviour
 
 	private void PoisonArea()
 	{
-		var enemies =
+		Collider2D[] enemies =
 			Physics2D.OverlapCircleAll(transform.position, explosionRadius, 1 << LayerMask.NameToLayer("Enemy"));
 		if (enemies.Length > 0)
 		{
-			foreach (var enemyCol in enemies)
+			foreach (Collider2D enemyCol in enemies)
 			{
 				enemyCol.gameObject.GetComponent<IHealth>().TakeDamage(impactDamage);
 				enemyCol.gameObject.GetComponent<StatusEffect>().BecomePoisoned();

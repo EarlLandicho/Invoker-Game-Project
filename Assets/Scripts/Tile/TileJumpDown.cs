@@ -7,9 +7,9 @@ using UnityEngine;
 [RequireComponent(typeof(CompositeCollider2D))]
 public class TileJumpDown : MonoBehaviour
 {
+	private readonly float reverseCollisionTimer = .1f;
 	private CompositeCollider2D compositeCollider;
 	private PlayerMovement playerMovement;
-	private readonly float reverseCollisionTimer = .1f;
 	private float reverseCollisionTimerTemp;
 	private bool reverseDelay;
 

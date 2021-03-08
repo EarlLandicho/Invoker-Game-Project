@@ -89,12 +89,12 @@ public class GeneralEventsListeners : MonoBehaviour
 
 	private void changeColor(LTEvent e)
 	{
-		var tran = (Transform) e.data;
-		var distance = Vector3.Distance(tran.position, transform.position);
-		var to = new Color(Random.Range(0f, 1f), 0f, Random.Range(0f, 1f));
+		Transform tran = (Transform) e.data;
+		float distance = Vector3.Distance(tran.position, transform.position);
+		Color to = new Color(Random.Range(0f, 1f), 0f, Random.Range(0f, 1f));
 		LeanTween.value(gameObject, fromColor, to, 0.8f).setLoopPingPong(1).setDelay(distance * 0.05f).setOnUpdate(
-			 col => { GetComponent<Renderer>().material.color = col; }
-			);
+																												   onUpdate: col => { GetComponent<Renderer>().material.color = col; }
+																												  );
 	}
 }
 #endif

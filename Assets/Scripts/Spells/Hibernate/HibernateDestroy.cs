@@ -28,13 +28,13 @@ public class HibernateDestroy : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		for (var i = 0; i < numberOfShards; i++)
+		for (int i = 0; i < numberOfShards; i++)
 		{
-			var randomShardNum = Random.Range(0, shards.Length);
-			var randomForceAmount = Random.Range(shardsLaunchForce - 70, shardsLaunchForce + 70);
+			int randomShardNum = Random.Range(0, shards.Length);
+			float randomForceAmount = Random.Range(shardsLaunchForce - 70, shardsLaunchForce + 70);
 			Instantiate(shards[randomShardNum], transform.position, transform.rotation).GetComponent<Rigidbody2D>()
-			   .AddForce((Quaternion.AngleAxis((Random.Range(0, 180)), Vector3.forward).normalized *
-						  new Vector2(randomForceAmount, 0)));
+																					   .AddForce((Quaternion.AngleAxis((Random.Range(0, 180)), Vector3.forward).normalized *
+																								  new Vector2(randomForceAmount, 0)));
 		}
 	}
 

@@ -48,13 +48,13 @@ public class WispAttack : MonoBehaviour
 
 	private void Attack()
 	{
-		var enemies = Physics2D.OverlapCircleAll(transform.position, radius, 1 << LayerMask.NameToLayer("Enemy"));
+		Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, 1 << LayerMask.NameToLayer("Enemy"));
 		if (enemies.Length > 0)
 		{
-			var ranNum = Random.Range(0, enemies.Length);
-			var currentEnemy = enemies[ranNum].gameObject;
+			int ranNum = Random.Range(0, enemies.Length);
+			GameObject currentEnemy = enemies[ranNum].gameObject;
 			currentEnemy.GetComponent<IHealth>().TakeDamage(damage);
-			var currentProjectile = Instantiate(projectile, transform.position, transform.rotation);
+			GameObject currentProjectile = Instantiate(projectile, transform.position, transform.rotation);
 			currentProjectile.GetComponent<WispProjectile>().GoToEnemyPosition(currentEnemy.transform.position);
 		}
 	}

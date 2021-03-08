@@ -10,7 +10,7 @@ public class EnemyFollowMovement : EnemyMovement
 	{
 		if (!isXMovementSpeedLocked)
 		{
-			var playerDirection = ExtensionMethods.GetNormalizedDirectionToPlayer2D(gameObject);
+			Vector2 playerDirection = ExtensionMethods.GetNormalizedDirectionToPlayer2D(gameObject);
 			rb.velocity = playerDirection * movementSpeed;
 		}
 	}

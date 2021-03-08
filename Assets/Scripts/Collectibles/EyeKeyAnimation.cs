@@ -46,7 +46,7 @@ public class EyeKeyAnimation : MonoBehaviour
 
 	private void AnimateRandomIdle()
 	{
-		var randomNum = Random.Range(0f, 1f);
+		float randomNum = Random.Range(0f, 1f);
 		if (randomNum >= 0 && randomNum < .33f)
 		{
 			animator.SetTrigger("idle1");

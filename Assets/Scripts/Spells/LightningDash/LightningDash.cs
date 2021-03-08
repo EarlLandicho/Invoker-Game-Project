@@ -43,11 +43,11 @@ public class LightningDash : MonoBehaviour
 			wallImpactCushion = -wallImpactCushion;
 		}
 
-		var hit = Physics2D.CircleCast(startingPosition, .01f,
-									   movementFlip.GetIsFacingRight()
-										   ? playerTransform.transform.right
-										   : -playerTransform.transform.right,
-									   dashDistance, 1 << LayerMask.NameToLayer("Ground"));
+		RaycastHit2D hit = Physics2D.CircleCast(startingPosition, .01f,
+												movementFlip.GetIsFacingRight()
+													? playerTransform.transform.right
+													: -playerTransform.transform.right,
+												dashDistance, 1 << LayerMask.NameToLayer("Ground"));
 		if (hit.collider == null)
 		{
 			playerTransform.transform.position = startingPosition + new Vector3(dashDistance + -wallImpactCushion, 0);
@@ -65,12 +65,12 @@ public class LightningDash : MonoBehaviour
 	private void DealDamageInPath()
 	{
 		xHitboxSize = endingPosition.x - startingPosition.x;
-		var enemies = Physics2D.OverlapBoxAll(new Vector2(startingPosition.x + xHitboxSize / 2f, transform.position.y),
-											  new Vector2(Mathf.Abs(xHitboxSize), yHitboxSize), 0,
-											  1 << LayerMask.NameToLayer("Enemy"));
+		Collider2D[] enemies = Physics2D.OverlapBoxAll(new Vector2(startingPosition.x + xHitboxSize / 2f, transform.position.y),
+													   new Vector2(Mathf.Abs(xHitboxSize), yHitboxSize), 0,
+													   1 << LayerMask.NameToLayer("Enemy"));
 		if (enemies.Length > 0)
 		{
-			foreach (var enemyCol in enemies)
+			foreach (Collider2D enemyCol in enemies)
 			{
 				enemyCol.gameObject.GetComponent<IHealth>().TakeDamage(damage);
 			}

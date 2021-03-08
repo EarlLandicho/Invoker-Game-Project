@@ -53,7 +53,7 @@ public class Following : MonoBehaviour
 		LeanTween.followLinear(dude5, followArrow, LeanProp.scale, 5f);
 
 		// Titles
-		var titleOffset = new Vector3(0.0f, -20f, -18f);
+		Vector3 titleOffset = new Vector3(0.0f, -20f, -18f);
 		LeanTween.followDamp(dude1Title, dude1, LeanProp.localPosition, 0.6f).setOffset(titleOffset);
 		LeanTween.followSpring(dude2Title, dude2, LeanProp.localPosition, 0.6f).setOffset(titleOffset);
 		LeanTween.followBounceOut(dude3Title, dude3, LeanProp.localPosition, 0.6f).setOffset(titleOffset);
@@ -61,7 +61,7 @@ public class Following : MonoBehaviour
 		LeanTween.followLinear(dude5Title, dude5, LeanProp.localPosition, 30f).setOffset(titleOffset);
 
 		// Rotate Planet
-		var localPos = Camera.main.transform.InverseTransformPoint(planet.transform.position);
+		Vector3 localPos = Camera.main.transform.InverseTransformPoint(planet.transform.position);
 		LeanTween.rotateAround(Camera.main.gameObject, Vector3.left, 360f, 300f).setPoint(localPos).setRepeat(-1);
 	}
 
@@ -78,9 +78,9 @@ public class Following : MonoBehaviour
 	private void moveArrow()
 	{
 		LeanTween.moveLocalY(followArrow.gameObject, Random.Range(-100f, 100f), 0f);
-		var randomCol = new Color(Random.value, Random.value, Random.value);
+		Color randomCol = new Color(Random.value, Random.value, Random.value);
 		LeanTween.color(followArrow.gameObject, randomCol, 0f);
-		var randomVal = Random.Range(5f, 10f);
+		float randomVal = Random.Range(5f, 10f);
 		followArrow.localScale = Vector3.one * randomVal;
 	}
 }

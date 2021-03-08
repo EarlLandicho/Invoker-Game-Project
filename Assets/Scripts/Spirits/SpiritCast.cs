@@ -14,7 +14,6 @@ public class SpiritCast : MonoBehaviour
 {
 	[SerializeField] private float spellCastComboBarIncreaseAmount;
 
-	
 	[SerializeField] private GameObject S_spell,
 										L_spell,
 										G_spell,
@@ -34,7 +33,6 @@ public class SpiritCast : MonoBehaviour
 										LLG_spell,
 										LGG_spell,
 										SLG_spell;
-
 
 	[SerializeField] private float S_cooldown,
 								   L_cooldown,
@@ -332,7 +330,7 @@ public class SpiritCast : MonoBehaviour
 	{
 		return SLG_cooldown;
 	}
-	
+
 	public float GetS_timer()
 	{
 		return S_timer;
@@ -703,7 +701,7 @@ public class SpiritCast : MonoBehaviour
 
 	private void InvokeSpirits()
 	{
-		for (var i = 0; i < spiritArrayManagerArray.Length; i++)
+		for (int i = 0; i < spiritArrayManagerArray.Length; i++)
 		{
 			if (spiritArrayManagerArray[i] == 1)
 			{

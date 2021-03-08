@@ -351,18 +351,18 @@ public class LeanTween : MonoBehaviour
 
 	public static int maxSimulataneousTweens { get; private set; } = 400;
 
-    /**
+	/**
 	 * <summary>Find out how many tweens you have animating at a given time</summary>
 	 * @method LeanTween.tweensRunning
 	 * @example
 	 * Debug.Log("I have "+LeanTween.tweensRunning+" animating!");
 	 */
-    public static int tweensRunning
+	public static int tweensRunning
 	{
 		get
 		{
-			var count = 0;
-			for (var i = 0; i <= maxSearch; i++)
+			int count = 0;
+			for (int i = 0; i <= maxSearch; i++)
 			{
 				if (tweens[i].toggle)
 				{
@@ -374,7 +374,7 @@ public class LeanTween : MonoBehaviour
 		}
 	}
 
-    /**
+	/**
 	 * This line is optional. Here you can specify the maximum number of tweens you will use (the default is 400).  This must be called before any use of LeanTween is made for it to be effective.
 	 * <summary>
 	 *     This line is optional. Here you can specify the maximum number of tweens you will use (the default is 400).
@@ -385,7 +385,7 @@ public class LeanTween : MonoBehaviour
 	 * @example
 	 * LeanTween.init( 800 );
 	 */
-    public static void init(int maxSimultaneousTweens)
+	public static void init(int maxSimultaneousTweens)
 	{
 		init(maxSimultaneousTweens, maxSequences);
 	}
@@ -411,7 +411,7 @@ public class LeanTween : MonoBehaviour
 #else
             DontDestroyOnLoad( _tweenEmpty );
 #endif
-			for (var i = 0; i < maxSimulataneousTweens; i++)
+			for (int i = 0; i < maxSimulataneousTweens; i++)
 			{
 				tweens[i] = new LTDescr();
 			}
@@ -420,7 +420,7 @@ public class LeanTween : MonoBehaviour
 			SceneManager.sceneLoaded += onLevelWasLoaded54;
 #endif
 			sequences = new LTSeq[maxSimultaneousSequences];
-			for (var i = 0; i < maxSimultaneousSequences; i++)
+			for (int i = 0; i < maxSimultaneousSequences; i++)
 			{
 				sequences[i] = new LTSeq();
 			}
@@ -431,7 +431,7 @@ public class LeanTween : MonoBehaviour
 	{
 		if (tweens != null)
 		{
-			for (var i = 0; i <= maxSearch; i++)
+			for (int i = 0; i <= maxSearch; i++)
 			{
 				if (tweens[i] != null)
 					tweens[i].toggle = false;
@@ -485,7 +485,7 @@ public class LeanTween : MonoBehaviour
 			finishedCnt = 0;
 			// if(tweenMaxSearch>1500)
 			//           Debug.Log("tweenMaxSearch:"+tweenMaxSearch +" maxTweens:"+maxTweens);
-			for (var i = 0; i <= maxSearch && i < maxSimulataneousTweens; i++)
+			for (int i = 0; i <= maxSearch && i < maxSimulataneousTweens; i++)
 			{
 				tween = tweens[i];
 //              if(i==0 && tweens[i].toggle)
@@ -506,7 +506,7 @@ public class LeanTween : MonoBehaviour
 			// Debug.Log("maxTweenReached:"+maxTweenReached);
 			maxSearch = maxTweenReached;
 			frameRendered = Time.frameCount;
-			for (var i = 0; i < finishedCnt; i++)
+			for (int i = 0; i < finishedCnt; i++)
 			{
 				j = tweensFinished[i];
 				tween = tweens[j];
@@ -570,7 +570,7 @@ public class LeanTween : MonoBehaviour
 
 	public static Vector3[] add(Vector3[] a, Vector3 b)
 	{
-		var c = new Vector3[a.Length];
+		Vector3[] c = new Vector3[a.Length];
 		for (i = 0; i < a.Length; i++)
 		{
 			c[i] = a[i] + b;
@@ -581,11 +581,11 @@ public class LeanTween : MonoBehaviour
 
 	public static float closestRot(float from, float to)
 	{
-		var minusWhole = 0 - (360 - to);
-		var plusWhole = 360 + to;
-		var toDiffAbs = Mathf.Abs(to - from);
-		var minusDiff = Mathf.Abs(minusWhole - from);
-		var plusDiff = Mathf.Abs(plusWhole - from);
+		float minusWhole = 0 - (360 - to);
+		float plusWhole = 360 + to;
+		float toDiffAbs = Mathf.Abs(to - from);
+		float minusDiff = Mathf.Abs(minusWhole - from);
+		float plusDiff = Mathf.Abs(plusWhole - from);
 		if (toDiffAbs < minusDiff && toDiffAbs < plusDiff)
 		{
 			return to;
@@ -599,14 +599,14 @@ public class LeanTween : MonoBehaviour
 		return plusWhole;
 	}
 
-    /**
+	/**
 	 * <summary>Cancels all tweens</summary>
 	 * @method LeanTween.cancelAll 
 	 * @param {bool} callComplete:bool (optional) if true, then the all onCompletes will run before canceling
 	 * @example LeanTween.cancelAll(true);
 	 * <br />
 	 */
-    public static void cancelAll()
+	public static void cancelAll()
 	{
 		cancelAll(false);
 	}
@@ -614,7 +614,7 @@ public class LeanTween : MonoBehaviour
 	public static void cancelAll(bool callComplete)
 	{
 		init();
-		for (var i = 0; i <= maxSearch; i++)
+		for (int i = 0; i <= maxSearch; i++)
 		{
 			if (tweens[i].trans != null)
 			{
@@ -625,7 +625,7 @@ public class LeanTween : MonoBehaviour
 		}
 	}
 
-    /**
+	/**
 	 * <summary>Cancel all tweens that are currently targeting the gameObject</summary>
 	 * @method LeanTween.cancel 
 	 * @param {GameObject} gameObject:GameObject gameObject whose tweens you wish to cancel
@@ -634,7 +634,7 @@ public class LeanTween : MonoBehaviour
 	 * <br />
 	 * LeanTween.cancel( gameObject );
 	 */
-    public static void cancel(GameObject gameObject)
+	public static void cancel(GameObject gameObject)
 	{
 		cancel(gameObject, false);
 	}
@@ -642,10 +642,10 @@ public class LeanTween : MonoBehaviour
 	public static void cancel(GameObject gameObject, bool callOnComplete)
 	{
 		init();
-		var trans = gameObject.transform;
-		for (var i = 0; i <= maxSearch; i++)
+		Transform trans = gameObject.transform;
+		for (int i = 0; i <= maxSearch; i++)
 		{
-			var tween = tweens[i];
+			LTDescr tween = tweens[i];
 			if (tween != null && tween.toggle && tween.trans == trans)
 			{
 				if (callOnComplete && tween.optional.onComplete != null)
@@ -676,8 +676,8 @@ public class LeanTween : MonoBehaviour
 		if (uniqueId >= 0)
 		{
 			init();
-			var backId = uniqueId & 0xFFFF;
-			var backCounter = uniqueId >> 16;
+			int backId = uniqueId & 0xFFFF;
+			int backCounter = uniqueId >> 16;
 			// Debug.Log("uniqueId:"+uniqueId+ " id:"+backId +" counter:"+backCounter + " setCounter:"+ tw     eens[backId].counter + " tweens[id].type:"+tweens[backId].type);
 			if (tweens[backId].trans == null ||
 				(tweens[backId].trans.gameObject == gameObject && tweens[backId].counter == backCounter))
@@ -694,15 +694,15 @@ public class LeanTween : MonoBehaviour
 		if (uniqueId >= 0)
 		{
 			init();
-			var backId = uniqueId & 0xFFFF;
-			var backCounter = uniqueId >> 16;
+			int backId = uniqueId & 0xFFFF;
+			int backCounter = uniqueId >> 16;
 			// Debug.Log("uniqueId:"+uniqueId+ " id:"+backId +" action:"+(TweenAction)backType + " tweens[id].type:"+tweens[backId].type);
 			if (tweens[backId]._optional.ltRect == ltRect && tweens[backId].counter == backCounter)
 				removeTween(backId);
 		}
 	}
 
-    /**
+	/**
 	 * <summary>Cancel a specific tween with the provided id</summary>
 	 * @method LeanTween.cancel
 	 * @param {int} id:int unique id that represents that tween
@@ -711,7 +711,7 @@ public class LeanTween : MonoBehaviour
 	 * <br />
 	 * LeanTween.cancel( id );
 	 */
-    public static void cancel(int uniqueId)
+	public static void cancel(int uniqueId)
 	{
 		cancel(uniqueId, false);
 	}
@@ -721,20 +721,20 @@ public class LeanTween : MonoBehaviour
 		if (uniqueId >= 0)
 		{
 			init();
-			var backId = uniqueId & 0xFFFF;
-			var backCounter = uniqueId >> 16;
+			int backId = uniqueId & 0xFFFF;
+			int backCounter = uniqueId >> 16;
 			if (backId > tweens.Length - 1)
 			{
 				// sequence
-				var sequenceId = backId - tweens.Length;
-				var seq = sequences[sequenceId];
+				int sequenceId = backId - tweens.Length;
+				LTSeq seq = sequences[sequenceId];
 				// Debug.Log("sequenceId:" + sequenceId+" maxSequences:"+maxSequences+" prev:"+seq.previous);
-				for (var i = 0; i < maxSequences; i++)
+				for (int i = 0; i < maxSequences; i++)
 				{
 					if (seq.current.tween != null)
 					{
-						var tweenId = seq.current.tween.uniqueId;
-						var tweenIndex = tweenId & 0xFFFF;
+						int tweenId = seq.current.tween.uniqueId;
+						int tweenIndex = tweenId & 0xFFFF;
 						removeTween(tweenIndex);
 					}
 
@@ -757,7 +757,7 @@ public class LeanTween : MonoBehaviour
 		}
 	}
 
-    /**
+	/**
 	 * <summary>Retrieve a tweens LTDescr object to modify</summary>
 	 * @method LeanTween.descr
 	 * @param {int} id:int unique id that represents that tween
@@ -773,11 +773,11 @@ public class LeanTween : MonoBehaviour
 	 * &#160;&#160;descr.setOnComplete( newMethod );
 	 * <br />
 	 */
-    public static LTDescr descr(int uniqueId)
+	public static LTDescr descr(int uniqueId)
 	{
 		init();
-		var backId = uniqueId & 0xFFFF;
-		var backCounter = uniqueId >> 16;
+		int backId = uniqueId & 0xFFFF;
+		int backCounter = uniqueId >> 16;
 
 //      Debug.Log("backId:" + backId+" backCounter:"+backCounter);
 		if (tweens[backId] != null && tweens[backId].uniqueId == uniqueId && tweens[backId].counter == backCounter)
@@ -786,7 +786,7 @@ public class LeanTween : MonoBehaviour
 			return tweens[backId];
 		}
 
-		for (var i = 0; i <= maxSearch; i++)
+		for (int i = 0; i <= maxSearch; i++)
 		{
 			if (tweens[i].uniqueId == uniqueId && tweens[i].counter == backCounter)
 			{
@@ -802,7 +802,7 @@ public class LeanTween : MonoBehaviour
 		return descr(uniqueId);
 	}
 
-    /**
+	/**
 	 * <summary>Retrieve a tweens LTDescr object(s) to modify</summary>
 	 * @method LeanTween.descriptions
 	 * @param {GameObject} id:GameObject object whose tween descriptions you want to retrieve
@@ -819,12 +819,12 @@ public class LeanTween : MonoBehaviour
 	 * <span style="color:gray">// in this case we only ever expect there to be one tween on this object</span>
 	 * <br />
 	 */
-    public static LTDescr[] descriptions(GameObject gameObject = null)
+	public static LTDescr[] descriptions(GameObject gameObject = null)
 	{
 		if (gameObject == null) return null;
-		var descrs = new List<LTDescr>();
-		var trans = gameObject.transform;
-		for (var i = 0; i <= maxSearch; i++)
+		List<LTDescr> descrs = new List<LTDescr>();
+		Transform trans = gameObject.transform;
+		for (int i = 0; i <= maxSearch; i++)
 		{
 			if (tweens[i].toggle && tweens[i].trans == trans)
 				descrs.Add(tweens[i]);
@@ -839,7 +839,7 @@ public class LeanTween : MonoBehaviour
 		pause(uniqueId);
 	}
 
-    /**
+	/**
 	 * <summary>Pause all tweens for a GameObject</summary>
 	 * @method LeanTween.pause
 	 * @param {int} id:int Id of the tween you want to pause
@@ -852,25 +852,25 @@ public class LeanTween : MonoBehaviour
 	 * <br />
 	 * LeanTween.resume( id );
 	 */
-    public static void pause(int uniqueId)
+	public static void pause(int uniqueId)
 	{
-		var backId = uniqueId & 0xFFFF;
-		var backCounter = uniqueId >> 16;
+		int backId = uniqueId & 0xFFFF;
+		int backCounter = uniqueId >> 16;
 		if (tweens[backId].counter == backCounter)
 		{
 			tweens[backId].pause();
 		}
 	}
 
-    /**
+	/**
 	 * <summary>Pause all tweens for a GameObject</summary>
 	 * @method LeanTween.pause
 	 * @param {GameObject} gameObject:GameObject GameObject whose tweens you want to pause
 	 */
-    public static void pause(GameObject gameObject)
+	public static void pause(GameObject gameObject)
 	{
-		var trans = gameObject.transform;
-		for (var i = 0; i <= maxSearch; i++)
+		Transform trans = gameObject.transform;
+		for (int i = 0; i <= maxSearch; i++)
 		{
 			if (tweens[i].trans == trans)
 			{
@@ -879,27 +879,27 @@ public class LeanTween : MonoBehaviour
 		}
 	}
 
-    /**
+	/**
 	 * <summary>Pause all active tweens</summary>
 	 * @method LeanTween.pauseAll
 	 */
-    public static void pauseAll()
+	public static void pauseAll()
 	{
 		init();
-		for (var i = 0; i <= maxSearch; i++)
+		for (int i = 0; i <= maxSearch; i++)
 		{
 			tweens[i].pause();
 		}
 	}
 
-    /**
+	/**
 	 * <summary>Resume all active tweens</summary>
 	 * @method LeanTween.resumeAll
 	 */
-    public static void resumeAll()
+	public static void resumeAll()
 	{
 		init();
-		for (var i = 0; i <= maxSearch; i++)
+		for (int i = 0; i <= maxSearch; i++)
 		{
 			tweens[i].resume();
 		}
@@ -911,7 +911,7 @@ public class LeanTween : MonoBehaviour
 		resume(uniqueId);
 	}
 
-    /**
+	/**
 	 * <summary>Resume a specific tween</summary>
 	 * @method LeanTween.resume
 	 * @param {int} id:int Id of the tween you want to resume
@@ -924,41 +924,41 @@ public class LeanTween : MonoBehaviour
 	 * <br />
 	 * LeanTween.resume( id );
 	 */
-    public static void resume(int uniqueId)
+	public static void resume(int uniqueId)
 	{
-		var backId = uniqueId & 0xFFFF;
-		var backCounter = uniqueId >> 16;
+		int backId = uniqueId & 0xFFFF;
+		int backCounter = uniqueId >> 16;
 		if (tweens[backId].counter == backCounter)
 		{
 			tweens[backId].resume();
 		}
 	}
 
-    /**
+	/**
 	 * <summary>Resume all the tweens on a GameObject</summary>
 	 * @method LeanTween.resume
 	 * @param {GameObject} gameObject:GameObject GameObject whose tweens you want to resume
 	 */
-    public static void resume(GameObject gameObject)
+	public static void resume(GameObject gameObject)
 	{
-		var trans = gameObject.transform;
-		for (var i = 0; i <= maxSearch; i++)
+		Transform trans = gameObject.transform;
+		for (int i = 0; i <= maxSearch; i++)
 		{
 			if (tweens[i].trans == trans)
 				tweens[i].resume();
 		}
 	}
 
-    /**
+	/**
 	 * <summary>Test whether or not a tween is paused on a GameObject</summary>
 	 * @method LeanTween.isPaused
 	 * @param {GameObject} gameObject:GameObject GameObject that you want to test if it is paused
 	 */
-    public static bool isPaused(GameObject gameObject = null)
+	public static bool isPaused(GameObject gameObject = null)
 	{
 		if (gameObject == null)
 		{
-			for (var i = 0; i <= maxSearch; i++)
+			for (int i = 0; i <= maxSearch; i++)
 			{
 				if (Equals(tweens[i].direction, 0f))
 					return true;
@@ -967,8 +967,8 @@ public class LeanTween : MonoBehaviour
 			return false;
 		}
 
-		var trans = gameObject.transform;
-		for (var i = 0; i <= maxSearch; i++)
+		Transform trans = gameObject.transform;
+		for (int i = 0; i <= maxSearch; i++)
 		{
 			if (Equals(tweens[i].direction, 0f) && tweens[i].trans == trans)
 				return true;
@@ -982,7 +982,7 @@ public class LeanTween : MonoBehaviour
 		return isTweening(rect.gameObject);
 	}
 
-    /**
+	/**
 	 * <summary>Test whether or not a tween is paused or not</summary>
 	 * @method LeanTween.isPaused
 	 * @param {GameObject} id:int id of the tween that you want to test if it is paused
@@ -996,10 +996,10 @@ public class LeanTween : MonoBehaviour
 	 * &#160;&#160; &#160;&#160;Debug.Log("I am paused!");
 	 * <br />
 	 */
-    public static bool isPaused(int uniqueId)
+	public static bool isPaused(int uniqueId)
 	{
-		var backId = uniqueId & 0xFFFF;
-		var backCounter = uniqueId >> 16;
+		int backId = uniqueId & 0xFFFF;
+		int backCounter = uniqueId >> 16;
 		if (backId < 0 || backId >= maxSimulataneousTweens) return false;
 		// Debug.Log("tweens[backId].counter:"+tweens[backId].counter+" backCounter:"+backCounter +" toggle:"+tweens[backId].toggle);
 		if (tweens[backId].counter == backCounter && Equals(tweens[i].direction, 0f))
@@ -1010,16 +1010,16 @@ public class LeanTween : MonoBehaviour
 		return false;
 	}
 
-    /**
+	/**
 	 * <summary>Test whether or not a tween is active on a GameObject</summary>
 	 * @method LeanTween.isTweening
 	 * @param {GameObject} gameObject:GameObject GameObject that you want to test if it is tweening
 	 */
-    public static bool isTweening(GameObject gameObject = null)
+	public static bool isTweening(GameObject gameObject = null)
 	{
 		if (gameObject == null)
 		{
-			for (var i = 0; i <= maxSearch; i++)
+			for (int i = 0; i <= maxSearch; i++)
 			{
 				if (tweens[i].toggle)
 					return true;
@@ -1028,8 +1028,8 @@ public class LeanTween : MonoBehaviour
 			return false;
 		}
 
-		var trans = gameObject.transform;
-		for (var i = 0; i <= maxSearch; i++)
+		Transform trans = gameObject.transform;
+		for (int i = 0; i <= maxSearch; i++)
 		{
 			if (tweens[i].toggle && tweens[i].trans == trans)
 				return true;
@@ -1043,7 +1043,7 @@ public class LeanTween : MonoBehaviour
 		return isTweening(rect.gameObject);
 	}
 
-    /**
+	/**
 	 * <summary>Test whether or not a tween is active or not</summary>
 	 * @method LeanTween.isTweening
 	 * @param {GameObject} id:int id of the tween that you want to test if it is tweening
@@ -1055,10 +1055,10 @@ public class LeanTween : MonoBehaviour
 	 * &#160;&#160; &#160;&#160;Debug.Log("I am tweening!");
 	 * <br />
 	 */
-    public static bool isTweening(int uniqueId)
+	public static bool isTweening(int uniqueId)
 	{
-		var backId = uniqueId & 0xFFFF;
-		var backCounter = uniqueId >> 16;
+		int backId = uniqueId & 0xFFFF;
+		int backCounter = uniqueId >> 16;
 		if (backId < 0 || backId >= maxSimulataneousTweens) return false;
 		// Debug.Log("tweens[backId].counter:"+tweens[backId].counter+" backCounter:"+backCounter +" toggle:"+tweens[backId].toggle);
 		if (tweens[backId].counter == backCounter && tweens[backId].toggle)
@@ -1071,7 +1071,7 @@ public class LeanTween : MonoBehaviour
 
 	public static bool isTweening(LTRect ltRect)
 	{
-		for (var i = 0; i <= maxSearch; i++)
+		for (int i = 0; i <= maxSearch; i++)
 		{
 			if (tweens[i].toggle && tweens[i]._optional.ltRect == ltRect)
 				return true;
@@ -1087,18 +1087,18 @@ public class LeanTween : MonoBehaviour
 									  float arrowSize = 0.0f,
 									  Transform arrowTransform = null)
 	{
-		var last = a;
+		Vector3 last = a;
 		Vector3 p;
-		var aa = (-a + 3 * (b - c) + d);
-		var bb = 3 * (a + c) - 6 * b;
-		var cc = 3 * (b - a);
+		Vector3 aa = (-a + 3 * (b - c) + d);
+		Vector3 bb = 3 * (a + c) - 6 * b;
+		Vector3 cc = 3 * (b - a);
 		float t;
 		if (arrowSize > 0.0f)
 		{
-			var beforePos = arrowTransform.position;
-			var beforeQ = arrowTransform.rotation;
-			var distanceTravelled = 0f;
-			for (var k = 1.0f; k <= 120.0f; k++)
+			Vector3 beforePos = arrowTransform.position;
+			Quaternion beforeQ = arrowTransform.rotation;
+			float distanceTravelled = 0f;
+			for (float k = 1.0f; k <= 120.0f; k++)
 			{
 				t = k / 120.0f;
 				p = ((aa * t + (bb)) * t + cc) * t + a;
@@ -1116,9 +1116,9 @@ public class LeanTween : MonoBehaviour
 					Gizmos.DrawLine(p, arrow);*/
 					arrowTransform.position = p;
 					arrowTransform.LookAt(last, Vector3.forward);
-					var to = arrowTransform.TransformDirection(Vector3.right);
+					Vector3 to = arrowTransform.TransformDirection(Vector3.right);
 					// Debug.Log("to:"+to+" tweenEmpty.transform.position:"+arrowTransform.position);
-					var back = (last - p);
+					Vector3 back = (last - p);
 					back = back.normalized;
 					Gizmos.DrawLine(p, p + (to + back) * arrowSize);
 					to = arrowTransform.TransformDirection(-Vector3.right);
@@ -1133,7 +1133,7 @@ public class LeanTween : MonoBehaviour
 		}
 		else
 		{
-			for (var k = 1.0f; k <= 30.0f; k++)
+			for (float k = 1.0f; k <= 30.0f; k++)
 			{
 				t = k / 30.0f;
 				p = ((aa * t + (bb)) * t + cc) * t + a;
@@ -1159,7 +1159,7 @@ public class LeanTween : MonoBehaviour
 	public static LTDescr options()
 	{
 		init();
-		var found = false;
+		bool found = false;
 		//      Debug.Log("Search start");
 		for (j = 0, i = startSearch; j <= maxSimulataneousTweens; i++)
 		{
@@ -1221,7 +1221,7 @@ public class LeanTween : MonoBehaviour
 	}
 
 #if !UNITY_3_5 && !UNITY_4_0 && !UNITY_4_0_1 && !UNITY_4_1 && !UNITY_4_2 && !UNITY_4_3 && !UNITY_4_5
-    /**
+	/**
 	 * <summary>Play a sequence of images on a Unity UI Object</summary>
 	 * @method LeanTween.play
 	 * @param {RectTransform} rectTransform:RectTransform RectTransform that you want to play the sequence of sprites on
@@ -1231,16 +1231,16 @@ public class LeanTween : MonoBehaviour
 	 * @example
 	 * LeanTween.play(gameObject.GetComponent&lt;RectTransform&gt;(), sprites).setLoopPingPong();
 	 */
-    public static LTDescr play(RectTransform rectTransform, Sprite[] sprites)
+	public static LTDescr play(RectTransform rectTransform, Sprite[] sprites)
 	{
-		var defaultFrameRate = 0.25f;
-		var time = defaultFrameRate * sprites.Length;
+		float defaultFrameRate = 0.25f;
+		float time = defaultFrameRate * sprites.Length;
 		return pushNewTween(rectTransform.gameObject, new Vector3(sprites.Length - 1.0f, 0, 0), time,
 							options().setCanvasPlaySprite().setSprites(sprites).setRepeat(-1));
 	}
 #endif
 
-    /**
+	/**
 	 * <summary>Retrieve a sequencer object where you can easily chain together tweens and methods one after another</summary>
 	 * @method LeanTween.sequence
 	 * @return {LTSeq} LTSeq an object that you can add tweens, methods and time on to
@@ -1264,18 +1264,18 @@ public class LeanTween : MonoBehaviour
 	 * });;
 	 * <br />
 	 */
-    public static LTSeq sequence(bool initSequence = true)
+	public static LTSeq sequence(bool initSequence = true)
 	{
 		init(maxSimulataneousTweens);
 		// Loop through and find available sequence
-		for (var i = 0; i < sequences.Length; i++)
+		for (int i = 0; i < sequences.Length; i++)
 		{
 			//          Debug.Log("i:" + i + " sequences[i]:" + sequences[i]);
 			if (sequences[i].tween == null || sequences[i].tween.toggle == false)
 			{
 				if (sequences[i].toggle == false)
 				{
-					var seq = sequences[i];
+					LTSeq seq = sequences[i];
 					if (initSequence)
 					{
 						seq.init((uint) (i + tweens.Length), global_counter);
@@ -1296,7 +1296,7 @@ public class LeanTween : MonoBehaviour
 		return null;
 	}
 
-    /**
+	/**
 	 * <summary>Fade a gameobject's material to a certain alpha value.</summary>
 	 * @method LeanTween.alpha
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to fade
@@ -1306,17 +1306,17 @@ public class LeanTween : MonoBehaviour
 	 * @example
 	 * LeanTween.alpha(gameObject, 1f, 1f) .setDelay(1f);
 	 */
-    public static LTDescr alpha(GameObject gameObject, float to, float time)
+	public static LTDescr alpha(GameObject gameObject, float to, float time)
 	{
-		var lt = pushNewTween(gameObject, new Vector3(to, 0, 0), time, options().setAlpha());
+		LTDescr lt = pushNewTween(gameObject, new Vector3(to, 0, 0), time, options().setAlpha());
 #if !UNITY_3_5 && !UNITY_4_0 && !UNITY_4_0_1 && !UNITY_4_1 && !UNITY_4_2
-		var ren = gameObject.GetComponent<SpriteRenderer>();
+		SpriteRenderer ren = gameObject.GetComponent<SpriteRenderer>();
 		lt.spriteRen = ren;
 #endif
 		return lt;
 	}
 
-    /**
+	/**
 	 * <summary>Fade a GUI Object</summary>
 	 * @method LeanTween.alpha
 	 * @param {LTRect} ltRect:LTRect LTRect that you wish to fade
@@ -1326,14 +1326,14 @@ public class LeanTween : MonoBehaviour
 	 * @example
 	 * LeanTween.alpha(ltRect, 1f, 1f) .setEase(LeanTweenType.easeInCirc);
 	 */
-    public static LTDescr alpha(LTRect ltRect, float to, float time)
+	public static LTDescr alpha(LTRect ltRect, float to, float time)
 	{
 		ltRect.alphaEnabled = true;
 		return pushNewTween(tweenEmpty, new Vector3(to, 0f, 0f), time, options().setGUIAlpha().setRect(ltRect));
 	}
 
 #if !UNITY_3_5 && !UNITY_4_0 && !UNITY_4_0_1 && !UNITY_4_1 && !UNITY_4_2 && !UNITY_4_3 && !UNITY_4_5
-    /**
+	/**
 	 * <summary>Fade a Unity UI Object</summary>
 	 * @method LeanTween.alphaText
 	 * @param {RectTransform} rectTransform:RectTransform RectTransform associated with the Text Component you wish to fade
@@ -1343,7 +1343,7 @@ public class LeanTween : MonoBehaviour
 	 * @example
 	 * LeanTween.alphaText(gameObject.GetComponent&lt;RectTransform&gt;(), 1f, 1f) .setEase(LeanTweenType.easeInCirc);
 	 */
-    public static LTDescr textAlpha(RectTransform rectTransform, float to, float time)
+	public static LTDescr textAlpha(RectTransform rectTransform, float to, float time)
 	{
 		return pushNewTween(rectTransform.gameObject, new Vector3(to, 0, 0), time, options().setTextAlpha());
 	}
@@ -1353,7 +1353,7 @@ public class LeanTween : MonoBehaviour
 		return pushNewTween(rectTransform.gameObject, new Vector3(to, 0, 0), time, options().setTextAlpha());
 	}
 
-    /**
+	/**
 	 * <summary>Fade a Unity UI Canvas Group</summary>
 	 * @method LeanTween.alphaCanvas
 	 * @param {RectTransform} rectTransform:RectTransform RectTransform that the CanvasGroup is attached to
@@ -1363,13 +1363,13 @@ public class LeanTween : MonoBehaviour
 	 * @example
 	 * LeanTween.alphaCanvas(gameObject.GetComponent&lt;RectTransform&gt;(), 0f, 1f) .setLoopPingPong();
 	 */
-    public static LTDescr alphaCanvas(CanvasGroup canvasGroup, float to, float time)
+	public static LTDescr alphaCanvas(CanvasGroup canvasGroup, float to, float time)
 	{
 		return pushNewTween(canvasGroup.gameObject, new Vector3(to, 0, 0), time, options().setCanvasGroupAlpha());
 	}
 #endif
 
-    /**
+	/**
 	 * *
 	 * <summary>This works by tweening the vertex colors directly</summary>
 	 * <br />
@@ -1386,12 +1386,12 @@ public class LeanTween : MonoBehaviour
 	 * * @param {float} time:float The time with which to delay before calling the function
 	 * * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr alphaVertex(GameObject gameObject, float to, float time)
+	public static LTDescr alphaVertex(GameObject gameObject, float to, float time)
 	{
 		return pushNewTween(gameObject, new Vector3(to, 0f, 0f), time, options().setAlphaVertex());
 	}
 
-    /**
+	/**
 	 * <summary>Change a gameobject's material to a certain color value</summary>
 	 * @method LeanTween.color
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to change the color
@@ -1401,19 +1401,19 @@ public class LeanTween : MonoBehaviour
 	 * @example
 	 * LeanTween.color(gameObject, Color.yellow, 1f) .setDelay(1f);
 	 */
-    public static LTDescr color(GameObject gameObject, Color to, float time)
+	public static LTDescr color(GameObject gameObject, Color to, float time)
 	{
-		var lt = pushNewTween(gameObject, new Vector3(1.0f, to.a, 0.0f), time,
-							  options().setColor().setPoint(new Vector3(to.r, to.g, to.b)));
+		LTDescr lt = pushNewTween(gameObject, new Vector3(1.0f, to.a, 0.0f), time,
+								  options().setColor().setPoint(new Vector3(to.r, to.g, to.b)));
 #if !UNITY_3_5 && !UNITY_4_0 && !UNITY_4_0_1 && !UNITY_4_1 && !UNITY_4_2
-		var ren = gameObject.GetComponent<SpriteRenderer>();
+		SpriteRenderer ren = gameObject.GetComponent<SpriteRenderer>();
 		lt.spriteRen = ren;
 #endif
 		return lt;
 	}
 
 #if !UNITY_3_5 && !UNITY_4_0 && !UNITY_4_0_1 && !UNITY_4_1 && !UNITY_4_2 && !UNITY_4_3 && !UNITY_4_5
-    /**
+	/**
 	 * <summary>Change the color a Unity UI Object</summary>
 	 * @method LeanTween.colorText
 	 * @param {RectTransform} rectTransform:RectTransform RectTransform attached to the Text Component whose color you want to change
@@ -1423,7 +1423,7 @@ public class LeanTween : MonoBehaviour
 	 * @example
 	 * LeanTween.colorText(gameObject.GetComponent&lt;RectTransform&gt;(), Color.yellow, 1f) .setDelay(1f);
 	 */
-    public static LTDescr textColor(RectTransform rectTransform, Color to, float time)
+	public static LTDescr textColor(RectTransform rectTransform, Color to, float time)
 	{
 		return pushNewTween(rectTransform.gameObject, new Vector3(1.0f, to.a, 0.0f), time,
 							options().setTextColor().setPoint(new Vector3(to.r, to.g, to.b)));
@@ -1436,7 +1436,7 @@ public class LeanTween : MonoBehaviour
 	}
 #endif
 
-    /**
+	/**
 	 * <summary>Call a method after a specified amount of time</summary>
 	 * @method LeanTween.delayedCall
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to associate with this delayed call
@@ -1448,7 +1448,7 @@ public class LeanTween : MonoBehaviour
 	 * <br />
 	 * }));
 	 */
-    public static LTDescr delayedCall(float delayTime, Action callback)
+	public static LTDescr delayedCall(float delayTime, Action callback)
 	{
 		return pushNewTween(tweenEmpty, Vector3.zero, delayTime, options().setCallback().setOnComplete(callback));
 	}
@@ -1478,7 +1478,7 @@ public class LeanTween : MonoBehaviour
 		return pushNewTween( gameObject, Vector3.zero, delayTime, TweenAction.CALLBACK, options().setOnComplete( callback ) );
 	}*/
 
-    /**
+	/**
 	 * <summary>Move a GameObject to a certain location</summary>
 	 * @method LeanTween.move
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to move
@@ -1487,7 +1487,7 @@ public class LeanTween : MonoBehaviour
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 * @example LeanTween.move(gameObject, new Vector3(0f,-3f,5f), 2.0f) .setEase( LeanTweenType.easeOutQuad );
 	 */
-    public static LTDescr move(GameObject gameObject, Vector3 to, float time)
+	public static LTDescr move(GameObject gameObject, Vector3 to, float time)
 	{
 		return pushNewTween(gameObject, to, time, options().setMove());
 	}
@@ -1498,7 +1498,7 @@ public class LeanTween : MonoBehaviour
 							options().setMove());
 	}
 
-    /**
+	/**
 	 * <summary>Move a GameObject along a set of bezier curves</summary>
 	 * @method LeanTween.move
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to move
@@ -1516,7 +1516,7 @@ public class LeanTween : MonoBehaviour
 	 * LeanTween.move(gameObject, new Vector3[]{new Vector3(0f,0f,0f),new Vector3(1f,0f,0f),new Vector3(1f,0f,0f),new Vector3(1f,0f,1f)}, 1.5f).setEase(LeanTweenType.easeOutQuad).setOrientToPath(true);;
 	 * <br />
 	 */
-    public static LTDescr move(GameObject gameObject, Vector3[] to, float time)
+	public static LTDescr move(GameObject gameObject, Vector3[] to, float time)
 	{
 		d = options().setMoveCurved();
 		if (d.optional.path == null)
@@ -1540,7 +1540,7 @@ public class LeanTween : MonoBehaviour
 		return pushNewTween(gameObject, new Vector3(1.0f, 0.0f, 0.0f), time, d);
 	}
 
-    /**
+	/**
 	 * <summary>Move a GameObject through a set of points</summary>
 	 * @method LeanTween.moveSpline
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to move
@@ -1560,14 +1560,14 @@ public class LeanTween : MonoBehaviour
 	 * LeanTween.moveSpline(gameObject, new Vector3[]{new Vector3(0f,0f,0f),new Vector3(1f,0f,0f),new Vector3(1f,0f,0f),new Vector3(1f,0f,1f)}, 1.5f).setEase(LeanTweenType.easeOutQuad).setOrientToPath(true);
 	 * <br />
 	 */
-    public static LTDescr moveSpline(GameObject gameObject, Vector3[] to, float time)
+	public static LTDescr moveSpline(GameObject gameObject, Vector3[] to, float time)
 	{
 		d = options().setMoveSpline();
 		d.optional.spline = new LTSpline(to);
 		return pushNewTween(gameObject, new Vector3(1.0f, 0.0f, 0.0f), time, d);
 	}
 
-    /**
+	/**
 	 * <summary>Move a GameObject through a set of points</summary>
 	 * @method LeanTween.moveSpline
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to move
@@ -1585,14 +1585,14 @@ public class LeanTween : MonoBehaviour
 	 * LeanTween.moveSpline(gameObject, ltSpline, 1.5f).setEase(LeanTweenType.easeOutQuad).setOrientToPath(true);
 	 * <br />
 	 */
-    public static LTDescr moveSpline(GameObject gameObject, LTSpline to, float time)
+	public static LTDescr moveSpline(GameObject gameObject, LTSpline to, float time)
 	{
 		d = options().setMoveSpline();
 		d.optional.spline = to;
 		return pushNewTween(gameObject, new Vector3(1.0f, 0.0f, 0.0f), time, d);
 	}
 
-    /**
+	/**
 	 * <summary>Move a GameObject through a set of points, in local space</summary>
 	 * @method LeanTween.moveSplineLocal
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to move
@@ -1610,14 +1610,14 @@ public class LeanTween : MonoBehaviour
 	 * LeanTween.moveSpline(gameObject, new Vector3[]{new Vector3(0f,0f,0f),new Vector3(1f,0f,0f),new Vector3(1f,0f,0f),new Vector3(1f,0f,1f)}, 1.5f).setEase(LeanTweenType.easeOutQuad).setOrientToPath(true);
 	 * <br />
 	 */
-    public static LTDescr moveSplineLocal(GameObject gameObject, Vector3[] to, float time)
+	public static LTDescr moveSplineLocal(GameObject gameObject, Vector3[] to, float time)
 	{
 		d = options().setMoveSplineLocal();
 		d.optional.spline = new LTSpline(to);
 		return pushNewTween(gameObject, new Vector3(1.0f, 0.0f, 0.0f), time, d);
 	}
 
-    /**
+	/**
 	 * <summary>Move a GUI Element to a certain location</summary>
 	 * @method LeanTween.move (GUI)
 	 * @param {LTRect} ltRect:LTRect ltRect LTRect object that you wish to move
@@ -1625,7 +1625,7 @@ public class LeanTween : MonoBehaviour
 	 * @param {float} time:float time The time to complete the tween in
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr move(LTRect ltRect, Vector2 to, float time)
+	public static LTDescr move(LTRect ltRect, Vector2 to, float time)
 	{
 		return pushNewTween(tweenEmpty, to, time, options().setGUIMove().setRect(ltRect));
 	}
@@ -1635,7 +1635,7 @@ public class LeanTween : MonoBehaviour
 		return pushNewTween(tweenEmpty, to, time, options().setGUIMoveMargin().setRect(ltRect));
 	}
 
-    /**
+	/**
 	 * <summary>Move a GameObject along the x-axis</summary>
 	 * @method LeanTween.moveX
 	 * @param {GameObject} gameObject:GameObject gameObject Gameobject that you wish to move
@@ -1643,12 +1643,12 @@ public class LeanTween : MonoBehaviour
 	 * @param {float} time:float time The time to complete the move in
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr moveX(GameObject gameObject, float to, float time)
+	public static LTDescr moveX(GameObject gameObject, float to, float time)
 	{
 		return pushNewTween(gameObject, new Vector3(to, 0, 0), time, options().setMoveX());
 	}
 
-    /**
+	/**
 	 * <summary>Move a GameObject along the y-axis</summary>
 	 * @method LeanTween.moveY
 	 * @param {GameObject} GameObject gameObject Gameobject that you wish to move
@@ -1656,12 +1656,12 @@ public class LeanTween : MonoBehaviour
 	 * @param {float} float time The time to complete the move in
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr moveY(GameObject gameObject, float to, float time)
+	public static LTDescr moveY(GameObject gameObject, float to, float time)
 	{
 		return pushNewTween(gameObject, new Vector3(to, 0, 0), time, options().setMoveY());
 	}
 
-    /**
+	/**
 	 * <summary>Move a GameObject along the z-axis</summary>
 	 * @method LeanTween.moveZ
 	 * @param {GameObject} GameObject gameObject Gameobject that you wish to move
@@ -1669,12 +1669,12 @@ public class LeanTween : MonoBehaviour
 	 * @param {float} float time The time to complete the move in
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr moveZ(GameObject gameObject, float to, float time)
+	public static LTDescr moveZ(GameObject gameObject, float to, float time)
 	{
 		return pushNewTween(gameObject, new Vector3(to, 0, 0), time, options().setMoveZ());
 	}
 
-    /**
+	/**
 	 * <summary>Move a GameObject to a certain location relative to the parent transform.</summary>
 	 * @method LeanTween.moveLocal
 	 * @param {GameObject} GameObject gameObject Gameobject that you wish to rotate
@@ -1682,12 +1682,12 @@ public class LeanTween : MonoBehaviour
 	 * @param {float} float time The time to complete the tween in
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr moveLocal(GameObject gameObject, Vector3 to, float time)
+	public static LTDescr moveLocal(GameObject gameObject, Vector3 to, float time)
 	{
 		return pushNewTween(gameObject, to, time, options().setMoveLocal());
 	}
 
-    /**
+	/**
 	 * <summary>Move a GameObject along a set of bezier curves, in local space</summary>
 	 * @method LeanTween.moveLocal
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to move
@@ -1705,7 +1705,7 @@ public class LeanTween : MonoBehaviour
 	 * LeanTween.moveLocal(gameObject, new Vector3[]{Vector3(0f,0f,0f),Vector3(1f,0f,0f),Vector3(1f,0f,0f),Vector3(1f,0f,1f)}).setEase(LeanTweenType.easeOutQuad).setOrientToPath(true);
 	 * <br />
 	 */
-    public static LTDescr moveLocal(GameObject gameObject, Vector3[] to, float time)
+	public static LTDescr moveLocal(GameObject gameObject, Vector3[] to, float time)
 	{
 		d = options().setMoveCurvedLocal();
 		if (d.optional.path == null)
@@ -1744,7 +1744,7 @@ public class LeanTween : MonoBehaviour
 		return pushNewTween(gameObject, new Vector3(1.0f, 0.0f, 0.0f), time, d);
 	}
 
-    /**
+	/**
 	 * <summary>Move a GameObject to another transform</summary>
 	 * @method LeanTween.move
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to move
@@ -1753,12 +1753,12 @@ public class LeanTween : MonoBehaviour
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 * @example LeanTween.move(gameObject, anotherTransform, 2.0f) .setEase( LeanTweenType.easeOutQuad );
 	 */
-    public static LTDescr move(GameObject gameObject, Transform to, float time)
+	public static LTDescr move(GameObject gameObject, Transform to, float time)
 	{
 		return pushNewTween(gameObject, Vector3.zero, time, options().setTo(to).setMoveToTransform());
 	}
 
-    /**
+	/**
 	 * <summary>Rotate a GameObject, to values are in passed in degrees</summary>
 	 * @method LeanTween.rotate
 	 * @param {GameObject} GameObject gameObject Gameobject that you wish to rotate
@@ -1767,12 +1767,12 @@ public class LeanTween : MonoBehaviour
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 * @example LeanTween.rotate(cube, new Vector3(180f,30f,0f), 1.5f);
 	 */
-    public static LTDescr rotate(GameObject gameObject, Vector3 to, float time)
+	public static LTDescr rotate(GameObject gameObject, Vector3 to, float time)
 	{
 		return pushNewTween(gameObject, to, time, options().setRotate());
 	}
 
-    /**
+	/**
 	 * <summary>Rotate a GUI element (using an LTRect object), to a value that is in degrees</summary>
 	 * @method LeanTween.rotate
 	 * @param {LTRect} ltRect:LTRect LTRect that you wish to rotate
@@ -1790,12 +1790,12 @@ public class LeanTween : MonoBehaviour
 	 * GUI.matrix = Matrix4x4.identity;
 	 * <br />
 	 */
-    public static LTDescr rotate(LTRect ltRect, float to, float time)
+	public static LTDescr rotate(LTRect ltRect, float to, float time)
 	{
 		return pushNewTween(tweenEmpty, new Vector3(to, 0f, 0f), time, options().setGUIRotate().setRect(ltRect));
 	}
 
-    /**
+	/**
 	 * <summary>Rotate a GameObject in the objects local space (on the transforms localEulerAngles object)</summary>
 	 * @method LeanTween.rotateLocal
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to rotate
@@ -1803,12 +1803,12 @@ public class LeanTween : MonoBehaviour
 	 * @param {float} time:float The time to complete the rotation in
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr rotateLocal(GameObject gameObject, Vector3 to, float time)
+	public static LTDescr rotateLocal(GameObject gameObject, Vector3 to, float time)
 	{
 		return pushNewTween(gameObject, to, time, options().setRotateLocal());
 	}
 
-    /**
+	/**
 	 * Rotate a GameObject only on the X axis
 	 * <summary>Rotate a GameObject only on the X axis</summary>
 	 * @method LeanTween.rotateX
@@ -1817,12 +1817,12 @@ public class LeanTween : MonoBehaviour
 	 * @param {float} time:float The time to complete the rotation in
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr rotateX(GameObject gameObject, float to, float time)
+	public static LTDescr rotateX(GameObject gameObject, float to, float time)
 	{
 		return pushNewTween(gameObject, new Vector3(to, 0, 0), time, options().setRotateX());
 	}
 
-    /**
+	/**
 	 * <summary>Rotate a GameObject only on the Y axis</summary>
 	 * @method LeanTween.rotateY
 	 * @param {GameObject} GameObject Gameobject that you wish to rotate
@@ -1830,12 +1830,12 @@ public class LeanTween : MonoBehaviour
 	 * @param {float} time:float The time to complete the rotation in
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr rotateY(GameObject gameObject, float to, float time)
+	public static LTDescr rotateY(GameObject gameObject, float to, float time)
 	{
 		return pushNewTween(gameObject, new Vector3(to, 0, 0), time, options().setRotateY());
 	}
 
-    /**
+	/**
 	 * <summary>Rotate a GameObject only on the Z axis</summary>
 	 * @method LeanTween.rotateZ
 	 * @param {GameObject} GameObject Gameobject that you wish to rotate
@@ -1843,12 +1843,12 @@ public class LeanTween : MonoBehaviour
 	 * @param {float} time:float The time to complete the rotation in
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr rotateZ(GameObject gameObject, float to, float time)
+	public static LTDescr rotateZ(GameObject gameObject, float to, float time)
 	{
 		return pushNewTween(gameObject, new Vector3(to, 0, 0), time, options().setRotateZ());
 	}
 
-    /**
+	/**
 	 * <summary>Rotate a GameObject around a certain Axis (the best method to use when you want to rotate beyond 180 degrees)</summary>
 	 * @method LeanTween.rotateAround
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to rotate
@@ -1861,12 +1861,12 @@ public class LeanTween : MonoBehaviour
 	 * <br />
 	 * LeanTween.rotateAround ( gameObject, Vector3.left, 90f,  1f );
 	 */
-    public static LTDescr rotateAround(GameObject gameObject, Vector3 axis, float add, float time)
+	public static LTDescr rotateAround(GameObject gameObject, Vector3 axis, float add, float time)
 	{
 		return pushNewTween(gameObject, new Vector3(add, 0f, 0f), time, options().setAxis(axis).setRotateAround());
 	}
 
-    /**
+	/**
 	 * <summary>
 	 *     Rotate a GameObject around a certain Axis in Local Space (the best method to use when you want to rotate
 	 *     beyond 180 degrees)
@@ -1882,12 +1882,12 @@ public class LeanTween : MonoBehaviour
 	 * <br />
 	 * LeanTween.rotateAround ( gameObject, Vector3.left, 90f,  1f );
 	 */
-    public static LTDescr rotateAroundLocal(GameObject gameObject, Vector3 axis, float add, float time)
+	public static LTDescr rotateAroundLocal(GameObject gameObject, Vector3 axis, float add, float time)
 	{
 		return pushNewTween(gameObject, new Vector3(add, 0f, 0f), time, options().setRotateAroundLocal().setAxis(axis));
 	}
 
-    /**
+	/**
 	 * <summary>Scale a GameObject to a certain size</summary>
 	 * @method LeanTween.scale
 	 * @param {GameObject} gameObject:GameObject gameObject Gameobject that you wish to scale
@@ -1895,12 +1895,12 @@ public class LeanTween : MonoBehaviour
 	 * @param {float} time:float time The time to complete the tween in
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr scale(GameObject gameObject, Vector3 to, float time)
+	public static LTDescr scale(GameObject gameObject, Vector3 to, float time)
 	{
 		return pushNewTween(gameObject, to, time, options().setScale());
 	}
 
-    /**
+	/**
 	 * <summary>Scale a GUI Element to a certain width and height</summary>
 	 * @method LeanTween.scale (GUI)
 	 * @param {LTRect} LTRect ltRect LTRect object that you wish to move
@@ -1934,12 +1934,12 @@ public class LeanTween : MonoBehaviour
 	 * }
 	 * <br />
 	 */
-    public static LTDescr scale(LTRect ltRect, Vector2 to, float time)
+	public static LTDescr scale(LTRect ltRect, Vector2 to, float time)
 	{
 		return pushNewTween(tweenEmpty, to, time, options().setGUIScale().setRect(ltRect));
 	}
 
-    /**
+	/**
 	 * <summary>Scale a GameObject to a certain size along the x-axis only</summary>
 	 * @method LeanTween.scaleX
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to scale
@@ -1947,12 +1947,12 @@ public class LeanTween : MonoBehaviour
 	 * @param {float} time:float the time to complete the tween in
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr scaleX(GameObject gameObject, float to, float time)
+	public static LTDescr scaleX(GameObject gameObject, float to, float time)
 	{
 		return pushNewTween(gameObject, new Vector3(to, 0, 0), time, options().setScaleX());
 	}
 
-    /**
+	/**
 	 * <summary>Scale a GameObject to a certain size along the y-axis only</summary>
 	 * @method LeanTween.scaleY
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to scale
@@ -1960,12 +1960,12 @@ public class LeanTween : MonoBehaviour
 	 * @param {float} time:float the time to complete the tween in
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr scaleY(GameObject gameObject, float to, float time)
+	public static LTDescr scaleY(GameObject gameObject, float to, float time)
 	{
 		return pushNewTween(gameObject, new Vector3(to, 0, 0), time, options().setScaleY());
 	}
 
-    /**
+	/**
 	 * <summary>Scale a GameObject to a certain size along the z-axis only</summary>
 	 * @method LeanTween.scaleZ
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to scale
@@ -1973,12 +1973,12 @@ public class LeanTween : MonoBehaviour
 	 * @param {float} time:float the time to complete the tween in
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr scaleZ(GameObject gameObject, float to, float time)
+	public static LTDescr scaleZ(GameObject gameObject, float to, float time)
 	{
 		return pushNewTween(gameObject, new Vector3(to, 0, 0), time, options().setScaleZ());
 	}
 
-    /**
+	/**
 	 * <summary>Tween any particular value (float)</summary>
 	 * @method LeanTween.value (float)
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to attach the tween to
@@ -2005,7 +2005,7 @@ public class LeanTween : MonoBehaviour
 	 * } );
 	 * <br />
 	 */
-    public static LTDescr value(GameObject gameObject, float from, float to, float time)
+	public static LTDescr value(GameObject gameObject, float from, float to, float time)
 	{
 		return pushNewTween(gameObject, new Vector3(to, 0, 0), time,
 							options().setCallback().setFrom(new Vector3(from, 0, 0)));
@@ -2017,7 +2017,7 @@ public class LeanTween : MonoBehaviour
 							options().setCallback().setFrom(new Vector3(from, 0, 0)));
 	}
 
-    /**
+	/**
 	 * <summary>Tween any particular value (Vector2)</summary>
 	 * @method LeanTween.value (Vector2)
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to attach the tween to
@@ -2044,14 +2044,14 @@ public class LeanTween : MonoBehaviour
 	 * } );
 	 * <br />
 	 */
-    public static LTDescr value(GameObject gameObject, Vector2 from, Vector2 to, float time)
+	public static LTDescr value(GameObject gameObject, Vector2 from, Vector2 to, float time)
 	{
 		return pushNewTween(gameObject, new Vector3(to.x, to.y, 0), time,
 							options().setValue3().setTo(new Vector3(to.x, to.y, 0f))
 									 .setFrom(new Vector3(from.x, from.y, 0)));
 	}
 
-    /**
+	/**
 	 * <summary>Tween any particular value (Vector3)</summary>
 	 * @method LeanTween.value (Vector3)
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to attach the tween to
@@ -2078,12 +2078,12 @@ public class LeanTween : MonoBehaviour
 	 * } );
 	 * <br />
 	 */
-    public static LTDescr value(GameObject gameObject, Vector3 from, Vector3 to, float time)
+	public static LTDescr value(GameObject gameObject, Vector3 from, Vector3 to, float time)
 	{
 		return pushNewTween(gameObject, to, time, options().setValue3().setFrom(from));
 	}
 
-    /**
+	/**
 	 * Tween any particular value (Color)
 	 * <summary></summary>
 	 * @method LeanTween.value (Color)
@@ -2111,19 +2111,19 @@ public class LeanTween : MonoBehaviour
 	 * } );
 	 * <br />
 	 */
-    public static LTDescr value(GameObject gameObject, Color from, Color to, float time)
+	public static LTDescr value(GameObject gameObject, Color from, Color to, float time)
 	{
-		var lt = pushNewTween(gameObject, new Vector3(1f, to.a, 0f), time, options().setCallbackColor()
-								 .setPoint(new Vector3(to.r, to.g, to.b))
-								 .setFromColor(from).setHasInitialized(false));
+		LTDescr lt = pushNewTween(gameObject, new Vector3(1f, to.a, 0f), time, options().setCallbackColor()
+																						.setPoint(new Vector3(to.r, to.g, to.b))
+																						.setFromColor(from).setHasInitialized(false));
 #if !UNITY_3_5 && !UNITY_4_0 && !UNITY_4_0_1 && !UNITY_4_1 && !UNITY_4_2
-		var ren = gameObject.GetComponent<SpriteRenderer>();
+		SpriteRenderer ren = gameObject.GetComponent<SpriteRenderer>();
 		lt.spriteRen = ren;
 #endif
 		return lt;
 	}
 
-    /**
+	/**
 	 * <summary>Tween any particular value, it does not need to be tied to any particular type or GameObject</summary>
 	 * @method LeanTween.value (float)
 	 * @param {GameObject} GameObject gameObject GameObject with which to tie the tweening with. This is only used when you need to cancel this tween, it does not actually perform any operations on this gameObject
@@ -2152,14 +2152,14 @@ public class LeanTween : MonoBehaviour
 	 *         &#160; Debug.Log("tweened value:"+val+" set this to whatever variable you are tweening...");<br />
 	 *         }<br />
 	 */
-    public static LTDescr value(GameObject gameObject, Action<float> callOnUpdate, float from, float to, float time)
+	public static LTDescr value(GameObject gameObject, Action<float> callOnUpdate, float from, float to, float time)
 	{
 		return pushNewTween(gameObject, new Vector3(to, 0, 0), time,
 							options().setCallback().setTo(new Vector3(to, 0, 0)).setFrom(new Vector3(from, 0, 0))
 									 .setOnUpdate(callOnUpdate));
 	}
 
-    /**
+	/**
 	 * <summary>Tweens any float value, it does not need to be tied to any particular type or GameObject</summary>
 	 * @method LeanTween.value (float)
 	 * @param {GameObject} GameObject gameObject GameObject with which to tie the tweening with. This is only used when you need to cancel this tween, it does not actually perform any operations on this gameObject
@@ -2188,18 +2188,18 @@ public class LeanTween : MonoBehaviour
 	 *         &#160; Debug.Log("tweened value:"+val+" percent complete:"+ratio*100);<br />
 	 *         }<br />
 	 */
-    public static LTDescr value(GameObject gameObject,
-                                Action<float, float> callOnUpdateRatio,
-                                float from,
-                                float to,
-                                float time)
+	public static LTDescr value(GameObject gameObject,
+								Action<float, float> callOnUpdateRatio,
+								float from,
+								float to,
+								float time)
 	{
 		return pushNewTween(gameObject, new Vector3(to, 0, 0), time,
 							options().setCallback().setTo(new Vector3(to, 0, 0)).setFrom(new Vector3(from, 0, 0))
 									 .setOnUpdateRatio(callOnUpdateRatio));
 	}
 
-    /**
+	/**
 	 * <summary>Tween from one color to another</summary>
 	 * @method LeanTween.value (Color)
 	 * @param {GameObject} GameObject gameObject GameObject with which to tie the tweening with. This is only used when you need to cancel this tween, it does not actually perform any operations on this gameObject
@@ -2228,12 +2228,12 @@ public class LeanTween : MonoBehaviour
 	 *         &#160; Debug.Log("tweened color:"+val+" set this to whatever variable you are tweening...");<br />
 	 *         }<br />
 	 */
-    public static LTDescr value(GameObject gameObject, Action<Color> callOnUpdate, Color from, Color to, float time)
+	public static LTDescr value(GameObject gameObject, Action<Color> callOnUpdate, Color from, Color to, float time)
 	{
 		return pushNewTween(gameObject, new Vector3(1.0f, to.a, 0.0f), time, options().setCallbackColor()
-							   .setPoint(new Vector3(to.r, to.g, to.b))
-							   .setAxis(new Vector3(from.r, from.g, from.b)).setFrom(new Vector3(0.0f, from.a, 0.0f))
-							   .setHasInitialized(false).setOnUpdateColor(callOnUpdate));
+																					  .setPoint(new Vector3(to.r, to.g, to.b))
+																					  .setAxis(new Vector3(from.r, from.g, from.b)).setFrom(new Vector3(0.0f, from.a, 0.0f))
+																					  .setHasInitialized(false).setOnUpdateColor(callOnUpdate));
 	}
 
 	public static LTDescr value(GameObject gameObject,
@@ -2243,12 +2243,12 @@ public class LeanTween : MonoBehaviour
 								float time)
 	{
 		return pushNewTween(gameObject, new Vector3(1.0f, to.a, 0.0f), time, options().setCallbackColor()
-							   .setPoint(new Vector3(to.r, to.g, to.b))
-							   .setAxis(new Vector3(from.r, from.g, from.b)).setFrom(new Vector3(0.0f, from.a, 0.0f))
-							   .setHasInitialized(false).setOnUpdateColor(callOnUpdate));
+																					  .setPoint(new Vector3(to.r, to.g, to.b))
+																					  .setAxis(new Vector3(from.r, from.g, from.b)).setFrom(new Vector3(0.0f, from.a, 0.0f))
+																					  .setHasInitialized(false).setOnUpdateColor(callOnUpdate));
 	}
 
-    /**
+	/**
 	 * <summary>Tween any particular value (Vector2), this could be used to tween an arbitrary value like offset property</summary>
 	 * @method LeanTween.value (Vector2)
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to attach the tween to
@@ -2263,18 +2263,18 @@ public class LeanTween : MonoBehaviour
 	 *         @param {float} time:float The time to complete the tween in
 	 *         @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr value(GameObject gameObject,
-                                Action<Vector2> callOnUpdate,
-                                Vector2 from,
-                                Vector2 to,
-                                float time)
+	public static LTDescr value(GameObject gameObject,
+								Action<Vector2> callOnUpdate,
+								Vector2 from,
+								Vector2 to,
+								float time)
 	{
 		return pushNewTween(gameObject, new Vector3(to.x, to.y, 0f), time,
 							options().setValue3().setTo(new Vector3(to.x, to.y, 0f))
 									 .setFrom(new Vector3(from.x, from.y, 0f)).setOnUpdateVector2(callOnUpdate));
 	}
 
-    /**
+	/**
 	 * <summary>Tween any particular value (Vector3), this could be used to tween an arbitrary property that uses a Vector</summary>
 	 * @method LeanTween.value (Vector3)
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to attach the tween to
@@ -2289,17 +2289,17 @@ public class LeanTween : MonoBehaviour
 	 *         @param {float} time:float The time to complete the tween in
 	 *         @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr value(GameObject gameObject,
-                                Action<Vector3> callOnUpdate,
-                                Vector3 from,
-                                Vector3 to,
-                                float time)
+	public static LTDescr value(GameObject gameObject,
+								Action<Vector3> callOnUpdate,
+								Vector3 from,
+								Vector3 to,
+								float time)
 	{
 		return pushNewTween(gameObject, to, time,
 							options().setValue3().setTo(to).setFrom(from).setOnUpdateVector3(callOnUpdate));
 	}
 
-    /**
+	/**
 	 * <summary>Tween any particular value (float)</summary>
 	 * @method LeanTween.value (float,object)
 	 * @param {GameObject} gameObject:GameObject Gameobject that you wish to attach the tween to
@@ -2314,11 +2314,11 @@ public class LeanTween : MonoBehaviour
 	 *         @param {float} time:float The time to complete the tween in
 	 *         @return {LTDescr} LTDescr an object that distinguishes the tween
 	 */
-    public static LTDescr value(GameObject gameObject,
-                                Action<float, object> callOnUpdate,
-                                float from,
-                                float to,
-                                float time)
+	public static LTDescr value(GameObject gameObject,
+								Action<float, object> callOnUpdate,
+								float from,
+								float to,
+								float time)
 	{
 		return pushNewTween(gameObject, new Vector3(to, 0, 0), time,
 							options().setCallback().setTo(new Vector3(to, 0, 0)).setFrom(new Vector3(from, 0, 0))
@@ -2341,7 +2341,7 @@ public class LeanTween : MonoBehaviour
 
 #if !UNITY_3_5 && !UNITY_4_0 && !UNITY_4_0_1 && !UNITY_4_1 && !UNITY_4_2 && !UNITY_4_3 && !UNITY_4_5
 
-    /**
+	/**
 	 * <summary>Move a RectTransform object (used in Unity GUI in 4.6+, for Buttons, Panel, Scrollbar, etc...)</summary>
 	 * @method LeanTween.move (RectTransform)
 	 * @param {RectTransform} rectTrans:RectTransform RectTransform that you wish to attach the tween to
@@ -2350,12 +2350,12 @@ public class LeanTween : MonoBehaviour
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 * @example LeanTween.move(gameObject.GetComponent&lt;RectTransform&gt;(), new Vector3(200f,-100f,0f), 1f).setDelay(1f);
 	 */
-    public static LTDescr move(RectTransform rectTrans, Vector3 to, float time)
+	public static LTDescr move(RectTransform rectTrans, Vector3 to, float time)
 	{
 		return pushNewTween(rectTrans.gameObject, to, time, options().setCanvasMove().setRect(rectTrans));
 	}
 
-    /**
+	/**
 	 * <summary>
 	 *     Move a RectTransform object affecting x-axis only (used in Unity GUI in 4.6+, for Buttons, Panel, Scrollbar,
 	 *     etc...)
@@ -2367,13 +2367,13 @@ public class LeanTween : MonoBehaviour
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 * @example LeanTween.moveX(gameObject.GetComponent&lt;RectTransform&gt;(), 200f, 1f).setDelay(1f);
 	 */
-    public static LTDescr moveX(RectTransform rectTrans, float to, float time)
+	public static LTDescr moveX(RectTransform rectTrans, float to, float time)
 	{
 		return pushNewTween(rectTrans.gameObject, new Vector3(to, 0f, 0f), time,
 							options().setCanvasMoveX().setRect(rectTrans));
 	}
 
-    /**
+	/**
 	 * <summary>
 	 *     Move a RectTransform object affecting y-axis only (used in Unity GUI in 4.6+, for Buttons, Panel, Scrollbar,
 	 *     etc...)
@@ -2385,13 +2385,13 @@ public class LeanTween : MonoBehaviour
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 * @example LeanTween.moveY(gameObject.GetComponent&lt;RectTransform&gt;(), 200f, 1f).setDelay(1f);
 	 */
-    public static LTDescr moveY(RectTransform rectTrans, float to, float time)
+	public static LTDescr moveY(RectTransform rectTrans, float to, float time)
 	{
 		return pushNewTween(rectTrans.gameObject, new Vector3(to, 0f, 0f), time,
 							options().setCanvasMoveY().setRect(rectTrans));
 	}
 
-    /**
+	/**
 	 * <summary>
 	 *     Move a RectTransform object affecting z-axis only (used in Unity GUI in 4.6+, for Buttons, Panel, Scrollbar,
 	 *     etc...)n
@@ -2403,13 +2403,13 @@ public class LeanTween : MonoBehaviour
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 * @example LeanTween.moveZ(gameObject.GetComponent&lt;RectTransform&gt;(), 200f, 1f).setDelay(1f);
 	 */
-    public static LTDescr moveZ(RectTransform rectTrans, float to, float time)
+	public static LTDescr moveZ(RectTransform rectTrans, float to, float time)
 	{
 		return pushNewTween(rectTrans.gameObject, new Vector3(to, 0f, 0f), time,
 							options().setCanvasMoveZ().setRect(rectTrans));
 	}
 
-    /**
+	/**
 	 * <summary>Rotate a RectTransform object (used in Unity GUI in 4.6+, for Buttons, Panel, Scrollbar, etc...)</summary>
 	 * @method LeanTween.rotate (RectTransform)
 	 * @param {RectTransform} rectTrans:RectTransform RectTransform that you wish to attach the tween to
@@ -2418,7 +2418,7 @@ public class LeanTween : MonoBehaviour
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 * @example LeanTween.rotate(gameObject.GetComponent&lt;RectTransform&gt;(), 90f, 1f).setDelay(1f);
 	 */
-    public static LTDescr rotate(RectTransform rectTrans, float to, float time)
+	public static LTDescr rotate(RectTransform rectTrans, float to, float time)
 	{
 		return pushNewTween(rectTrans.gameObject, new Vector3(to, 0f, 0f), time,
 							options().setCanvasRotateAround().setRect(rectTrans).setAxis(Vector3.forward));
@@ -2430,7 +2430,7 @@ public class LeanTween : MonoBehaviour
 							options().setCanvasRotateAround().setRect(rectTrans).setAxis(Vector3.forward));
 	}
 
-    /**
+	/**
 	 * <summary>Rotate a RectTransform object (used in Unity GUI in 4.6+, for Buttons, Panel, Scrollbar, etc...)</summary>
 	 * @method LeanTween.rotateAround (RectTransform)
 	 * @param {RectTransform} rectTrans:RectTransform RectTransform that you wish to attach the tween to
@@ -2440,13 +2440,13 @@ public class LeanTween : MonoBehaviour
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 * @example LeanTween.rotateAround(gameObject.GetComponent&lt;RectTransform&gt;(), Vector3.forward, 90f, 1f).setDelay(1f);
 	 */
-    public static LTDescr rotateAround(RectTransform rectTrans, Vector3 axis, float to, float time)
+	public static LTDescr rotateAround(RectTransform rectTrans, Vector3 axis, float to, float time)
 	{
 		return pushNewTween(rectTrans.gameObject, new Vector3(to, 0f, 0f), time,
 							options().setCanvasRotateAround().setRect(rectTrans).setAxis(axis));
 	}
 
-    /**
+	/**
 	 * <summary>
 	 *     Rotate a RectTransform object around it's local axis (used in Unity GUI in 4.6+, for Buttons, Panel,
 	 *     Scrollbar, etc...)
@@ -2459,13 +2459,13 @@ public class LeanTween : MonoBehaviour
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 * @example LeanTween.rotateAroundLocal(gameObject.GetComponent&lt;RectTransform&gt;(), Vector3.forward, 90f, 1f).setDelay(1f);
 	 */
-    public static LTDescr rotateAroundLocal(RectTransform rectTrans, Vector3 axis, float to, float time)
+	public static LTDescr rotateAroundLocal(RectTransform rectTrans, Vector3 axis, float to, float time)
 	{
 		return pushNewTween(rectTrans.gameObject, new Vector3(to, 0f, 0f), time,
 							options().setCanvasRotateAroundLocal().setRect(rectTrans).setAxis(axis));
 	}
 
-    /**
+	/**
 	 * <summary>Scale a RectTransform object (used in Unity GUI in 4.6+, for Buttons, Panel, Scrollbar, etc...)</summary>
 	 * @method LeanTween.scale (RectTransform)
 	 * @param {RectTransform} rectTrans:RectTransform RectTransform that you wish to attach the tween to
@@ -2474,12 +2474,12 @@ public class LeanTween : MonoBehaviour
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 * @example LeanTween.scale(gameObject.GetComponent&lt;RectTransform&gt;(), gameObject.GetComponent&lt;RectTransform&gt;().localScale*2f, 1f).setDelay(1f);
 	 */
-    public static LTDescr scale(RectTransform rectTrans, Vector3 to, float time)
+	public static LTDescr scale(RectTransform rectTrans, Vector3 to, float time)
 	{
 		return pushNewTween(rectTrans.gameObject, to, time, options().setCanvasScale().setRect(rectTrans));
 	}
 
-    /**
+	/**
 	 * <summary>Change the sizeDelta of a RectTransform object (used in Unity Canvas, for Buttons, Panel, Scrollbar, etc...)</summary>
 	 * @method LeanTween.size (RectTransform)
 	 * @param {RectTransform} rectTrans:RectTransform RectTransform that you wish to attach the tween to
@@ -2488,12 +2488,12 @@ public class LeanTween : MonoBehaviour
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 * @example LeanTween.size(gameObject.GetComponent&lt;RectTransform&gt;(), gameObject.GetComponent&lt;RectTransform&gt;().sizeDelta*2f, 1f).setDelay(1f);
 	 */
-    public static LTDescr size(RectTransform rectTrans, Vector2 to, float time)
+	public static LTDescr size(RectTransform rectTrans, Vector2 to, float time)
 	{
 		return pushNewTween(rectTrans.gameObject, to, time, options().setCanvasSizeDelta().setRect(rectTrans));
 	}
 
-    /**
+	/**
 	 * <summary>
 	 *     Alpha an Image Component attached to a RectTransform (used in Unity GUI in 4.6+, for Buttons, Panel,
 	 *     Scrollbar, etc...)
@@ -2505,13 +2505,13 @@ public class LeanTween : MonoBehaviour
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 * @example LeanTween.alpha(gameObject.GetComponent&lt;RectTransform&gt;(), 0.5f, 1f).setDelay(1f);
 	 */
-    public static LTDescr alpha(RectTransform rectTrans, float to, float time)
+	public static LTDescr alpha(RectTransform rectTrans, float to, float time)
 	{
 		return pushNewTween(rectTrans.gameObject, new Vector3(to, 0f, 0f), time,
 							options().setCanvasAlpha().setRect(rectTrans));
 	}
 
-    /**
+	/**
 	 * <summary>
 	 *     Change the Color of an Image Component attached to a RectTransform (used in Unity GUI in 4.6+, for Buttons,
 	 *     Panel, Scrollbar, etc...)
@@ -2523,7 +2523,7 @@ public class LeanTween : MonoBehaviour
 	 * @return {LTDescr} LTDescr an object that distinguishes the tween
 	 * @example LeanTween.color(gameObject.GetComponent&lt;RectTransform&gt;(), 0.5f, 1f).setDelay(1f);
 	 */
-    public static LTDescr color(RectTransform rectTrans, Color to, float time)
+	public static LTDescr color(RectTransform rectTrans, Color to, float time)
 	{
 		return pushNewTween(rectTrans.gameObject, new Vector3(1.0f, to.a, 0.0f), time,
 							options().setCanvasColor().setRect(rectTrans).setPoint(new Vector3(to.r, to.g, to.b)));
@@ -2580,11 +2580,11 @@ public class LeanTween : MonoBehaviour
 
 	public static float clerp(float start, float end, float val)
 	{
-		var min = 0.0f;
-		var max = 360.0f;
-		var half = Mathf.Abs((max - min) / 2.0f);
-		var retval = 0.0f;
-		var diff = 0.0f;
+		float min = 0.0f;
+		float max = 360.0f;
+		float half = Mathf.Abs((max - min) / 2.0f);
+		float retval = 0.0f;
+		float diff = 0.0f;
 		if ((end - start) < -half)
 		{
 			diff = ((max - start) + end) * val;
@@ -2767,7 +2767,7 @@ public class LeanTween : MonoBehaviour
 	public static float easeInBounce(float start, float end, float val)
 	{
 		end -= start;
-		var d = 1f;
+		float d = 1f;
 		return end - easeOutBounce(0, end, d - val) + start;
 	}
 
@@ -2799,7 +2799,7 @@ public class LeanTween : MonoBehaviour
 	public static float easeInOutBounce(float start, float end, float val)
 	{
 		end -= start;
-		var d = 1f;
+		float d = 1f;
 		if (val < d / 2) return easeInBounce(0, end, val * 2) * 0.5f + start;
 		return easeOutBounce(0, end, val * 2 - d) * 0.5f + end * 0.5f + start;
 	}
@@ -2808,13 +2808,13 @@ public class LeanTween : MonoBehaviour
 	{
 		end -= start;
 		val /= 1;
-		var s = 1.70158f * overshoot;
+		float s = 1.70158f * overshoot;
 		return end * (val) * val * ((s + 1) * val - s) + start;
 	}
 
 	public static float easeOutBack(float start, float end, float val, float overshoot = 1.0f)
 	{
-		var s = 1.70158f * overshoot;
+		float s = 1.70158f * overshoot;
 		end -= start;
 		val = (val / 1) - 1;
 		return end * ((val) * val * ((s + 1) * val + s) + 1) + start;
@@ -2822,7 +2822,7 @@ public class LeanTween : MonoBehaviour
 
 	public static float easeInOutBack(float start, float end, float val, float overshoot = 1.0f)
 	{
-		var s = 1.70158f * overshoot;
+		float s = 1.70158f * overshoot;
 		end -= start;
 		val /= .5f;
 		if ((val) < 1)
@@ -2839,9 +2839,9 @@ public class LeanTween : MonoBehaviour
 	public static float easeInElastic(float start, float end, float val, float overshoot = 1.0f, float period = 0.3f)
 	{
 		end -= start;
-		var p = period;
-		var s = 0f;
-		var a = 0f;
+		float p = period;
+		float s = 0f;
+		float a = 0f;
 		if (val == 0f) return start;
 		if (val == 1f) return start + end;
 		if (a == 0f || a < Mathf.Abs(end))
@@ -2864,9 +2864,9 @@ public class LeanTween : MonoBehaviour
 	public static float easeOutElastic(float start, float end, float val, float overshoot = 1.0f, float period = 0.3f)
 	{
 		end -= start;
-		var p = period;
-		var s = 0f;
-		var a = 0f;
+		float p = period;
+		float s = 0f;
+		float a = 0f;
 		if (val == 0f) return start;
 
 		// Debug.Log("ease out elastic val:"+val+" a:"+a);
@@ -2890,9 +2890,9 @@ public class LeanTween : MonoBehaviour
 	public static float easeInOutElastic(float start, float end, float val, float overshoot = 1.0f, float period = 0.3f)
 	{
 		end -= start;
-		var p = period;
-		var s = 0f;
-		var a = 0f;
+		float p = period;
+		float s = 0f;
+		float a = 0f;
 		if (val == 0f) return start;
 		val = val / (1f / 2f);
 		if (val == 2f) return start + end;
@@ -2932,7 +2932,7 @@ public class LeanTween : MonoBehaviour
 
 	// Mark: LeanTween Following
 
-    /**
+	/**
 	 * <summary>
 	 *     Follow another transforms position/scale/color with a damp transition (eases in and out to destination with no
 	 *     overshoot)
@@ -2946,13 +2946,13 @@ public class LeanTween : MonoBehaviour
 	 * @example
 	 * LeanTween.followDamp(transform, followTransform, LeanProp.localY, 1.1f);
 	 */
-    public static LTDescr followDamp(Transform trans,
-                                     Transform target,
-                                     LeanProp prop,
-                                     float smoothTime,
-                                     float maxSpeed = -1f)
+	public static LTDescr followDamp(Transform trans,
+									 Transform target,
+									 LeanProp prop,
+									 float smoothTime,
+									 float maxSpeed = -1f)
 	{
-		var d = pushNewTween(trans.gameObject, Vector3.zero, float.MaxValue, options().setFollow().setTarget(target));
+		LTDescr d = pushNewTween(trans.gameObject, Vector3.zero, float.MaxValue, options().setFollow().setTarget(target));
 		switch (prop)
 		{
 			case LeanProp.localPosition:
@@ -3037,9 +3037,9 @@ public class LeanTween : MonoBehaviour
 			case LeanProp.color:
 				d.easeInternal = () =>
 								 {
-									 var col = LeanSmooth.damp(d.trans.LeanColor(), d.toTrans.LeanColor(),
-															   ref d.optional.color, smoothTime, maxSpeed,
-															   Time.deltaTime);
+									 Color col = LeanSmooth.damp(d.trans.LeanColor(), d.toTrans.LeanColor(),
+																 ref d.optional.color, smoothTime, maxSpeed,
+																 Time.deltaTime);
 									 d.trans.GetComponent<Renderer>().material.color = col;
 								 };
 				break;
@@ -3048,7 +3048,7 @@ public class LeanTween : MonoBehaviour
 		return d;
 	}
 
-    /**
+	/**
 	 * <summary>
 	 *     Follow another transforms position/scale/color with a springy transition (eases in and out to destination with
 	 *     possible overshoot bounciness)
@@ -3064,15 +3064,15 @@ public class LeanTween : MonoBehaviour
 	 * @example
 	 * LeanTween.followSpring(transform, followTransform, LeanProp.localY);
 	 */
-    public static LTDescr followSpring(Transform trans,
-                                       Transform target,
-                                       LeanProp prop,
-                                       float smoothTime,
-                                       float maxSpeed = -1f,
-                                       float friction = 2f,
-                                       float accelRate = 0.5f)
+	public static LTDescr followSpring(Transform trans,
+									   Transform target,
+									   LeanProp prop,
+									   float smoothTime,
+									   float maxSpeed = -1f,
+									   float friction = 2f,
+									   float accelRate = 0.5f)
 	{
-		var d = pushNewTween(trans.gameObject, Vector3.zero, float.MaxValue, options().setFollow().setTarget(target));
+		LTDescr d = pushNewTween(trans.gameObject, Vector3.zero, float.MaxValue, options().setFollow().setTarget(target));
 		switch (prop)
 		{
 			case LeanProp.localPosition:
@@ -3099,30 +3099,30 @@ public class LeanTween : MonoBehaviour
 				d.easeInternal = () =>
 								 {
 									 d.trans.LeanSetLocalPosX(LeanSmooth.spring(d.trans.localPosition.x,
-																					d.toTrans.localPosition.x,
-																					ref d.fromInternal.x, smoothTime,
-																					maxSpeed, Time.deltaTime, friction,
-																					accelRate));
+																				d.toTrans.localPosition.x,
+																				ref d.fromInternal.x, smoothTime,
+																				maxSpeed, Time.deltaTime, friction,
+																				accelRate));
 								 };
 				break;
 			case LeanProp.localY:
 				d.easeInternal = () =>
 								 {
 									 d.trans.LeanSetLocalPosY(LeanSmooth.spring(d.trans.localPosition.y,
-																					d.toTrans.localPosition.y,
-																					ref d.fromInternal.y, smoothTime,
-																					maxSpeed, Time.deltaTime, friction,
-																					accelRate));
+																				d.toTrans.localPosition.y,
+																				ref d.fromInternal.y, smoothTime,
+																				maxSpeed, Time.deltaTime, friction,
+																				accelRate));
 								 };
 				break;
 			case LeanProp.localZ:
 				d.easeInternal = () =>
 								 {
 									 d.trans.LeanSetLocalPosZ(LeanSmooth.spring(d.trans.localPosition.z,
-																					d.toTrans.localPosition.z,
-																					ref d.fromInternal.z, smoothTime,
-																					maxSpeed, Time.deltaTime, friction,
-																					accelRate));
+																				d.toTrans.localPosition.z,
+																				ref d.fromInternal.z, smoothTime,
+																				maxSpeed, Time.deltaTime, friction,
+																				accelRate));
 								 };
 				break;
 			case LeanProp.x:
@@ -3160,9 +3160,9 @@ public class LeanTween : MonoBehaviour
 			case LeanProp.color:
 				d.easeInternal = () =>
 								 {
-									 var col = LeanSmooth.spring(d.trans.LeanColor(), d.toTrans.LeanColor(),
-																 ref d.optional.color, smoothTime, maxSpeed,
-																 Time.deltaTime, friction, accelRate);
+									 Color col = LeanSmooth.spring(d.trans.LeanColor(), d.toTrans.LeanColor(),
+																   ref d.optional.color, smoothTime, maxSpeed,
+																   Time.deltaTime, friction, accelRate);
 									 d.trans.GetComponent<Renderer>().material.color = col;
 								 };
 				break;
@@ -3171,7 +3171,7 @@ public class LeanTween : MonoBehaviour
 		return d;
 	}
 
-    /**
+	/**
 	 * <summary>
 	 *     Follow another transforms position/scale/color (with an ease that bounces back some when it reaches it's
 	 *     destination)
@@ -3188,16 +3188,16 @@ public class LeanTween : MonoBehaviour
 	 * @example
 	 * LeanTween.followBounceOut(transform, followTransform, LeanProp.localY, 1.1f);
 	 */
-    public static LTDescr followBounceOut(Transform trans,
-                                          Transform target,
-                                          LeanProp prop,
-                                          float smoothTime,
-                                          float maxSpeed = -1f,
-                                          float friction = 2f,
-                                          float accelRate = 0.5f,
-                                          float hitDamping = 0.9f)
+	public static LTDescr followBounceOut(Transform trans,
+										  Transform target,
+										  LeanProp prop,
+										  float smoothTime,
+										  float maxSpeed = -1f,
+										  float friction = 2f,
+										  float accelRate = 0.5f,
+										  float hitDamping = 0.9f)
 	{
-		var d = pushNewTween(trans.gameObject, Vector3.zero, float.MaxValue, options().setFollow().setTarget(target));
+		LTDescr d = pushNewTween(trans.gameObject, Vector3.zero, float.MaxValue, options().setFollow().setTarget(target));
 		switch (prop)
 		{
 			case LeanProp.localPosition:
@@ -3225,27 +3225,27 @@ public class LeanTween : MonoBehaviour
 				d.easeInternal = () =>
 								 {
 									 d.trans.LeanSetLocalPosX(LeanSmooth.bounceOut(d.trans.localPosition.x,
-																  d.toTrans.localPosition.x, ref d.fromInternal.x,
-																  smoothTime, maxSpeed, Time.deltaTime, friction,
-																  accelRate, hitDamping));
+																				   d.toTrans.localPosition.x, ref d.fromInternal.x,
+																				   smoothTime, maxSpeed, Time.deltaTime, friction,
+																				   accelRate, hitDamping));
 								 };
 				break;
 			case LeanProp.localY:
 				d.easeInternal = () =>
 								 {
 									 d.trans.LeanSetLocalPosY(LeanSmooth.bounceOut(d.trans.localPosition.y,
-																  d.toTrans.localPosition.y, ref d.fromInternal.y,
-																  smoothTime, maxSpeed, Time.deltaTime, friction,
-																  accelRate, hitDamping));
+																				   d.toTrans.localPosition.y, ref d.fromInternal.y,
+																				   smoothTime, maxSpeed, Time.deltaTime, friction,
+																				   accelRate, hitDamping));
 								 };
 				break;
 			case LeanProp.localZ:
 				d.easeInternal = () =>
 								 {
 									 d.trans.LeanSetLocalPosZ(LeanSmooth.bounceOut(d.trans.localPosition.z,
-																  d.toTrans.localPosition.z, ref d.fromInternal.z,
-																  smoothTime, maxSpeed, Time.deltaTime, friction,
-																  accelRate, hitDamping));
+																				   d.toTrans.localPosition.z, ref d.fromInternal.z,
+																				   smoothTime, maxSpeed, Time.deltaTime, friction,
+																				   accelRate, hitDamping));
 								 };
 				break;
 			case LeanProp.x:
@@ -3287,9 +3287,9 @@ public class LeanTween : MonoBehaviour
 			case LeanProp.color:
 				d.easeInternal = () =>
 								 {
-									 var col = LeanSmooth.bounceOut(d.trans.LeanColor(), d.toTrans.LeanColor(),
-																	ref d.optional.color, smoothTime, maxSpeed,
-																	Time.deltaTime, friction, accelRate, hitDamping);
+									 Color col = LeanSmooth.bounceOut(d.trans.LeanColor(), d.toTrans.LeanColor(),
+																	  ref d.optional.color, smoothTime, maxSpeed,
+																	  Time.deltaTime, friction, accelRate, hitDamping);
 									 d.trans.GetComponent<Renderer>().material.color = col;
 								 };
 				break;
@@ -3298,7 +3298,7 @@ public class LeanTween : MonoBehaviour
 		return d;
 	}
 
-    /**
+	/**
 	 * <summary>Follow another transforms position/scale/color with a constant speed</summary>
 	 * @method LeanTween.followLinear
 	 * @param {Transform} transform:Transform the transform you wish to be the follower
@@ -3308,9 +3308,9 @@ public class LeanTween : MonoBehaviour
 	 * @example
 	 * LeanTween.followLinear(transform, followTransform, LeanProp.localY, 50f);
 	 */
-    public static LTDescr followLinear(Transform trans, Transform target, LeanProp prop, float moveSpeed)
+	public static LTDescr followLinear(Transform trans, Transform target, LeanProp prop, float moveSpeed)
 	{
-		var d = pushNewTween(trans.gameObject, Vector3.zero, float.MaxValue, options().setFollow().setTarget(target));
+		LTDescr d = pushNewTween(trans.gameObject, Vector3.zero, float.MaxValue, options().setFollow().setTarget(target));
 		switch (prop)
 		{
 			case LeanProp.localPosition:
@@ -3333,24 +3333,24 @@ public class LeanTween : MonoBehaviour
 				d.easeInternal = () =>
 								 {
 									 d.trans.LeanSetLocalPosX(LeanSmooth.linear(d.trans.localPosition.x,
-																					d.toTrans.localPosition.x,
-																					moveSpeed));
+																				d.toTrans.localPosition.x,
+																				moveSpeed));
 								 };
 				break;
 			case LeanProp.localY:
 				d.easeInternal = () =>
 								 {
 									 d.trans.LeanSetLocalPosY(LeanSmooth.linear(d.trans.localPosition.y,
-																					d.toTrans.localPosition.y,
-																					moveSpeed));
+																				d.toTrans.localPosition.y,
+																				moveSpeed));
 								 };
 				break;
 			case LeanProp.localZ:
 				d.easeInternal = () =>
 								 {
 									 d.trans.LeanSetLocalPosZ(LeanSmooth.linear(d.trans.localPosition.z,
-																					d.toTrans.localPosition.z,
-																					moveSpeed));
+																				d.toTrans.localPosition.z,
+																				moveSpeed));
 								 };
 				break;
 			case LeanProp.x:
@@ -3384,7 +3384,7 @@ public class LeanTween : MonoBehaviour
 			case LeanProp.color:
 				d.easeInternal = () =>
 								 {
-									 var col = LeanSmooth.linear(d.trans.LeanColor(), d.toTrans.LeanColor(), moveSpeed);
+									 Color col = LeanSmooth.linear(d.trans.LeanColor(), d.toTrans.LeanColor(), moveSpeed);
 									 d.trans.GetComponent<Renderer>().material.color = col;
 								 };
 				break;
@@ -3406,7 +3406,7 @@ public class LeanTween : MonoBehaviour
 		addListener(tweenEmpty, eventId, callback);
 	}
 
-    /**
+	/**
 	 * Add a listener method to be called when the appropriate LeanTween.dispatchEvent is called
 	 * 
 	 * @method LeanTween.addListener
@@ -3422,7 +3422,7 @@ public class LeanTween : MonoBehaviour
 	 *         <br />
 	 *         void jumpUp( LTEvent e ){ Debug.Log("jump!"); }<br />
 	 */
-    public static void addListener(GameObject caller, int eventId, Action<LTEvent> callback)
+	public static void addListener(GameObject caller, int eventId, Action<LTEvent> callback)
 	{
 		if (eventListeners == null)
 		{
@@ -3434,7 +3434,7 @@ public class LeanTween : MonoBehaviour
 		// Debug.Log("searching for an empty space for:"+caller + " eventid:"+event);
 		for (i = 0; i < INIT_LISTENERS_MAX; i++)
 		{
-			var point = eventId * INIT_LISTENERS_MAX + i;
+			int point = eventId * INIT_LISTENERS_MAX + i;
 			if (goListeners[point] == null || eventListeners[point] == null)
 			{
 				eventListeners[point] = callback;
@@ -3469,13 +3469,13 @@ public class LeanTween : MonoBehaviour
 
 	public static bool removeListener(int eventId)
 	{
-		var point = eventId * INIT_LISTENERS_MAX + i;
+		int point = eventId * INIT_LISTENERS_MAX + i;
 		eventListeners[point] = null;
 		goListeners[point] = null;
 		return true;
 	}
 
-    /**
+	/**
 	 * Remove an event listener you have added
 	 * @method LeanTween.removeListener
 	 * @param {GameObject} caller:GameObject the gameObject the listener is attached to
@@ -3490,11 +3490,11 @@ public class LeanTween : MonoBehaviour
 	 *         <br />
 	 *         void jumpUp( LTEvent e ){ }<br />
 	 */
-    public static bool removeListener(GameObject caller, int eventId, Action<LTEvent> callback)
+	public static bool removeListener(GameObject caller, int eventId, Action<LTEvent> callback)
 	{
 		for (i = 0; i < eventsMaxSearch; i++)
 		{
-			var point = eventId * INIT_LISTENERS_MAX + i;
+			int point = eventId * INIT_LISTENERS_MAX + i;
 #if UNITY_FLASH
             if(goListeners[ point ] == caller && System.Object.ReferenceEquals( eventListeners[ point ], callback) ){
 #else
@@ -3510,7 +3510,7 @@ public class LeanTween : MonoBehaviour
 		return false;
 	}
 
-    /**
+	/**
 	 * Tell the added listeners that you are dispatching the event
 	 * @method LeanTween.dispatchEvent
 	 * @param {int} eventId:int a unique int that describes the event (best to use an enum)
@@ -3518,12 +3518,12 @@ public class LeanTween : MonoBehaviour
 	 * LeanTween.dispatchEvent( (int)MyEvents.JUMP );
 	 * <br />
 	 */
-    public static void dispatchEvent(int eventId)
+	public static void dispatchEvent(int eventId)
 	{
 		dispatchEvent(eventId, null);
 	}
 
-    /**
+	/**
 	 * Tell the added listeners that you are dispatching the event
 	 * @method LeanTween.dispatchEvent
 	 * @param {int} eventId:int a unique int that describes the event (best to use an enum)
@@ -3539,11 +3539,11 @@ public class LeanTween : MonoBehaviour
 	 * }
 	 * <br />
 	 */
-    public static void dispatchEvent(int eventId, object data)
+	public static void dispatchEvent(int eventId, object data)
 	{
-		for (var k = 0; k < eventsMaxSearch; k++)
+		for (int k = 0; k < eventsMaxSearch; k++)
 		{
-			var point = eventId * INIT_LISTENERS_MAX + k;
+			int point = eventId * INIT_LISTENERS_MAX + k;
 			if (eventListeners[point] != null)
 			{
 				if (goListeners[point])
@@ -3563,12 +3563,12 @@ public class LTUtility
 {
 	public static Vector3[] reverse(Vector3[] arr)
 	{
-		var length = arr.Length;
-		var left = 0;
-		var right = length - 1;
+		int length = arr.Length;
+		int left = 0;
+		int right = length - 1;
 		for (; left < right; left += 1, right -= 1)
 		{
-			var temporary = arr[left];
+			Vector3 temporary = arr[left];
 			arr[left] = arr[right];
 			arr[right] = temporary;
 		}
@@ -3596,10 +3596,10 @@ public class LTBezier
 		len = 1.0f / precision;
 		arcLengths = new float[(int) len + 1];
 		arcLengths[0] = 0;
-		var ov = a;
+		Vector3 ov = a;
 		Vector3 v;
-		var clen = 0.0f;
-		for (var i = 1; i <= len; i++)
+		float clen = 0.0f;
+		for (int i = 1; i <= len; i++)
 		{
 			v = bezierPoint(i * precision);
 			clen += (ov - v).magnitude;
@@ -3612,10 +3612,10 @@ public class LTBezier
 
 	private float map(float u)
 	{
-		var targetLength = u * arcLengths[(int) len];
-		var low = 0;
-		var high = (int) len;
-		var index = 0;
+		float targetLength = u * arcLengths[(int) len];
+		int low = 0;
+		int high = (int) len;
+		int index = 0;
 		while (low < high)
 		{
 			index = low + ((int) ((high - low) / 2.0f) | 0);
@@ -3672,13 +3672,13 @@ public class LTBezier
  */
 public class LTBezierPath
 {
-	private LTBezier[] beziers;
 	private readonly int currentBezier = 0;
-	private int previousBezier;
+	private LTBezier[] beziers;
 	public float length;
 	private float[] lengthRatio;
 	public bool orientToPath;
 	public bool orientToPath2d;
+	private int previousBezier;
 	public Vector3[] pts;
 
 	public LTBezierPath()
@@ -3705,7 +3705,7 @@ public class LTBezierPath
 		if (pts_.Length % 4 != 0)
 			LeanTween.logError("LeanTween - When passing values for a vector path, they must be in sets of four: controlPoint1, controlPoint2, endPoint2, controlPoint2, controlPoint2...");
 		pts = pts_;
-		var k = 0;
+		int k = 0;
 		beziers = new LTBezier[pts.Length / 4];
 		lengthRatio = new float[beziers.Length];
 		int i;
@@ -3724,7 +3724,7 @@ public class LTBezierPath
 		}
 	}
 
-    /**
+	/**
 	 * <summary>Retrieve a point along a path</summary>
 	 * @method point
 	 * @param {float} ratio:float ratio of the point along the path you wish to receive (0-1)
@@ -3732,10 +3732,10 @@ public class LTBezierPath
 	 * @example
 	 * transform.position = ltPath.point( 0.6f );
 	 */
-    public Vector3 point(float ratio)
+	public Vector3 point(float ratio)
 	{
-		var added = 0.0f;
-		for (var i = 0; i < lengthRatio.Length; i++)
+		float added = 0.0f;
+		for (int i = 0; i < lengthRatio.Length; i++)
 		{
 			added += lengthRatio[i];
 			if (added >= ratio)
@@ -3751,8 +3751,8 @@ public class LTBezierPath
 		ratio += 0.001f;
 		if (ratio <= 1.0f)
 		{
-			var v3Dir = point(ratio) - transform.position;
-			var angle = Mathf.Atan2(v3Dir.y, v3Dir.x) * Mathf.Rad2Deg;
+			Vector3 v3Dir = point(ratio) - transform.position;
+			float angle = Mathf.Atan2(v3Dir.y, v3Dir.x) * Mathf.Rad2Deg;
 			transform.eulerAngles = new Vector3(0, 0, angle);
 		}
 	}
@@ -3763,13 +3763,13 @@ public class LTBezierPath
 		ratio += 0.001f;
 		if (ratio <= 1.0f)
 		{
-			var v3Dir = point(ratio) - transform.localPosition;
-			var angle = Mathf.Atan2(v3Dir.y, v3Dir.x) * Mathf.Rad2Deg;
+			Vector3 v3Dir = point(ratio) - transform.localPosition;
+			float angle = Mathf.Atan2(v3Dir.y, v3Dir.x) * Mathf.Rad2Deg;
 			transform.localEulerAngles = new Vector3(0, 0, angle);
 		}
 	}
 
-    /**
+	/**
 	 * <summary>Place an object along a certain point on the path (facing the direction perpendicular to the path)</summary>
 	 * @method place
 	 * @param {Transform} transform:Transform the transform of the object you wish to place along the path
@@ -3777,12 +3777,12 @@ public class LTBezierPath
 	 * @example
 	 * ltPath.place( transform, 0.6f );
 	 */
-    public void place(Transform transform, float ratio)
+	public void place(Transform transform, float ratio)
 	{
 		place(transform, ratio, Vector3.up);
 	}
 
-    /**
+	/**
 	 * <summary>
 	 *     Place an object along a certain point on the path, with it facing a certain direction perpendicular to the
 	 *     path
@@ -3794,7 +3794,7 @@ public class LTBezierPath
 	 * @example
 	 * ltPath.place( transform, 0.6f, Vector3.left );
 	 */
-    public void place(Transform transform, float ratio, Vector3 worldUp)
+	public void place(Transform transform, float ratio, Vector3 worldUp)
 	{
 		transform.position = point(ratio);
 		ratio += 0.001f;
@@ -3802,7 +3802,7 @@ public class LTBezierPath
 			transform.LookAt(point(ratio), worldUp);
 	}
 
-    /**
+	/**
 	 * <summary>
 	 *     Place an object along a certain point on the path (facing the direction perpendicular to the path) - Local
 	 *     Space, not world-space
@@ -3813,12 +3813,12 @@ public class LTBezierPath
 	 * @example
 	 * ltPath.placeLocal( transform, 0.6f );
 	 */
-    public void placeLocal(Transform transform, float ratio)
+	public void placeLocal(Transform transform, float ratio)
 	{
 		placeLocal(transform, ratio, Vector3.up);
 	}
 
-    /**
+	/**
 	 * <summary>
 	 *     Place an object along a certain point on the path, with it facing a certain direction perpendicular to the
 	 *     path - Local Space, not world-space
@@ -3830,7 +3830,7 @@ public class LTBezierPath
 	 * @example
 	 * ltPath.placeLocal( transform, 0.6f, Vector3.left );
 	 */
-    public void placeLocal(Transform transform, float ratio, Vector3 worldUp)
+	public void placeLocal(Transform transform, float ratio, Vector3 worldUp)
 	{
 		// Debug.Log("place ratio:" + ratio + " greater:"+(ratio>1f));
 		ratio = Mathf.Clamp01(ratio);
@@ -3843,11 +3843,11 @@ public class LTBezierPath
 
 	public void gizmoDraw(float t = -1.0f)
 	{
-		var prevPt = point(0);
-		for (var i = 1; i <= 120; i++)
+		Vector3 prevPt = point(0);
+		for (int i = 1; i <= 120; i++)
 		{
-			var pm = i / 120f;
-			var currPt2 = point(pm);
+			float pm = i / 120f;
+			Vector3 currPt2 = point(pm);
 			//Gizmos.color = new Color(UnityEngine.Random.Range(0f,1f),UnityEngine.Random.Range(0f,1f),UnityEngine.Random.Range(0f,1f),1);
 			Gizmos.color = (previousBezier == currentBezier) ? Color.magenta : Color.grey;
 			Gizmos.DrawLine(currPt2, prevPt);
@@ -3856,7 +3856,7 @@ public class LTBezierPath
 		}
 	}
 
-    /**
+	/**
 	 * <summary>Retrieve the closest ratio near the point</summary>
 	 * @method ratioAtPoint
 	 * @param {Vector3} point:Vector3 given a current location it makes the best approximiation of where it is along the path ratio-wise (0-1)
@@ -3864,15 +3864,15 @@ public class LTBezierPath
 	 * @example
 	 * ratioIter = ltBezier.ratioAtPoint( transform.position );
 	 */
-    public float ratioAtPoint(Vector3 pt, float precision = 0.01f)
+	public float ratioAtPoint(Vector3 pt, float precision = 0.01f)
 	{
-		var closestDist = float.MaxValue;
-		var closestI = 0;
-		var maxIndex = Mathf.RoundToInt(1f / precision);
-		for (var i = 0; i < maxIndex; i++)
+		float closestDist = float.MaxValue;
+		int closestI = 0;
+		int maxIndex = Mathf.RoundToInt(1f / precision);
+		for (int i = 0; i < maxIndex; i++)
 		{
-			var ratio = i / (float) maxIndex;
-			var dist = Vector3.Distance(pt, point(ratio));
+			float ratio = i / (float) maxIndex;
+			float dist = Vector3.Distance(pt, point(ratio));
 			// Debug.Log("i:"+i+" dist:"+dist);
 			if (dist < closestDist)
 			{
@@ -3948,13 +3948,13 @@ public class LTSpline
 		this.pts = new Vector3[pts.Length];
 		Array.Copy(pts, this.pts, pts.Length);
 		numSections = pts.Length - 3;
-		var minSegment = float.PositiveInfinity;
-		var earlierPoint = this.pts[1];
-		var totalDistance = 0f;
-		for (var i = 1; i < this.pts.Length - 1; i++)
+		float minSegment = float.PositiveInfinity;
+		Vector3 earlierPoint = this.pts[1];
+		float totalDistance = 0f;
+		for (int i = 1; i < this.pts.Length - 1; i++)
 		{
 			// float pointDistance = (this.pts[i]-earlierPoint).sqrMagnitude;
-			var pointDistance = Vector3.Distance(this.pts[i], earlierPoint);
+			float pointDistance = Vector3.Distance(this.pts[i], earlierPoint);
 			//Debug.Log("pointDist:"+pointDistance);
 			if (pointDistance < minSegment)
 			{
@@ -3968,22 +3968,22 @@ public class LTSpline
 		{
 			minSegment = totalDistance / (numSections * SUBLINE_COUNT);
 			//Debug.Log("minSegment:"+minSegment+" numSections:"+numSections);
-			var minPrecision = minSegment / SUBLINE_COUNT; // number of subdivisions in each segment
-			var precision = (int) Mathf.Ceil(totalDistance / minPrecision) * DISTANCE_COUNT;
+			float minPrecision = minSegment / SUBLINE_COUNT; // number of subdivisions in each segment
+			int precision = (int) Mathf.Ceil(totalDistance / minPrecision) * DISTANCE_COUNT;
 			// Debug.Log("precision:"+precision);
 			if (precision <= 1) // precision has to be greater than one
 				precision = 2;
 			ptsAdj = new Vector3[precision];
 			earlierPoint = interp(0f);
-			var num = 1;
+			int num = 1;
 			ptsAdj[0] = earlierPoint;
 			distance = 0f;
-			for (var i = 0; i < precision + 1; i++)
+			for (int i = 0; i < precision + 1; i++)
 			{
-				var fract = ((float) (i)) / precision;
+				float fract = ((float) (i)) / precision;
 				// Debug.Log("fract:"+fract);
-				var point = interp(fract);
-				var dist = Vector3.Distance(point, earlierPoint);
+				Vector3 point = interp(fract);
+				float dist = Vector3.Distance(point, earlierPoint);
 
 				// float dist = (point-earlierPoint).sqrMagnitude;
 				if (dist >= minPrecision || fract >= 1.0f)
@@ -4013,14 +4013,14 @@ public class LTSpline
 	{
 		if (u >= 1f)
 			return pts[pts.Length - 2];
-		var t = u * (ptsAdjLength - 1);
-		var first = (int) Mathf.Floor(t);
-		var next = (int) Mathf.Ceil(t);
+		float t = u * (ptsAdjLength - 1);
+		int first = (int) Mathf.Floor(t);
+		int next = (int) Mathf.Ceil(t);
 		if (first < 0)
 			first = 0;
-		var val = ptsAdj[first];
-		var nextVal = ptsAdj[next];
-		var diff = t - first;
+		Vector3 val = ptsAdj[first];
+		Vector3 nextVal = ptsAdj[next];
+		float diff = t - first;
 
 		// Debug.Log("u:"+u+" val:"+val +" nextVal:"+nextVal+" diff:"+diff+" first:"+first+" next:"+next);
 		val = val + (nextVal - val) * diff;
@@ -4030,23 +4030,23 @@ public class LTSpline
 	public Vector3 interp(float t)
 	{
 		currPt = Mathf.Min(Mathf.FloorToInt(t * numSections), numSections - 1);
-		var u = t * numSections - currPt;
+		float u = t * numSections - currPt;
 
 		//Debug.Log("currPt:"+currPt+" numSections:"+numSections+" pts.Length :"+pts.Length );
-		var a = pts[currPt];
-		var b = pts[currPt + 1];
-		var c = pts[currPt + 2];
-		var d = pts[currPt + 3];
-		var val = (.5f * (
-							 (-a + 3f * b - 3f * c + d) * (u * u * u)
-						   + (2f * a - 5f * b + 4f * c - d) * (u * u)
-						   + (-a + c) * u
-						   + 2f * b));
+		Vector3 a = pts[currPt];
+		Vector3 b = pts[currPt + 1];
+		Vector3 c = pts[currPt + 2];
+		Vector3 d = pts[currPt + 3];
+		Vector3 val = (.5f * (
+								 (-a + 3f * b - 3f * c + d) * (u * u * u)
+							   + (2f * a - 5f * b + 4f * c - d) * (u * u)
+							   + (-a + c) * u
+							   + 2f * b));
 		// Debug.Log("currPt:"+currPt+" t:"+t+" val.x"+val.x+" y:"+val.y+" z:"+val.z);
 		return val;
 	}
 
-    /**
+	/**
 	 * Retrieve a point along a path
 	 * <summary>Move a GameObject to a certain location</summary>
 	 * @method ratioAtPoint
@@ -4055,13 +4055,13 @@ public class LTSpline
 	 * @example
 	 * ratioIter = ltSpline.ratioAtPoint( transform.position );
 	 */
-    public float ratioAtPoint(Vector3 pt)
+	public float ratioAtPoint(Vector3 pt)
 	{
-		var closestDist = float.MaxValue;
-		var closestI = 0;
-		for (var i = 0; i < ptsAdjLength; i++)
+		float closestDist = float.MaxValue;
+		int closestI = 0;
+		for (int i = 0; i < ptsAdjLength; i++)
 		{
-			var dist = Vector3.Distance(pt, ptsAdj[i]);
+			float dist = Vector3.Distance(pt, ptsAdj[i]);
 			// Debug.Log("i:"+i+" dist:"+dist);
 			if (dist < closestDist)
 			{
@@ -4074,7 +4074,7 @@ public class LTSpline
 		return closestI / (float) (ptsAdjLength - 1);
 	}
 
-    /**
+	/**
 	 * Retrieve a point along a path
 	 * <summary>Move a GameObject to a certain location</summary>
 	 * @method point
@@ -4083,9 +4083,9 @@ public class LTSpline
 	 * @example
 	 * transform.position = ltSpline.point( 0.6f );
 	 */
-    public Vector3 point(float ratio)
+	public Vector3 point(float ratio)
 	{
-		var t = ratio > 1f ? 1f : ratio;
+		float t = ratio > 1f ? 1f : ratio;
 		return constantSpeed ? map(t) : interp(t);
 	}
 
@@ -4095,15 +4095,15 @@ public class LTSpline
 		ratio += 0.001f;
 		if (ratio <= 1.0f)
 		{
-			var v3Dir = point(ratio) - transform.position;
-			var angle = Mathf.Atan2(v3Dir.y, v3Dir.x) * Mathf.Rad2Deg;
+			Vector3 v3Dir = point(ratio) - transform.position;
+			float angle = Mathf.Atan2(v3Dir.y, v3Dir.x) * Mathf.Rad2Deg;
 			transform.eulerAngles = new Vector3(0, 0, angle);
 		}
 	}
 
 	public void placeLocal2d(Transform transform, float ratio)
 	{
-		var trans = transform.parent;
+		Transform trans = transform.parent;
 		if (trans == null)
 		{
 			// this has no parent, just do a regular transform
@@ -4115,14 +4115,14 @@ public class LTSpline
 		ratio += 0.001f;
 		if (ratio <= 1.0f)
 		{
-			var ptAhead = point(ratio); //trans.TransformPoint(  );
-			var v3Dir = ptAhead - transform.localPosition;
-			var angle = Mathf.Atan2(v3Dir.y, v3Dir.x) * Mathf.Rad2Deg;
+			Vector3 ptAhead = point(ratio); //trans.TransformPoint(  );
+			Vector3 v3Dir = ptAhead - transform.localPosition;
+			float angle = Mathf.Atan2(v3Dir.y, v3Dir.x) * Mathf.Rad2Deg;
 			transform.localEulerAngles = new Vector3(0, 0, angle);
 		}
 	}
 
-    /**
+	/**
 	 * Place an object along a certain point on the path (facing the direction perpendicular to the path)
 	 * <summary>Move a GameObject to a certain location</summary>
 	 * @method place
@@ -4131,12 +4131,12 @@ public class LTSpline
 	 * @example
 	 * ltPath.place( transform, 0.6f );
 	 */
-    public void place(Transform transform, float ratio)
+	public void place(Transform transform, float ratio)
 	{
 		place(transform, ratio, Vector3.up);
 	}
 
-    /**
+	/**
 	 * Place an object along a certain point on the path, with it facing a certain direction perpendicular to the path
 	 * <summary>Move a GameObject to a certain location</summary>
 	 * @method place
@@ -4146,7 +4146,7 @@ public class LTSpline
 	 * @example
 	 * ltPath.place( transform, 0.6f, Vector3.left );
 	 */
-    public void place(Transform transform, float ratio, Vector3 worldUp)
+	public void place(Transform transform, float ratio, Vector3 worldUp)
 	{
 		// ratio = Mathf.Repeat(ratio, 1.0f); // make sure ratio is always between 0-1
 		transform.position = point(ratio);
@@ -4155,7 +4155,7 @@ public class LTSpline
 			transform.LookAt(point(ratio), worldUp);
 	}
 
-    /**
+	/**
 	 * Place an object along a certain point on the path (facing the direction perpendicular to the path) - Local Space, not world-space
 	 * <summary>Move a GameObject to a certain location</summary>
 	 * @method placeLocal
@@ -4164,12 +4164,12 @@ public class LTSpline
 	 * @example
 	 * ltPath.placeLocal( transform, 0.6f );
 	 */
-    public void placeLocal(Transform transform, float ratio)
+	public void placeLocal(Transform transform, float ratio)
 	{
 		placeLocal(transform, ratio, Vector3.up);
 	}
 
-    /**
+	/**
 	 * Place an object along a certain point on the path, with it facing a certain direction perpendicular to the path - Local Space, not world-space
 	 * <summary>Move a GameObject to a certain location</summary>
 	 * @method placeLocal
@@ -4179,7 +4179,7 @@ public class LTSpline
 	 * @example
 	 * ltPath.placeLocal( transform, 0.6f, Vector3.left );
 	 */
-    public void placeLocal(Transform transform, float ratio, Vector3 worldUp)
+	public void placeLocal(Transform transform, float ratio, Vector3 worldUp)
 	{
 		transform.localPosition = point(ratio);
 		ratio += 0.001f;
@@ -4191,10 +4191,10 @@ public class LTSpline
 	{
 		if (ptsAdj == null || ptsAdj.Length <= 0)
 			return;
-		var prevPt = ptsAdj[0];
-		for (var i = 0; i < ptsAdjLength; i++)
+		Vector3 prevPt = ptsAdj[0];
+		for (int i = 0; i < ptsAdjLength; i++)
 		{
-			var currPt2 = ptsAdj[i];
+			Vector3 currPt2 = ptsAdj[i];
 			// Debug.Log("currPt2:"+currPt2);
 			//Gizmos.color = new Color(UnityEngine.Random.Range(0f,1f),UnityEngine.Random.Range(0f,1f),UnityEngine.Random.Range(0f,1f),1);
 			Gizmos.DrawLine(prevPt, currPt2);
@@ -4206,12 +4206,12 @@ public class LTSpline
 	{
 		if (ptsAdjLength >= 4)
 		{
-			var prevPt = ptsAdj[0];
-			var colorBefore = Gizmos.color;
+			Vector3 prevPt = ptsAdj[0];
+			Color colorBefore = Gizmos.color;
 			Gizmos.color = color;
-			for (var i = 0; i < ptsAdjLength; i++)
+			for (int i = 0; i < ptsAdjLength; i++)
 			{
-				var currPt2 = ptsAdj[i];
+				Vector3 currPt2 = ptsAdj[i];
 				// Debug.Log("currPt2:"+currPt2);
 				Gizmos.DrawLine(prevPt, currPt2);
 				prevPt = currPt2;
@@ -4225,19 +4225,19 @@ public class LTSpline
 	{
 		if (arr.Length >= 4)
 		{
-			var vec3s = new Vector3[arr.Length];
-			for (var i = 0; i < arr.Length; i++)
+			Vector3[] vec3s = new Vector3[arr.Length];
+			for (int i = 0; i < arr.Length; i++)
 			{
 				vec3s[i] = arr[i].position;
 			}
 
-			var spline = new LTSpline(vec3s);
-			var prevPt = spline.ptsAdj[0];
-			var colorBefore = Gizmos.color;
+			LTSpline spline = new LTSpline(vec3s);
+			Vector3 prevPt = spline.ptsAdj[0];
+			Color colorBefore = Gizmos.color;
 			Gizmos.color = color;
-			for (var i = 0; i < spline.ptsAdjLength; i++)
+			for (int i = 0; i < spline.ptsAdjLength; i++)
 			{
-				var currPt2 = spline.ptsAdj[i];
+				Vector3 currPt2 = spline.ptsAdj[i];
 				// Debug.Log("currPt2:"+currPt2);
 				Gizmos.DrawLine(prevPt, currPt2);
 				prevPt = currPt2;
@@ -4282,10 +4282,10 @@ public class LTSpline
 		{
 			if (ptsAdjLength >= 4)
 			{
-				var prevPt = ptsAdj[0];
-				for (var i = 0; i < ptsAdjLength; i++)
+				Vector3 prevPt = ptsAdj[0];
+				for (int i = 0; i < ptsAdjLength; i++)
 				{
-					var currPt2 = ptsAdj[i];
+					Vector3 currPt2 = ptsAdj[i];
 					GL.Vertex(prevPt);
 					GL.Vertex(currPt2);
 					prevPt = currPt2;
@@ -4296,13 +4296,13 @@ public class LTSpline
 		{
 			if (pts.Length >= 4)
 			{
-				var prevPt = pts[0];
-				var split = 1f / (pts.Length * 10f);
-				var iter = 0f;
+				Vector3 prevPt = pts[0];
+				float split = 1f / (pts.Length * 10f);
+				float iter = 0f;
 				while (iter < 1f)
 				{
-					var at = iter / 1f;
-					var currPt2 = interp(at);
+					float at = iter / 1f;
+					Vector3 currPt2 = interp(at);
 					// Debug.Log("currPt2:"+currPt2);
 					GL.Vertex(prevPt);
 					GL.Vertex(currPt2);
@@ -4320,15 +4320,15 @@ public class LTSpline
 	{
 		if (pts.Length >= 4)
 		{
-			var meshPoints = new List<Vector3>();
-			var prevPt = pts[0];
+			List<Vector3> meshPoints = new List<Vector3>();
+			Vector3 prevPt = pts[0];
 			meshPoints.Add(prevPt);
-			var split = 1f / (pts.Length * 10f);
-			var iter = 0f;
+			float split = 1f / (pts.Length * 10f);
+			float iter = 0f;
 			while (iter < 1f)
 			{
-				var at = iter / 1f;
-				var currPt2 = interp(at);
+				float at = iter / 1f;
+				Vector3 currPt2 = interp(at);
 				//                Debug.Log("currPt2:"+currPt2);
 
 				//                GL.Vertex(prevPt);
@@ -4389,13 +4389,13 @@ public class LTRect : object
 {
 	public static bool colorTouched;
 
-    /**
+	/**
 	 * Pass this value to the GUI Methods
 	 * 
 	 * @property rect
 	 * @type {Rect} rect:Rect Rect object that controls the positioning and size
 	 */
-    public Rect _rect;
+	public Rect _rect;
 
 	public float alpha = 1f;
 	public float rotation;
@@ -4468,7 +4468,7 @@ public class LTRect : object
 	{
 		get
 		{
-			var toId = _id | counter << 16;
+			int toId = _id | counter << 16;
 			/*uint backId = toId & 0xFFFF;
 			uint backCounter = toId >> 16;
 			if(_id!=backId || backCounter!=counter){
@@ -4573,7 +4573,7 @@ public class LTRect : object
 
 	public void resetForRotation()
 	{
-		var scale = new Vector3(GUI.matrix[0, 0], GUI.matrix[1, 1], GUI.matrix[2, 2]);
+		Vector3 scale = new Vector3(GUI.matrix[0, 0], GUI.matrix[1, 1], GUI.matrix[2, 2]);
 		if (pivot == Vector2.zero)
 		{
 			pivot = new Vector2((_rect.x + ((_rect.width) * 0.5f)) * scale.x + GUI.matrix[0, 3],
@@ -4693,7 +4693,7 @@ public class LTGUI
 			buttons = new Rect[BUTTONS_MAX];
 			buttonLevels = new int[BUTTONS_MAX];
 			buttonLastFrame = new int[BUTTONS_MAX];
-			for (var i = 0; i < buttonLevels.Length; i++)
+			for (int i = 0; i < buttonLevels.Length; i++)
 			{
 				buttonLevels[i] = -1;
 			}
@@ -4705,12 +4705,12 @@ public class LTGUI
 		if (isGUIEnabled)
 		{
 			isGUIEnabled = false;
-			for (var i = 0; i < levels.Length; i++)
+			for (int i = 0; i < levels.Length; i++)
 			{
 				levels[i] = null;
 			}
 
-			for (var i = 0; i < levelDepths.Length; i++)
+			for (int i = 0; i < levelDepths.Length; i++)
 			{
 				levelDepths[i] = 0;
 			}
@@ -4725,9 +4725,9 @@ public class LTGUI
 			if (levelDepths[updateLevel] > 0)
 			{
 				color = GUI.color;
-				var baseI = updateLevel * RECTS_PER_LEVEL;
-				var maxLoop = baseI + levelDepths[updateLevel]; // RECTS_PER_LEVEL;//;
-				for (var i = baseI; i < maxLoop; i++)
+				int baseI = updateLevel * RECTS_PER_LEVEL;
+				int maxLoop = baseI + levelDepths[updateLevel]; // RECTS_PER_LEVEL;//;
+				for (int i = baseI; i < maxLoop; i++)
 				{
 					r = levels[i];
 					// Debug.Log("r:"+r+" i:"+i);
@@ -4753,9 +4753,9 @@ public class LTGUI
 						}
 						else if (r.type == Element_Type.Texture && r.texture != null)
 						{
-							var size = r.useSimpleScale
-										   ? new Vector2(0f, r.rect.height * r.relativeRect.height)
-										   : new Vector2(r.rect.width, r.rect.height);
+							Vector2 size = r.useSimpleScale
+											   ? new Vector2(0f, r.rect.height * r.relativeRect.height)
+											   : new Vector2(r.rect.width, r.rect.height);
 							if (r.sizeByHeight)
 							{
 								size.x = r.texture.width / (float) r.texture.height * size.y;
@@ -4782,17 +4782,17 @@ public class LTGUI
 
 	public static bool checkOnScreen(Rect rect)
 	{
-		var offLeft = rect.x + rect.width < 0f;
-		var offRight = rect.x > Screen.width;
-		var offBottom = rect.y > Screen.height;
-		var offTop = rect.y + rect.height < 0f;
+		bool offLeft = rect.x + rect.width < 0f;
+		bool offRight = rect.x > Screen.width;
+		bool offBottom = rect.y > Screen.height;
+		bool offTop = rect.y + rect.height < 0f;
 		return !(offLeft || offRight || offBottom || offTop);
 	}
 
 	public static void destroy(int id)
 	{
-		var backId = id & 0xFFFF;
-		var backCounter = id >> 16;
+		int backId = id & 0xFFFF;
+		int backCounter = id >> 16;
 		if (id >= 0 && levels[backId] != null && levels[backId].hasInitiliazed && levels[backId].counter == backCounter)
 			levels[backId] = null;
 	}
@@ -4800,8 +4800,8 @@ public class LTGUI
 	public static void destroyAll(int depth)
 	{
 		// clears all gui elements on depth
-		var maxLoop = depth * RECTS_PER_LEVEL + RECTS_PER_LEVEL;
-		for (var i = depth * RECTS_PER_LEVEL; levels != null && i < maxLoop; i++)
+		int maxLoop = depth * RECTS_PER_LEVEL + RECTS_PER_LEVEL;
+		for (int i = depth * RECTS_PER_LEVEL; levels != null && i < maxLoop; i++)
 		{
 			levels[i] = null;
 		}
@@ -4835,8 +4835,8 @@ public class LTGUI
 	{
 		isGUIEnabled = true;
 		init();
-		var maxLoop = depth * RECTS_PER_LEVEL + RECTS_PER_LEVEL;
-		var k = 0;
+		int maxLoop = depth * RECTS_PER_LEVEL + RECTS_PER_LEVEL;
+		int k = 0;
 		if (rect != null)
 		{
 			destroy(rect.id);
@@ -4855,7 +4855,7 @@ public class LTGUI
 			rect.relativeRect = new Rect(0f, 0f, Screen.width, Screen.height);
 		}
 
-		for (var i = depth * RECTS_PER_LEVEL; i < maxLoop; i++)
+		for (int i = depth * RECTS_PER_LEVEL; i < maxLoop; i++)
 		{
 			r = levels[i];
 			if (r == null)
@@ -4885,9 +4885,9 @@ public class LTGUI
 	public static bool hasNoOverlap(Rect rect, int depth)
 	{
 		initRectCheck();
-		var hasNoOverlap = true;
-		var wasAddedToList = false;
-		for (var i = 0; i < buttonLevels.Length; i++)
+		bool hasNoOverlap = true;
+		bool wasAddedToList = false;
+		for (int i = 0; i < buttonLevels.Length; i++)
 		{
 			// Debug.Log("buttonLastFrame["+i+"]:"+buttonLastFrame[i]);
 			//Debug.Log("buttonLevels["+i+"]:"+buttonLevels[i]);
@@ -4933,10 +4933,10 @@ public class LTGUI
 
 	public static bool pressedWithinRect(Rect rect)
 	{
-		var vec2 = firstTouch();
+		Vector2 vec2 = firstTouch();
 		if (vec2.x < 0f)
 			return false;
-		var vecY = Screen.height - vec2.y;
+		float vecY = Screen.height - vec2.y;
 		return (vec2.x > rect.x && vec2.x < rect.x + rect.width && vecY > rect.y && vecY < rect.y + rect.height);
 	}
 

@@ -28,8 +28,8 @@ public class TrampolineDamage : MonoBehaviour
 	private void DamageEnemy()
 	{
 		animator.SetTrigger("attack");
-		var enemies = Physics2D.OverlapBoxAll(transform.position, size, 0, 1 << LayerMask.NameToLayer("Enemy"));
-		foreach (var enemy in enemies)
+		Collider2D[] enemies = Physics2D.OverlapBoxAll(transform.position, size, 0, 1 << LayerMask.NameToLayer("Enemy"));
+		foreach (Collider2D enemy in enemies)
 		{
 			enemy.gameObject.GetComponent<IHealth>().TakeDamage(damage);
 		}
