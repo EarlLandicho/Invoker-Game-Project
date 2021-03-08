@@ -1,6 +1,6 @@
 ﻿public interface IMovement
 {
-	void SetMovementSpeedByFactor(float factor, bool isSetting);
+	void SetMovementSpeedByAddition(float number);
 
 	void SetMovementSpeedModifierToDefault();
 

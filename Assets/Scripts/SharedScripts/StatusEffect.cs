@@ -24,14 +24,11 @@ public class StatusEffect : MonoBehaviour
 
 	//can make the health, movement, and jump an interface such that this file can be used by many characters
 	private IHealth health;
-	private bool isBurning;
 	private bool isImmuneToBurningTemp;
 	private bool isImmuneToOilTemp;
 	private bool isImmuneToPoisonTemp;
 	private bool isImmuneToStunTemp;
 	private bool isOiled;
-	private bool isPoisoned;
-	private bool isStunned;
 	private bool isTickHealing;
 	private IJump jump;
 	private IMovement movement;
@@ -57,31 +54,6 @@ public class StatusEffect : MonoBehaviour
 		isImmuneToOilTemp = isImmuneToOil;
 		isImmuneToPoisonTemp = isImmuneToPoison;
 		isImmuneToStunTemp = isImmuneToStun;
-	}
-
-	public bool GetIsPoisoned()
-	{
-		return isPoisoned;
-	}
-
-	public bool GetIsBurning()
-	{
-		return isBurning;
-	}
-
-	public bool GetIsOiled()
-	{
-		return isOiled;
-	}
-
-	public bool GetIsTickHealing()
-	{
-		return isTickHealing;
-	}
-
-	public bool GetIsStunned()
-	{
-		return isStunned;
 	}
 
 	public void BecomeArmored(float damageModifier, float duration)
@@ -119,8 +91,15 @@ public class StatusEffect : MonoBehaviour
 	{
 		if (!isImmuneToOilTemp)
 		{
-			//stopping first to reset the cooldown
-			StartCoroutine("Oil");
+			if (isOiled)
+			{
+				RemoveOil();
+				StartCoroutine("Oil");
+			}
+			else
+			{
+				StartCoroutine("Oil");
+			}
 		}
 	}
 
@@ -168,31 +147,14 @@ public class StatusEffect : MonoBehaviour
 
 	public void Dispel()
 	{
-		burningDamageAmountCounter = 0;
-		isBurning = false;
-		CancelInvoke("Burn");
-		poisonDamageAmountCounter = 0;
-		isPoisoned = false;
-		CancelInvoke("Poison");
-		isOiled = false;
-		StopCoroutine("Oil");
-
-		//sets movementSppedModiier to 1
-		movement.SetMovementSpeedModifierToDefault();
-		jump.SetJumpHeightToDefault();
-		if (GetComponent<IJump>() != null)
-		{
-			jump.SetJumpHeightToDefault();
-		}
-
-		isOiled = false;
-		isTickHealing = false;
-		healAmountCounter = 0;
-		CancelInvoke("TickHeal");
-		if (GetComponent<IEnemyAttack>() != null)
-		{
-			enemyAttack.SetLockAttack(true);
-		}
+		RemoveBurning();
+		RemovePoison();
+		RemoveOil();
+		
+		// if (GetComponent<IEnemyAttack>() != null)
+		// {
+		// 	enemyAttack.SetLockAttack(true);
+		// }
 
 		if (GetComponent<IJump>() != null)
 		{
@@ -213,10 +175,36 @@ public class StatusEffect : MonoBehaviour
 		StopCoroutine("StatusEffectImmune");
 		StartCoroutine("StatusEffectImmune");
 	}
+	
+	private void RemovePoison()
+	{
+		poisonDamageAmountCounter = 0;
+		CancelInvoke("Poison");
+	}
+
+	private void RemoveBurning()
+	{
+		burningDamageAmountCounter = 0;
+		CancelInvoke("Burn");
+	}
+
+	private void RemoveOil()
+	{
+		if (isOiled)
+		{
+			movement.SetMovementSpeedByAddition(Constants.OilMovementDecreaseNumber);
+			movement.SetMovementSpeedModifierToDefault();
+			if (GetComponent<IJump>() != null)
+			{
+				jump.SetJumpHeightToDefault();
+			}
+			isOiled = false;
+			StopCoroutine("Oil");
+		}
+	}
 
 	private void Burn()
 	{
-		isBurning = true;
 		float burningTickDamage;
 		if (isOiled)
 		{
@@ -233,37 +221,29 @@ public class StatusEffect : MonoBehaviour
 		burningDamageAmountCounter += burningTickDamage;
 		if (burningDamageAmountCounter >= Constants.BurningDamageAmount)
 		{
-			burningDamageAmountCounter = 0;
-			isBurning = false;
-			CancelInvoke("Burn");
+			RemoveBurning();
 		}
 	}
 
 	private void Poison()
 	{
-		isPoisoned = true;
 		var poisonTickDamage = Constants.PoisonDamageAmount * Constants.PoisonTickPerSecond / Constants.PoisonDuration;
 		health.TakeDamage(poisonTickDamage, true);
 		poisonDamageAmountCounter += poisonTickDamage;
 		if (poisonDamageAmountCounter >= Constants.PoisonDamageAmount)
 		{
-			poisonDamageAmountCounter = 0;
-			isPoisoned = false;
-			CancelInvoke("Poison");
+			RemovePoison();
 		}
 	}
 
 	private void TickHeal()
 	{
-		isTickHealing = true;
 		var healTick = healAmount * Constants.HealTickPerSecond / healDuration;
 		health.TakeHealing(healTick);
 		healAmountCounter += healTick;
 		if (healAmountCounter >= healAmount)
 		{
-			isTickHealing = false;
 			healAmountCounter = 0;
-			healAmount = 0;
 			CancelInvoke("TickHeal");
 		}
 	}
@@ -271,26 +251,19 @@ public class StatusEffect : MonoBehaviour
 	private IEnumerator Oil()
 	{
 		isOiled = true;
-		movement.SetMovementSpeedByFactor(Constants.OilMovementDecreseFactor, true);
+		movement.SetMovementSpeedByAddition(-Constants.OilMovementDecreaseNumber);
 		if (GetComponent<IJump>() != null)
 		{
 			jump.SetJumpHeightToDefault();
-			jump.SetJumpHeightByFactor(Constants.OilJumpHeightDecreseFactor);
+			jump.SetJumpHeightByFactor(Constants.OilJumpHeightDecreaseFactor);
 		}
 
 		yield return new WaitForSeconds(Constants.OilDuration);
-		movement.SetMovementSpeedByFactor(Constants.OilMovementDecreseFactor, false);
-		if (GetComponent<IJump>() != null)
-		{
-			jump.SetJumpHeightToDefault();
-		}
-
-		isOiled = false;
+		RemoveOil();
 	}
 
 	private IEnumerator Stun()
 	{
-		isStunned = true;
 		if (GetComponent<IJump>() != null)
 		{
 			jump.SetLockJump(true);
@@ -325,9 +298,9 @@ public class StatusEffect : MonoBehaviour
 
 	private IEnumerator Bubble()
 	{
-		movement.SetMovementSpeedByFactor(bubbleMovementSpeedModifier, true);
+		movement.SetMovementSpeedByAddition(bubbleMovementSpeedModifier);
 		yield return new WaitForSeconds(bubbleDuration);
-		movement.SetMovementSpeedByFactor(bubbleMovementSpeedModifier, false);
+		movement.SetMovementSpeedByAddition(-bubbleMovementSpeedModifier);
 	}
 
 	private IEnumerator StatusEffectImmune()

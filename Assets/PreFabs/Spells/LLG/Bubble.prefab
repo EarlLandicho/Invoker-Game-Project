@@ -112,4 +112,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubbleDuration: 10
-  movementSpeedFactor: 1.5
+  movementSpeedFactor: 0.6

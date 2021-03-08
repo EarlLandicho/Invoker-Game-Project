@@ -25,7 +25,7 @@ public class WingsMovement : MonoBehaviour
 
 		instance = this;
 		playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-		playerMovement.SetMovementSpeedByFactor(flightSpeedFactor, true);
+		playerMovement.SetMovementSpeedByAddition(flightSpeedFactor);
 		playerMovement.SetIsFlying(true);
 		flightDurationTemp = flightDuration;
 	}
@@ -51,7 +51,7 @@ public class WingsMovement : MonoBehaviour
 
 	public void CancelFlight()
 	{
-		playerMovement.SetMovementSpeedByFactor(flightSpeedFactor, false);
+		playerMovement.SetMovementSpeedByAddition(-flightSpeedFactor);
 		playerMovement.SetIsFlying(false);
 	}
 }

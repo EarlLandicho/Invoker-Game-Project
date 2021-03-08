@@ -18,7 +18,7 @@ public class FlashWhenDamaged : MonoBehaviour
 	public void FlashSprite()
 	{
 		GetComponent<SpriteRenderer>().color = color;
-		Invoke("ResetColor", Constants.flashDuration);
+		Invoke("ResetColor", Constants.FlashDuration);
 	}
 
 	private void ResetColor()

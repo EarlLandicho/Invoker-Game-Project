@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flightDuration: 5
-  flightSpeedFactor: 1.5
+  flightSpeedFactor: 0.6
 --- !u!114 &1562403756854939827
 MonoBehaviour:
   m_ObjectHideFlags: 0

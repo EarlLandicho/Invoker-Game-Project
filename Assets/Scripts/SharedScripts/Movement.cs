@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour, IMovement
 {
 	[SerializeField] protected float movementSpeed;
 	protected bool isXMovementSpeedLocked;
-	protected float movementSpeedModifier = 1;
+	protected float movementSpeedModifier = 0;
 	protected float movementSpeedTemp;
 	protected Rigidbody2D rb;
 
@@ -38,26 +38,18 @@ public class Movement : MonoBehaviour, IMovement
 		}
 		else
 		{
-			movementSpeed = movementSpeedTemp * movementSpeedModifier;
+			movementSpeed = movementSpeedTemp + movementSpeedModifier;
 		}
 	}
 
-	public virtual void SetMovementSpeedByFactor(float factor, bool isSetting)
+	public virtual void SetMovementSpeedByAddition(float number)
 	{
-		if (isSetting)
-		{
-			movementSpeedModifier *= factor;
-			Debug.Log("movement modifier set to" + movementSpeedModifier);
-		}
-		else
-		{
-			movementSpeedModifier /= factor;
-			Debug.Log("movement modifier reset to " + movementSpeedModifier);
-		}
+		movementSpeedModifier += number;
+		Debug.Log("movement added:  " + movementSpeedModifier);
 	}
 
 	public virtual void SetMovementSpeedModifierToDefault()
 	{
-		movementSpeedModifier = 1;
+		movementSpeedModifier = 0;
 	}
 }

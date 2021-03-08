@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0650c3487b6cd449a9e317177a25aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hibernateRealeaseSprite: {fileID: 2408167864731677379, guid: 0fc57f2ccd953c244879afc1eef9498e, type: 3}
+  hibernateReleaseSprite: {fileID: 2408167864731677379, guid: 0fc57f2ccd953c244879afc1eef9498e, type: 3}
 --- !u!114 &3725901138432656128
 MonoBehaviour:
   m_ObjectHideFlags: 0

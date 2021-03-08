@@ -37,14 +37,14 @@ public class PlayerMovement : Movement
 	{
 		if (!isXMovementSpeedLocked && !isFlying && !isHibernating)
 		{
-			rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementSpeed * movementSpeedModifier,
+			rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * (movementSpeed + movementSpeedModifier),
 									  rb.velocity.y);
 		}
 		else if (isFlying)
 		{
-			rb.velocity = new Vector2(Input.GetAxis("Horizontal") * movementSpeed * movementSpeedModifier,
+			rb.velocity = new Vector2(Input.GetAxis("Horizontal") * (movementSpeed + movementSpeedModifier),
 									  rb.velocity.y);
-			rb.velocity = new Vector2(rb.velocity.x, Input.GetAxis("Vertical") * movementSpeed * movementSpeedModifier);
+			rb.velocity = new Vector2(rb.velocity.x, Input.GetAxis("Vertical") * (movementSpeed + movementSpeedModifier));
 		}
 		else if (!isFlying && isHibernating)
 		{
