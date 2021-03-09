@@ -12,6 +12,11 @@ public class StatusEffect : MonoBehaviour
 	[SerializeField] private bool isImmuneToPoison;
 	[SerializeField] private bool isImmuneToOil;
 	[SerializeField] private bool isImmuneToStun;
+	[SerializeField] private GameObject poisonEffect;
+	[SerializeField] private GameObject burnEffect;
+	[SerializeField] private GameObject oilEffect;
+	[SerializeField] private GameObject stunEffect;
+	
 	private float armorDamageModifier;
 	private float armorDuration;
 	private float bubbleDuration;
@@ -34,6 +39,11 @@ public class StatusEffect : MonoBehaviour
 	private IMovement movement;
 	private float poisonDamageAmountCounter;
 	private float statusEffectImmuneDuration;
+
+	private GameObject currentPoisonEffect;
+	private GameObject currentBurnEffect;
+	private GameObject currentOilEffect;
+	private GameObject currentStunEffect;
 
 	private void Awake()
 	{
@@ -76,14 +86,12 @@ public class StatusEffect : MonoBehaviour
 		{
 			if (IsInvoking("Poison"))
 			{
-				CancelInvoke("Poison");
-				poisonDamageAmountCounter = 0;
-				InvokeRepeating("Poison", 0, Constants.PoisonTickPerSecond);
+				RemovePoison();
 			}
-			else
-			{
-				InvokeRepeating("Poison", 0, Constants.PoisonTickPerSecond);
-			}
+
+			currentPoisonEffect = Instantiate(poisonEffect, transform.position, transform.rotation);
+			currentPoisonEffect.transform.parent = gameObject.transform;
+			InvokeRepeating("Poison", 0, Constants.PoisonTickPerSecond);
 		}
 	}
 
@@ -94,12 +102,10 @@ public class StatusEffect : MonoBehaviour
 			if (isOiled)
 			{
 				RemoveOil();
-				StartCoroutine("Oil");
 			}
-			else
-			{
-				StartCoroutine("Oil");
-			}
+			currentOilEffect = Instantiate(oilEffect, transform.position, transform.rotation);
+			currentOilEffect.transform.parent = gameObject.transform;
+			StartCoroutine("Oil");
 		}
 	}
 
@@ -109,14 +115,11 @@ public class StatusEffect : MonoBehaviour
 		{
 			if (IsInvoking("Burn"))
 			{
-				CancelInvoke("Burn");
-				burningDamageAmountCounter = 0;
-				InvokeRepeating("Burn", 0, Constants.BurningTickPerSecond);
+				RemoveBurning();
 			}
-			else
-			{
-				InvokeRepeating("Burn", 0, Constants.BurningTickPerSecond);
-			}
+			currentBurnEffect = Instantiate(burnEffect, transform.position, transform.rotation);
+			currentBurnEffect.transform.parent = gameObject.transform;
+			InvokeRepeating("Burn", 0, Constants.BurningTickPerSecond);
 		}
 	}
 
@@ -126,6 +129,9 @@ public class StatusEffect : MonoBehaviour
 		{
 			StopCoroutine("Stun");
 			StartCoroutine("Stun");
+			
+			currentStunEffect = Instantiate(stunEffect, transform.position, transform.rotation);
+			currentStunEffect.transform.parent = gameObject.transform;
 		}
 	}
 
@@ -150,18 +156,15 @@ public class StatusEffect : MonoBehaviour
 		RemoveBurning();
 		RemovePoison();
 		RemoveOil();
+		RemoveStun();
 
 		// if (GetComponent<IEnemyAttack>() != null)
 		// {
 		// 	enemyAttack.SetLockAttack(true);
 		// }
-		if (GetComponent<IJump>() != null)
-		{
-			jump.SetLockJump(false);
-		}
-
-		movement.SetLockXMovement(false);
 	}
+
+
 
 	public void BecomeInvulnerable(bool isInvulnerable)
 	{
@@ -179,12 +182,14 @@ public class StatusEffect : MonoBehaviour
 	{
 		poisonDamageAmountCounter = 0;
 		CancelInvoke("Poison");
+		Destroy(currentPoisonEffect);
 	}
 
 	private void RemoveBurning()
 	{
 		burningDamageAmountCounter = 0;
 		CancelInvoke("Burn");
+		Destroy(currentBurnEffect);
 	}
 
 	private void RemoveOil()
@@ -192,7 +197,6 @@ public class StatusEffect : MonoBehaviour
 		if (isOiled)
 		{
 			movement.SetMovementSpeedByAddition(Constants.OilMovementDecreaseNumber);
-			movement.SetMovementSpeedModifierToDefault();
 			if (GetComponent<IJump>() != null)
 			{
 				jump.SetJumpHeightToDefault();
@@ -200,7 +204,20 @@ public class StatusEffect : MonoBehaviour
 
 			isOiled = false;
 			StopCoroutine("Oil");
+			
+			Destroy(currentOilEffect);
 		}
+	}
+	
+	private void RemoveStun()
+	{
+		if (GetComponent<IJump>() != null)
+		{
+			jump.SetLockJump(false);
+		}
+
+		movement.SetLockXMovement(false);
+		Destroy(currentStunEffect);
 	}
 
 	private void Burn()
@@ -287,6 +304,7 @@ public class StatusEffect : MonoBehaviour
 		}
 
 		movement.SetLockXMovement(false);
+		Destroy(currentStunEffect);
 	}
 
 	private IEnumerator Armor()
@@ -301,6 +319,7 @@ public class StatusEffect : MonoBehaviour
 		movement.SetMovementSpeedByAddition(bubbleMovementSpeedModifier);
 		yield return new WaitForSeconds(bubbleDuration);
 		movement.SetMovementSpeedByAddition(-bubbleMovementSpeedModifier);
+
 	}
 
 	private IEnumerator StatusEffectImmune()

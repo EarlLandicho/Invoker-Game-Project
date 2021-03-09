@@ -13,6 +13,7 @@ public class PlayerJump : MonoBehaviour, IJump
 	private bool isGrounded;
 	private float jumpHeightTemp;
 	private Rigidbody2D rb;
+	private bool jumpIsLocked;
 
 	private void Awake()
 	{
@@ -23,7 +24,7 @@ public class PlayerJump : MonoBehaviour, IJump
 
 	private void Update()
 	{
-		if (!FeedbackForm.formIsOpened)
+		if (!FeedbackForm.formIsOpened && !jumpIsLocked)
 		{
 			JumpCheck();
 		}
@@ -36,7 +37,7 @@ public class PlayerJump : MonoBehaviour, IJump
 
 	public void SetLockJump(bool isLocked)
 	{
-		//this.isLocked = isLocked;
+		jumpIsLocked = isLocked;
 	}
 
 	public void SetJumpHeightByFactor(float factor)

@@ -333,7 +333,7 @@ public class SpellCooldownUI : MonoBehaviour
 
 	private void CheckLLL()
 	{
-		LLL_fill.fillAmount = (spiritcast.GetLLL_cooldown() - spiritcast.GetLL_timer()) / spiritcast.GetLLL_cooldown();
+		LLL_fill.fillAmount = (spiritcast.GetLLL_cooldown() - spiritcast.GetLLL_timer()) / spiritcast.GetLLL_cooldown();
 		if (spiritcast.GetLLL_isOffCooldown())
 		{
 			LLL_fill.enabled = false;

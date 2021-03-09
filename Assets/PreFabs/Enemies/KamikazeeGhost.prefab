@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  DeathAnimationObject: {fileID: 8840700803071947239, guid: b49b357b82623be489b4729575cca4b3, type: 3}
+  deathAnimationObject: {fileID: 8840700803071947239, guid: b49b357b82623be489b4729575cca4b3, type: 3}
   comboBarIncreaseAmount: 5
 --- !u!114 &1066322476
 MonoBehaviour:
@@ -226,6 +226,10 @@ MonoBehaviour:
   isImmuneToPoison: 0
   isImmuneToOil: 0
   isImmuneToStun: 0
+  poisonEffect: {fileID: 5599007342387311823, guid: f38b5008664564a4faf9b11c0ac945db, type: 3}
+  burnEffect: {fileID: 2567786176413730799, guid: 6dd16fce053dfe745a0afe46cc1cdd45, type: 3}
+  oilEffect: {fileID: 5172018331442002829, guid: 56baf3e1b74b25540aa65a0d0df08984, type: 3}
+  stunEffect: {fileID: 6914191067323182004, guid: 9553292fdcb566949a1b30de2f85bc82, type: 3}
 --- !u!114 &1066322477
 MonoBehaviour:
   m_ObjectHideFlags: 0

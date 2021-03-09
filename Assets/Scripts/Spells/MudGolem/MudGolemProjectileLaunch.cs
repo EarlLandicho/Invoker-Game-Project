@@ -17,6 +17,7 @@ public class MudGolemProjectileLaunch : MonoBehaviour
 	private bool isAttacking;
 	private MovementFlip movementFlip;
 	private MudGolem mudGolem;
+	private GameObject targetGameObject;
 	private Vector3 target;
 
 	private void Awake()
@@ -60,7 +61,7 @@ public class MudGolemProjectileLaunch : MonoBehaviour
 	public void ThrowBoulderProjectile()
 	{
 		GameObject projectileObject = Instantiate(projectile, transform.position, transform.rotation);
-		projectileObject.GetComponent<MudGolemProjectile>().SetTarget(target);
+		projectileObject.GetComponent<MudGolemProjectile>().SetTarget(targetGameObject.transform.position);
 		projectileObject.GetComponent<MudGolemProjectile>().SetMoxGolemRange(attackRangeRadius);
 		mudGolem.SetCanMove(true);
 		isAttacking = false;
@@ -68,12 +69,12 @@ public class MudGolemProjectileLaunch : MonoBehaviour
 
 	private void AttackRandomEnemyInRange()
 	{
-		Collider2D[] enemies =
-			Physics2D.OverlapCircleAll(transform.position, attackRangeRadius, 1 << LayerMask.NameToLayer("Enemy"));
+		Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, attackRangeRadius, 1 << LayerMask.NameToLayer("Enemy"));
 		if (enemies.Length > 0)
 		{
 			int ranNum = Random.Range(0, enemies.Length);
-			target = enemies[ranNum].gameObject.transform.position;
+			targetGameObject = enemies[ranNum].gameObject;
+			target = targetGameObject.transform.position;
 			StartCoroutine("DelayAttack");
 		}
 	}
