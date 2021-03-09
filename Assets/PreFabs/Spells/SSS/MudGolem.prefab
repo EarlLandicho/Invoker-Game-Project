@@ -204,8 +204,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.026852489, y: -0.031996906}
-  m_Size: {x: 0.24722266, y: 0.3578947}
+  m_Offset: {x: 0.015479505, y: -0.02427955}
+  m_Size: {x: 0.18873322, y: 0.37332943}
   m_Direction: 0
 --- !u!95 &7356677309352395572
 Animator:
@@ -311,3 +311,7 @@ MonoBehaviour:
   isImmuneToPoison: 1
   isImmuneToOil: 1
   isImmuneToStun: 1
+  poisonEffect: {fileID: 0}
+  burnEffect: {fileID: 0}
+  oilEffect: {fileID: 0}
+  stunEffect: {fileID: 0}

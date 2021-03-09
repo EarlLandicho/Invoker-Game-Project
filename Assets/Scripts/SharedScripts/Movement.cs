@@ -45,7 +45,7 @@ public class Movement : MonoBehaviour, IMovement
 	public virtual void SetMovementSpeedByAddition(float number)
 	{
 		movementSpeedModifier += number;
-		Debug.Log("movement added:  " + movementSpeedModifier);
+		//Debug.Log("movement added:  " + movementSpeedModifier);
 	}
 
 	public virtual void SetMovementSpeedModifierToDefault()

@@ -13,7 +13,9 @@ public class MudGolemProjectile : MonoBehaviour
 	[SerializeField] private GameObject explosionAnimation;
 	private float arc;
 	private float baseY;
-	private float dist;
+	private float distX;
+	private float distY;
+	private float distXY;
 	private float maxGolemRange;
 	private float nextXPos;
 	private Vector3 startPosition;
@@ -25,17 +27,21 @@ public class MudGolemProjectile : MonoBehaviour
 	{
 		startPosition = transform.position;
 		arcHeight = Mathf.Abs(arcHeight * (targetPositon.x - startPosition.x) / maxGolemRange);
+		
+		xPosStart = startPosition.x;
+		xPosTarget = targetPositon.x;
+		distX = xPosTarget - xPosStart;
+		distY = startPosition.y - targetPositon.y;
+		Debug.Log(distY);
+
 	}
 
 	private void Update()
 	{
-		xPosStart = startPosition.x;
-		xPosTarget = targetPositon.x;
-		dist = xPosTarget - xPosStart;
-		nextXPos = Mathf.MoveTowards(transform.position.x, xPosTarget, speed * Time.deltaTime);
-		baseY = Mathf.Lerp(startPosition.y, targetPositon.y, (nextXPos - xPosStart) / dist);
-		arc = arcHeight * (nextXPos - xPosStart) * (nextXPos - xPosTarget) / (-0.25f * dist * dist);
-		transform.position = new Vector3(nextXPos, baseY + arc, transform.position.z);
+		nextXPos = Mathf.MoveTowards(transform.position.x, xPosTarget, Mathf.Clamp(speed / (Mathf.Abs(distY) + .01f), .1f, 5f) * Time.deltaTime);
+		baseY = Mathf.Lerp(startPosition.y, targetPositon.y, (nextXPos - xPosStart) / distX);
+		arc = arcHeight * (nextXPos - xPosStart) * (nextXPos - xPosTarget) / (-0.25f * distX * distX);
+		transform.position = new Vector3(nextXPos, baseY + arc, 0);
 		if (transform.position == targetPositon)
 		{
 			ExplosionDamage();
