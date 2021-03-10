@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471515369836077349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.44918022, y: -0.08556868, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1234176957}
@@ -179,6 +179,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 604636888622711988}
     m_Modifications:
+    - target: {fileID: 273227324658211773, guid: a56f5ad9ae0415048bf35a736e1907f3, type: 3}
+      propertyPath: damage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 273227324658211773, guid: a56f5ad9ae0415048bf35a736e1907f3, type: 3}
+      propertyPath: comboBarDamageAdded
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 273227324658211774, guid: a56f5ad9ae0415048bf35a736e1907f3, type: 3}
       propertyPath: m_RootOrder
       value: 0

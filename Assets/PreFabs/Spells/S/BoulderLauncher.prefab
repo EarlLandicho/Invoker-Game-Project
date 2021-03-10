@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &273227324658211775
+--- !u!1 &378016806935190707
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 273227324658211774}
-  - component: {fileID: 273227324658211773}
+  - component: {fileID: 823709561766986533}
+  - component: {fileID: 2928829023318614375}
   m_Layer: 0
-  m_Name: BoulderAOEDamage
+  m_Name: BoulderLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &273227324658211774
+--- !u!4 &823709561766986533
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273227324658211775}
+  m_GameObject: {fileID: 378016806935190707}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,18 +31,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &273227324658211773
+--- !u!114 &2928829023318614375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273227324658211775}
+  m_GameObject: {fileID: 378016806935190707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70df01469397b024e9f669cfdb675086, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f4d5dea327da3141a93024278ef8203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
-  radiusRange: 0.1
-  comboBarDamageAdded: 1
+  boulder: {fileID: 1471515369836077349, guid: 4dcf66115c9166f4bac66d4fd7047d91, type: 3}
+  randomYForHorizontal: 75
+  randomXForVertical: 75

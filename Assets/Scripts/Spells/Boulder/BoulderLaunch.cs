@@ -10,6 +10,11 @@ public class BoulderLaunch : MonoBehaviour
 	[SerializeField] private float speedX;
 	[SerializeField] private float upwardForce;
 	[SerializeField] private float speedY;
+	private float sideForce;
+
+	
+
+	
 	private PlayerJump playerJump;
 	private Rigidbody2D rb;
 
@@ -24,10 +29,12 @@ public class BoulderLaunch : MonoBehaviour
 		if (Input.GetKey(KeyCode.W))
 		{
 			rb.velocity = transform.up * speedY;
+			rb.AddForce(new Vector2(sideForce, 0));
 		}
 		else if (Input.GetKey(KeyCode.S))
 		{
 			rb.velocity = -transform.up * speedY;
+			rb.AddForce(new Vector2(sideForce, 0));
 			playerJump.Jump();
 		}
 		else
@@ -36,4 +43,16 @@ public class BoulderLaunch : MonoBehaviour
 			rb.AddForce(new Vector2(0, upwardForce));
 		}
 	}
+
+	public void AddToUpwardForce(float force)
+	{
+		upwardForce += force;
+	}
+
+	public void AddToSideForce(float force)
+	{
+		sideForce += force;
+	}
+
+
 }
