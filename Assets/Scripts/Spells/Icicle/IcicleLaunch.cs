@@ -17,11 +17,9 @@ public class IcicleLaunch : MonoBehaviour
 
 	public void Launch(float zRotation)
 	{
-		transform.eulerAngles = new Vector3(
-											transform.eulerAngles.x,
-											transform.eulerAngles.y,
-											transform.eulerAngles.z + zRotation);
+		transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + zRotation);
 		icicleRigidbody.velocity = new Vector2(0f, speed);
+
 		switch (zRotation)
 		{
 			case 90:
@@ -34,5 +32,14 @@ public class IcicleLaunch : MonoBehaviour
 				icicleRigidbody.velocity = new Vector2(speed, 0f) * transform.right;
 				break;
 		}
+	}
+	public void LaunchRadial(float zRotation)
+	{
+		transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + zRotation);
+		icicleRigidbody.velocity = new Vector2(0f, speed);
+
+		float rotationRadians = zRotation * Mathf.PI / 180;
+
+		icicleRigidbody.velocity = new Vector2(Mathf.Cos(rotationRadians), Mathf.Sin(rotationRadians)) * speed;
 	}
 }

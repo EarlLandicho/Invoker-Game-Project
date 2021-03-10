@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using UnityEngine;
 
 #endregion
@@ -7,7 +8,17 @@ using UnityEngine;
 public class IcicleDamage : MonoBehaviour
 {
 	[SerializeField] private float damage;
+	[SerializeField] private float comboBarAddedDamage;
+
+	private ComboBar comboBar;
+	private float damageTemp;
 	private bool isColliding;
+
+	private void Awake()
+	{
+		comboBar = GameObject.Find("GameManager").GetComponent<ComboBar>();
+		damageTemp = damage;
+	}
 
 	private void Update()
 	{
@@ -16,7 +27,7 @@ public class IcicleDamage : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collider)
 	{
-		//prevents multiple collisions
+		// Prevents multiple collisions
 		if (isColliding)
 		{
 			return;
@@ -25,7 +36,25 @@ public class IcicleDamage : MonoBehaviour
 		isColliding = true;
 		if (collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
 		{
-			collider.gameObject.GetComponent<IHealth>().TakeDamage(damage);
+			ComboBarCheck();
+			collider.gameObject.GetComponent<IHealth>().TakeDamage(damageTemp);
+		}
+	}
+	
+	private void ComboBarCheck()
+	{
+		switch (comboBar.GetComboBarStage())
+		{
+			case 1:
+				damageTemp = damage;
+				break;
+			case 2:
+				damageTemp = damage + comboBarAddedDamage;
+				break;
+			case 3:
+			case 4:
+				damageTemp = damage + 2 * comboBarAddedDamage;
+				break;
 		}
 	}
 }

@@ -15,14 +15,8 @@ public class LavaBurstLaunch : MonoBehaviour
 		for (int i = 0; i < numberofProjectiles; i++)
 		{
 			Instantiate(projectile, transform.position, transform.rotation).GetComponent<Rigidbody2D>()
-																		   .AddForce((Quaternion
-																					 .AngleAxis((360 / numberofProjectiles) * i,
-																								Vector3
-																								   .forward)
-																					 .normalized *
-																					  new
-																						  Vector2(projectileForce,
-																								  0)));
+																		   .AddForce((Quaternion.AngleAxis((360 / numberofProjectiles) * i, Vector3.forward)
+																					 .normalized *new Vector2(projectileForce, 0)));
 		}
 	}
 }

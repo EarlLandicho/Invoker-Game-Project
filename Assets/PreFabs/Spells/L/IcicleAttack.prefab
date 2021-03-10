@@ -43,7 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22e198b926f9d348bc27d4a18fe8b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icicleProjetile: {fileID: 6897999062996099199, guid: 3607c79d5151e9a4f869962901c96b46, type: 3}
+  icicleProjectile: {fileID: 6897999062996099199, guid: 3607c79d5151e9a4f869962901c96b46, type: 3}
   launchDelay: 0.2
   numberOfProjectiles: 6
   randomLaunchPositionRadius: 0.04
+  comboBarExtraProjectiles: 8
