@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6346676100098582807}
   - component: {fileID: 716644509812389060}
-  - component: {fileID: 3602949204307200296}
   - component: {fileID: 8592450136900570323}
+  - component: {fileID: 3602949204307200296}
   - component: {fileID: 1264844032}
   m_Layer: 0
   m_Name: LightningAttack
@@ -85,24 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3602949204307200296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369233730298720890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae6cc2b476e86c5478d79f7c1be54e5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 50
-  centerOffSet: {x: 0, y: -0.09}
-  size: {x: 0.22, y: 0.6}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 131328
 --- !u!95 &8592450136900570323
 Animator:
   serializedVersion: 3
@@ -122,6 +104,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3602949204307200296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369233730298720890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae6cc2b476e86c5478d79f7c1be54e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  comboBarAddedDamage: 20
+  centerOffSet: {x: 0, y: -0.09}
+  size: {x: 0.22, y: 0.6}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 131328
 --- !u!114 &1264844032
 MonoBehaviour:
   m_ObjectHideFlags: 0
