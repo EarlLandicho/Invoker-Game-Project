@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using UnityEngine;
 
 #endregion
@@ -7,6 +8,7 @@ using UnityEngine;
 public class LightningDash : MonoBehaviour
 {
 	[SerializeField] private float damage = 10;
+	[SerializeField] private float comboBarAddedDamage;
 	[SerializeField] private float dashDistance;
 	[SerializeField] private float wallImpactCushion = .1f;
 	[SerializeField] private float yHitboxSize = .1f;
@@ -17,6 +19,9 @@ public class LightningDash : MonoBehaviour
 	private Transform playerTransform;
 	private Vector3 startingPosition;
 	private float xHitboxSize;
+	
+	private ComboBar comboBar;
+	private float damageTemp;
 
 	private void Awake()
 	{
@@ -24,6 +29,14 @@ public class LightningDash : MonoBehaviour
 		movementFlip = GameObject.Find("Player").GetComponent<MovementFlip>();
 		playerRigidBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
 		startingPosition = playerTransform.transform.position;
+		
+		comboBar = GameObject.Find("GameManager").GetComponent<ComboBar>();
+		
+		
+	}
+
+	private void Start()
+	{
 		FindTeleportPosition();
 		DealDamageInPath();
 		Instantiate(lightningDashAnimation, transform.position, transform.rotation);
@@ -72,8 +85,31 @@ public class LightningDash : MonoBehaviour
 		{
 			foreach (Collider2D enemyCol in enemies)
 			{
-				enemyCol.gameObject.GetComponent<IHealth>().TakeDamage(damage);
+				ComboBarCheck();
+				enemyCol.gameObject.GetComponent<IHealth>().TakeDamage(damageTemp);
+				
+				if (comboBar.GetComboBarStage() == 4)
+				{
+					enemyCol.gameObject.GetComponent<StatusEffect>().BecomeStunned();
+				}
 			}
+		}
+	}
+	
+	private void ComboBarCheck()
+	{
+		switch (comboBar.GetComboBarStage())
+		{
+			case 1:
+				damageTemp = damage;
+				break;
+			case 2:
+				damageTemp = damage + comboBarAddedDamage;
+				break;
+			case 3:
+			case 4:
+				damageTemp = damage + 2 * comboBarAddedDamage;
+				break;
 		}
 	}
 }

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 30
+  comboBarAddedDamage: 0
   dashDistance: 1.1
   wallImpactCushion: 0.1
   yHitboxSize: 0.1

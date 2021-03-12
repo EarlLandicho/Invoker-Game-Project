@@ -111,8 +111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: {x: 0.7, y: 0.5}
-  damage: 50
+  damage: 40
   slamParticleEffect: {fileID: 8265116852416997968, guid: fedae943c5d65744bbab0cec749ebe69, type: 3}
+  comboBarAddedDamage: 0
 --- !u!114 &6550760768082469529
 MonoBehaviour:
   m_ObjectHideFlags: 0
