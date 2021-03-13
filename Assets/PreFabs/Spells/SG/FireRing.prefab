@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1421006999445658105}
   - component: {fileID: 5890115985583220347}
   - component: {fileID: 6534258837619241943}
-  - component: {fileID: -3791979830464528158}
   m_Layer: 15
   m_Name: FireRing
   m_TagString: Untagged
@@ -137,17 +136,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impactDamage: 10
   explosionAnimation: {fileID: 2906731147557065520, guid: 1621ec61cf3c1894999102580c5d7979, type: 3}
---- !u!114 &-3791979830464528158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7882184107876905522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d30eb5428872534d8769b933c6c5f81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTimedDestroy: 1
-  timedDestroyTime: 6

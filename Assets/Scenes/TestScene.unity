@@ -720,6 +720,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 378016806935190707, guid: e83524fac1eb78a489d685c01f104d9a, type: 3}
     - target: {fileID: 2079792499243262318, guid: 45ee337e8755db4439f67976e5807fe3, type: 3}
+      propertyPath: SG_spell
+      value: 
+      objectReference: {fileID: 4521104237339757554, guid: b613ba833a3c04a4087064c9444394db, type: 3}
+    - target: {fileID: 2079792499243262318, guid: 45ee337e8755db4439f67976e5807fe3, type: 3}
       propertyPath: GGG_spell
       value: 
       objectReference: {fileID: 1649405850914242770, guid: fd133a551d5d08e44bb5b4152a08feed, type: 3}

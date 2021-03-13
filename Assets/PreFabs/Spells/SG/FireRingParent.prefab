@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 318463690089602153}
   - component: {fileID: 318463690089602152}
   - component: {fileID: 318463690089602159}
+  - component: {fileID: 3505782943648961512}
   m_Layer: 0
   m_Name: FireRingParent
   m_TagString: Untagged
@@ -62,3 +63,17 @@ MonoBehaviour:
   fireRing: {fileID: 7882184107876905522, guid: 4f20d2876617bc345bbdfeba86f237d7, type: 3}
   spiritRotationRadius: 0.25
   spiritRotateSpeed: 5
+--- !u!114 &3505782943648961512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318463690089602158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d30eb5428872534d8769b933c6c5f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTimedDestroy: 1
+  timedDestroyTime: 6

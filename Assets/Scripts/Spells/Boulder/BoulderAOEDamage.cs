@@ -29,8 +29,6 @@ public class BoulderAOEDamage : MonoBehaviour
 
 	private void DealAOEDamage()
 	{
-		
-
 		//need to do bit shift for the last parameter to work
 		Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radiusRange,
 														  1 << LayerMask.NameToLayer("Enemy"));
