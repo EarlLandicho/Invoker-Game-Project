@@ -6,24 +6,24 @@ using UnityEngine;
 
 public class TornadoLaunch : MonoBehaviour
 {
-	[SerializeField] private float distanceX;
-	[SerializeField] private float duration;
-	private MovementFlip playerMovementFlip;
+	[SerializeField] private GameObject tornado;
+	private ComboBar comboBar;
 
 	private void Awake()
 	{
-		playerMovementFlip = GameObject.Find("Player").GetComponent<MovementFlip>();
-		if (!playerMovementFlip.GetIsFacingRight())
-		{
-			distanceX *= -1;
-		}
-
-		LeanTween.moveX(gameObject, gameObject.transform.position.x + distanceX, duration).setEaseOutQuad()
-				 .setOnComplete(OnComplete);
+		comboBar = GameObject.Find("GameManager").GetComponent<ComboBar>();
 	}
 
-	private void OnComplete()
+	private void Start()
 	{
+		if (comboBar.GetComboBarStage() == 4)
+		{
+			GameObject obj = Instantiate(tornado, transform.position, transform.rotation);
+			obj.GetComponent<Tornado>().SetIsReversed();
+			obj.transform.Rotate(0f, 180, 0);
+		}
+		Instantiate(tornado, transform.position, transform.rotation);
+
 		Destroy(gameObject);
 	}
 }

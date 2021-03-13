@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7275798462595483119}
   - component: {fileID: 335657642107183272}
   - component: {fileID: 1005708185652725048}
-  - component: {fileID: 1535605624523440232}
+  - component: {fileID: 8905764112160140964}
   m_Layer: 0
   m_Name: Tornado
   m_TagString: Untagged
@@ -143,8 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b156ecee055c65c43a47cb02b8edc7c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
---- !u!114 &1535605624523440232
+  damage: 20
+  comboBarAddedDamage: 20
+--- !u!114 &8905764112160140964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +154,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5505930430290055758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ca769fae68c29c4ab83b6c386b3e641, type: 3}
+  m_Script: {fileID: 11500000, guid: e43a3e130d2be1741a03c2369868eb7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   distanceX: 2
