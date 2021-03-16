@@ -14,11 +14,10 @@ public class BoulderAOEDamage : MonoBehaviour
 	private float damageTemp;
 
 	private void Awake()
-	{
+	{		
 		transform.parent.GetComponent<BoulderDestroy>().BoulderDestroyed += DealAOEDamage;
 
 		comboBar = GameObject.Find("GameManager").GetComponent<ComboBar>();
-		damageTemp = damage;
 	}
 
 	private void Start()

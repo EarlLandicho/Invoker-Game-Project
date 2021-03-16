@@ -95,7 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0365f4ccd8f3df2488449c70165b365b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 0.5
+  explosionRadius: 0.6
+  comboBarAddedExplosionRadius: 0.2
   impactDamage: 5
+  comboBarAddedImpactDamage: 2
   poisonBubbleDamageSpeed: 1
   poisonBubbleDuration: 5
