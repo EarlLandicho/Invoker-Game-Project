@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 25
+  comboBarAddedDamage: 5
   size: {x: 1.43, y: 0.2}
   projectile: {fileID: 6009750786411843648, guid: c726f50bedda48c4993199ae0ef0cd66, type: 3}
 --- !u!114 &5992657384606152357

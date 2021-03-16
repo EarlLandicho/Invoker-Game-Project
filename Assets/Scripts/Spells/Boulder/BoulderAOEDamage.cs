@@ -21,6 +21,11 @@ public class BoulderAOEDamage : MonoBehaviour
 		damageTemp = damage;
 	}
 
+	private void Start()
+	{
+		damageTemp = damage;
+	}
+
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.red;

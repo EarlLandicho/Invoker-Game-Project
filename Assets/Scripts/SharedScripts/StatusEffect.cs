@@ -164,8 +164,6 @@ public class StatusEffect : MonoBehaviour
 		// }
 	}
 
-
-
 	public void BecomeInvulnerable(bool isInvulnerable)
 	{
 		health.SetIsInvulnerable(isInvulnerable);
