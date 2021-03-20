@@ -109,6 +109,7 @@ public class Health : MonoBehaviour, IHealth
 				currentHealth = maxHealth + comboBarAddedHealth;
 				break;
 			case 3:
+			case 4:
 				currentHealth = maxHealth + 2 * comboBarAddedHealth;
 				break;
 			default:
