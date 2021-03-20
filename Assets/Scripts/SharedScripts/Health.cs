@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using UnityEngine;
 
 #endregion
@@ -9,13 +10,22 @@ using UnityEngine;
 public class Health : MonoBehaviour, IHealth
 {
 	[SerializeField] protected float maxHealth;
+	[SerializeField] private float comboBarAddedHealth = 20;
 	protected float currentHealth;
 	protected float damageModifier = 1;
 	protected bool isInvulnerable;
-
+	
+	private ComboBar comboBar;
+	private float healthTemp;
+	
 	protected void Awake()
 	{
-		currentHealth = maxHealth;
+		comboBar = GameObject.Find("GameManager").GetComponent<ComboBar>();
+	}
+
+	private void Start()
+	{
+		ComboBarCheck();
 	}
 
 	public virtual void SetIsInvulnerable(bool isInvulnerable)
@@ -86,5 +96,23 @@ public class Health : MonoBehaviour, IHealth
 	protected virtual void Die()
 	{
 		Destroy(gameObject);
+	}
+	
+	private void ComboBarCheck()
+	{
+		switch (comboBar.GetComboBarStage())
+		{
+			case 1:
+				currentHealth = maxHealth;
+				break;
+			case 2:
+				currentHealth = maxHealth + comboBarAddedHealth;
+				break;
+			case 3:
+				currentHealth = maxHealth + 2 * comboBarAddedHealth;
+				break;
+			default:
+				return;
+		}
 	}
 }

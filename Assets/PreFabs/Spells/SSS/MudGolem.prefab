@@ -270,6 +270,7 @@ MonoBehaviour:
   projectile: {fileID: 1869486816503002355, guid: cbac3897e0d1090438e99d87096f9b79, type: 3}
   attackSpeed: 2
   attackDelay: 1
+  comboBarAttackSpeedFactor: 2
 --- !u!114 &1896182544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  comboBarAddedHealth: 20
 --- !u!114 &1896182545
 MonoBehaviour:
   m_ObjectHideFlags: 0

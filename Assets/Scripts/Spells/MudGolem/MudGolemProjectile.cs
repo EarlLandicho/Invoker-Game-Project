@@ -32,7 +32,6 @@ public class MudGolemProjectile : MonoBehaviour
 		xPosTarget = targetPositon.x;
 		distX = xPosTarget - xPosStart;
 		distY = startPosition.y - targetPositon.y;
-		Debug.Log(distY);
 
 	}
 

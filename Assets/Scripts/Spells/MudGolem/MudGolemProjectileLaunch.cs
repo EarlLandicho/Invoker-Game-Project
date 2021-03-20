@@ -1,6 +1,7 @@
 ﻿#region
 
 using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
 
 #endregion
@@ -10,6 +11,8 @@ public class MudGolemProjectileLaunch : MonoBehaviour
 	[SerializeField] private GameObject projectile;
 	[SerializeField] private float attackSpeed;
 	[SerializeField] private float attackDelay;
+	[SerializeField] private float comboBarAttackSpeedFactor;
+	
 	private Animator animator;
 	private float attackRangeRadius;
 	private float attackSpeedTemp;
@@ -19,17 +22,22 @@ public class MudGolemProjectileLaunch : MonoBehaviour
 	private MudGolem mudGolem;
 	private GameObject targetGameObject;
 	private Vector3 target;
+	
+	private ComboBar comboBar;
 
 	private void Awake()
 	{
 		animator = GetComponent<Animator>();
 		movementFlip = GetComponent<MovementFlip>();
 		mudGolem = GetComponent<MudGolem>();
+		comboBar = GameObject.Find("GameManager").GetComponent<ComboBar>();
 	}
 
 	private void Start()
 	{
-		attackSpeedTemp = attackSpeed;
+		ComboBarCheck();
+		Debug.Log(attackSpeedTemp);
+		Debug.Log(attackDelay);
 		attackRangeRadius = transform.GetChild(0).GetComponent<CircleCollider2D>().radius;
 	}
 
@@ -58,6 +66,7 @@ public class MudGolemProjectileLaunch : MonoBehaviour
 	}
 
 	// Called in Animator
+	[UsedImplicitly]
 	public void ThrowBoulderProjectile()
 	{
 		GameObject projectileObject = Instantiate(projectile, transform.position, transform.rotation);
@@ -98,6 +107,17 @@ public class MudGolemProjectileLaunch : MonoBehaviour
 		else
 		{
 			movementFlip.FaceRight();
+		}
+	}
+	
+	private void ComboBarCheck()
+	{
+		switch (comboBar.GetComboBarStage())
+		{
+			case 4:
+				attackSpeed /= comboBarAttackSpeedFactor;
+				attackDelay /= comboBarAttackSpeedFactor;
+				break;
 		}
 	}
 }
