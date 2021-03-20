@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7060857686867802895}
   - component: {fileID: 5400165847190645735}
   - component: {fileID: -5996339181676256426}
+  - component: {fileID: 2780666856853091440}
   m_Layer: 0
   m_Name: LavaBurst
   m_TagString: Untagged
@@ -47,6 +48,7 @@ MonoBehaviour:
   projectile: {fileID: 7129028002308927082, guid: c2dbe98668f08cf468ef1cf4339018f5, type: 3}
   numberofProjectiles: 10
   projectileForce: 230
+  comboBarSecondExplosionDelayTime: 0.5
 --- !u!114 &-5996339181676256426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,3 +63,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTimedDestroy: 1
   timedDestroyTime: 1
+--- !u!114 &2780666856853091440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298435506902785049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5122546d9dea96e41b7f4f1eb513a83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offSet: {x: 0, y: 0}
+  enableDamping: 0
+  damping: 0

@@ -136,3 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   explosionAnimation: {fileID: 2435197901553512469, guid: b0e9dc9a626dea746b8b94810fce2474, type: 3}
+  comboBarAddedDamage: 5
