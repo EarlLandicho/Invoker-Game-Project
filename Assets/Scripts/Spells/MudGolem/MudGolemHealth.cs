@@ -8,8 +8,9 @@ public class MudGolemHealth : Health
     private ComboBar comboBar;
     private float healthTemp;
     
-    protected void Awake()
+    private new void Awake()
     {
+        base.Awake();
         comboBar = GameObject.Find("GameManager").GetComponent<ComboBar>();
     }
     

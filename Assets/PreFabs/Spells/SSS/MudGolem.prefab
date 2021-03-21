@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 2264716350354306304}
   - component: {fileID: 1532888146250759381}
   - component: {fileID: 4116782711103600844}
-  - component: {fileID: 1896182544}
+  - component: {fileID: 8338856236617074770}
   - component: {fileID: 1896182545}
   - component: {fileID: 1896182546}
   m_Layer: 16
@@ -271,7 +271,7 @@ MonoBehaviour:
   attackSpeed: 2
   attackDelay: 1
   comboBarAttackSpeedFactor: 2
---- !u!114 &1896182544
+--- !u!114 &8338856236617074770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8189821867304606167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d4abac11ffe19945896f60f64b561b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 77120a3e54708c942812235518c0a85f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
