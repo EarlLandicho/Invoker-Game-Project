@@ -98,7 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healTotalAmount: 20
-  healDuration: 10
+  healDuration: 5
+  comboBarAddedHeal: 10
+  comboBarDurationDecrease: 3
 --- !u!114 &3525229209003671613
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -62,7 +62,7 @@ public class InputTools : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.Keypad0))
 		{
-			GameObject.Find("Player").GetComponent<IHealth>().TakeDamage(20);
+			GameObject.Find("Player").GetComponent<IHealth>().TakeDamage(10);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Keypad1))
