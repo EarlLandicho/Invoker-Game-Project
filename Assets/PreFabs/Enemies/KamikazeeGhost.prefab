@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  damage: 30
+  damage: 15
   attackSpeed: 0
   explosionRadius: 0.2
 --- !u!114 &1370409725

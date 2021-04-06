@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 4
-  comboBarAddedDuration: 4
+  comboBarAddedDuration: 2
   comboBarHealing: 20
   shards:
   - {fileID: 1258973011459308314, guid: 245fed9fab20e314984f97c1dbbc3883, type: 3}

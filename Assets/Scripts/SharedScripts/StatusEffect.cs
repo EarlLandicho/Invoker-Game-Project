@@ -68,9 +68,10 @@ public class StatusEffect : MonoBehaviour
 
 	public void BecomeArmored(float damageModifier, float duration)
 	{
+		Debug.Log(damageModifier);
 		armorDuration = duration;
 		armorDamageModifier = 1 - damageModifier;
-		StartCoroutine("Armor");
+		StartCoroutine("Armor", armorDamageModifier);
 	}
 
 	public void BecomeBubbled(float movementSpeedModifier, float duration)
@@ -305,11 +306,11 @@ public class StatusEffect : MonoBehaviour
 		Destroy(currentStunEffect);
 	}
 
-	private IEnumerator Armor()
+	private IEnumerator Armor(float modifier)
 	{
-		health.SetDamageModifierByFactor(armorDamageModifier, true);
+		health.SetDamageModifierByFactor(modifier, true);
 		yield return new WaitForSeconds(armorDuration);
-		health.SetDamageModifierByFactor(armorDamageModifier, false);
+		health.SetDamageModifierByFactor(modifier, false);
 	}
 
 	private IEnumerator Bubble()

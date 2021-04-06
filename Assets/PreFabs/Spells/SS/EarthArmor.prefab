@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   percentDamageDecrease: 0.75
+  comboBarAddedPercentDamageDecrease: 0.1
   duration: 5
   armorShield: {fileID: 97043733981914975, guid: 7a8c0584bcc1eb74b9558428de7a47b5, type: 3}
 --- !u!114 &7816995918776448051

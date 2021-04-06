@@ -45,4 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   radiusRange: 0.1
-  comboBarAddedDamage: 20
+  comboBarAddedDamage: 10
