@@ -39,6 +39,7 @@ public class PlayerMovement : Movement
 		{
 			rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * (movementSpeed + movementSpeedModifier),
 									  rb.velocity.y);
+			Debug.Log(rb.velocity);
 		}
 		else if (isFlying)
 		{

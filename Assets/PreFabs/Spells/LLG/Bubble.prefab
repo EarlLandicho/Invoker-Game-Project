@@ -112,4 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubbleDuration: 5
-  movementSpeedFactor: 0.2
+  movementSpeedFactor: 0.5
+  comboBarAddedDuration: 1
+  comboBarAddedMovementSpeedFactor: 0.3
