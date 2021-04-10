@@ -37,7 +37,7 @@ public class Health : MonoBehaviour, IHealth
 			}
 			else
 			{
-				damage = damage * damageModifier;
+				damage *= damageModifier;
 				currentHealth -= damage;
 			}
 
@@ -70,12 +70,13 @@ public class Health : MonoBehaviour, IHealth
 		if (isSetting)
 		{
 			damageModifier *= factor;
-			Debug.Log("damage modifier set to" + damageModifier);
+			
+			//Debug.Log("damage modifier set to" + damageModifier);
 		}
 		else
 		{
 			damageModifier /= factor;
-			Debug.Log("damage modifier reset to " + damageModifier);
+			//Debug.Log("damage modifier reset to " + damageModifier);
 		}
 	}
 

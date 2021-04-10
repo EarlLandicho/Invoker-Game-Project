@@ -27,7 +27,6 @@ public class EarthArmor : MonoBehaviour
 	{
 		ComboBarCheck();
 		playerStatusEffect.BecomeArmored(percentDamageDecrease, duration);
-		//Instantiate(armorShield, transform.position, transform.rotation);
 		StartCoroutine("ArmorDuration");
 	}
 
@@ -45,8 +44,10 @@ public class EarthArmor : MonoBehaviour
 				percentDamageDecrease += comboBarAddedPercentDamageDecrease;
 				break;
 			case 3:
-			case 4:
 				percentDamageDecrease += 2 * comboBarAddedPercentDamageDecrease;
+				break;
+			case 4:
+				percentDamageDecrease = 1;
 				break;
 			default:
 				return;

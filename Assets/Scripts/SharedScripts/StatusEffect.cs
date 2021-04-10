@@ -68,7 +68,6 @@ public class StatusEffect : MonoBehaviour
 
 	public void BecomeArmored(float damageModifier, float duration)
 	{
-		Debug.Log(damageModifier);
 		armorDuration = duration;
 		armorDamageModifier = 1 - damageModifier;
 		StartCoroutine("Armor", armorDamageModifier);

@@ -29,7 +29,7 @@ public class PlayerHealth : Health
 			}
 			else
 			{
-				damage = damage * damageModifier;
+				damage *= damageModifier;
 				currentHealth -= damage;
 			}
 
