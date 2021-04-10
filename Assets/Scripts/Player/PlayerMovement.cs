@@ -37,9 +37,7 @@ public class PlayerMovement : Movement
 	{
 		if (!isXMovementSpeedLocked && !isFlying && !isHibernating)
 		{
-			rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * (movementSpeed + movementSpeedModifier),
-									  rb.velocity.y);
-			Debug.Log(rb.velocity);
+			rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * (movementSpeed + movementSpeedModifier), rb.velocity.y);
 		}
 		else if (isFlying)
 		{

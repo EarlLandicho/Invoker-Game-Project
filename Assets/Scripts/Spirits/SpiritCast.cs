@@ -13,6 +13,7 @@ using UnityEngine;
 public class SpiritCast : MonoBehaviour
 {
 	[SerializeField] private float spellCastComboBarIncreaseAmount;
+	[SerializeField] private float comboBarSubtractedSLGCooldown;
 
 	[SerializeField] private GameObject S_spell,
 										L_spell,
@@ -53,6 +54,8 @@ public class SpiritCast : MonoBehaviour
 								   LLG_cooldown,
 								   LGG_cooldown,
 								   SLG_cooldown;
+
+	private float SLG_cooldownTemp;
 
 	private int castNumber;
 	private ComboBar comboBar;
@@ -100,6 +103,8 @@ public class SpiritCast : MonoBehaviour
 
 	private SpiritArrayManager spiritArrayManager;
 	private int[] spiritArrayManagerArray;
+	
+	
 
 	private void Awake()
 	{
@@ -132,6 +137,7 @@ public class SpiritCast : MonoBehaviour
 		// LLG_timer = LLG_cooldown;
 		// LGG_timer = LGG_cooldown;
 		// SLG_timer = SLG_cooldown;
+		SLG_cooldownTemp = SLG_cooldown;
 	}
 
 	private void Update()
@@ -1080,7 +1086,8 @@ public class SpiritCast : MonoBehaviour
 		if (SLG_isOffCooldown)
 		{
 			Instantiate(SLG_spell, ExtensionMethods.GetPlayerPosition(), player.transform.rotation);
-			SLG_timer = SLG_cooldown;
+			ComboBarCheck();
+			SLG_timer = SLG_cooldownTemp;
 			SLG_isOffCooldown = false;
 			CastSuccessful();
 			spiritArrayManager.ClearSpirits();
@@ -1105,4 +1112,21 @@ public class SpiritCast : MonoBehaviour
 	private void CooldownAlert()
 	{
 	}
+	
+	private void ComboBarCheck()
+	{
+		SLG_cooldownTemp = SLG_cooldown;
+		switch (comboBar.GetComboBarStage())
+		{
+			case 2:
+				SLG_cooldownTemp -= comboBarSubtractedSLGCooldown;
+				break;
+			case 3:
+				SLG_cooldownTemp -= 2 * comboBarSubtractedSLGCooldown;
+				break;
+			case 4:
+				SLG_cooldownTemp -= 3 * comboBarSubtractedSLGCooldown;
+				break;
+		}
+	}	
 }

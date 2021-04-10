@@ -796,6 +796,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2079792499243262318, guid: 45ee337e8755db4439f67976e5807fe3, type: 3}
+      propertyPath: comboBarSubtractedSLGCooldown
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079792499243262318, guid: 45ee337e8755db4439f67976e5807fe3, type: 3}
       propertyPath: spellCastComboBarIncreaseAmount
       value: 10
       objectReference: {fileID: 0}
