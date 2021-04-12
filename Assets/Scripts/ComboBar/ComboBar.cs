@@ -1,5 +1,6 @@
 #region
 
+using System;
 using UnityEngine;
 
 #endregion
@@ -17,8 +18,15 @@ public class ComboBar : MonoBehaviour
 
 	private void Awake()
 	{
-		currentBarLevel = 0;
+		
 		player = GameObject.Find("Player");
+	}
+
+	private void Start()
+	{
+		currentBarLevel = 0;
+		comboBarStageTemp = 1;
+		comboBarStage = 1;
 	}
 
 	private void Update()

@@ -1,8 +1,10 @@
 ﻿#region
 
+using System;
 using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 #endregion
 
@@ -36,8 +38,6 @@ public class MudGolemProjectileLaunch : MonoBehaviour
 	private void Start()
 	{
 		ComboBarCheck();
-		Debug.Log(attackSpeedTemp);
-		Debug.Log(attackDelay);
 		attackRangeRadius = transform.GetChild(0).GetComponent<CircleCollider2D>().radius;
 	}
 
@@ -70,7 +70,15 @@ public class MudGolemProjectileLaunch : MonoBehaviour
 	public void ThrowBoulderProjectile()
 	{
 		GameObject projectileObject = Instantiate(projectile, transform.position, transform.rotation);
-		projectileObject.GetComponent<MudGolemProjectile>().SetTarget(targetGameObject.transform.position);
+		try
+		{
+			projectileObject.GetComponent<MudGolemProjectile>().SetTarget(targetGameObject.transform.position);
+		}
+		catch (Exception e)
+		{
+			Debug.Log("MudGolem target is " + targetGameObject);
+		}
+		
 		projectileObject.GetComponent<MudGolemProjectile>().SetMoxGolemRange(attackRangeRadius);
 		mudGolem.SetCanMove(true);
 		isAttacking = false;

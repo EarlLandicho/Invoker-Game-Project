@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using UnityEngine;
 
 #endregion
@@ -40,7 +41,12 @@ public class MudGolemProjectile : MonoBehaviour
 		nextXPos = Mathf.MoveTowards(transform.position.x, xPosTarget, Mathf.Clamp(speed / (Mathf.Abs(distY) + .01f), .1f, 5f) * Time.deltaTime);
 		baseY = Mathf.Lerp(startPosition.y, targetPositon.y, (nextXPos - xPosStart) / distX);
 		arc = arcHeight * (nextXPos - xPosStart) * (nextXPos - xPosTarget) / (-0.25f * distX * distX);
-		transform.position = new Vector3(nextXPos, baseY + arc, 0);
+		if (baseY + arc < 10000)
+		{
+			transform.position = new Vector3(nextXPos, baseY + arc, 0);
+		}
+		
+		
 		if (transform.position == targetPositon)
 		{
 			ExplosionDamage();
@@ -64,6 +70,7 @@ public class MudGolemProjectile : MonoBehaviour
 	public void SetTarget(Vector3 target)
 	{
 		targetPositon = target;
+		Debug.Log(targetPositon);
 	}
 
 	public void SetMoxGolemRange(float range)
