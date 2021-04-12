@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboLevelDrainFactor: 3
+  powerUpAnimation: {fileID: 4465988520148521641, guid: bb6102fe76ecc3741bef83ea4e57f5fe, type: 3}
 --- !u!114 &2630062952943302714
 MonoBehaviour:
   m_ObjectHideFlags: 0

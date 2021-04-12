@@ -7,12 +7,18 @@ using UnityEngine;
 public class ComboBar : MonoBehaviour
 {
 	[SerializeField] private float comboLevelDrainFactor = 1;
+	[SerializeField] private GameObject powerUpAnimation;
+
+	private GameObject player;
 	private int comboBarStage;
 	private float currentBarLevel;
+
+	private int comboBarStageTemp;
 
 	private void Awake()
 	{
 		currentBarLevel = 0;
+		player = GameObject.Find("Player");
 	}
 
 	private void Update()
@@ -63,6 +69,22 @@ public class ComboBar : MonoBehaviour
 		else
 		{
 			Debug.LogError("Something wrong with the stages in the combo bar. Level is outside of 1-100");
+		}
+
+		PowerUpAnimation();
+	}
+
+	private void PowerUpAnimation()
+	{
+		if (comboBarStageTemp < comboBarStage)
+		{
+			Instantiate(powerUpAnimation, player.transform.position, Quaternion.identity);
+			comboBarStageTemp = comboBarStage;
+		}
+
+		if (comboBarStageTemp > comboBarStage)
+		{
+			comboBarStageTemp = comboBarStage;
 		}
 	}
 
