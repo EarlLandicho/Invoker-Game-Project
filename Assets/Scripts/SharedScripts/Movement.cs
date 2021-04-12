@@ -40,6 +40,8 @@ public class Movement : MonoBehaviour, IMovement
 		{
 			movementSpeed = movementSpeedTemp + movementSpeedModifier;
 		}
+
+		
 	}
 
 	public virtual void SetMovementSpeedByAddition(float number)

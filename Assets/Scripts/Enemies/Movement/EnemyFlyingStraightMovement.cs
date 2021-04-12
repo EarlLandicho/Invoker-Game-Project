@@ -41,19 +41,6 @@ public class EnemyFlyingStraightMovement : EnemyMovement
 		targetToMoveTo = ExtensionMethods.GetNormalizedDirectionToPlayer2D(gameObject);
 	}
 
-	public override void SetLockXMovement(bool isLocked)
-	{
-		isXMovementSpeedLocked = isLocked;
-		if (isLocked)
-		{
-			rb.velocity = new Vector2(0, 0);
-		}
-		else
-		{
-			movementSpeed = movementSpeedTemp * movementSpeedModifier;
-		}
-	}
-
 	private void WallCheck()
 	{
 		if (Physics2D.OverlapCircle(new Vector2(wallCheck.position.x, wallCheck.position.y), 0.04f,

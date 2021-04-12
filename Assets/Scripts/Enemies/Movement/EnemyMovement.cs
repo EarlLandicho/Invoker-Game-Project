@@ -57,4 +57,17 @@ public class EnemyMovement : Movement
 	{
 		isXMovementSpeedLocked = false;
 	}
+	
+	public override void SetLockXMovement(bool isLocked)
+	{
+		isXMovementSpeedLocked = isLocked;
+		if (isLocked)
+		{
+			rb.velocity = isFlying ? new Vector2(0, 0) : new Vector2(0, rb.velocity.y);
+		}
+		else
+		{
+			movementSpeed = movementSpeedTemp + movementSpeedModifier;
+		}
+	}
 }

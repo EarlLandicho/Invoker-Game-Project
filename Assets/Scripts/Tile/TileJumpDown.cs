@@ -10,6 +10,8 @@ public class TileJumpDown : MonoBehaviour
 	private readonly float reverseCollisionTimer = .1f;
 	private CompositeCollider2D compositeCollider;
 	private PlayerMovement playerMovement;
+	private PlayerJump playerJump;
+	private StatusEffect playerStatusEffect;
 	private float reverseCollisionTimerTemp;
 	private bool reverseDelay;
 
@@ -18,16 +20,21 @@ public class TileJumpDown : MonoBehaviour
 		compositeCollider = GetComponent<CompositeCollider2D>();
 		reverseCollisionTimerTemp = reverseCollisionTimer;
 		playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+		playerStatusEffect = GameObject.Find("Player").GetComponent<StatusEffect>();
+		playerJump = GameObject.Find("Player").GetComponent<PlayerJump>();
 	}
 
 	private void Update()
 	{
 		if (Input.GetKey(KeyCode.S))
 		{
-			if (!playerMovement.GetIsHibernating())
+			if (!playerJump.GetIsGrounded())
 			{
-				Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Ledge"));
-				compositeCollider.usedByEffector = false;
+				if (!playerMovement.GetIsHibernating() && !playerStatusEffect.GetIsStunned())
+				{
+					Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Ledge"));
+					compositeCollider.usedByEffector = false;
+				}
 			}
 		}
 		else if (Input.GetKeyUp(KeyCode.S))

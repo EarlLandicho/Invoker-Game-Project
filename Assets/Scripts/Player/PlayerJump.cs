@@ -11,6 +11,7 @@ public class PlayerJump : MonoBehaviour, IJump
 	[SerializeField] private LayerMask groundLayer;
 	private Transform groundCheck;
 	private bool isGrounded;
+	private bool isGroundedLedge;
 	private float jumpHeightTemp;
 	private Rigidbody2D rb;
 	private bool jumpIsLocked;
@@ -55,6 +56,11 @@ public class PlayerJump : MonoBehaviour, IJump
 		return isGrounded;
 	}
 
+	public bool GetIsGroundedLedge()
+	{
+		return isGroundedLedge;
+	}
+
 	public void Jump()
 	{
 		rb.velocity = transform.up * jumpHeight;
@@ -62,8 +68,7 @@ public class PlayerJump : MonoBehaviour, IJump
 
 	private void JumpAbleCheck()
 	{
-		if (Physics2D.OverlapCircle(groundCheck.position, 0.05f, groundLayer) && rb.velocity.y <= 0.01f &&
-			!Input.GetKey(KeyCode.S))
+		if (Physics2D.OverlapCircle(groundCheck.position, 0.05f, 1 << LayerMask.NameToLayer("Ground")) && rb.velocity.y <= 0.01f)
 		{
 			isGrounded = true;
 		}
@@ -71,11 +76,20 @@ public class PlayerJump : MonoBehaviour, IJump
 		{
 			isGrounded = false;
 		}
+		
+		if (Physics2D.OverlapCircle(groundCheck.position, 0.05f, 1 << LayerMask.NameToLayer("Ledge")) && rb.velocity.y <= 0.01f)
+		{
+			isGroundedLedge = true;
+		}
+		else
+		{
+			isGroundedLedge = false;
+		}
 	}
 
 	private void JumpCheck()
 	{
-		if (Input.GetButtonDown("Jump") && isGrounded)
+		if (Input.GetButtonDown("Jump") && (isGrounded || isGroundedLedge))
 		{
 			Jump();
 		}

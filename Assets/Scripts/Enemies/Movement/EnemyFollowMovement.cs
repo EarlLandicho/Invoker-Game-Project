@@ -14,17 +14,4 @@ public class EnemyFollowMovement : EnemyMovement
 			rb.velocity = playerDirection * movementSpeed;
 		}
 	}
-
-	public override void SetLockXMovement(bool isLocked)
-	{
-		isXMovementSpeedLocked = isLocked;
-		if (isLocked)
-		{
-			rb.velocity = new Vector2(0, 0);
-		}
-		else
-		{
-			movementSpeed = movementSpeedTemp * movementSpeedModifier;
-		}
-	}
 }

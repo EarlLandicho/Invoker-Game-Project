@@ -45,6 +45,8 @@ public class StatusEffect : MonoBehaviour
 	private GameObject currentOilEffect;
 	private GameObject currentStunEffect;
 
+	private bool isStunned;
+
 	private void Awake()
 	{
 		//when refactored, this will always refer to the gameobject it's attached to
@@ -64,6 +66,11 @@ public class StatusEffect : MonoBehaviour
 		isImmuneToOilTemp = isImmuneToOil;
 		isImmuneToPoisonTemp = isImmuneToPoison;
 		isImmuneToStunTemp = isImmuneToStun;
+	}
+
+	public bool GetIsStunned()
+	{
+		return isStunned;
 	}
 
 	public void BecomeArmored(float damageModifier, float duration)
@@ -129,6 +136,11 @@ public class StatusEffect : MonoBehaviour
 		{
 			StopCoroutine("Stun");
 			StartCoroutine("Stun");
+
+			if (currentStunEffect != null)
+			{
+				Destroy(currentStunEffect);
+			}
 			
 			currentStunEffect = Instantiate(stunEffect, transform.position, transform.rotation);
 			currentStunEffect.transform.parent = gameObject.transform;
@@ -279,6 +291,7 @@ public class StatusEffect : MonoBehaviour
 
 	private IEnumerator Stun()
 	{
+		isStunned = true;
 		if (GetComponent<IJump>() != null)
 		{
 			jump.SetLockJump(true);
@@ -291,6 +304,7 @@ public class StatusEffect : MonoBehaviour
 
 		movement.SetLockXMovement(true);
 		yield return new WaitForSeconds(Constants.StunDuration);
+		isStunned = false;
 		if (GetComponent<IJump>() != null)
 		{
 			jump.SetLockJump(false);
