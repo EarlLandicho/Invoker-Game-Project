@@ -76,7 +76,7 @@ public class MudGolemProjectileLaunch : MonoBehaviour
 		}
 		catch (Exception e)
 		{
-			Debug.Log("MudGolem target is " + targetGameObject);
+			Debug.Log("MudGolem target is " + targetGameObject + " " + e);
 		}
 		
 		projectileObject.GetComponent<MudGolemProjectile>().SetMoxGolemRange(attackRangeRadius);
