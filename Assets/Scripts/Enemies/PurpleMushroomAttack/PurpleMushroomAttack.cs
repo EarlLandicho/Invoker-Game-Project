@@ -1,17 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+#region
+
 using UnityEngine;
+
+#endregion
 
 public class PurpleMushroomAttack : EnemyAttack
 {
 	[SerializeField] private float projectilespeed;
 	[SerializeField] private GameObject projectileDestroyAnimation;
-	private SpriteRenderer purpleMushroomBodySpriteRenderer;
 	private Animator animator;
 	private Collider2D circleCollider;
 
 	private bool isAttacking;
+	private SpriteRenderer purpleMushroomBodySpriteRenderer;
 
 	private new void Awake()
 	{
@@ -23,10 +24,7 @@ public class PurpleMushroomAttack : EnemyAttack
 
 	private void Start()
 	{
-		circleCollider.enabled = false;
-		purpleMushroomBodySpriteRenderer.enabled = true;
-		projectile.SetActive(false);
-		circleCollider.isTrigger = false;
+		SetBodyMode();
 	}
 
 	private void Update()
@@ -50,24 +48,34 @@ public class PurpleMushroomAttack : EnemyAttack
 		{
 			other.GetComponent<IHealth>().TakeDamage(damage);
 			other.GetComponent<StatusEffect>().BecomeStunned();
-			
+
 			LeanTween.cancel(gameObject);
-			
+
 			EndAttack();
 		}
 	}
 
-
-
 	//Called in Animator
 	public void TransformToProjectile()
+	{
+		SetProjectileMode();
+		AssaultPlayer();
+	}
+
+	private void SetProjectileMode()
 	{
 		purpleMushroomBodySpriteRenderer.enabled = false;
 		projectile.SetActive(true);
 		circleCollider.enabled = true;
 		circleCollider.isTrigger = true;
+	}
 
-		AssaultPlayer();
+	private void SetBodyMode()
+	{
+		purpleMushroomBodySpriteRenderer.enabled = true;
+		projectile.SetActive(false);
+		circleCollider.enabled = false;
+		circleCollider.isTrigger = false;
 	}
 
 	private void EndAttack()
@@ -78,20 +86,16 @@ public class PurpleMushroomAttack : EnemyAttack
 		isAttacking = false;
 		Instantiate(projectileDestroyAnimation, transform.position, Quaternion.identity);
 	}
-	
+
 	private void Attack()
 	{
 		animator.SetTrigger("attack");
 	}
-	
+
 	private void AssaultPlayer()
 	{
 		Vector2 playerPosition = playerObject.transform.position;
 		float time = Vector2.Distance(transform.position, playerPosition) / projectilespeed;
 		LeanTween.move(gameObject, playerPosition, time).setOnComplete(EndAttack);
 	}
-	
-	
-	
-	
 }

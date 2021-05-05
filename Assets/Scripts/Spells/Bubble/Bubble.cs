@@ -44,7 +44,6 @@ public class Bubble : MonoBehaviour
 		ResetValues();
 		
 		ComboBarCheck();
-		Debug.Log(bubbleDurationTemp + " " + movementSpeedFactorTemp);
 		playerStatusEffect.BecomeStatusEffectImmune(bubbleDurationTemp);
 		playerStatusEffect.BecomeBubbled(movementSpeedFactorTemp, bubbleDurationTemp);
 		
