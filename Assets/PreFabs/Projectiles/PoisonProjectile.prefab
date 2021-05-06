@@ -11,7 +11,11 @@ GameObject:
   - component: {fileID: 3847474184338789841}
   - component: {fileID: 7380340079779033995}
   - component: {fileID: 4248002865913392075}
-  m_Layer: 0
+  - component: {fileID: 6473030114551107903}
+  - component: {fileID: -8997090594809905166}
+  - component: {fileID: 3941720119702828790}
+  - component: {fileID: 5734619384731842816}
+  m_Layer: 14
   m_Name: PoisonProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +94,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7198911679153911703, guid: 65e76bb59c253184baedfb58f3d9d4f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,3 +106,66 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &6473030114551107903
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660156746941382426}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!58 &-8997090594809905166
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660156746941382426}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0055658817, y: 0.0032179654}
+  serializedVersion: 2
+  m_Radius: 0.037759066
+--- !u!114 &3941720119702828790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660156746941382426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da1d17863aeba2409f0508a7dc1ead6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5734619384731842816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660156746941382426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d30eb5428872534d8769b933c6c5f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTimedDestroy: 0
+  timedDestroyTime: 0

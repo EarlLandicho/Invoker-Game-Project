@@ -7,28 +7,28 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyProjectile : MonoBehaviour
 {
-	private Animator animator;
+	protected Animator animator;
 	private float damage;
 	private Vector2 playerDirection;
 	private Rigidbody2D projectileRigidbody;
 	private float projectileSpeed;
 
-	private void Awake()
+	protected virtual void Awake()
 	{
 		projectileRigidbody = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
 	}
 
-	private void OnTriggerEnter2D(Collider2D collider)
+	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (collider.gameObject.layer == LayerMask.NameToLayer("Player") ||
-			collider.gameObject.layer == LayerMask.NameToLayer("Ally"))
+		if (other.gameObject.layer == LayerMask.NameToLayer("Player") ||
+			other.gameObject.layer == LayerMask.NameToLayer("Ally"))
 		{
-			collider.GetComponent<IHealth>().TakeDamage(damage);
+			other.GetComponent<IHealth>().TakeDamage(damage);
 			animator.SetTrigger("hasHitSomething");
 		}
-		else if (collider.gameObject.layer == LayerMask.NameToLayer("Ground") ||
-				 collider.gameObject.layer == LayerMask.NameToLayer("Player Projectile"))
+		else if (other.gameObject.layer == LayerMask.NameToLayer("Ground") ||
+				 other.gameObject.layer == LayerMask.NameToLayer("Player Projectile"))
 		{
 			animator.SetTrigger("hasHitSomething");
 		}
