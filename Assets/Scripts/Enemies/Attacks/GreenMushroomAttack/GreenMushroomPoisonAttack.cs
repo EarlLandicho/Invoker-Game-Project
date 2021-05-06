@@ -12,6 +12,45 @@ public class GreenMushroomPoisonAttack : ProjectileAttack
      * projectile duration
      * random time for lean tween to control speed
      * set stunned animation in animator controller
-     * Set spawned animation
+     * set spawned animation
      */
+
+
+	[SerializeField] private int numberOfProjectiles;
+	[SerializeField] private float spawningDuration;
+	[SerializeField] private float maxXDistanceOfProjectile;
+	[SerializeField] private float maxYSpeedOfProjectile;
+	[SerializeField] private float xTweenTime;
+	[SerializeField] private float projectileDuration;
+
+	private new void Update()
+	{
+		base.Update();
+	}
+	
+	// Called in Animator
+	public override void Attack()
+	{
+		currentProjectile = Instantiate(projectile, projectileLaunchPosition.position, transform.rotation);
+		currentProjectile.GetComponent<EnemyProjectile>().SetDamage(damage);
+	}
+
+	//Called in Animator
+	public void StartSpawning()
+	{
+		StartCoroutine(SpawnProjectiles());
+	}
+
+	private IEnumerator SpawnProjectiles()
+	{
+		yield return new WaitForSeconds(spawningDuration);
+		animator.SetTrigger("doneSpawningProjectiles");
+		ResetAttackSpeed();
+	}
+
+	
+	
+	
+	
+	
 }

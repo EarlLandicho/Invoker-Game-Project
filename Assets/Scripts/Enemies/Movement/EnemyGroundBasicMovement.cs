@@ -25,6 +25,7 @@ public class EnemyGroundBasicMovement : EnemyMovement
 			Move();
 		}
 	}
+	
 
 	private void OnDrawGizmos()
 	{

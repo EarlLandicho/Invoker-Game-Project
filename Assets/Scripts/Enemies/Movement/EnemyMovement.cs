@@ -39,7 +39,7 @@ public class EnemyMovement : Movement
 	}
 
 	// Called in Animator
-	public virtual void PauseMovement()
+	public void PauseMovement()
 	{
 		isXMovementSpeedLocked = true;
 		if (isFlying)
@@ -50,6 +50,8 @@ public class EnemyMovement : Movement
 		{
 			rb.velocity = new Vector2(0, rb.velocity.y);
 		}
+
+		
 	}
 
 	// Called in Animator

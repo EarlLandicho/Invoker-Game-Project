@@ -1274,28 +1274,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b775be806549d364aa8df197c41a8ca8, type: 3}
---- !u!1 &370799414 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7975607819068296008, guid: ce3064c3970a542408aeb51f228bdf44, type: 3}
-  m_PrefabInstance: {fileID: 7599471291600604505}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &370799415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 370799414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69b3b0e8fd83ba74abfefeb542f1e551, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
-  damage: 0
-  attackSpeed: 0
-  projectileLaunchPosition: {fileID: 0}
-  projectileSpeed: 0
 --- !u!1001 &407891037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37527,6 +37505,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af46b0d832005af47bb89ca6812e89c1, type: 3}
+--- !u!1001 &3316184596996036935
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3847474184338789841, guid: ea9a8e5ad06a4594287f34fbe6e0c431, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847474184338789841, guid: ea9a8e5ad06a4594287f34fbe6e0c431, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.0813336
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847474184338789841, guid: ea9a8e5ad06a4594287f34fbe6e0c431, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.26889
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847474184338789841, guid: ea9a8e5ad06a4594287f34fbe6e0c431, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00009775162
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847474184338789841, guid: ea9a8e5ad06a4594287f34fbe6e0c431, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847474184338789841, guid: ea9a8e5ad06a4594287f34fbe6e0c431, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847474184338789841, guid: ea9a8e5ad06a4594287f34fbe6e0c431, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847474184338789841, guid: ea9a8e5ad06a4594287f34fbe6e0c431, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847474184338789841, guid: ea9a8e5ad06a4594287f34fbe6e0c431, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847474184338789841, guid: ea9a8e5ad06a4594287f34fbe6e0c431, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847474184338789841, guid: ea9a8e5ad06a4594287f34fbe6e0c431, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660156746941382426, guid: ea9a8e5ad06a4594287f34fbe6e0c431, type: 3}
+      propertyPath: m_Name
+      value: PoisonProjectile
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ea9a8e5ad06a4594287f34fbe6e0c431, type: 3}
 --- !u!1001 &3381002152593387210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38004,11 +38039,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3843620609384367808, guid: ce3064c3970a542408aeb51f228bdf44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.329
+      value: -4.643
       objectReference: {fileID: 0}
     - target: {fileID: 3843620609384367808, guid: ce3064c3970a542408aeb51f228bdf44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.798
+      value: 0.342
       objectReference: {fileID: 0}
     - target: {fileID: 3843620609384367808, guid: ce3064c3970a542408aeb51f228bdf44, type: 3}
       propertyPath: m_LocalPosition.z
@@ -38045,6 +38080,18 @@ PrefabInstance:
     - target: {fileID: 7975607819068296008, guid: ce3064c3970a542408aeb51f228bdf44, type: 3}
       propertyPath: m_Name
       value: GreenMushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 7975607819068296008, guid: ce3064c3970a542408aeb51f228bdf44, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965777518970067651, guid: ce3064c3970a542408aeb51f228bdf44, type: 3}
+      propertyPath: attackSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965777518970067651, guid: ce3064c3970a542408aeb51f228bdf44, type: 3}
+      propertyPath: spawningDuration
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce3064c3970a542408aeb51f228bdf44, type: 3}

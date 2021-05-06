@@ -20,7 +20,7 @@ public class ProjectileAttack : EnemyAttack
 		animator = GetComponent<Animator>();
 	}
 
-	private void Update()
+	protected void Update()
 	{
 		if (!isLockedAttack)
 		{
