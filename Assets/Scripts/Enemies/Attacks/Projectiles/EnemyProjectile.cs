@@ -8,8 +8,8 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
 	protected Animator animator;
-	private float damage;
-	private Vector2 playerDirection;
+	protected float damage;
+	protected Vector2 playerDirection;
 	private Rigidbody2D projectileRigidbody;
 	private float projectileSpeed;
 
@@ -19,7 +19,7 @@ public class EnemyProjectile : MonoBehaviour
 		animator = GetComponent<Animator>();
 	}
 
-	private void OnTriggerEnter2D(Collider2D other)
+	protected virtual void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.gameObject.layer == LayerMask.NameToLayer("Player") ||
 			other.gameObject.layer == LayerMask.NameToLayer("Ally"))

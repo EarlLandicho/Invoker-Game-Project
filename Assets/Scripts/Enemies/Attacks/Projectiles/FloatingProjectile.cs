@@ -12,7 +12,6 @@ public class FloatingProjectile : EnemyProjectile
 	private float xTweenTime;
 	private float ySpeed;
 	private float floatDuration;
-	private float damage;
 	private Rigidbody2D rigidBody;
 
 	private new void Awake()
@@ -42,7 +41,7 @@ public class FloatingProjectile : EnemyProjectile
 		rigidBody.velocity = new Vector2(rigidBody.velocity.x, ySpeed);
 	}
 	
-	private void OnTriggerEnter2D(Collider2D other)
+	protected override void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.gameObject.layer == LayerMask.NameToLayer("Player") ||
 			other.gameObject.layer == LayerMask.NameToLayer("Ally"))
