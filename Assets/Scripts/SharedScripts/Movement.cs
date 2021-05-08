@@ -40,14 +40,12 @@ public class Movement : MonoBehaviour, IMovement
 		{
 			movementSpeed = movementSpeedTemp + movementSpeedModifier;
 		}
-
 		
 	}
 
 	public virtual void SetMovementSpeedByAddition(float number)
 	{
 		movementSpeedModifier += number;
-		//Debug.Log("movement added:  " + movementSpeedModifier);
 	}
 
 	public virtual void SetMovementSpeedModifierToDefault()

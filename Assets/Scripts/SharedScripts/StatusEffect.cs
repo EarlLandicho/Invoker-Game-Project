@@ -68,6 +68,11 @@ public class StatusEffect : MonoBehaviour
 		isImmuneToStunTemp = isImmuneToStun;
 	}
 
+	public void SetIsImmuneToStun(bool immune)
+	{
+		isImmuneToStunTemp = immune;
+	}
+
 	public bool GetIsStunned()
 	{
 		return isStunned;

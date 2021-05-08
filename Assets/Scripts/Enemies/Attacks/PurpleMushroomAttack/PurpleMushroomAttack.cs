@@ -10,6 +10,7 @@ public class PurpleMushroomAttack : EnemyAttack
 	[SerializeField] private GameObject projectileDestroyAnimation;
 	private Animator animator;
 	private Collider2D circleCollider;
+	private StatusEffect statusEffect;
 
 	private bool isAttacking;
 	private SpriteRenderer purpleMushroomBodySpriteRenderer;
@@ -17,9 +18,10 @@ public class PurpleMushroomAttack : EnemyAttack
 	private new void Awake()
 	{
 		base.Awake();
-		circleCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
+		circleCollider = transform.GetComponent<CircleCollider2D>();
 		purpleMushroomBodySpriteRenderer = GetComponent<SpriteRenderer>();
 		animator = GetComponent<Animator>();
+		statusEffect = GetComponent<StatusEffect>();
 	}
 
 	private void Start()
@@ -29,11 +31,12 @@ public class PurpleMushroomAttack : EnemyAttack
 
 	private void Update()
 	{
-		if (attackSpeedTemp <= 0 && !isAttacking)
+		if (attackSpeedTemp <= 0 && !isAttacking && !isLockedAttack)
 		{
 			Attack();
 			isAttacking = true;
 			attackSpeedTemp = attackSpeed;
+			statusEffect.SetIsImmuneToStun(true);
 		}
 		else
 		{
@@ -54,6 +57,19 @@ public class PurpleMushroomAttack : EnemyAttack
 			EndAttack();
 		}
 	}
+	
+	public override void SetLockAttack(bool isStunned)
+	{
+		base.SetLockAttack(isStunned);
+		if (!isStunned)
+		{
+			animator.SetBool("isStunned", false);
+		}
+		else
+		{
+			animator.SetBool("isStunned", true);
+		}
+	}
 
 	//Called in Animator
 	public void TransformToProjectile()
@@ -66,16 +82,16 @@ public class PurpleMushroomAttack : EnemyAttack
 	{
 		purpleMushroomBodySpriteRenderer.enabled = false;
 		projectile.SetActive(true);
-		circleCollider.enabled = true;
 		circleCollider.isTrigger = true;
+		gameObject.layer = LayerMask.NameToLayer("Enemy Projectile");
 	}
 
 	private void SetBodyMode()
 	{
 		purpleMushroomBodySpriteRenderer.enabled = true;
 		projectile.SetActive(false);
-		circleCollider.enabled = false;
 		circleCollider.isTrigger = false;
+		
 	}
 
 	private void EndAttack()
@@ -84,6 +100,8 @@ public class PurpleMushroomAttack : EnemyAttack
 		purpleMushroomBodySpriteRenderer.enabled = true;
 		circleCollider.isTrigger = false;
 		isAttacking = false;
+		gameObject.layer = LayerMask.NameToLayer("Enemy");
+		statusEffect.SetIsImmuneToStun(false);
 		Instantiate(projectileDestroyAnimation, transform.position, Quaternion.identity);
 	}
 

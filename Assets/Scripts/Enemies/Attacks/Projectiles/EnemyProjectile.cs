@@ -61,7 +61,7 @@ public class EnemyProjectile : MonoBehaviour
 	}
 
 	// Called by animator
-	public void StopMovement()
+	public virtual void StopMovement()
 	{
 		projectileRigidbody.velocity = new Vector2(0, 0);
 	}

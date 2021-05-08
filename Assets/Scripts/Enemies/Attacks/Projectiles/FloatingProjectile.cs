@@ -88,19 +88,8 @@ public class FloatingProjectile : EnemyProjectile
 		isFacingRight = isRight;
 	}
 
-	public void SetDamage(float dmg)
-	{
-		damage = dmg;
-	}
-
 	//Called in Animator
-	public void DestroyThisObject()
-	{
-		Destroy(gameObject);
-	}
-	
-	//Called in Animator
-	public void StopMovement()
+	public override void StopMovement()
 	{
 		LeanTween.cancel(gameObject);
 		rigidBody.constraints = RigidbodyConstraints2D.FreezePosition;

@@ -6,18 +6,6 @@ using Random = UnityEngine.Random;
 
 public class GreenMushroomPoisonAttack : ProjectileAttack
 {
-    /*
-     * number of projectiles
-     * spawning length
-     * has to be attack animating while spawning projectiles
-     * max distance from spawn point for x and y
-     * projectile duration
-     * random time for lean tween to control speed
-     * set stunned animation in animator controller
-     * set spawned animation
-     */
-
-
 	[SerializeField] private int numberOfProjectiles;
 	[SerializeField] private float spawningDuration;
 	[SerializeField] private float maxXDistanceOfProjectile;
@@ -55,6 +43,11 @@ public class GreenMushroomPoisonAttack : ProjectileAttack
 
 	private void SpawnProjectiles()
 	{
+		if (isLockedAttack)
+		{
+			CancelInvoke();
+		}
+		
 		if (numberOfProjectileSpawned < numberOfProjectiles)
 		{
 			float randomXDistanceOfProjectile = Random.Range(0f, maxXDistanceOfProjectile);
@@ -63,7 +56,6 @@ public class GreenMushroomPoisonAttack : ProjectileAttack
 			float randomYSpeed = Random.Range(minYSpeedOfProjectile, maxYSpeedOfProjectile);
 			FloatingProjectile proj = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<FloatingProjectile>();
 
-			;
 			proj.SetXTweenDistance(randomXDistanceOfProjectile);
 			proj.SetIsFacingRight(willFlipSprite);
 			proj.SetIsLaunchingRight(willLaunchRight);

@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 9138500421931606358}
   - component: {fileID: 9138500421931606359}
   - component: {fileID: 9138500421931606312}
-  - component: {fileID: 884124738}
-  m_Layer: 14
+  m_Layer: 11
   m_Name: PurpleMushroomProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,22 +103,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &884124738
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9138500421931606313}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.09108337
 --- !u!1 &9138500422432535768
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,8 +220,9 @@ GameObject:
   - component: {fileID: 9138500422902219918}
   - component: {fileID: 9138500422902219919}
   - component: {fileID: 9138500422902219913}
-  - component: {fileID: 9138500422902219914}
   - component: {fileID: 244779423}
+  - component: {fileID: 6950589543657504567}
+  - component: {fileID: 9208331510087908587}
   m_Layer: 11
   m_Name: PurpleMushroom
   m_TagString: Untagged
@@ -399,19 +383,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &9138500422902219914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9138500422902219905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1399c8f8aba88e94d9440fe3f8bd0362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 0
 --- !u!114 &244779423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,3 +400,33 @@ MonoBehaviour:
   attackSpeed: 5
   projectilespeed: 0.5
   projectileDestroyAnimation: {fileID: 8214668775466686264, guid: eb64cfd094dec2246b25e3aba200cd70, type: 3}
+--- !u!114 &6950589543657504567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9138500422902219905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec82347317717347bd12756c4c72463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 0
+  isFlying: 0
+--- !u!58 &9208331510087908587
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9138500422902219905}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.011850536}
+  serializedVersion: 2
+  m_Radius: 0.0909878
