@@ -397,8 +397,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 9138500421931606313}
   damage: 10
-  attackSpeed: 5
-  projectilespeed: 0.5
+  attackSpeed: 7
+  projectilespeed: 0.7
   projectileDestroyAnimation: {fileID: 8214668775466686264, guid: eb64cfd094dec2246b25e3aba200cd70, type: 3}
 --- !u!114 &6950589543657504567
 MonoBehaviour:

@@ -24,11 +24,14 @@ public class FireballProjectile : EnemyProjectile
 			other.GetComponent<StatusEffect>().BecomeBurned();
 			
 			animator.SetTrigger("hasHitSomething");
+			Destroy(fireTrailAnimation);
 		}
 		else if (other.gameObject.layer == LayerMask.NameToLayer("Ground") ||
 				 other.gameObject.layer == LayerMask.NameToLayer("Player Projectile"))
 		{
 			animator.SetTrigger("hasHitSomething");
+			Destroy(fireTrailAnimation);
+
 		}
 	}
 }

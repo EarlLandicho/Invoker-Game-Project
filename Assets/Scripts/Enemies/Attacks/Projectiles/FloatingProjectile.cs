@@ -33,7 +33,7 @@ public class FloatingProjectile : EnemyProjectile
 		}
 		LeanTween.moveX(gameObject, transform.position.x  + xTweenDistance, xTweenTime).setEaseOutCirc();
 		
-		Invoke(nameof(DestroyThisObject), floatDuration);
+		Invoke(nameof(DestroyWithAnimation), floatDuration);
 	}
 
 	private void Update()

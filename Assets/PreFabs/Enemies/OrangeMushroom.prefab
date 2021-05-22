@@ -16,7 +16,10 @@ GameObject:
   - component: {fileID: 5174891505341923589}
   - component: {fileID: 5174891505341923592}
   - component: {fileID: 117387531}
-  m_Layer: 0
+  - component: {fileID: 8806162970219068358}
+  - component: {fileID: 8402221555729332423}
+  - component: {fileID: -8608464655558412603}
+  m_Layer: 11
   m_Name: OrangeMushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,6 +193,53 @@ MonoBehaviour:
   projectile: {fileID: 5009419080184793393, guid: fee74c7572d9b3445b16aa617688781a, type: 3}
   damage: 20
   attackSpeed: 1
+--- !u!114 &8806162970219068358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174891505341923585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5826de5a50d8e8e4fa07420910a04073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8402221555729332423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174891505341923585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45cdef96be038944abd92754cdc9fb51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isImmuneToBurning: 0
+  isImmuneToPoison: 0
+  isImmuneToOil: 0
+  isImmuneToStun: 0
+  poisonEffect: {fileID: 0}
+  burnEffect: {fileID: 0}
+  oilEffect: {fileID: 0}
+  stunEffect: {fileID: 0}
+--- !u!114 &-8608464655558412603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174891505341923585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ff7f4348f44ad4c8f8b09f799d1e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  deathAnimationObject: {fileID: 8840700803071947239, guid: b49b357b82623be489b4729575cca4b3, type: 3}
+  comboBarIncreaseAmount: 5
 --- !u!1 &5174891505916387774
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5174891505916387774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.105, y: -0.047, z: 0}
+  m_LocalPosition: {x: 0.07, y: -0.047, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5174891505341923588}
@@ -244,7 +294,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5174891506669878693}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.101, y: -0.165, z: 0}
+  m_LocalPosition: {x: 0.07, y: -0.165, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5174891505341923588}
