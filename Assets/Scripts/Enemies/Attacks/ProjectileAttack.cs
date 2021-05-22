@@ -10,8 +10,8 @@ public class ProjectileAttack : EnemyAttack
 	[SerializeField] protected float projectileSpeed;
 	protected Animator animator;
 	protected GameObject currentProjectile;
-	protected EnemyMovement enemyMovement;
-	protected bool isAttacking;
+	private EnemyMovement enemyMovement;
+	private bool isAttacking;
 
 	private new void Awake()
 	{
