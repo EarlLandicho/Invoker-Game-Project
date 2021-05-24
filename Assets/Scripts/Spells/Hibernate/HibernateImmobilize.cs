@@ -23,6 +23,7 @@ public class HibernateImmobilize : MonoBehaviour
 		playerHealth.SetIsInvulnerable(true);
 		playerMovement.SetLockXMovement(true);
 		playerMovement.SetisHibernating(true);
+		statusEffect.SetIsImmuneToStun(true);
 		statusEffect.Dispel();
 	}
 
@@ -31,6 +32,7 @@ public class HibernateImmobilize : MonoBehaviour
 		Instantiate(hibernateReleaseSprite, transform.position, transform.rotation);
 		playerHealth.SetIsInvulnerable(false);
 		playerMovement.SetLockXMovement(false);
+		statusEffect.SetIsImmuneToStun(false);
 		playerMovement.SetisHibernating(false);
 	}
 }
