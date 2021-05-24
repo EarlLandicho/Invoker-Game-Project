@@ -23,6 +23,6 @@ public class PlayerAnimation : MonoBehaviour
 	{
 		animator.SetFloat("velocityX", Mathf.Abs(rb.velocity.x));
 		animator.SetFloat("velocityY", rb.velocity.y);
-		animator.SetBool("isGrounded", playerJump.GetIsGrounded());
+		animator.SetBool("isGrounded", playerJump.GetIsGrounded() || playerJump.GetIsGroundedLedge());
 	}
 }
