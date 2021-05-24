@@ -39,6 +39,7 @@ public class Movement : MonoBehaviour, IMovement
 		else
 		{
 			movementSpeed = movementSpeedTemp + movementSpeedModifier;
+
 		}
 		
 	}
@@ -46,6 +47,7 @@ public class Movement : MonoBehaviour, IMovement
 	public virtual void SetMovementSpeedByAddition(float number)
 	{
 		movementSpeedModifier += number;
+		movementSpeed = movementSpeedTemp + movementSpeedModifier;
 	}
 
 	public virtual void SetMovementSpeedModifierToDefault()

@@ -15,6 +15,8 @@ public class PlayerMovement : Movement
 		if (!FeedbackForm.formIsOpened)
 		{
 			MoveCheck();
+			Debug.Log(movementSpeed + " " + movementSpeedTemp + " " + movementSpeedModifier + " " + rb.velocity);
+
 		}
 	}
 
