@@ -29,7 +29,7 @@ public class GroundSlamDamage : MonoBehaviour
 
 	private void Update()
 	{
-		if (playerJump.GetIsGrounded())
+		if (playerJump.GetIsGrounded() || playerJump.GetIsGroundedLedge())
 		{
 			Collider2D[] enemies = Physics2D.OverlapBoxAll(transform.position, size, 0, 1 << LayerMask.NameToLayer("Enemy"));
 			foreach (Collider2D enemy in enemies)

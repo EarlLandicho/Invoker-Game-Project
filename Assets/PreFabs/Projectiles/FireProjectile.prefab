@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6172679108319250154}
   - component: {fileID: 5170912632689563828}
   - component: {fileID: 1670692035832301271}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: FireProjectileTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

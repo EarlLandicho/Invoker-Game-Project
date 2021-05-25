@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 718468020}
   - component: {fileID: 718468019}
   - component: {fileID: 718468021}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: OrangeMushroomAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

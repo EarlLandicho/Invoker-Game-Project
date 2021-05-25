@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5699002824170409917}
   - component: {fileID: 5172138899839465820}
   - component: {fileID: 988943312}
+  - component: {fileID: 4524973180767569761}
   m_Layer: 0
   m_Name: EyeKey
   m_TagString: Untagged
@@ -133,3 +134,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationTimeDelay: 3
+--- !u!114 &4524973180767569761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4706963574872063728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1859658dc0ea87642aa0f55dbf93a3d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
