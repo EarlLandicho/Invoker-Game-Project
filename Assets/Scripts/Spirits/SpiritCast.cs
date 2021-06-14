@@ -104,8 +104,6 @@ public class SpiritCast : MonoBehaviour
 	private SpiritArrayManager spiritArrayManager;
 	private int[] spiritArrayManagerArray;
 	
-	
-
 	private void Awake()
 	{
 		GetComponent<SpiritInput>().InvokeSpiritsButtonPressed += InvokeSpirits;

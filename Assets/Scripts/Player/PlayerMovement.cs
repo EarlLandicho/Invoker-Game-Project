@@ -9,12 +9,33 @@ public class PlayerMovement : Movement
 {
 	private bool isFlying;
 	private bool isHibernating;
+	private AudioSource audioSource;
+	private bool isMoving;
+	private bool isPlayingAudio;
+	private PlayerJump playerJump;
+
+	protected override void Awake()
+	{
+		base.Awake();
+		audioSource = GetComponent<AudioSource>();
+		playerJump = GetComponent<PlayerJump>();
+	}
 
 	private void Update()
 	{
 		if (!FeedbackForm.formIsOpened)
 		{
 			MoveCheck();
+			if (isMoving && !isPlayingAudio && (playerJump.GetIsGrounded() || playerJump.GetIsGroundedLedge()))
+			{
+				audioSource.Play();
+				isPlayingAudio = true;
+			}
+			else if ((!isMoving || !(playerJump.GetIsGrounded() || playerJump.GetIsGroundedLedge())) && isPlayingAudio)
+			{
+				audioSource.Stop();
+				isPlayingAudio = false;
+			}
 		}
 	}
 
@@ -49,5 +70,7 @@ public class PlayerMovement : Movement
 		{
 			rb.velocity = new Vector2(0, rb.velocity.y);
 		}
+
+		isMoving = rb.velocity.x > 0.1f || rb.velocity.x < -0.1f;
 	}
 }
