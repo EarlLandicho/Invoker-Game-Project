@@ -8,10 +8,14 @@ public class SpiritPickUp : MonoBehaviour
 {
 	[SerializeField] private Spirits spirits;
 	private SpiritArrayManager spiritArrayManager;
+	private AudioController audioController;
+	private AudioSource audioSource;
 
 	private void Awake()
 	{
 		spiritArrayManager = GameObject.Find("GameManager").GetComponent<SpiritArrayManager>();
+		audioController = GameObject.Find("PickupAudio").GetComponent<AudioController>();
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	private void OnTriggerEnter2D(Collider2D collider)
@@ -33,7 +37,8 @@ public class SpiritPickUp : MonoBehaviour
 				spiritArrayManager.IncrementSpiritMaxAmount(3);
 				spiritArrayManager.IncrementSpiritCurrentAmount(3);
 			}
-
+			
+			audioController.PlayClip(audioSource.clip);
 			Destroy(gameObject);
 		}
 	}
