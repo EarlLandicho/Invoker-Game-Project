@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpiritAudioController : MonoBehaviour
 {
-    [SerializeField] AudioClip[] audioClips;
+    [SerializeField] private AudioClip[] invokeAudioClips;
     [SerializeField] private float resetAudioCountTimer;
     private int audioClipCount;
     private AudioSource audioSource;
@@ -32,9 +32,9 @@ public class SpiritAudioController : MonoBehaviour
 
     private void PlaySound()
     {
-        audioSource.PlayOneShot(audioClips[audioClipCount]);
+        audioSource.PlayOneShot(invokeAudioClips[audioClipCount]);
         audioClipCount++;
-        if (audioClipCount >= audioClips.Length)
+        if (audioClipCount >= invokeAudioClips.Length)
         {
             audioClipCount = 0;
         }

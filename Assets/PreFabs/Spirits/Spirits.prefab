@@ -14643,6 +14643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5add2c8cd0e904b4295a1dbcee3fd7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spiritActivateAudioClip: {fileID: 8300000, guid: 0b72299917a524241a419828e10de591, type: 3}
 --- !u!114 &2079792499243262318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14763,7 +14764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d24f305a972fba4484f007f1f1a9a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClips:
+  invokeAudioClips:
   - {fileID: 8300000, guid: f2b7469a5436c2a4cb5c8f80f163c488, type: 3}
   - {fileID: 8300000, guid: 37a41bc206d624f4093665ee5b361262, type: 3}
   - {fileID: 8300000, guid: 7d75e3732b77f23438b152f2c4201000, type: 3}

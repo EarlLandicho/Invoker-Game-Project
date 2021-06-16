@@ -9,7 +9,7 @@ public class ComboBar : MonoBehaviour
 {
 	[SerializeField] private float comboLevelDrainFactor = 1;
 	[SerializeField] private GameObject powerUpAnimation;
-
+	[SerializeField] private AudioSource audioSource;
 	private GameObject player;
 	private int comboBarStage;
 	private float currentBarLevel;
@@ -87,6 +87,7 @@ public class ComboBar : MonoBehaviour
 		if (comboBarStageTemp < comboBarStage)
 		{
 			Instantiate(powerUpAnimation, player.transform.position, Quaternion.identity);
+			audioSource.Play();
 			comboBarStageTemp = comboBarStage;
 		}
 

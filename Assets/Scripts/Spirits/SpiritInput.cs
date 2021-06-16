@@ -8,6 +8,14 @@ using UnityEngine;
 
 public class SpiritInput : MonoBehaviour
 {
+	[SerializeField] private AudioClip spiritActivateAudioClip;
+	private AudioSource audioSource;
+
+	private void Awake()
+	{
+		audioSource = GetComponent<AudioSource>();
+	}
+
 	private void Update()
 	{
 		if (!FeedbackForm.formIsOpened)
@@ -31,16 +39,19 @@ public class SpiritInput : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.LeftArrow))
 		{
 			SpiritsActivateButtonPressed(1);
+			audioSource.PlayOneShot(spiritActivateAudioClip);
 			UpdateSpiritAnimation();
 		}
 		else if (Input.GetKeyDown(KeyCode.UpArrow))
 		{
 			SpiritsActivateButtonPressed(2);
+			audioSource.PlayOneShot(spiritActivateAudioClip);
 			UpdateSpiritAnimation();
 		}
 		else if (Input.GetKeyDown(KeyCode.RightArrow))
 		{
 			SpiritsActivateButtonPressed(3);
+			audioSource.PlayOneShot(spiritActivateAudioClip);
 			UpdateSpiritAnimation();
 		}
 		else if (Input.GetKeyDown(KeyCode.RightControl))

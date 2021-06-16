@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spirits: 2
+  audioClip: {fileID: 8300000, guid: a74236c1ca7c9e34c8d36e061da59f71, type: 3}
 --- !u!1001 &4044682526798685195
 PrefabInstance:
   m_ObjectHideFlags: 0

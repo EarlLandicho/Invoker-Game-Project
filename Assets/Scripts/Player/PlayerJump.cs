@@ -9,6 +9,7 @@ public class PlayerJump : MonoBehaviour, IJump
 {
 	[SerializeField] private float jumpHeight;
 	[SerializeField] private LayerMask groundLayer;
+	[SerializeField] private AudioSource audioSource;
 	private Transform groundCheck;
 	private bool isGrounded;
 	private bool isGroundedLedge;
@@ -64,6 +65,7 @@ public class PlayerJump : MonoBehaviour, IJump
 	public void Jump()
 	{
 		rb.velocity = transform.up * jumpHeight;
+		audioSource.Play();
 	}
 
 	private void JumpAbleCheck()
