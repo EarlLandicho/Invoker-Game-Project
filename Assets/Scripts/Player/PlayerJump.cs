@@ -9,7 +9,7 @@ public class PlayerJump : MonoBehaviour, IJump
 {
 	[SerializeField] private float jumpHeight;
 	[SerializeField] private LayerMask groundLayer;
-	[SerializeField] private AudioSource audioSource;
+	private AudioSource audioSource;
 	private Transform groundCheck;
 	private bool isGrounded;
 	private bool isGroundedLedge;
@@ -20,6 +20,7 @@ public class PlayerJump : MonoBehaviour, IJump
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		audioSource = GameObject.Find("PlayerJump").GetComponent<AudioSource>();
 		groundCheck = transform.Find("GroundCheck");
 		jumpHeightTemp = jumpHeight;
 	}
