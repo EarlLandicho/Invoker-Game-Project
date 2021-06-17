@@ -17,7 +17,7 @@ public class PlayerMovement : Movement
 	protected override void Awake()
 	{
 		base.Awake();
-		audioSource = GameObject.Find("PlayerWalk").GetComponent<AudioSource>();
+		audioSource = GameObject.Find("PlayerWalkAudio").GetComponent<AudioSource>();
 		playerJump = GetComponent<PlayerJump>();
 	}
 

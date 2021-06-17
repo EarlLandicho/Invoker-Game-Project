@@ -19,7 +19,7 @@ public class EnemyHealth : Health
 	{
 		base.Awake();
 		comboBar = FindObjectOfType<ComboBar>();
-		audioSource = GameObject.Find("EnemyDeath").GetComponent<AudioSource>();
+		audioSource = GameObject.Find("EnemyDeathAudio").GetComponent<AudioSource>();
 	}
 
 	protected override void Die()

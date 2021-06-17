@@ -8,7 +8,6 @@ using UnityEngine;
 public class PlayerHealth : Health
 {
 	[SerializeField] private float comboBarDecreaseValue;
-	[SerializeField] private AudioClip playerHitAudio;
 	private AudioSource audioSource;
 	private ComboBar comboBar;
 	private float currentHealthTemp; //used for GodMode
@@ -17,7 +16,7 @@ public class PlayerHealth : Health
 	{
 		base.Awake();
 		comboBar = FindObjectOfType<ComboBar>();
-		audioSource = GetComponent<AudioSource>();
+		audioSource = GameObject.Find("PlayerHitAudio").GetComponent<AudioSource>();
 	}
 
 	public event Action IsDead = delegate { };
@@ -34,7 +33,7 @@ public class PlayerHealth : Health
 			{
 				damage *= damageModifier;
 				currentHealth -= damage;
-				audioSource.PlayOneShot(playerHitAudio);
+				audioSource.Play();
 			}
 
 			FlashWhenDamaged();

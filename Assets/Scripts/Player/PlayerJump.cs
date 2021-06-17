@@ -20,7 +20,7 @@ public class PlayerJump : MonoBehaviour, IJump
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		audioSource = GameObject.Find("PlayerJump").GetComponent<AudioSource>();
+		audioSource = GameObject.Find("PlayerJumpAudio").GetComponent<AudioSource>();
 		groundCheck = transform.Find("GroundCheck");
 		jumpHeightTemp = jumpHeight;
 	}

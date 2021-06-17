@@ -19,7 +19,7 @@ public class DoorLock : MonoBehaviour
 		collider2d.enabled = false;
 		battlefieldTrigger.PlayerTriggered += LockDoor;
 		enemySpawner.EnemiesKilledInBattleField += UnlockDoor;
-		audioSource = GameObject.Find("CloseOpenDoor").GetComponent<AudioSource>();
+		audioSource = GameObject.Find("CloseOpenDoorAudio").GetComponent<AudioSource>();
 		
 	}
 
@@ -27,7 +27,6 @@ public class DoorLock : MonoBehaviour
 	{
 		animator.SetTrigger("lockDoor");
 		audioSource.Play();
-		Debug.Log(audioSource);
 		collider2d.enabled = true;
 	}
 
@@ -35,7 +34,6 @@ public class DoorLock : MonoBehaviour
 	{
 		animator.SetTrigger("unlockDoor");
 		audioSource.Play();
-		Debug.Log(audioSource);
 		collider2d.enabled = false;
 	}
 }

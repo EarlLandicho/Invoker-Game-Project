@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2785d1ffd804ed543aeee11aa9b7f362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spiritStartingAmount1: 3
-  spiritStartingAmount2: 3
-  spiritStartingAmount3: 3
+  spiritStartingAmount1: 0
+  spiritStartingAmount2: 0
+  spiritStartingAmount3: 0
 --- !u!114 &1186399462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,8 +73,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 137855f433f2f464b88571fe397a9264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboLevelDrainFactor: 3
+  comboLevelDrainFactor: 4
   powerUpAnimation: {fileID: 4465988520148521641, guid: bb6102fe76ecc3741bef83ea4e57f5fe, type: 3}
+  audioSource: {fileID: 0}
 --- !u!114 &2630062952943302714
 MonoBehaviour:
   m_ObjectHideFlags: 0

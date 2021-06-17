@@ -9,7 +9,7 @@ public class ComboBar : MonoBehaviour
 {
 	[SerializeField] private float comboLevelDrainFactor = 1;
 	[SerializeField] private GameObject powerUpAnimation;
-	[SerializeField] private AudioSource audioSource;
+	private AudioSource audioSource;
 	private GameObject player;
 	private int comboBarStage;
 	private float currentBarLevel;
@@ -18,7 +18,7 @@ public class ComboBar : MonoBehaviour
 
 	private void Awake()
 	{
-		
+		audioSource = GameObject.Find("ComboBarAudio").GetComponent<AudioSource>();
 		player = GameObject.Find("Player");
 	}
 

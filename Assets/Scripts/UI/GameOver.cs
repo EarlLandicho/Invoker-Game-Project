@@ -8,6 +8,7 @@ public class GameOver : MonoBehaviour
 {
 	private bool gameIsOver;
 	private GameObject gameOverScreen;
+	private AudioSource audioSource;
 
 	private void Awake()
 	{
@@ -15,6 +16,7 @@ public class GameOver : MonoBehaviour
 		TouchToEndGame.EndGameByTouch += EndGame;
 		gameOverScreen = GameObject.Find("GameOverScreen");
 		gameOverScreen.SetActive(false);
+		audioSource = GameObject.Find("GameOverAudio").GetComponent<AudioSource>();
 	}
 
 	private void Update()
@@ -38,6 +40,7 @@ public class GameOver : MonoBehaviour
 
 	private void GameOverScreen()
 	{
+		audioSource.Play();
 		gameOverScreen.SetActive(true);
 	}
 
