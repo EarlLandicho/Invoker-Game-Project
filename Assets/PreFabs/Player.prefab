@@ -219,7 +219,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 131328
-  jumpAudio: {fileID: 8300000, guid: 5b9bc44da8e417c46ac84ad56f656ac1, type: 3}
+  audioSource: {fileID: 0}
 --- !u!114 &2248502101010824963
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d0f149ce5f7a1948be2c8d21158c665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialSpriteIsTurnedLeft: 0
 --- !u!114 &800796972614611613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +232,10 @@ MonoBehaviour:
   isImmuneToPoison: 0
   isImmuneToOil: 0
   isImmuneToStun: 0
+  poisonEffect: {fileID: 0}
+  burnEffect: {fileID: 0}
+  oilEffect: {fileID: 0}
+  stunEffect: {fileID: 0}
 --- !u!114 &-630281413472055594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,3 +280,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  deathAnimationObject: {fileID: 0}
+  comboBarIncreaseAmount: 5
+  deathAudioClips:
+  - {fileID: 8300000, guid: 34326fba1a52d6a4b8ebe674c186f477, type: 3}
+  - {fileID: 8300000, guid: 6032195fc5404a947bc60c2dc9545f48, type: 3}
+  - {fileID: 8300000, guid: 7619479bd96e3c245a948564b41af153, type: 3}

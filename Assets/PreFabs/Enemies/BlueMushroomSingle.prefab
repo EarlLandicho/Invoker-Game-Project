@@ -255,6 +255,10 @@ MonoBehaviour:
   maxHealth: 50
   deathAnimationObject: {fileID: 8840700803071947239, guid: b49b357b82623be489b4729575cca4b3, type: 3}
   comboBarIncreaseAmount: 5
+  deathAudioClips:
+  - {fileID: 8300000, guid: 34326fba1a52d6a4b8ebe674c186f477, type: 3}
+  - {fileID: 8300000, guid: 6032195fc5404a947bc60c2dc9545f48, type: 3}
+  - {fileID: 8300000, guid: 7619479bd96e3c245a948564b41af153, type: 3}
 --- !u!114 &163312799
 MonoBehaviour:
   m_ObjectHideFlags: 0
