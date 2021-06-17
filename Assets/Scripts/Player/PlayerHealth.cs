@@ -34,10 +34,11 @@ public class PlayerHealth : Health
 				damage *= damageModifier;
 				currentHealth -= damage;
 				audioSource.Play();
+				comboBar.DecreaseComboBarLevel(comboBarDecreaseValue);
 			}
 
 			FlashWhenDamaged();
-			comboBar.DecreaseComboBarLevel(comboBarDecreaseValue);
+			
 		}
 
 		if (currentHealth <= 0)

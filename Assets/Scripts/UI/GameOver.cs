@@ -25,11 +25,14 @@ public class GameOver : MonoBehaviour
 		{
 			StopGame();
 		}
+		Debug.Log(gameOverScreen);
 	}
 
 	private void OnDestroy()
 	{
 		Time.timeScale = 1;
+		FindObjectOfType<PlayerHealth>().IsDead -= EndGame;
+		TouchToEndGame.EndGameByTouch -= EndGame;
 	}
 
 	private void EndGame()
