@@ -7,6 +7,7 @@ using UnityEngine;
 public class HibernateImmobilize : MonoBehaviour
 {
 	[SerializeField] private GameObject hibernateReleaseSprite;
+	private Animator animator;
 	private IHealth playerHealth;
 	private PlayerMovement playerMovement;
 	private StatusEffect statusEffect;
@@ -16,6 +17,7 @@ public class HibernateImmobilize : MonoBehaviour
 		playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
 		playerHealth = GameObject.Find("Player").GetComponent<IHealth>();
 		statusEffect = GameObject.Find("Player").GetComponent<StatusEffect>();
+		animator = GameObject.Find("Player").GetComponent<Animator>();
 	}
 
 	private void Start()
@@ -25,6 +27,7 @@ public class HibernateImmobilize : MonoBehaviour
 		playerMovement.SetisHibernating(true);
 		statusEffect.SetIsImmuneToStun(true);
 		statusEffect.Dispel();
+		animator.enabled = false;
 	}
 
 	private void OnDestroy()
@@ -34,5 +37,6 @@ public class HibernateImmobilize : MonoBehaviour
 		playerMovement.SetLockXMovement(false);
 		statusEffect.SetIsImmuneToStun(false);
 		playerMovement.SetisHibernating(false);
+		animator.enabled = true;
 	}
 }

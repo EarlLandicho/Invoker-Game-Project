@@ -8,15 +8,20 @@ public class GameOver : MonoBehaviour
 {
 	private bool gameIsOver;
 	private GameObject gameOverScreen;
-	private AudioSource audioSource;
+	private AudioSource gameOverAudioSource;
+	private AudioSource backgroundMusicAudioSource;
+	private PlayerHealth playerHealth;
+	
 
 	private void Awake()
 	{
-		FindObjectOfType<PlayerHealth>().IsDead += EndGame;
+		playerHealth = FindObjectOfType<PlayerHealth>();
+		playerHealth.IsDead += EndGame;
 		TouchToEndGame.EndGameByTouch += EndGame;
 		gameOverScreen = GameObject.Find("GameOverScreen");
 		gameOverScreen.SetActive(false);
-		audioSource = GameObject.Find("GameOverAudio").GetComponent<AudioSource>();
+		gameOverAudioSource = GameObject.Find("GameOverAudio").GetComponent<AudioSource>();
+		backgroundMusicAudioSource = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
 	}
 
 	private void Update()
@@ -25,13 +30,12 @@ public class GameOver : MonoBehaviour
 		{
 			StopGame();
 		}
-		Debug.Log(gameOverScreen);
 	}
 
 	private void OnDestroy()
 	{
 		Time.timeScale = 1;
-		FindObjectOfType<PlayerHealth>().IsDead -= EndGame;
+		playerHealth.IsDead -= EndGame;
 		TouchToEndGame.EndGameByTouch -= EndGame;
 	}
 
@@ -43,12 +47,13 @@ public class GameOver : MonoBehaviour
 
 	private void GameOverScreen()
 	{
-		audioSource.Play();
+		gameOverAudioSource.Play();
 		gameOverScreen.SetActive(true);
 	}
 
 	private void StopGame()
 	{
 		Time.timeScale = 0;
+		backgroundMusicAudioSource.Stop();
 	}
 }
