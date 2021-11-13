@@ -1,4 +1,4 @@
-# Spirit Invoker (still in development)
+# Spirit Invoker
 
 ![sample](Assets/gifs/sample.gif)
 
